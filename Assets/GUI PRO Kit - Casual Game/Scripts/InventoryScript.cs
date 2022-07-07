@@ -13,6 +13,8 @@ public class InventoryScript : MonoBehaviour
     [SerializeField] private bool isSell = false;
     [SerializeField] private Button buyButton;
     [SerializeField] private Button sellButton;
+    [SerializeField] private GameObject buyWindow;
+    [SerializeField] private GameObject sellWindow;
     void Start()
     {
         Inventory.SetActive(false);
@@ -26,17 +28,17 @@ public class InventoryScript : MonoBehaviour
         buyButton.onClick.AddListener(BuyButtonClick);
         sellButton.onClick.AddListener(SellButtonClick);
 
-        ColorBlock colorBlock = buyButton.colors;
-        colorBlock.normalColor = new Color(0.682353f/1, 0.4588236f/1, 0.2980392f/1, 0);
-        buyButton.colors = colorBlock;
-        buyButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 0);
+        SellButtonClick();
+        BuyButtonClick();
+        //ColorBlock colorBlock = buyButton.colors;
+        //colorBlock.normalColor = new Color(0.682353f/1, 0.4588236f/1, 0.2980392f/1, 0);
+        //buyButton.colors = colorBlock;
+        //buyButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 0);
 
-        colorBlock = sellButton.colors;
-        colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, 1);
-        sellButton.colors = colorBlock;
-        sellButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 1);
-
-        isSell = false;
+        //colorBlock = sellButton.colors;
+        //colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, 1);
+        //sellButton.colors = colorBlock;
+        //sellButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 1);
     }
 
     void ResetUI()
@@ -74,6 +76,8 @@ public class InventoryScript : MonoBehaviour
         colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, 1);
         sellButton.colors = colorBlock;
         sellButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 1);
+        sellWindow.SetActive(false);
+        buyWindow.SetActive(true);
     }
 
     void SellButtonClick()
@@ -87,5 +91,7 @@ public class InventoryScript : MonoBehaviour
         colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, 0);
         sellButton.colors = colorBlock;
         sellButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 0);
+        sellWindow.SetActive(true);
+        buyWindow.SetActive(false);
     }
 }
