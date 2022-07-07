@@ -5522,6 +5522,7 @@ GameObject:
   - component: {fileID: 1011429745}
   - component: {fileID: 1011429744}
   - component: {fileID: 1011429743}
+  - component: {fileID: 1011429746}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5657,7 +5658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d7f9b2e98cfe84eb91a581487fe750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerModule: {fileID: 0}
+  _playerModule: {fileID: 11400000, guid: d7c077c702d48844980c9e74a0a6bed5, type: 2}
   _statusAilment: 0
   <OnDie>k__BackingField:
     m_PersistentCalls:
@@ -5677,7 +5678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80032a75145cacf41a5f85b377ad973e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunGranade: {fileID: 0}
+  stunGranade: {fileID: 1030481498487078268, guid: d18bd0b7e3ddf004cb08bc6055d433e1, type: 3}
 --- !u!114 &1011429745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5702,6 +5703,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 594a41ffda4c11a4a84e9ed2ad6145ed, type: 2}
   - {fileID: 11400000, guid: a2907cc1be88cd1479b3772339dd98ee, type: 2}
   - {fileID: 11400000, guid: 521a71e8a599be048b709078ab5228b1, type: 2}
+--- !u!114 &1011429746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011429737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4869e42a04c88498573a038db09460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1018842811
 GameObject:
   m_ObjectHideFlags: 0

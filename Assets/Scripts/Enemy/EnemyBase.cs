@@ -55,9 +55,14 @@ public class EnemyBase : MonoBehaviour, CharBase
     public StatusAilments _statusAilment;
     #endregion
 
+    private float stunTime;
     [field:SerializeField] public UnityEvent OnDie { get; set; }
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
 
+    private void Update()
+    {
+        DurationChange();
+    }
     public virtual void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if (IsDead) return;
@@ -73,9 +78,20 @@ public class EnemyBase : MonoBehaviour, CharBase
         }
     }
 
-    public void Stun()
+    public void Stun(float durationTime)
     {
         _statusAilment = StatusAilments.Stun;
+        stunTime = durationTime;
         Debug.Log("À¸¾Ó ½ºÅÏ");
+    }
+
+    private void DurationChange()
+    {
+        if (stunTime > 0)
+            stunTime -= Time.deltaTime;
+        if (stunTime < 0)
+            stunTime = 0;
+        if (stunTime == 0)
+            _statusAilment = StatusAilments.None;
     }
 }
