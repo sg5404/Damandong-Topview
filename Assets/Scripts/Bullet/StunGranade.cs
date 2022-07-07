@@ -7,6 +7,8 @@ public class StunGranade : Bullet
     private float bangTime = 0;
     [SerializeField]
     private float exploseTime;
+    [SerializeField]
+    private float durationTime;
     private CircleCollider2D circle;
     private List<EnemyBase> inside = new List<EnemyBase>();
 
@@ -29,7 +31,7 @@ public class StunGranade : Bullet
         if (inside.Count <= 0) yield break;
         foreach (EnemyBase enemy in inside)
         {
-            enemy.Stun();
+            enemy.Stun(durationTime);
         }
     }
 

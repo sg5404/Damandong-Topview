@@ -100,6 +100,7 @@ MonoBehaviour:
   _bulletModule: {fileID: 11400000, guid: 27f851727e7d6d0468f46c41453c2c02, type: 2}
   damage: 0
   exploseTime: 1.25
+  durationTime: 2
 --- !u!50 &793755836191770422
 Rigidbody2D:
   serializedVersion: 4
