@@ -7,6 +7,7 @@ public class Move : MonoBehaviour
     [SerializeField]
     private float speed = 10f;
 
+    Vector3 playerDir;
 
     void Update()
     {
@@ -15,10 +16,16 @@ public class Move : MonoBehaviour
 
     public void MovePlayer()
     {
+        playerDir = transform.position;
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        var dir = new Vector2(h, v).normalized;
 
-        transform.Translate(dir * Time.deltaTime * speed);
+        transform.position += new Vector3(h, v, 0) * Time.deltaTime * speed;
+
+        playerDir.x = Mathf.Clamp(transform.position.x, -8.8f, 8.8f);
+        playerDir.y = Mathf.Clamp(transform.position.y, -4.8f, 4.8f);
+
+        transform.position = playerDir;
     }
 }

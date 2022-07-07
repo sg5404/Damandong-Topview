@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private WeaponSet weaponSet = null;
-    private PlayerSkills playerSkills = null;
 
     [Header("ÃÑ¾Ë")]
     [SerializeField]
@@ -28,10 +26,16 @@ public class PlayerAttack : MonoBehaviour
     private float cooltime = 0.1f;
     private float curtime = 0;
 
+
+    private WeaponSet weaponSet = null;
+    private PlayerSkills playerSkills = null;
+    private InventoryScript inventoryScript = null;
+
     void Start()
     {
         weaponSet = GetComponent<WeaponSet>();
         playerSkills = GetComponent<PlayerSkills>();
+        inventoryScript = FindObjectOfType<InventoryScript>();
     }
 
     void Update()
@@ -86,6 +90,8 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
+            if (inventoryScript.isShop) return;
+
             if(curtime >= module[weapon].atkSpeed)
             {
                 GameObject bullet = Instantiate(rifleBullet, bulletTransform);

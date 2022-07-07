@@ -5,16 +5,21 @@ using UnityEngine.UI;
 
 public class InventoryScript : MonoBehaviour
 {
+    [Header("Inventory")]
     [SerializeField] private GameObject Inventory;
     [SerializeField] private bool isInventory = false;
     [SerializeField] private GameObject Content;
+
+    [Header("Shop")]
     [SerializeField] private GameObject Shop;
-    [SerializeField] private bool isShop = false;
     [SerializeField] private bool isSell = false;
     [SerializeField] private Button buyButton;
     [SerializeField] private Button sellButton;
     [SerializeField] private GameObject buyWindow;
     [SerializeField] private GameObject sellWindow;
+    public bool isShop { get; private set; } = false;
+
+
     void Start()
     {
         Inventory.SetActive(false);
