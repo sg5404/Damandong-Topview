@@ -30,15 +30,6 @@ public class InventoryScript : MonoBehaviour
 
         SellButtonClick();
         BuyButtonClick();
-        //ColorBlock colorBlock = buyButton.colors;
-        //colorBlock.normalColor = new Color(0.682353f/1, 0.4588236f/1, 0.2980392f/1, 0);
-        //buyButton.colors = colorBlock;
-        //buyButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 0);
-
-        //colorBlock = sellButton.colors;
-        //colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, 1);
-        //sellButton.colors = colorBlock;
-        //sellButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 1);
     }
 
     void ResetUI()
@@ -67,31 +58,26 @@ public class InventoryScript : MonoBehaviour
 
     void BuyButtonClick()
     {
-        ColorBlock colorBlock = buyButton.colors;
-        colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, 0);
-        buyButton.colors = colorBlock;
-        buyButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 0);
-
-        colorBlock = sellButton.colors;
-        colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, 1);
-        sellButton.colors = colorBlock;
-        sellButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 1);
+        ColorChange(buyButton, 0);
+        ColorChange(sellButton, 1);
         sellWindow.SetActive(false);
         buyWindow.SetActive(true);
     }
 
     void SellButtonClick()
     {
-        ColorBlock colorBlock = buyButton.colors;
-        colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, 1);
-        buyButton.colors = colorBlock;
-        buyButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 1);
-
-        colorBlock = sellButton.colors;
-        colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, 0);
-        sellButton.colors = colorBlock;
-        sellButton.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, 0);
+        ColorChange(buyButton, 1);
+        ColorChange(sellButton, 0);
         sellWindow.SetActive(true);
         buyWindow.SetActive(false);
     }
+
+    void ColorChange(Button button, int a)
+    {
+        ColorBlock colorBlock = button.colors;
+        colorBlock.normalColor = new Color(0.682353f / 1, 0.4588236f / 1, 0.2980392f / 1, a);
+        button.colors = colorBlock;
+        button.GetComponentInChildren<Outline>().effectColor = new Color(0, 0, 0, a);
+    }
+
 }
