@@ -8,6 +8,8 @@ TagManager:
   - Weapon
   - Enemy
   - ITEM
+  - OutDoor
+  - InDoor
   layers:
   - Default
   - TransparentFX

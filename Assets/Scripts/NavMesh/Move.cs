@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    //1 : 0.5625
+
     [SerializeField]
     private float speed = 10f;
+    [SerializeField]
+    private Camera mainCamera;
 
     Vector3 playerDir;
 
@@ -23,8 +27,8 @@ public class Move : MonoBehaviour
 
         transform.position += new Vector3(h, v, 0) * Time.deltaTime * speed;
 
-        playerDir.x = Mathf.Clamp(transform.position.x, -8.8f, 8.8f);
-        playerDir.y = Mathf.Clamp(transform.position.y, -4.8f, 4.8f);
+        playerDir.x = Mathf.Clamp(transform.position.x, -12f, 12f);
+        playerDir.y = Mathf.Clamp(transform.position.y, -6.5f, 6.5f);
 
         transform.position = playerDir;
     }

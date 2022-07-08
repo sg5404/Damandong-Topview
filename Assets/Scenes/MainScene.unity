@@ -5161,7 +5161,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &880657709
 RectTransform:
@@ -5202,7 +5202,6 @@ MonoBehaviour:
   isInventory: 0
   Content: {fileID: 524475390}
   Shop: {fileID: 672521503}
-  isShop: 0
   isSell: 0
   buyButton: {fileID: 250616392}
   sellButton: {fileID: 126186754}
