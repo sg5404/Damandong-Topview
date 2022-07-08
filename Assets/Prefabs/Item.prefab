@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 2983950756111725244}
   - component: {fileID: 2983950756111725242}
   - component: {fileID: 2983950756111725241}
+  - component: {fileID: 3926979081643782933}
   m_Layer: 6
   m_Name: Item
   m_TagString: ITEM
@@ -221,3 +222,17 @@ MonoBehaviour:
   moveMax: 0.2
   speed: 2
   pressText: {fileID: 2983950755984773057}
+--- !u!114 &3926979081643782933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983950756111725245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d4474b92455004689465251ccf603d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCode: 0
+  spriteRenderer: {fileID: 2983950756111725244}

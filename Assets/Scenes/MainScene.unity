@@ -5095,6 +5095,7 @@ GameObject:
   - component: {fileID: 880657707}
   - component: {fileID: 880657706}
   - component: {fileID: 880657710}
+  - component: {fileID: 880657711}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5161,7 +5162,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 99
   m_TargetDisplay: 0
 --- !u!224 &880657709
 RectTransform:
@@ -5207,6 +5208,19 @@ MonoBehaviour:
   sellButton: {fileID: 126186754}
   buyWindow: {fileID: 1847676934}
   sellWindow: {fileID: 211539813}
+--- !u!114 &880657711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880657705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f793a459ee1ec114a8131c40769ff5b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scroll: {fileID: 524475390}
 --- !u!1 &916791832
 GameObject:
   m_ObjectHideFlags: 0

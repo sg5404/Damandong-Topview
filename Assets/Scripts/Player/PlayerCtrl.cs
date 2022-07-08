@@ -14,12 +14,16 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] private float speed;
 
     bool isEquip = false;
+    bool isItem = false;
 
     GameObject nearObject;
     private WeaponSet weaponSet = null;
 
+    private Inventory inventory;
+
     void Start()
     {
+        inventory = FindObjectOfType<Inventory>();
         rigid = GetComponent<Rigidbody2D>();
         weaponSet = GetComponent<WeaponSet>();
     }
@@ -32,18 +36,26 @@ public class PlayerCtrl : MonoBehaviour
         rigid.velocity = new Vector2(h, v);
         WeaponEquip();
         WeaponChange();
+        GetItem();
     }
 
     private void WeaponEquip()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isEquip)
+        if (Input.GetKeyDown(KeyCode.F) && isEquip)
         {
             Debug.Log("Click");
             Main_Weapon.sprite = nearObject.GetComponent<SpriteRenderer>().sprite;
             nearObject.SetActive(false);
         }
     }
-
+    private void GetItem()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && isItem)
+        {
+            Debug.Log("Item");
+            nearObject.SetActive(false);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -56,6 +68,14 @@ public class PlayerCtrl : MonoBehaviour
             }).FirstOrDefault();
             isEquip = true;
         }
+        if(collision.CompareTag("ITEM"))
+        {
+            var item = collision.gameObject.GetComponent<Item>();
+            var iSprite = item.GetComponent<SpriteRenderer>().sprite;
+            nearObject = item.gameObject;
+            inventory.Push(item.itemCode, item.gameObject, iSprite);
+            isItem = true;
+        }    
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -63,6 +83,10 @@ public class PlayerCtrl : MonoBehaviour
         if (collision.CompareTag("Weapon"))
         {
             isEquip = false;
+        }
+        if (collision.CompareTag("ITEM"))
+        {
+            isItem = false;
         }
     }
 
