@@ -13,20 +13,11 @@ MonoBehaviour:
   m_Name: SniperModule
   m_EditorClassIdentifier: 
   kind: 2
-  atk: 10
+  WeaponSprite: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
   atkSpeed: 1
-  minDmg: 1
   bulletSpread: 1
   oneShotBullets: 1
-  range: 1
-  crtDmg: 1
-  crtChance: 1
   isAutoShot: 0
-  isExplosion: 0
-  explosionRange: 1
-  isKnockBack: 0
-  knockBackRange: 1
-  isPenetrate: 0
   magazine: 1
   isInfiniteBullet: 0
   reload: 1

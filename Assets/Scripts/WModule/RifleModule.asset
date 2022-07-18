@@ -13,20 +13,11 @@ MonoBehaviour:
   m_Name: RifleModule
   m_EditorClassIdentifier: 
   kind: 1
-  atk: 10
+  WeaponSprite: {fileID: 2477708518685008648, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
   atkSpeed: 0.1
-  minDmg: 1
   bulletSpread: 1
   oneShotBullets: 1
-  range: 1
-  crtDmg: 1
-  crtChance: 1
   isAutoShot: 0
-  isExplosion: 0
-  explosionRange: 1
-  isKnockBack: 0
-  knockBackRange: 1
-  isPenetrate: 0
   magazine: 1
   isInfiniteBullet: 0
   reload: 1
