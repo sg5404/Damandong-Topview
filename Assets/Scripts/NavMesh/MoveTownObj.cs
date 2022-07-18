@@ -24,21 +24,22 @@ public class MoveTownObj : MonoBehaviour
         ETC,
     }
 
-    private void Update()
-    {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("InDoor"))
         {
+            Fade.Instance.FadeIn();
+            yield return new WaitForSeconds(Fade.Instance.fadeTime);
             GetInTownObj();
+            Fade.Instance.FadeOut();
         }
 
         if(collision.CompareTag("OutDoor"))
         {
+            Fade.Instance.FadeIn();
+            yield return new WaitForSeconds(Fade.Instance.fadeTime);
             GetOutTownObj();
+            Fade.Instance.FadeOut();
         }
     }
 
@@ -52,6 +53,7 @@ public class MoveTownObj : MonoBehaviour
 
     void GetInTownObj()
     {
+        temp = 0;
         int i = 0;
         if (townObjlist.Count >= 1)
         {
@@ -69,6 +71,7 @@ public class MoveTownObj : MonoBehaviour
                 i++;
             }
         }
+
 
         if (Vector2.Distance(transform.position, townObj.transform.position) <= 3f)
         {
