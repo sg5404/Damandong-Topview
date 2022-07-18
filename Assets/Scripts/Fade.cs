@@ -46,8 +46,8 @@ public class Fade : MonoSingleton<Fade>
         isFade = true;
         fadeImg.fillOrigin = 0;
         fadeImg.DOFade(0f, fadeTime / 2).From(1f);
-        isFade = false;
         yield return new WaitForSeconds(fadeTime / 2);
+        isFade = false;
         fadeImg.gameObject.SetActive(false);
         fadeImg.raycastTarget = false;
 

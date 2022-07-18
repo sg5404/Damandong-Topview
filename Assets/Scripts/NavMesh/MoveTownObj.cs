@@ -28,6 +28,7 @@ public class MoveTownObj : MonoBehaviour
     {
         if(collision.CompareTag("InDoor"))
         {
+            if (Fade.Instance.isFade) yield return null;
             Fade.Instance.FadeIn();
             yield return new WaitForSeconds(Fade.Instance.fadeTime);
             GetInTownObj();
@@ -36,11 +37,14 @@ public class MoveTownObj : MonoBehaviour
 
         if(collision.CompareTag("OutDoor"))
         {
+            if (Fade.Instance.isFade) yield return null;
             Fade.Instance.FadeIn();
             yield return new WaitForSeconds(Fade.Instance.fadeTime);
             GetOutTownObj();
             Fade.Instance.FadeOut();
         }
+
+        yield break;
     }
 
     void GetOutTownObj()
