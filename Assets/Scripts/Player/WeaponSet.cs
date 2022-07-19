@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class WeaponSet : MonoBehaviour
+public class WeaponSet : MonoSingleton<WeaponSet>
 {
    public WeaponSet()
     {

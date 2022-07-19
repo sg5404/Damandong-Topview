@@ -19,8 +19,8 @@ public class PlayerCtrl : MonoBehaviour
     GameObject nearObject;
     private WeaponSet weaponSet = null;
 
-    [SerializeField] GameObject[] leftWeapons;
-    [SerializeField] GameObject[] rightWeapons;
+    public GameObject[] leftWeapons { get; private set; }
+    public GameObject[] rightWeapons { get; private set; }
 
     private Inventory inventory;
 
