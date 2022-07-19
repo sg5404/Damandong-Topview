@@ -19,8 +19,8 @@ public class PlayerCtrl : MonoBehaviour
     GameObject nearObject;
     private WeaponSet weaponSet = null;
 
-    public GameObject[] leftWeapons { get; private set; }
-    public GameObject[] rightWeapons { get; private set; }
+    public GameObject[] leftWeapons;
+    public GameObject[] rightWeapons;
 
     private Inventory inventory;
 
@@ -32,7 +32,6 @@ public class PlayerCtrl : MonoBehaviour
         ActiveFalseAllWepaon();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float h = Input.GetAxisRaw("Horizontal") * speed;
