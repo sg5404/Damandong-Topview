@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponModule : ScriptableObject
 {
     public WeaponKind kind;//무기종류
+    public Sprite WeaponSprite;
     public float atkSpeed;//공속
 
     public float bulletSpread;//탄퍼짐
