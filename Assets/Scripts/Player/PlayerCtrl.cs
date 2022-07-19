@@ -19,6 +19,9 @@ public class PlayerCtrl : MonoBehaviour
     GameObject nearObject;
     private WeaponSet weaponSet = null;
 
+    [SerializeField] GameObject[] leftWeapons;
+    [SerializeField] GameObject[] rightWeapons;
+
     private Inventory inventory;
 
     void Start()
@@ -26,6 +29,7 @@ public class PlayerCtrl : MonoBehaviour
         inventory = FindObjectOfType<Inventory>();
         rigid = GetComponent<Rigidbody2D>();
         weaponSet = GetComponent<WeaponSet>();
+        ActiveFalseAllWepaon();
     }
 
     // Update is called once per frame
@@ -90,32 +94,59 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
+    void ActiveFalseAllWepaon()
+    {
+        foreach(var weaponItem in leftWeapons)
+        {
+            weaponItem.SetActive(false);
+        }
+        foreach (var weaponItem in rightWeapons)
+        {
+            weaponItem.SetActive(false);
+        }
+    }
+
+    void ActiveWeapon(int weaponNumber)
+    {
+        rightWeapons[weaponNumber - 1].SetActive(true);
+    }
+
     private void WeaponChange()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("1");
             Debug.Log(weaponSet.SubWeaponState);
+            ActiveFalseAllWepaon();
+            ActiveWeapon(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("2");
             Debug.Log(weaponSet.SubWeaponState);
+            ActiveFalseAllWepaon();
+            ActiveWeapon(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("3");
             Debug.Log(weaponSet.SubWeaponState);
+            ActiveFalseAllWepaon();
+            ActiveWeapon(3);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("4");
             Debug.Log(weaponSet.SubWeaponState);
+            ActiveFalseAllWepaon();
+            ActiveWeapon(4);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("5");
             Debug.Log(weaponSet.SubWeaponState);
+            ActiveFalseAllWepaon();
+            ActiveWeapon(5);
         }
     }
 }
