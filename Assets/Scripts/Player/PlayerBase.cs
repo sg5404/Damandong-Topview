@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerBase : MonoBehaviour ,CharBase
+public class PlayerBase : MonoBehaviour, CharBase
 {
     [SerializeField]
     private PlayerModule _playerModule;
 
-    #region 캐릭터 기본 수치
+    #region .
     private int _hp;
     public int Hp
     {
@@ -66,7 +66,7 @@ public class PlayerBase : MonoBehaviour ,CharBase
         set { _isDead = value; }
     }
     #endregion
-    #region 적 수치
+    #region .
     public StatusAilments _statusAilment;
     #endregion
 
@@ -80,7 +80,6 @@ public class PlayerBase : MonoBehaviour ,CharBase
         Def = _playerModule.def;
         MoveSpeed = _playerModule.moveSpeed;
     }
-
     public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if (IsDead) return;
@@ -90,7 +89,7 @@ public class PlayerBase : MonoBehaviour ,CharBase
         if (Hp <= 0)
         {
             OnDie?.Invoke();
-            Debug.Log($"플레이어 사망!");
+            Debug.Log($".");
             IsDead = true;
         }
     }
