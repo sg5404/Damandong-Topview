@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerBase : MonoBehaviour ,CharBase
+public class PlayerBase : MonoBehaviour, CharBase
 {
     [SerializeField]
     private PlayerModule _playerModule;
@@ -12,24 +12,9 @@ public class PlayerBase : MonoBehaviour ,CharBase
     private int _hp;
     public int Hp
     {
-        get
-        {
-            return _hp;
-        }
-        set 
-        { 
-            _hp = value;
-            if(_hp < 0)
-            {
-                _hp = 0;
-            }
-            Debug.Log(_hp);
-            UIManager.Instance.playerHpTmp.text = $"{_hp}/{_maxHp}";
-        }
+        get => _hp;
+        set { _hp = Mathf.Clamp(value, 0, _playerModule.HP); }
     }
-
-    private int _maxHp;
-    public int MaxHP { get {return _maxHp; } }
 
     private float _def;
     public float Def
@@ -75,12 +60,10 @@ public class PlayerBase : MonoBehaviour ,CharBase
 
     private void Start()
     {
-        _maxHp = _playerModule.HP;
-        Hp = _maxHp;
+        Hp = _playerModule.HP;
         Def = _playerModule.def;
         MoveSpeed = _playerModule.moveSpeed;
     }
-
     public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if (IsDead) return;
