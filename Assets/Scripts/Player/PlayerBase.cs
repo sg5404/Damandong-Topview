@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerBase : MonoBehaviour, CharBase
+public class PlayerBase : MonoBehaviour ,CharBase
 {
     [SerializeField]
     private PlayerModule _playerModule;
 
-    #region Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½Ä¡
+    #region Ä³¸¯ÅÍ ±âº» ¼öÄ¡
     private int _hp;
- public int Hp
+    public int Hp
     {
         get
         {
@@ -30,7 +30,6 @@ public class PlayerBase : MonoBehaviour, CharBase
 
     private int _maxHp;
     public int MaxHP { get {return _maxHp; } }
-
 
     private float _def;
     public float Def
@@ -67,7 +66,7 @@ public class PlayerBase : MonoBehaviour, CharBase
         set { _isDead = value; }
     }
     #endregion
-    #region ï¿½ï¿½ ï¿½ï¿½Ä¡
+    #region Àû ¼öÄ¡
     public StatusAilments _statusAilment;
     #endregion
 
@@ -81,6 +80,7 @@ public class PlayerBase : MonoBehaviour, CharBase
         Def = _playerModule.def;
         MoveSpeed = _playerModule.moveSpeed;
     }
+
     public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if (IsDead) return;
@@ -90,7 +90,7 @@ public class PlayerBase : MonoBehaviour, CharBase
         if (Hp <= 0)
         {
             OnDie?.Invoke();
-            Debug.Log($"ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½!");
+            Debug.Log($"ÇÃ·¹ÀÌ¾î »ç¸Á!");
             IsDead = true;
         }
     }

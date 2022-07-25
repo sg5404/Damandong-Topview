@@ -4,7 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-@ -11,39 +10,36 @@ public class UIManager : MonoSingleton<UIManager>
+public class UIManager : MonoSingleton<UIManager>
+{
+    [SerializeField] Image leftWepaonImg;
+    [SerializeField] Image rightWepaonImg;
 
     [SerializeField] Sprite[] weaponSprites;
 
@@ -14,10 +17,9 @@ using UnityEngine.UI;
     private void Update()
     {
 
-        ChangeWeaponSpriteImg();
     }
 
-      //public void ChangeWeaponSpriteImg()
+    //public void ChangeWeaponSpriteImg()
     //{
     //    if (WeaponSet.Instance.SubWeaponState == WeaponKind.SWORD)
     //    {
