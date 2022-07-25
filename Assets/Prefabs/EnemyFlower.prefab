@@ -135,9 +135,19 @@ MonoBehaviour:
   tanpegim: 10
   maxBullets: 100
   bullet: {fileID: 4283388534896220500, guid: d84b45fa04956a742be164b0705b9e77, type: 3}
-  createTime: 1
   bulletPoolObject: {fileID: 1889738867160147123}
-  bulletPool: []
+  reloadTime: 0
+  bulletSpeed: 0
+  weaponreloadTime:
+  - 5
+  - 0.25
+  - 3
+  weponbulletSpeed:
+  - 10
+  - 3
+  - 3
+  atkdistance: 0
+  distanceShow: {fileID: 0}
 --- !u!61 &4626123278553421471
 BoxCollider2D:
   m_ObjectHideFlags: 0
