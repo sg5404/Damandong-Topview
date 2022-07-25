@@ -84,7 +84,7 @@ public class Enemyflower : MonoBehaviour
     {
         if (_enemyBase._statusAilment == StatusAilments.Stun) return;
         GameObject _bullet = GetBulletinPool();
-        targetDir = (GameManager.GetInstance().Playertransform.position - transform.position);
+        targetDir = (GameManager.Instance.Playertransform.position - transform.position);
         //Debug.DrawRay(gameObject.transform.position, targetDir*100, Color.green,10);
 
         WeaponInstance();

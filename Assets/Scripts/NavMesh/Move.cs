@@ -20,6 +20,8 @@ public class Move : MonoBehaviour
 
     public void MovePlayer()
     {
+        if (Fade.Instance.isFade) return;
+
         playerDir = transform.position;
 
         float h = Input.GetAxisRaw("Horizontal");
