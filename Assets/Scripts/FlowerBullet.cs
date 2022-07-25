@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FlowerBullet : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]
+    private float speed;
 
     [SerializeField]
     private float time;
