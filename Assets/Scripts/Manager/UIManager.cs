@@ -12,7 +12,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     private void Update()
     {
-        ChangeWeaponSpriteImg();
+        //ChangeWeaponSpriteImg();
     }
 
     public void ChangeWeaponSpriteImg()
