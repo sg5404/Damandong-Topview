@@ -10,6 +10,8 @@ public class UIManager : MonoSingleton<UIManager>
 
     [SerializeField] public Slider plyerHpSlider;
     [SerializeField] public TextMeshProUGUI playerHpTmp;
+    [SerializeField] public TextMeshProUGUI main_magazineQuantity;
+    [SerializeField] public TextMeshProUGUI sub_magazineQuantity;
 
     private void Update()
     {

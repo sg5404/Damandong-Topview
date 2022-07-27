@@ -19,5 +19,6 @@ MonoBehaviour:
   oneShotBullets: 1
   isAutoShot: 0
   magazine: 1
+  maxMagaine: 10
   isInfiniteBullet: 0
   reload: 1

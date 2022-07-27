@@ -24,6 +24,11 @@ public class PlayerCtrl : MonoBehaviour
 
     private Inventory inventory;
 
+    private void Awake()
+    {
+        //PlayerManager.Instance.Stat.MainMaxMagazine = GetComponentInChildren<WeaponModule>().maxMagaine;
+    }
+
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();

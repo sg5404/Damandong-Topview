@@ -39,6 +39,72 @@ public class PlayerBase : MonoBehaviour, CharBase
         set { _def = (value + _playerModule.def); }
     }
 
+    private int _mainMagazine;
+
+    public int MainMagazine
+    {
+        get
+        {
+            return _mainMagazine;
+        }
+        set
+        {
+            _mainMagazine = value;
+            if (_mainMagazine < 0)
+            {
+                _mainMagazine = 0;
+            }
+            UIManager.Instance.main_magazineQuantity.text = $"{_mainMagazine}/{_mainMaxMagazine}";
+        }
+    }
+
+    private int _mainMaxMagazine;
+
+    public int MainMaxMagazine 
+    { 
+        get 
+        {
+            return _mainMaxMagazine; 
+        }
+        set
+        {
+            _mainMaxMagazine = value;
+        }
+    }
+
+    private int _subMagazine;
+
+    public int SubMagazine
+    {
+        get
+        {
+            return _subMagazine;
+        }
+        set
+        {
+            _subMagazine = value;
+            if (_subMagazine < 0)
+            {
+                _subMagazine = 0;
+            }
+            UIManager.Instance.main_magazineQuantity.text = $"{_subMagazine}/{_subMaxMagazine}";
+        }
+    }
+
+    private int _subMaxMagazine;
+
+    public int SubMaxMagazine
+    {
+        get
+        {
+            return _subMaxMagazine;
+        }
+        set
+        {
+            _subMaxMagazine = value;
+        }
+    }
+
     private float _moveSpeed;
     public float MoveSpeed
     {
@@ -80,6 +146,8 @@ public class PlayerBase : MonoBehaviour, CharBase
         Hp = _maxHp;
         Def = _playerModule.def;
         MoveSpeed = _playerModule.moveSpeed;
+        _mainMagazine = _mainMaxMagazine;
+        _subMagazine = _subMaxMagazine;
     }
     public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
