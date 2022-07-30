@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerBase : MonoBehaviour, CharBase
+public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
 {
     [SerializeField]
     private PlayerModule _playerModule;
@@ -24,7 +24,9 @@ public class PlayerBase : MonoBehaviour, CharBase
                 _hp = 0;
             }
             Debug.Log(_hp);
+            Debug.Log(_maxHp);
             UIManager.Instance.playerHpTmp.text = $"{_hp}/{_maxHp}";
+            UIManager.Instance.plyerHpSlider.value = (_hp / (float)_maxHp);
         }
     }
 
