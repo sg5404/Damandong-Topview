@@ -8,6 +8,9 @@ public class UIManager : MonoSingleton<UIManager>
 {
     [SerializeField] Sprite[] weaponSprites;
 
+    [SerializeField] GameObject[] mainWeaponImageObj;
+    [SerializeField] GameObject[] subWeaponImageObj;
+
     [SerializeField] public Slider plyerHpSlider;
     [SerializeField] public TextMeshProUGUI playerHpTmp;
     [SerializeField] public TextMeshProUGUI main_magazineQuantity;
@@ -16,6 +19,20 @@ public class UIManager : MonoSingleton<UIManager>
     private void Update()
     {
         //ChangeWeaponSpriteImg();
+    }
+
+    public void ChangeUIWeaponSpriteImg(int weaponNumber)
+    {
+        DisableAllWeaponSpriteImg();
+        subWeaponImageObj[weaponNumber - 1].SetActive(true);
+    }
+
+    void DisableAllWeaponSpriteImg()
+    {
+        foreach(var imgItem in subWeaponImageObj)
+        {
+            imgItem.SetActive(false);
+        }
     }
 
     //public void ChangeWeaponSpriteImg()

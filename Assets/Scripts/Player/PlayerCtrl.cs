@@ -113,6 +113,7 @@ public class PlayerCtrl : MonoBehaviour
     void ActiveWeapon(int weaponNumber)
     {
         rightWeapons[weaponNumber - 1].SetActive(true);
+        UIManager.Instance.ChangeUIWeaponSpriteImg(weaponNumber);
     }
 
     private void WeaponChange()
