@@ -9,6 +9,8 @@ public class smallStage : MonoBehaviour
     [SerializeField] private Collider2D[] col;
     [SerializeField] private List<GameObject> enemyList;
 
+    [SerializeField] private GameObject Gate;
+
     bool isClear = false;
     // Start is called before the first frame update
     void Start()
@@ -20,8 +22,7 @@ public class smallStage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isClear)
-            EnemyClear();
+        EnemyClear();
     }
 
     void EnemySearch()
@@ -43,13 +44,21 @@ public class smallStage : MonoBehaviour
             if (enemyList[i].activeSelf)
             {
                 //안끝남
+                Gate.SetActive(false);
                 return;
             }
         }
         //끝남
         isClear = true;
         Debug.Log("Clear");
+        //애니메이션 추가해주면 좋을듯
+        Gate.SetActive(true);
     }
+
+    //void StageClear()
+    //{
+    //    Gate.SetActive(true);
+    //}
 
     void OnDrawGizmos()
     {
