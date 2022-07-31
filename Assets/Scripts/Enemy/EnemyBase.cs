@@ -74,6 +74,9 @@ public class EnemyBase : MonoBehaviour, CharBase
         {
             OnDie?.Invoke();
             Debug.Log($"{gameObject.name}이 죽었음미다");
+            //내가 임의로 수정함 -기현-
+            gameObject.SetActive(false);
+            //여기까지
             IsDead = true;
         }
     }
