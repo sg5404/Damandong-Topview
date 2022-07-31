@@ -24,6 +24,11 @@ public class PlayerCtrl : MonoBehaviour
 
     private Inventory inventory;
 
+    private void Awake()
+    {
+        //PlayerManager.Instance.Stat.MainMaxMagazine = GetComponentInChildren<WeaponModule>().maxMagaine;
+    }
+
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();
@@ -108,6 +113,7 @@ public class PlayerCtrl : MonoBehaviour
     void ActiveWeapon(int weaponNumber)
     {
         rightWeapons[weaponNumber - 1].SetActive(true);
+        UIManager.Instance.ChangeUIWeaponSpriteImg(weaponNumber);
     }
 
     private void WeaponChange()

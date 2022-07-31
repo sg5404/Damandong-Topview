@@ -15,6 +15,7 @@ public class WeaponModule : ScriptableObject
     public bool isAutoShot;//연사
 
     public int magazine;//탄창
+    public int maxMagaine;//최대 탄창
     public bool isInfiniteBullet;//한무 탄창
     public float reload;//재장전 시간
 }
