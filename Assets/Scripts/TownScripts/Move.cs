@@ -9,13 +9,31 @@ public class Move : MonoSingleton<Move>
     [SerializeField]
     private float speed = 10f;
     [SerializeField]
-    private Camera mainCamera;
+    private GameObject smithObj;
 
     Vector3 playerDir;
 
     void Update()
     {
+        Interaction();
         MovePlayer();
+    }
+
+    void Interaction()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(Vector2.Distance(transform.position, smithObj.transform.position) <= 1f
+                && !TownUIManager.Instance.isDialogueWithSmith)
+            {
+                StartCoroutine(TownUIManager.Instance.InteractionSmith());
+            }
+        }
+
+        if (Vector2.Distance(transform.position, smithObj.transform.position) >= 3f)
+        {
+            TownUIManager.Instance.DisActiveAllPanel();
+        }
     }
 
     public void MovePlayer()
