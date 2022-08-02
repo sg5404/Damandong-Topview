@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Move : MonoSingleton<Move>
 {
     //1 : 0.5625
 
@@ -33,5 +33,21 @@ public class Move : MonoBehaviour
         playerDir.y = Mathf.Clamp(transform.position.y, -6.5f, 6.5f);
 
         transform.position = playerDir;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("DungeonPortal"))
+        {
+            TownUIManager.Instance.ToggleGoDungeonPanel(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("DungeonPortal"))
+        {
+            TownUIManager.Instance.ToggleGoDungeonPanel(false);
+        }
     }
 }
