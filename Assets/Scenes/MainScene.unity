@@ -12086,6 +12086,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 242960379315766809, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
   m_PrefabInstance: {fileID: 9034370365618243904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2041375379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7356145456513179318, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 9034370365618243904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2071685417
 GameObject:
   m_ObjectHideFlags: 0
@@ -12631,6 +12636,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9034370364741056555, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056555, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056555, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -12727,6 +12740,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9034370365618243908}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: weaponObj
+      value: 
+      objectReference: {fileID: 2041375379}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: leftGunpoint
       value: 
       objectReference: {fileID: 9034370365618243908}
@@ -12761,6 +12778,10 @@ PrefabInstance:
     - target: {fileID: 9034370366507896663, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370366507896663, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9034370366675662877, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_LocalPosition.x

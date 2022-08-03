@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletMove : Bullet
 {
+
     public override BulletModule BulletData 
     { 
         get => _bulletModule;
