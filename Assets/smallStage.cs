@@ -39,20 +39,23 @@ public class smallStage : MonoBehaviour
 
     void EnemyClear()
     {
-        for (int i = 0; i < enemyList.Count; i++)
+        while (!isClear)
         {
-            if (enemyList[i].activeSelf)
+            for (int i = 0; i < enemyList.Count; i++)
             {
-                //안끝남
-                Gate.SetActive(false);
-                return;
+                if (enemyList[i].activeSelf)
+                {
+                    //안끝남
+                    Gate.SetActive(false);
+                    return;
+                }
             }
+            //끝남
+            isClear = true;
+            Debug.Log("Clear");
+            //애니메이션 추가해주면 좋을듯
+            Gate.SetActive(true);
         }
-        //끝남
-        isClear = true;
-        Debug.Log("Clear");
-        //애니메이션 추가해주면 좋을듯
-        Gate.SetActive(true);
     }
 
     //void StageClear()

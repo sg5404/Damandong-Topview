@@ -16,6 +16,12 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] public TextMeshProUGUI main_magazineQuantity;
     [SerializeField] public TextMeshProUGUI sub_magazineQuantity;
 
+
+    private void Awake()
+    {
+        ChangeUIWeaponSpriteImg(PlayerAttack.Instance.weapon);
+    }
+
     public void ChangeUIWeaponSpriteImg(int weaponNumber)
     {
         DisableAllWeaponSpriteImg();

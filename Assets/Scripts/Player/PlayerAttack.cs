@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : MonoSingleton<PlayerAttack>
 {
 
     [Header("ÃÑ¾Ë")]
@@ -18,12 +18,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private Transform bulletTransform = null;
     [SerializeField]
-    private GameObject gunpoint = null;
+    private GameObject leftGunpoint = null;
 
     public WeaponModule[] module;
-    public int weapon { private set; get; } = 1;
+    public int weapon { private set; get; } = 0;
 
-    private float cooltime = 0.1f;
     private float curtime = 0;
 
 
@@ -92,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
 
             if(curtime >= module[weapon].atkSpeed)
             {
-                GameObject bullet = Instantiate(rifleBullet, bulletTransform);
+                GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
                 bullet.transform.SetParent(null);
                 curtime = 0;
             }
@@ -108,7 +107,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 for(int i = 0; i <= 8; i++)
                 {
-                    GameObject bullet = Instantiate(rifleBullet, bulletTransform);
+                    GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
                     bullet.transform.Rotate(0, 0, Random.Range(-module[weapon].bulletSpread , module[weapon].bulletSpread));
                     bullet.transform.SetParent(null);
                 }

@@ -12727,6 +12727,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9034370365618243908}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: leftGunpoint
+      value: 
+      objectReference: {fileID: 9034370365618243908}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: bulletTransform
       value: 
       objectReference: {fileID: 9034370365618243907}

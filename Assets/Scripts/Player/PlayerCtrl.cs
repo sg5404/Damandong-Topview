@@ -35,6 +35,7 @@ public class PlayerCtrl : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         weaponSet = GetComponent<WeaponSet>();
         ActiveFalseAllWepaon();
+        leftWeapons[0].SetActive(true);
     }
 
     void Update()
