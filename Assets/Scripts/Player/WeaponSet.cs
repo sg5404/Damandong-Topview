@@ -5,7 +5,7 @@ public class WeaponSet : MonoSingleton<WeaponSet>
 {
    public WeaponSet()
     {
-        MainWeaponState = WeaponKind.SWORD;
+        MainWeaponState = WeaponKind.RIFLE;
         SubWeaponState = WeaponKind.RIFLE;
     }
     private WeaponKind mainWeaponState = 0; // °íÁ¤µÈ ¹«±â(¿ÞÆÈ)
@@ -18,7 +18,7 @@ public class WeaponSet : MonoSingleton<WeaponSet>
         }
         set
         {
-            if (value >= WeaponKind.SWORD && value <= WeaponKind.GRANADE)
+            if (value >= WeaponKind.RIFLE && value <= WeaponKind.GRANADE)
             {
                 mainWeaponState = value;
             }
@@ -32,7 +32,7 @@ public class WeaponSet : MonoSingleton<WeaponSet>
         }
         set
         {
-            if (value >= WeaponKind.SWORD && value <= WeaponKind.GRANADE)
+            if (value >= WeaponKind.RIFLE && value <= WeaponKind.GRANADE)
             {
                 subWeaponState = value;
             }
@@ -45,18 +45,15 @@ public class WeaponSet : MonoSingleton<WeaponSet>
         switch (_input)
         {
             case "1":
-                _weaponKind = WeaponKind.SWORD;
-                break;
-            case "2":
                 _weaponKind = WeaponKind.RIFLE;
                 break;
-            case "3":
+            case "2":
                 _weaponKind = WeaponKind.SNIPER;
                 break;
-            case "4":
+            case "3":
                 _weaponKind = WeaponKind.SHOTGUN;
                 break;
-            case "5":
+            case "4":
                 _weaponKind = WeaponKind.GRANADE;
                 break;
             default:

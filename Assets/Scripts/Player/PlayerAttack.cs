@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : MonoSingleton<PlayerAttack>
 {
 
     [Header("ÃÑ¾Ë")]
@@ -18,12 +18,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private Transform bulletTransform = null;
     [SerializeField]
-    private GameObject gunpoint = null;
+    private GameObject leftGunpoint = null;
 
     public WeaponModule[] module;
-    public int weapon { private set; get; } = 1;
+    public int weapon { private set; get; } = 0;
 
-    private float cooltime = 0.1f;
     private float curtime = 0;
 
 
@@ -41,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         curtime += Time.deltaTime;
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         var direction = mousePosition - bulletTransform.position;
@@ -48,7 +48,7 @@ public class PlayerAttack : MonoBehaviour
         var rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         bulletTransform.rotation = Quaternion.Euler(0, 0, rotation);
-        gunpoint.transform.rotation = Quaternion.Euler(0, 0, rotation);
+
         CurrentWeapon();
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -61,23 +61,20 @@ public class PlayerAttack : MonoBehaviour
     {
         switch (weaponSet.SubWeaponState) // ÃÑ¾Ë¹ß»ç °¡´ÉÇÏ°Ô²û ÇÏ±â
         {
-            case WeaponKind.SWORD:
-                weapon = 0;
-                break;
             case WeaponKind.RIFLE:
-                weapon = 1;
+                weapon = 0;
                 Fire();
                 break;
             case WeaponKind.SNIPER:
-                weapon = 2;
+                weapon = 1;
                 Fire();
                 break;
             case WeaponKind.SHOTGUN:
-                weapon = 3;
+                weapon = 2;
                 ShotGunFire();
                 break;
             case WeaponKind.GRANADE:
-                weapon = 4;
+                weapon = 3;
                 Fire();
                 break;
             default:
@@ -94,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
 
             if(curtime >= module[weapon].atkSpeed)
             {
-                GameObject bullet = Instantiate(rifleBullet, bulletTransform);
+                GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
                 bullet.transform.SetParent(null);
                 curtime = 0;
             }
@@ -110,9 +107,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 for(int i = 0; i <= 8; i++)
                 {
-                    GameObject bullet = Instantiate(rifleBullet, bulletTransform);
+                    GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
                     bullet.transform.Rotate(0, 0, Random.Range(-module[weapon].bulletSpread , module[weapon].bulletSpread));
-                    //bullet.GetComponent<BulletMove>(). = Random.Range(5, 10);
                     bullet.transform.SetParent(null);
                 }
                     curtime = 0;
@@ -124,8 +120,6 @@ public class PlayerAttack : MonoBehaviour
     {
         switch (weaponSet.SubWeaponState)
         {
-            case WeaponKind.SWORD:
-                break;
             case WeaponKind.RIFLE:
                 playerSkills.Lambo();
                 break;

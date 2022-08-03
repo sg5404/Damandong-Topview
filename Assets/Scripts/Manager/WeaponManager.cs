@@ -12,6 +12,10 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
         weaponSet = FindObjectOfType<WeaponSet>();
+
+        weaponSet.SubWeaponState = weaponSet.SetWeapon("1");
+        Debug.Log(weaponSet.SubWeaponState);
+        subWeapon.GetComponent<Image>().color = Color.red;
     }
 
     void Update()
