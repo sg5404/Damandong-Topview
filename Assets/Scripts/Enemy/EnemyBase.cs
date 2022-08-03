@@ -59,6 +59,11 @@ public class EnemyBase : MonoBehaviour, CharBase
     [field:SerializeField] public UnityEvent OnDie { get; set; }
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
 
+    Enemyflower enemy;
+    private void Start()
+    {
+        enemy = GetComponent<Enemyflower>();
+    }
     private void Update()
     {
         DurationChange();
@@ -66,18 +71,14 @@ public class EnemyBase : MonoBehaviour, CharBase
     public virtual void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if (IsDead) return;
-        Hp -= damage;
         OnGetHit?.Invoke();
         if(_statusAilment==StatusAilments.None)
             _statusAilment = status;
-
-        Debug.Log(Hp);
-        Debug.Log(damage);
+        Hp -= damage;
         if (Hp <= 0)
         {
-            Debug.Log(Hp);
-            Debug.Log(damage);
             OnDie?.Invoke();
+            enemy.DeadCheck(Hp);
             Debug.Log($"{gameObject.name}이 죽었음미다");
             //내가 임의로 수정함 -기현-
             gameObject.SetActive(false);

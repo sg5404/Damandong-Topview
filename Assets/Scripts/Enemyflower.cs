@@ -155,28 +155,26 @@ public class Enemyflower : MonoBehaviour
         return null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) //상현이가 고쳐야함
+    private void OnTriggerEnter2D(Collider2D collision) //상현이가 고쳐야함 크리티컬? 만 어케하면 될듯 총 멈추는건 다른데서 해결함
     {
         if (collision.CompareTag("Bullet"))
         {
-            /*BulletModule bulletHit = collision.GetComponent<BulletMove>().bulletStat;
+            /*BulletModule bulletHit = collision.gameObject.GetComponent<BulletMove>().BulletData;
             float crit = Random.value;
             //Debug.Log(crit);
             hp -= bulletHit.atk;
-            DeadCheck();
             if (crit<bulletHit.crtChance)
             {
                 hp -= bulletHit.atk;
-                DeadCheck();
-                return;
             }
-            Destroy(collision.gameObject);*/
+            DeadCheck();*/
+            //Destroy(collision.gameObject);
         }
     }
 
-    private void DeadCheck()
+    public void DeadCheck(int _hp)
     {
-        if (hp <= 0)
+        if (_hp <= 0)
         {
             CancelInvoke("CreateBullet");
             gameObject.SetActive(false);
