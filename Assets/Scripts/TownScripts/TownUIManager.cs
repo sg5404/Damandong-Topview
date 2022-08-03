@@ -20,17 +20,25 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     [SerializeField] string smithContent = "Welcome! Wanna Change your Weapon?";
     [SerializeField] GameObject changeWeaponPanel;
 
-    bool isDialogue = false;
+    public bool isDialogue = false;
+
+    private bool isFirst = false;
 
     private void Start()
     {
         DisActiveAllPanel();
+        if (!isFirst)
+        {
+            isFirst = true;
+            changeWeaponPanel.SetActive(true);
+        }
     }
 
     public void DisActiveAllPanel()
     {
         goDungeonPanel.SetActive(false);
         dialoguePanel.SetActive(false);
+        changeWeaponPanel.SetActive(false);
     }
 
     public void ToggleGoDungeonPanel(bool isActive)
@@ -43,7 +51,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         SceneManager.LoadScene(2);
     }
 
-    public bool isDialogueWithSmith = false;
+    public bool isDialogueWithSmith { private set; get; } = false;
     public IEnumerator InteractionSmith()
     {
         if (isDialogue)
@@ -52,9 +60,10 @@ public class TownUIManager : MonoSingleton<TownUIManager>
 
             Debug.Log("ChangeWeapon");
             dialoguePanel.SetActive(false);
-            //changeWeaponPanel.SetActive(true);
+            changeWeaponPanel.SetActive(true);
             yield return new WaitForSeconds(3f);
             isDialogueWithSmith = false;
+            changeWeaponPanel.SetActive(false);
         }
         else
         {
@@ -64,8 +73,12 @@ public class TownUIManager : MonoSingleton<TownUIManager>
             dialoguePanel.SetActive(true);
             isDialogue = true;
             yield return new WaitForSeconds(5f);
-            dialoguePanel.SetActive(false);
-            isDialogue = false;
+            if(!isDialogueWithSmith)
+            {
+                dialoguePanel.SetActive(false);
+                isDialogue = false;
+            }
+            
         }
 
 

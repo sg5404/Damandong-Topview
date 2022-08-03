@@ -21,18 +21,20 @@ public class Move : MonoSingleton<Move>
 
     void Interaction()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if(Vector2.Distance(transform.position, smithObj.transform.position) <= 1f
+            if(Vector2.Distance(transform.position, smithObj.transform.position) <= 3f
                 && !TownUIManager.Instance.isDialogueWithSmith)
             {
                 StartCoroutine(TownUIManager.Instance.InteractionSmith());
             }
         }
 
-        if (Vector2.Distance(transform.position, smithObj.transform.position) >= 3f)
+        if (Vector2.Distance(transform.position, smithObj.transform.position) >= 5f
+            && Vector2.Distance(transform.position, smithObj.transform.position) <= 10f)
         {
             TownUIManager.Instance.DisActiveAllPanel();
+            TownUIManager.Instance.isDialogue = false;
         }
     }
 

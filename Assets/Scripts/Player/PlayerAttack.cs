@@ -19,12 +19,14 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     private Transform bulletTransform = null;
     [SerializeField]
     private GameObject leftGunpoint = null;
+    [SerializeField]
+    private GameObject weaponObj = null;
 
     public WeaponModule[] module;
     public int weapon { private set; get; } = 0;
 
     private float curtime = 0;
-
+    private Vector3 playerScale;
 
     private WeaponSet weaponSet = null;
     private PlayerSkills playerSkills = null;
@@ -35,19 +37,14 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         weaponSet = GetComponent<WeaponSet>();
         playerSkills = GetComponent<PlayerSkills>();
         inventoryScript = FindObjectOfType<InventoryScript>();
+        playerScale = transform.localScale;
     }
 
     void Update()
     {
         curtime += Time.deltaTime;
 
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        var direction = mousePosition - bulletTransform.position;
-
-        var rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        bulletTransform.rotation = Quaternion.Euler(0, 0, rotation);
+        RotateGun();
 
         CurrentWeapon();
 
@@ -55,6 +52,30 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             WeaponSkills();
         }
+    }
+
+    void RotateGun()
+    {
+
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        var direction = mousePosition - bulletTransform.position;
+
+        var rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        //if (rotation >= 90f && rotation <= 180f || rotation <= -90f && rotation >= -180f)
+        //{
+        //    transform.localScale = new Vector3(-playerScale.x, playerScale.y, playerScale.z);
+        //    rotation -= 180;
+        //}
+        //else
+        //{
+        //    transform.localScale = playerScale;
+        //}
+
+        Debug.Log(rotation);
+
+        bulletTransform.rotation = Quaternion.Euler(0, 0, rotation);
     }
 
     void CurrentWeapon()
