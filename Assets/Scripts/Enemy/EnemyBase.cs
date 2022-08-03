@@ -70,8 +70,13 @@ public class EnemyBase : MonoBehaviour, CharBase
         OnGetHit?.Invoke();
         if(_statusAilment==StatusAilments.None)
             _statusAilment = status;
+
+        Debug.Log(Hp);
+        Debug.Log(damage);
         if (Hp <= 0)
         {
+            Debug.Log(Hp);
+            Debug.Log(damage);
             OnDie?.Invoke();
             Debug.Log($"{gameObject.name}이 죽었음미다");
             //내가 임의로 수정함 -기현-

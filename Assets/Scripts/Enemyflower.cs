@@ -155,7 +155,7 @@ public class Enemyflower : MonoBehaviour
         return null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //상현이가 고쳐야함
     {
         if (collision.CompareTag("Bullet"))
         {

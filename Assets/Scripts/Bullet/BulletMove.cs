@@ -23,5 +23,6 @@ public class BulletMove : Bullet
         CharBase hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;
         hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
+        
     }
 }
