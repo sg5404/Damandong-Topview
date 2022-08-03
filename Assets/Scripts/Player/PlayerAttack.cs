@@ -41,6 +41,7 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         curtime += Time.deltaTime;
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         var direction = mousePosition - bulletTransform.position;
@@ -48,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
         var rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         bulletTransform.rotation = Quaternion.Euler(0, 0, rotation);
-        gunpoint.transform.rotation = Quaternion.Euler(0, 0, rotation);
+
         CurrentWeapon();
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -61,23 +62,20 @@ public class PlayerAttack : MonoBehaviour
     {
         switch (weaponSet.SubWeaponState) // 총알발사 가능하게끔 하기
         {
-            case WeaponKind.SWORD:
-                weapon = 0;
-                break;
             case WeaponKind.RIFLE:
-                weapon = 1;
+                weapon = 0;
                 Fire();
                 break;
             case WeaponKind.SNIPER:
-                weapon = 2;
+                weapon = 1;
                 Fire();
                 break;
             case WeaponKind.SHOTGUN:
-                weapon = 3;
+                weapon = 2;
                 ShotGunFire();
                 break;
             case WeaponKind.GRANADE:
-                weapon = 4;
+                weapon = 3;
                 Fire();
                 break;
             default:
@@ -112,7 +110,6 @@ public class PlayerAttack : MonoBehaviour
                 {
                     GameObject bullet = Instantiate(rifleBullet, bulletTransform);
                     bullet.transform.Rotate(0, 0, Random.Range(-module[weapon].bulletSpread , module[weapon].bulletSpread));
-                    //bullet.GetComponent<BulletMove>(). = Random.Range(5, 10);
                     bullet.transform.SetParent(null);
                 }
                     curtime = 0;
@@ -124,8 +121,6 @@ public class PlayerAttack : MonoBehaviour
     {
         switch (weaponSet.SubWeaponState)
         {
-            case WeaponKind.SWORD:
-                break;
             case WeaponKind.RIFLE:
                 playerSkills.Lambo();
                 break;

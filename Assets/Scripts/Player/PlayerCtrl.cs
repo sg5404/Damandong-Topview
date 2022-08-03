@@ -112,7 +112,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void ActiveWeapon(int weaponNumber)
     {
-        rightWeapons[weaponNumber - 1].SetActive(true);
+        rightWeapons[weaponNumber].SetActive(true);
         UIManager.Instance.ChangeUIWeaponSpriteImg(weaponNumber);
     }
 
@@ -123,35 +123,28 @@ public class PlayerCtrl : MonoBehaviour
             weaponSet.SubWeaponState = weaponSet.SetWeapon("1");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(1);
+            ActiveWeapon(0);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("2");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(2);
+            ActiveWeapon(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("3");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(3);
+            ActiveWeapon(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("4");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(4);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            weaponSet.SubWeaponState = weaponSet.SetWeapon("5");
-            Debug.Log(weaponSet.SubWeaponState);
-            ActiveFalseAllWepaon();
-            ActiveWeapon(5);
+            ActiveWeapon(3);
         }
     }
 }
