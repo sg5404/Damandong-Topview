@@ -22,6 +22,13 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     [SerializeField]
     private GameObject weaponObj = null;
 
+    public List<GameObject> leftWeaponList;
+    public List<GameObject> rightWeaponList;
+
+    private Vector2 rightweaponPos;
+    private Vector2 leftweaponPos;
+    private Vector2 weaponPos;
+
     public WeaponModule[] module;
     public int weapon { private set; get; } = 0;
 
@@ -38,6 +45,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         playerSkills = GetComponent<PlayerSkills>();
         inventoryScript = FindObjectOfType<InventoryScript>();
         playerScale = transform.localScale;
+        weaponPos = weaponObj.transform.localPosition;
     }
 
     void Update()
@@ -63,19 +71,33 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
         var rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        //if (rotation >= 90f && rotation <= 180f || rotation <= -90f && rotation >= -180f)
-        //{
-        //    transform.localScale = new Vector3(-playerScale.x, playerScale.y, playerScale.z);
-        //    rotation -= 180;
-        //}
-        //else
-        //{
-        //    transform.localScale = playerScale;
-        //}
-
-        Debug.Log(rotation);
-
+        //Debug.Log(rotation);
         bulletTransform.rotation = Quaternion.Euler(0, 0, rotation);
+
+        Debug.Log((int)weaponSet.SetWeaponNum().x);
+        Debug.Log((int)weaponSet.SetWeaponNum().y);
+
+        if (rotation >= -90 && rotation <= 90)
+        {
+            RotateWeapons(false);
+            return;
+        }
+        RotateWeapons(true);
+    }
+
+    void RotateWeapons(bool isturn)
+    {
+        int num = 0;
+        gameObject.GetComponent<SpriteRenderer>().flipX = isturn;
+        rightWeaponList[(int)weaponSet.SetWeaponNum().x - 1].GetComponent<SpriteRenderer>().flipY = isturn;
+        leftWeaponList[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<SpriteRenderer>().flipY = isturn;
+
+        if (isturn)
+            num = 1;
+        else
+            num = -1;
+
+        weaponObj.transform.localPosition = new Vector2(weaponPos.x * num, weaponPos.y);
     }
 
     void CurrentWeapon()

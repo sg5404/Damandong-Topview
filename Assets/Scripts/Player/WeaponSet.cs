@@ -61,4 +61,8 @@ public class WeaponSet : MonoSingleton<WeaponSet>
         }
         return _weaponKind;
     }
+    public Vector2 SetWeaponNum()
+    {
+        return new Vector2((float)mainWeaponState, (float)subWeaponState);
+    }
 }
