@@ -11,6 +11,8 @@ TagManager:
   - OutDoor
   - InDoor
   - DungeonPortal
+  - Smith
+  - SalesMan
   layers:
   - Default
   - TransparentFX

@@ -18,8 +18,9 @@ public class TownBtnManager : MonoBehaviour
     public void Click()
     {
         TownUIManager.Instance.DisActiveAllPanel();
-        TownUIManager.Instance.isDialogueWithSmith = false;
+        TownUIManager.Instance.isDialogueWithNpc = false;
         TownUIManager.Instance.isDialogue = false;
+        TownUIManager.Instance.isWeaponChoose = false;
     }
 
 }
