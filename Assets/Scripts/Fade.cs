@@ -7,7 +7,7 @@ using DG.Tweening;
 public class Fade : MonoSingleton<Fade>
 {
     [SerializeField] Image fadeImg = null;
-    public float fadeTime { get; private set; } = 1f;
+    [SerializeField] public float fadeTime { get; private set; } = 1f;
 
     public bool isFade = false;
 
