@@ -25,15 +25,12 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     public List<GameObject> leftWeaponList;
     public List<GameObject> rightWeaponList;
 
-    private Vector2 rightweaponPos;
-    private Vector2 leftweaponPos;
     private Vector2 weaponPos;
 
     public WeaponModule[] module;
     public int weapon { private set; get; } = 0;
 
     private float curtime = 0;
-    private Vector3 playerScale;
 
     private WeaponSet weaponSet = null;
     private PlayerSkills playerSkills = null;
@@ -44,7 +41,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         weaponSet = GetComponent<WeaponSet>();
         playerSkills = GetComponent<PlayerSkills>();
         inventoryScript = FindObjectOfType<InventoryScript>();
-        playerScale = transform.localScale;
         weaponPos = weaponObj.transform.localPosition;
     }
 
@@ -87,15 +83,15 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     void RotateWeapons(bool isturn)
     {
-        int num = 0;
+        float num = 0;
         gameObject.GetComponent<SpriteRenderer>().flipX = isturn;
         rightWeaponList[(int)weaponSet.SetWeaponNum().x - 1].GetComponent<SpriteRenderer>().flipY = isturn;
         leftWeaponList[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<SpriteRenderer>().flipY = isturn;
 
         if (isturn)
-            num = 1;
-        else
             num = -1;
+        else
+            num = 1;
 
         weaponObj.transform.localPosition = new Vector2(weaponPos.x * num, weaponPos.y);
     }
