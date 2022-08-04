@@ -16,13 +16,17 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     [SerializeField] TextMeshProUGUI content;
 
     [Header("대장장이")]
-    [SerializeField] string smithName = "Smith";
-    [SerializeField] string smithContent = "Welcome! Wanna change your weapon?";
+    //[SerializeField] string smithName = "Smith";
+    [SerializeField] string smithName = "대장장이";
+    //[SerializeField] string smithContent = "Welcome! Wanna change your weapon?";
+    [SerializeField] string smithContent = "어서오게나! 무기를 바꾸고싶나?";
     [SerializeField] GameObject changeWeaponPanel;
 
     [Header("판매원")]
-    [SerializeField] string salesmanName = "SalesMan";
-    [SerializeField] string salesmanContent = "No items have been added to the store yet!";
+    //[SerializeField] string salesmanName = "SalesMan";
+    [SerializeField] string salesmanName = "판매원";
+    //[SerializeField] string salesmanContent = "No items have been added to the store yet!";
+    [SerializeField] string salesmanContent = "상점에 아이템재고가 들어오지 않았습니다!";
 
     // AboutInteraction
     public bool isDialogue = false;
