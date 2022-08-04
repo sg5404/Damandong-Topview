@@ -160,7 +160,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     {
         Debug.Log("플레이어 적중");
         if (IsDead) return;
-        Hp -= damage;
+        PlayerManager.Instance.Damaged(damage);
         OnGetHit?.Invoke();
         _statusAilment = status;
         if (Hp <= 0)
