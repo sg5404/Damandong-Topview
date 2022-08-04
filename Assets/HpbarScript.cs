@@ -10,12 +10,12 @@ public class HpbarScript : MonoBehaviour
     RectTransform hpbar;
 
     Vector3 hpbarPos;
-    private float height = -1f;
+    private float height = -0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        hpbar = Instantiate(hpbarObj, canvas.transform).GetComponent<RectTransform>();
+        hpbar = hpbarObj.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame

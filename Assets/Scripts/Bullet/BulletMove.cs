@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletMove : Bullet
 {
 
+    private float timer = 0;
     public override BulletModule BulletData 
     { 
         get => _bulletModule;
@@ -15,7 +16,12 @@ public class BulletMove : Bullet
     }
     void Update()
     {
+        timer += Time.deltaTime;
         transform.Translate(Vector3.right * _bulletModule.speed * Time.deltaTime);
+        if(timer >= 2f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

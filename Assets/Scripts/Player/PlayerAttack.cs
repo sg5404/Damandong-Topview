@@ -74,8 +74,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         //Debug.Log(rotation);
         bulletTransform.rotation = Quaternion.Euler(0, 0, rotation);
 
-        Debug.Log((int)weaponSet.SetWeaponNum().x);
-        Debug.Log((int)weaponSet.SetWeaponNum().y);
+        //Debug.Log((int)weaponSet.SetWeaponNum().x);
+        //Debug.Log((int)weaponSet.SetWeaponNum().y);
 
         if (rotation >= -90 && rotation <= 90)
         {
