@@ -26,6 +26,8 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     private Animator animator;
 
+    public bool isDead { set; get; }
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -45,6 +47,11 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     void Update()
     {
+        if (isDead)
+        {
+            rigid.velocity = new Vector2(0, 0);
+            return;
+        }
         float h = Input.GetAxisRaw("Horizontal") * speed;
         float v = Input.GetAxisRaw("Vertical") * speed;
         rigid.velocity = new Vector2(h, v);

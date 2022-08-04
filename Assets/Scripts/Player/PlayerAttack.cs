@@ -39,6 +39,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     private WeaponSet weaponSet = null;
     private PlayerSkills playerSkills = null;
     private InventoryScript inventoryScript = null;
+    
 
     Vector3 leftWeaponPosTemp;
     Vector3 rightWeaponPosTemp;
@@ -55,6 +56,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     void Update()
     {
+        if (PlayerCtrl.Instance.isDead) return;
         curtime += Time.deltaTime;
 
         RotateGun();

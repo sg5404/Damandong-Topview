@@ -168,6 +168,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
             OnDie?.Invoke();
             Debug.Log($"플레이어 사망!");
             IsDead = true;
+            PlayerCtrl.Instance.isDead = true;
             animator.SetTrigger("Die");
             return;
         }
