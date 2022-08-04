@@ -15,4 +15,11 @@ public class TownBtnManager : MonoBehaviour
         TownUIManager.Instance.ToggleGoDungeonPanel(false);
     }
 
+    public void Click()
+    {
+        TownUIManager.Instance.DisActiveAllPanel();
+        TownUIManager.Instance.isDialogueWithSmith = false;
+        TownUIManager.Instance.isDialogue = false;
+    }
+
 }

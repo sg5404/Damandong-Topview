@@ -71,6 +71,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         set
         {
             _mainMaxMagazine = value;
+            UIManager.Instance.main_magazineQuantity.text = $"{_mainMaxMagazine}/{_mainMaxMagazine}";
         }
     }
 
@@ -89,7 +90,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
             {
                 _subMagazine = 0;
             }
-            UIManager.Instance.main_magazineQuantity.text = $"{_subMagazine}/{_subMaxMagazine}";
+            UIManager.Instance.sub_magazineQuantity.text = $"{_subMagazine}/{_subMaxMagazine}";
         }
     }
 
@@ -104,6 +105,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         set
         {
             _subMaxMagazine = value;
+            UIManager.Instance.sub_magazineQuantity.text = $"{_subMaxMagazine}/{_subMaxMagazine}";
         }
     }
 
