@@ -15,6 +15,12 @@ public class Move : MonoSingleton<Move>
 
     float shortestDisToNpc;
     private GameObject shortestNpcObj = null;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -82,6 +88,10 @@ public class Move : MonoSingleton<Move>
         playerDir.y = Mathf.Clamp(transform.position.y, -6.5f, 6.5f);
 
         transform.position = playerDir;
+        if (h != 0 || v != 0) 
+            animator.SetBool("isMove", true);
+        else
+            animator.SetBool("isMove", false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

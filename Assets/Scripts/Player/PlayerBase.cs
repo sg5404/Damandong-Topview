@@ -8,6 +8,8 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     [SerializeField]
     private PlayerModule _playerModule;
 
+    private Animator animator;
+
     #region 캐릭터 기본 수치
     private int _hp;
     public int Hp
@@ -146,6 +148,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         _maxHp = _playerModule.HP;
         Hp = _maxHp;
         Def = _playerModule.def;
@@ -155,6 +158,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     }
     public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
+        Debug.Log("플레이어 적중");
         if (IsDead) return;
         Hp -= damage;
         OnGetHit?.Invoke();
@@ -164,6 +168,9 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
             OnDie?.Invoke();
             Debug.Log($"플레이어 사망!");
             IsDead = true;
+            animator.SetTrigger("Die");
+            return;
         }
+        animator.SetTrigger("Hit");
     }
 }

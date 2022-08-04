@@ -24,9 +24,11 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     private Inventory inventory;
 
+    private Animator animator;
+
     private void Awake()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -49,6 +51,10 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
         WeaponEquip();
         WeaponChange();
         GetItem();
+        if (h != 0 || v != 0)
+            animator.SetBool("isMove", true);
+        else
+            animator.SetBool("isMove", false);
     }
 
     private void WeaponEquip()
