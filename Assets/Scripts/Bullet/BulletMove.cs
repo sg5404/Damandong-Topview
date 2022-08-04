@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletMove : Bullet
 {
 
+    private float timer = 0;
     public override BulletModule BulletData 
     { 
         get => _bulletModule;
@@ -15,15 +16,20 @@ public class BulletMove : Bullet
     }
     void Update()
     {
+        timer += Time.deltaTime;
         transform.Translate(Vector3.right * _bulletModule.speed * Time.deltaTime);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet")) return;
-        CharBase hit = collision.GetComponent<CharBase>();
-        if (hit.IsEnemy == IsEnemy) return;
+        var hit = collision.GetComponent<CharBase>();
+        //if (hit.IsEnemy == IsEnemy) return;
         hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
-        
+        if (collision.CompareTag("Player"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

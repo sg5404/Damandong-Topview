@@ -16,11 +16,23 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     [SerializeField] TextMeshProUGUI content;
 
     [Header("대장장이")]
-    [SerializeField] string smithName = "Smith";
-    [SerializeField] string smithContent = "Welcome! Wanna Change your Weapon?";
+    //[SerializeField] string smithName = "Smith";
+    [SerializeField] string smithName = "대장장이";
+    //[SerializeField] string smithContent = "Welcome! Wanna change your weapon?";
+    [SerializeField] string smithContent = "어서오게나! 무기를 바꾸고싶나?";
     [SerializeField] GameObject changeWeaponPanel;
 
+    [Header("판매원")]
+    //[SerializeField] string salesmanName = "SalesMan";
+    [SerializeField] string salesmanName = "판매원";
+    //[SerializeField] string salesmanContent = "No items have been added to the store yet!";
+    [SerializeField] string salesmanContent = "상점에 아이템재고가 들어오지 않았습니다!";
+
+    // AboutInteraction
     public bool isDialogue = false;
+    public bool isDialogueWithNpc = false;
+    public bool isWeaponChoose = false;
+
 
     private bool isFirst = false;
 
@@ -31,6 +43,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         {
             isFirst = true;
             changeWeaponPanel.SetActive(true);
+            isWeaponChoose = true;
         }
     }
 
@@ -51,36 +64,48 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         SceneManager.LoadScene(2);
     }
 
-    public bool isDialogueWithSmith { private set; get; } = false;
-    public IEnumerator InteractionSmith()
+    public void InteractionSmith()
     {
         if (isDialogue)
         {
-            isDialogueWithSmith = true;
-
+            isDialogueWithNpc = true;
+            isDialogue = false;
             Debug.Log("ChangeWeapon");
             dialoguePanel.SetActive(false);
             changeWeaponPanel.SetActive(true);
-            yield return new WaitForSeconds(3f);
-            isDialogueWithSmith = false;
-            changeWeaponPanel.SetActive(false);
         }
         else
         {
             Debug.Log("dialogueWithSmith");
-            npcName.text = smithName;
-            content.text = smithContent;
+            SetDialogueInfo(smithName, smithContent);
+            DialogueSystem.Instance.Begin();
+            dialoguePanel.SetActive(true);
+            isWeaponChoose = true;
+            isDialogue = true;
+        }
+    }
+
+    public void InteractionSalesman()
+    {
+        if (isDialogue)
+        {
+            isDialogue = false;
+            dialoguePanel.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("dialogueWithSalesMan");
+            SetDialogueInfo(salesmanName, salesmanContent);
+            DialogueSystem.Instance.Begin();
             dialoguePanel.SetActive(true);
             isDialogue = true;
-            yield return new WaitForSeconds(5f);
-            if(!isDialogueWithSmith)
-            {
-                dialoguePanel.SetActive(false);
-                isDialogue = false;
-            }
-            
         }
+    }
 
-
+    public void SetDialogueInfo(string name, string content)
+    {
+        Dialogue.Instance.NpcName = name;
+        Dialogue.Instance.sentences.Clear();
+        Dialogue.Instance.sentences.Add(content);
     }
 }

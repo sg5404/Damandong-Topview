@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 369060281423655248}
   - component: {fileID: 1778688723553902710}
   - component: {fileID: 2525953634539425346}
+  - component: {fileID: 4623286013522415231}
   m_Layer: 0
   m_Name: Bullet_Flower
   m_TagString: Bullet
@@ -107,10 +108,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4283388534896220500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53b7f8833e8c718488f7b0eb85636370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletModule: {fileID: 11400000, guid: 11515465864d94344b43498880866782, type: 2}
+  damage: 1
   speed: 10
   time: 3
+--- !u!114 &4623286013522415231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4283388534896220500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405159d081b36b14ca559b3141b579c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletModule: {fileID: 11400000, guid: 11515465864d94344b43498880866782, type: 2}
+  damage: 1

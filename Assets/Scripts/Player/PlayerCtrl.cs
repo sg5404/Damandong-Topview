@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-public class PlayerCtrl : MonoBehaviour
+public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 {
     Rigidbody2D rigid;
 
@@ -17,16 +17,20 @@ public class PlayerCtrl : MonoBehaviour
     bool isItem = false;
 
     GameObject nearObject;
-    private WeaponSet weaponSet = null;
+    public WeaponSet weaponSet { private set; get; } = null;
 
     public GameObject[] leftWeapons;
     public GameObject[] rightWeapons;
 
     private Inventory inventory;
 
+    private Animator animator;
+
+    public bool isDead { set; get; }
+
     private void Awake()
     {
-        //PlayerManager.Instance.Stat.MainMaxMagazine = GetComponentInChildren<WeaponModule>().maxMagaine;
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -36,16 +40,28 @@ public class PlayerCtrl : MonoBehaviour
         weaponSet = GetComponent<WeaponSet>();
         ActiveFalseAllWepaon();
         leftWeapons[0].SetActive(true);
+
+        PlayerManager.Instance.Stat.MainMaxMagazine = rightWeapons[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine;
+        PlayerManager.Instance.Stat.SubMaxMagazine = leftWeapons[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine;
     }
 
     void Update()
     {
+        if (isDead)
+        {
+            rigid.velocity = new Vector2(0, 0);
+            return;
+        }
         float h = Input.GetAxisRaw("Horizontal") * speed;
         float v = Input.GetAxisRaw("Vertical") * speed;
         rigid.velocity = new Vector2(h, v);
         WeaponEquip();
         WeaponChange();
         GetItem();
+        if (h != 0 || v != 0)
+            animator.SetBool("isMove", true);
+        else
+            animator.SetBool("isMove", false);
     }
 
     private void WeaponEquip()

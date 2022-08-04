@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour, CharBase
 {
     [SerializeField]
     private EnemyModule _enemyModule;
+    [SerializeField]
+    private Image hpBarImage;
 
     #region 캐릭터 기본 수치
+    public float MaxHp;
     public int _hp;
     public int Hp
     {
@@ -63,6 +67,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     private void Start()
     {
         enemy = GetComponent<Enemyflower>();
+        MaxHp = Hp;
     }
     private void Update()
     {
@@ -75,6 +80,7 @@ public class EnemyBase : MonoBehaviour, CharBase
         if(_statusAilment==StatusAilments.None)
             _statusAilment = status;
         Hp -= damage;
+        hpBarImage.fillAmount = Hp / MaxHp;
         if (Hp <= 0)
         {
             OnDie?.Invoke();

@@ -8,6 +8,8 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     [SerializeField]
     private PlayerModule _playerModule;
 
+    private Animator animator;
+
     #region 캐릭터 기본 수치
     private int _hp;
     public int Hp
@@ -71,6 +73,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         set
         {
             _mainMaxMagazine = value;
+            UIManager.Instance.main_magazineQuantity.text = $"{_mainMaxMagazine}/{_mainMaxMagazine}";
         }
     }
 
@@ -89,7 +92,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
             {
                 _subMagazine = 0;
             }
-            UIManager.Instance.main_magazineQuantity.text = $"{_subMagazine}/{_subMaxMagazine}";
+            UIManager.Instance.sub_magazineQuantity.text = $"{_subMagazine}/{_subMaxMagazine}";
         }
     }
 
@@ -104,6 +107,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         set
         {
             _subMaxMagazine = value;
+            UIManager.Instance.sub_magazineQuantity.text = $"{_subMaxMagazine}/{_subMaxMagazine}";
         }
     }
 
@@ -144,6 +148,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         _maxHp = _playerModule.HP;
         Hp = _maxHp;
         Def = _playerModule.def;
@@ -153,8 +158,9 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     }
     public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
+        Debug.Log("플레이어 적중");
         if (IsDead) return;
-        Hp -= damage;
+        PlayerManager.Instance.Damaged(damage);
         OnGetHit?.Invoke();
         _statusAilment = status;
         if (Hp <= 0)
@@ -162,6 +168,10 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
             OnDie?.Invoke();
             Debug.Log($"플레이어 사망!");
             IsDead = true;
+            PlayerCtrl.Instance.isDead = true;
+            animator.SetTrigger("Die");
+            return;
         }
+        animator.SetTrigger("Hit");
     }
 }
