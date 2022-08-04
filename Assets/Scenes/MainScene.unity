@@ -12776,6 +12776,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7356145456513179318, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 7520394150547491625, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_FlipY
       value: 0

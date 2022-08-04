@@ -26,6 +26,9 @@ public class UIManager : MonoSingleton<UIManager>
     {
         DisableAllWeaponSpriteImg();
         subWeaponImageObj[weaponNumber].SetActive(true);
+
+        main_magazineQuantity.text = $"{PlayerCtrl.Instance.rightWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().x - 1].GetComponent<Consumable>().weaponModule.magazine}/{PlayerCtrl.Instance.rightWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().x - 1].GetComponent<Consumable>().weaponModule.maxMagazine}";
+        sub_magazineQuantity.text = $"{PlayerCtrl.Instance.leftWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.magazine}/{PlayerCtrl.Instance.leftWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine}";
     }
 
     void DisableAllWeaponSpriteImg()
