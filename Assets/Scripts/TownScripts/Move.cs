@@ -35,6 +35,7 @@ public class Move : MonoSingleton<Move>
         {
             TownUIManager.Instance.DisActiveAllPanel();
             TownUIManager.Instance.isDialogue = false;
+            TownUIManager.Instance.isDialogueWithSmith = false;
         }
     }
 

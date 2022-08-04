@@ -51,7 +51,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         SceneManager.LoadScene(2);
     }
 
-    public bool isDialogueWithSmith { private set; get; } = false;
+    public bool isDialogueWithSmith = false;
     public IEnumerator InteractionSmith()
     {
         if (isDialogue)
@@ -61,9 +61,6 @@ public class TownUIManager : MonoSingleton<TownUIManager>
             Debug.Log("ChangeWeapon");
             dialoguePanel.SetActive(false);
             changeWeaponPanel.SetActive(true);
-            yield return new WaitForSeconds(3f);
-            isDialogueWithSmith = false;
-            changeWeaponPanel.SetActive(false);
         }
         else
         {
@@ -72,7 +69,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
             content.text = smithContent;
             dialoguePanel.SetActive(true);
             isDialogue = true;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             if(!isDialogueWithSmith)
             {
                 dialoguePanel.SetActive(false);

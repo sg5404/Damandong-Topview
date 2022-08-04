@@ -52,7 +52,7 @@ public class MoveTownObj : MonoBehaviour
         townObjpos[temp].position = tempPos;
         MainObjs.SetActive(true);
         OutObj.SetActive(false);
-        transform.position = townObjlist[temp].transform.position + new Vector3(0, -2.5f, 0);
+        transform.position = townObjlist[temp].transform.position + new Vector3(0, -3f, 0);
     }
 
     void GetInTownObj()
