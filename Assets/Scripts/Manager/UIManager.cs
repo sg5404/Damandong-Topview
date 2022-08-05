@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
 {
+    [SerializeField] GameObject pausePanel;
+
     [SerializeField] Sprite[] weaponSprites;
 
     [SerializeField] GameObject[] mainWeaponImageObj; // right
@@ -16,10 +19,21 @@ public class UIManager : MonoSingleton<UIManager>
     //[SerializeField] public TextMeshProUGUI main_magazineQuantity;
     //[SerializeField] public TextMeshProUGUI sub_magazineQuantity;
 
+    private bool isStoped = false;
+
     private void Start()
     {
+        pausePanel.SetActive(false);
         ChangeUIWeaponSpriteImg(PlayerAttack.Instance.leftWeapon);
         mainWeaponImageObj[PlayerAttack.Instance.rightWeapon].SetActive(true);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePausePanel();
+        }
     }
 
     public void ChangeUIWeaponSpriteImg(int leftWeaponNumber)
@@ -36,5 +50,21 @@ public class UIManager : MonoSingleton<UIManager>
         {
             imgItem.SetActive(false);
         }
+    }
+
+    public void TogglePausePanel()
+    {
+        pausePanel.SetActive(!pausePanel.activeSelf);
+        isStoped = !isStoped;
+        if (isStoped)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
+    }
+
+    public void ReturnToTown()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("TownScene");
     }
 }

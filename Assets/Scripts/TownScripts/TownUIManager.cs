@@ -9,6 +9,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
 {
     [SerializeField] GameObject dungeonPortal;
     [SerializeField] GameObject goDungeonPanel;
+    [SerializeField] GameObject pausePanel;
 
     [Header("Dialogue")]
     [SerializeField] GameObject dialoguePanel;
@@ -33,7 +34,6 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     public bool isDialogueWithNpc = false;
     public bool isWeaponChoose = false;
 
-
     private bool isFirst = false;
 
     private void Start()
@@ -46,10 +46,17 @@ public class TownUIManager : MonoSingleton<TownUIManager>
             isWeaponChoose = true;
         }
     }
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)&&!isWeaponChoose)
+        {
+            TogglePausePanel(!pausePanel.activeSelf);
+        }
+    }
     public void DisActiveAllPanel()
     {
         goDungeonPanel.SetActive(false);
+        TogglePausePanel(false);
         dialoguePanel.SetActive(false);
         changeWeaponPanel.SetActive(false);
     }
@@ -57,6 +64,12 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     public void ToggleGoDungeonPanel(bool isActive)
     {
         goDungeonPanel.SetActive(isActive);
+    }
+
+    public void TogglePausePanel(bool isActive)
+    {
+        pausePanel.SetActive(isActive);
+        Move.Instance.TogglePause(isActive);
     }
 
     public void MoveToMainScene()

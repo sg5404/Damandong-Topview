@@ -17,6 +17,8 @@ public class Move : MonoSingleton<Move>
     private GameObject shortestNpcObj = null;
     private Animator animator;
 
+    private bool isStop = false;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -24,6 +26,7 @@ public class Move : MonoSingleton<Move>
 
     void Update()
     {
+        if (isStop) return;
         Interaction();
         MovePlayer();
     }
@@ -108,5 +111,10 @@ public class Move : MonoSingleton<Move>
         {
             TownUIManager.Instance.ToggleGoDungeonPanel(false);
         }
+    }
+
+    public void TogglePause(bool stop)
+    {
+        isStop = stop;
     }
 }
