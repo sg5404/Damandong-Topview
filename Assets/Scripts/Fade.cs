@@ -13,7 +13,7 @@ public class Fade : MonoSingleton<Fade>
 
     private void Awake()
     {
-        fadeImg.gameObject.SetActive(false);
+        fadeImg.gameObject.SetActive(true);
     }
 
     public void FadeIn()
@@ -31,7 +31,6 @@ public class Fade : MonoSingleton<Fade>
         yield return new WaitForSeconds(fadeTime);
         fadeImg.raycastTarget = false;
         isFade = false;
-        fadeImg.gameObject.SetActive(isFade);
 
         yield break;
     }

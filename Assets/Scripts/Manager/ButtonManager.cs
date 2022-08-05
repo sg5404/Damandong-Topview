@@ -12,6 +12,11 @@ public class ButtonManager : MonoBehaviour
     [SerializeField]
     private GameObject QuitButton;
 
+    private void Start()
+    {
+        Fade.Instance.FadeOut();
+    }
+
     public void GameStart()
     {
         StartCoroutine(GameStartCoroutine());
