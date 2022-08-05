@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TownScene.unity
     guid: b04c3f9ca774d20419d9936eb1cf62e6
   - enabled: 1
+    path: Assets/Scenes/KHS/WaveScene.unity
+    guid: 479e50528e4b9be4a852bbf04c96b48a
+  - enabled: 0
     path: Assets/Scenes/MainScene(Copy).unity
     guid: ee54620f1a1310d4aaf83fdbbef6887b
   - enabled: 0

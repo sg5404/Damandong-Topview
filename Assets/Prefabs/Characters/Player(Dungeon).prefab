@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 9034370364741056562}
   - component: {fileID: 9034370364741056563}
   - component: {fileID: 2840256621350119901}
+  - component: {fileID: 9034370365618243909}
   m_Layer: 0
   m_Name: Player(Dungeon)
   m_TagString: Player
@@ -203,10 +204,10 @@ MonoBehaviour:
   - {fileID: 242960379315766809}
   - {fileID: 2621744056192747614}
   rightWeapons:
-  - {fileID: 7520394150547491626}
-  - {fileID: 6889814173598943099}
-  - {fileID: 242960379315766809}
-  - {fileID: 2621744056192747614}
+  - {fileID: 7520394150224838015}
+  - {fileID: 6889814173951589204}
+  - {fileID: 242960378285843466}
+  - {fileID: 2621744057635854137}
 --- !u!50 &9034370364741056557
 Rigidbody2D:
   serializedVersion: 4
@@ -246,6 +247,7 @@ MonoBehaviour:
   granadeBullet: {fileID: 99796228922257285, guid: 0f35a0e737d72964a8569f4bf25888f9, type: 3}
   bulletTransform: {fileID: 7895972306297062016}
   leftGunpoint: {fileID: 1412715253867174988}
+  rightGunpoint: {fileID: 5459691385256259292}
   weaponObj: {fileID: 7356145456513179318}
   leftWeaponPos: {fileID: 9034370366675662876}
   rightWeaponPos: {fileID: 9034370366507896662}
@@ -256,7 +258,7 @@ MonoBehaviour:
   - {fileID: 3507921582336591286}
   fireEff2:
   - {fileID: 8670105509908832000}
-  - {fileID: 8670105509908832000}
+  - {fileID: 7080002107442354492}
   - {fileID: 5452249863224789327}
   - {fileID: 3507921580894542545}
   leftWeaponList:
@@ -271,8 +273,8 @@ MonoBehaviour:
   - {fileID: 2621744057635854137}
   module:
   - {fileID: 11400000, guid: a32b6b6ddec68ea4083f71d5c94cd067, type: 2}
-  - {fileID: 11400000, guid: a2907cc1be88cd1479b3772339dd98ee, type: 2}
   - {fileID: 11400000, guid: 594a41ffda4c11a4a84e9ed2ad6145ed, type: 2}
+  - {fileID: 11400000, guid: a2907cc1be88cd1479b3772339dd98ee, type: 2}
   - {fileID: 11400000, guid: 521a71e8a599be048b709078ab5228b1, type: 2}
 --- !u!114 &9034370364741056560
 MonoBehaviour:
@@ -364,6 +366,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &9034370365618243909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034370364741056553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994862a3cc1f7154688808e740a3d34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 0}
 --- !u!1 &9034370366507896662
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521187341821710911, guid: 0e53d9c620bbb2946ae4d695948a244f, type: 3}
       propertyPath: m_Name
-      value: Sniper
+      value: LSniper
       objectReference: {fileID: 0}
     - target: {fileID: 2521187341821710911, guid: 0e53d9c620bbb2946ae4d695948a244f, type: 3}
       propertyPath: m_IsActive
@@ -563,7 +578,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6413910573505714983, guid: 41a1123da8be94840b0469ca9bfa2735, type: 3}
       propertyPath: m_Name
-      value: Granade
+      value: LGranade
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413910573505714983, guid: 41a1123da8be94840b0469ca9bfa2735, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41a1123da8be94840b0469ca9bfa2735, type: 3}
@@ -635,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6413910573505714983, guid: 41a1123da8be94840b0469ca9bfa2735, type: 3}
       propertyPath: m_Name
-      value: Granade
+      value: RGranade
       objectReference: {fileID: 0}
     - target: {fileID: 6413910573505714983, guid: 41a1123da8be94840b0469ca9bfa2735, type: 3}
       propertyPath: m_IsActive
@@ -711,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097179808289342759, guid: c740e49441fc7b749b31772fff910036, type: 3}
       propertyPath: m_Name
-      value: ShotGun
+      value: LShotGun
       objectReference: {fileID: 0}
     - target: {fileID: 9097179808289342759, guid: c740e49441fc7b749b31772fff910036, type: 3}
       propertyPath: m_IsActive
@@ -791,7 +810,7 @@ PrefabInstance:
       objectReference: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
     - target: {fileID: 2521187341821710911, guid: 0e53d9c620bbb2946ae4d695948a244f, type: 3}
       propertyPath: m_Name
-      value: Sniper
+      value: RSniper
       objectReference: {fileID: 0}
     - target: {fileID: 2521187341821710911, guid: 0e53d9c620bbb2946ae4d695948a244f, type: 3}
       propertyPath: m_IsActive
@@ -807,6 +826,11 @@ GameObject:
 --- !u!4 &6889814173951589207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2521187341821710908, guid: 0e53d9c620bbb2946ae4d695948a244f, type: 3}
+  m_PrefabInstance: {fileID: 9034370366082607467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7080002107442354492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2243284770047209559, guid: 0e53d9c620bbb2946ae4d695948a244f, type: 3}
   m_PrefabInstance: {fileID: 9034370366082607467}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9034370366323788884
@@ -862,11 +886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1530460098753212715, guid: 7718d5b84b3a88d4b973d02ca681e33e, type: 3}
       propertyPath: m_Name
-      value: Rifle
+      value: RRifle
       objectReference: {fileID: 0}
     - target: {fileID: 1530460098753212715, guid: 7718d5b84b3a88d4b973d02ca681e33e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7718d5b84b3a88d4b973d02ca681e33e, type: 3}
@@ -938,7 +962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097179808289342759, guid: c740e49441fc7b749b31772fff910036, type: 3}
       propertyPath: m_Name
-      value: ShotGun
+      value: RShotGun
       objectReference: {fileID: 0}
     - target: {fileID: 9097179808289342759, guid: c740e49441fc7b749b31772fff910036, type: 3}
       propertyPath: m_IsActive
@@ -1014,7 +1038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1530460098753212715, guid: 7718d5b84b3a88d4b973d02ca681e33e, type: 3}
       propertyPath: m_Name
-      value: Rifle
+      value: LRifle
       objectReference: {fileID: 0}
     - target: {fileID: 1530460098753212715, guid: 7718d5b84b3a88d4b973d02ca681e33e, type: 3}
       propertyPath: m_IsActive
