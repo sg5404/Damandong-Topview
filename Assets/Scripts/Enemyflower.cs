@@ -50,6 +50,8 @@ public class Enemyflower : MonoBehaviour
 
     Vector2 targetDir;
 
+    private GameObject Player;
+
     void Start()
     {
 
