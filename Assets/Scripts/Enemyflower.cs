@@ -61,12 +61,6 @@ public class Enemyflower : MonoBehaviour
         distanceShow.localScale = new Vector3(atkdistance * 2, atkdistance * 2, 0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void StatSet()
     {
         reloadTime = weaponreloadTime[(int)flowertype];
@@ -84,6 +78,7 @@ public class Enemyflower : MonoBehaviour
     {
         if (_enemyBase._statusAilment == StatusAilments.Stun) return;
         GameObject _bullet = GetBulletinPool();
+        _bullet.transform.SetParent(null);
         targetDir = (GameManager.Instance.Playertransform.position - transform.position);
         //Debug.DrawRay(gameObject.transform.position, targetDir*100, Color.green,10);
 

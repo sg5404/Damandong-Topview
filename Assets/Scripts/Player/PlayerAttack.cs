@@ -64,7 +64,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         rightWeaponPosTemp = rightWeaponPos.transform.localPosition;
 
         fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(false);
-        
+
+        CurrentWeapon();
     }
 
     void Update()

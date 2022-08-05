@@ -47,9 +47,10 @@ public class Move : MonoSingleton<Move>
                 }
             }
 
+            Debug.Log(Vector2.Distance(transform.position, shortestNpcObj.transform.position));
             Debug.Log(shortestNpcObj.tag);
 
-            if (Vector2.Distance(transform.position, shortestNpcObj.transform.position) <= 3f
+            if (Vector2.Distance(transform.position, shortestNpcObj.transform.position) <= 2f
                 && !TownUIManager.Instance.isDialogueWithNpc)
             {
                 switch (shortestNpcObj.tag)
@@ -66,7 +67,7 @@ public class Move : MonoSingleton<Move>
 
         if(shortestNpcObj != null)
         {
-            if (Vector2.Distance(transform.position, shortestNpcObj.transform.position) >= 5f
+            if (Vector2.Distance(transform.position, shortestNpcObj.transform.position) >= 2.5f
                 && Vector2.Distance(transform.position, shortestNpcObj.transform.position) <= 10f)
                 {
                     TownUIManager.Instance.DisActiveAllPanel();
