@@ -11,7 +11,7 @@ public class Fade : MonoSingleton<Fade>
 
     public bool isFade = false;
 
-    private void Start()
+    private void Awake()
     {
         fadeImg.gameObject.SetActive(false);
     }
@@ -25,12 +25,13 @@ public class Fade : MonoSingleton<Fade>
     private IEnumerator FadeInCoroutine()
     {
         isFade = true;
-        fadeImg.gameObject.SetActive(true);
+        fadeImg.gameObject.SetActive(isFade);
         fadeImg.fillOrigin = 0;
         fadeImg.DOFade(1f, fadeTime).From(0f);
         yield return new WaitForSeconds(fadeTime);
         fadeImg.raycastTarget = false;
         isFade = false;
+        fadeImg.gameObject.SetActive(isFade);
 
         yield break;
     }
@@ -44,12 +45,12 @@ public class Fade : MonoSingleton<Fade>
     private IEnumerator FadeOutCoroutine()
     {
         isFade = true;
-        fadeImg.gameObject.SetActive(true);
+        fadeImg.gameObject.SetActive(isFade);
         fadeImg.fillOrigin = 1;
         fadeImg.DOFade(0f, fadeTime).From(1f);
         yield return new WaitForSeconds(fadeTime);
         isFade = false;
-        fadeImg.gameObject.SetActive(false);
+        fadeImg.gameObject.SetActive(isFade);
         fadeImg.raycastTarget = false;
 
         yield break;
