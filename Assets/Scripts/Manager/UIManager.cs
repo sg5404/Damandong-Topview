@@ -26,6 +26,7 @@ public class UIManager : MonoSingleton<UIManager>
         pausePanel.SetActive(false);
         ChangeUIWeaponSpriteImg(PlayerAttack.Instance.leftWeapon);
         mainWeaponImageObj[PlayerAttack.Instance.rightWeapon].SetActive(true);
+        Fade.Instance.FadeOut();
     }
 
     private void Update()
@@ -65,6 +66,12 @@ public class UIManager : MonoSingleton<UIManager>
     public void ReturnToTown()
     {
         Time.timeScale = 1;
+    }
+
+    public IEnumerator ReturnToTownCoroutine()
+    {
+        Fade.Instance.FadeIn();
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("TownScene");
     }
 }

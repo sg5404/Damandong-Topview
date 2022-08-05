@@ -39,6 +39,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     private void Start()
     {
         DisActiveAllPanel();
+        Fade.Instance.FadeOut();
         if (!isFirst)
         {
             isFirst = true;

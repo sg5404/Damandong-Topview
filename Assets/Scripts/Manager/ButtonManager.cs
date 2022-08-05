@@ -14,6 +14,13 @@ public class ButtonManager : MonoBehaviour
 
     public void GameStart()
     {
+        StartCoroutine(GameStartCoroutine());
+    }
+
+    public IEnumerator GameStartCoroutine()
+    {
+        Fade.Instance.FadeIn();
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);
     }
 
