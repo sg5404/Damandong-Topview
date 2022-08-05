@@ -122,4 +122,9 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         Dialogue.Instance.sentences.Clear();
         Dialogue.Instance.sentences.Add(content);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

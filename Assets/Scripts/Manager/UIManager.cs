@@ -74,4 +74,9 @@ public class UIManager : MonoSingleton<UIManager>
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("TownScene");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
