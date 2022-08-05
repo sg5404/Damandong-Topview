@@ -50,6 +50,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer
+  - name: GROUND
     uniqueID: 2055622649
+    locked: 0
+  - name: WALL
+    uniqueID: 4033151045
+    locked: 0
+  - name: OBJECT
+    uniqueID: 781458697
+    locked: 0
+  - name: PLAYER
+    uniqueID: 3973480935
     locked: 0

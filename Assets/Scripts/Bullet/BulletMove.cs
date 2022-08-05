@@ -14,6 +14,12 @@ public class BulletMove : Bullet
             base.BulletData = value;
         }
     }
+
+    private void Start()
+    {
+        IsEnemy = BulletData.isEnemy;
+    }
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -23,9 +29,9 @@ public class BulletMove : Bullet
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet")) return;
+        if (!collision.CompareTag("Enemy")&&!collision.CompareTag("Player")) return;
         var hit = collision.GetComponent<CharBase>();
-        //if (hit.IsEnemy == IsEnemy) return;
+        if (hit.IsEnemy == IsEnemy) return;
         hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
         if (collision.CompareTag("Player"))
         {

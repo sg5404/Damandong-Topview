@@ -34,7 +34,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     public bool isDialogueWithNpc = false;
     public bool isWeaponChoose = false;
 
-    private bool isFirst = false;
+    private static bool isFirst = false;
 
     private void Start()
     {
