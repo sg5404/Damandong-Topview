@@ -9,6 +9,7 @@ public class MoveTownObj : MonoBehaviour
     [SerializeField] float shortestDis;
     [SerializeField] GameObject MainObjs;
     [SerializeField] GameObject OutObj;
+    [SerializeField] GameObject tileBase;
 
     int temp = 0;
 
@@ -33,8 +34,9 @@ public class MoveTownObj : MonoBehaviour
             yield return new WaitForSeconds(Fade.Instance.fadeTime);
             GetInTownObj();
             Fade.Instance.FadeOut();
+            tileBase.SetActive(false);
         }
-
+        
         if(collision.CompareTag("OutDoor"))
         {
             if (Fade.Instance.isFade) yield return null;
@@ -42,6 +44,7 @@ public class MoveTownObj : MonoBehaviour
             yield return new WaitForSeconds(Fade.Instance.fadeTime);
             GetOutTownObj();
             Fade.Instance.FadeOut();
+            tileBase.SetActive(true);
         }
 
         yield break;

@@ -20,6 +20,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     [SerializeField]
     private GameObject leftGunpoint = null;
     [SerializeField]
+    private GameObject rightGunpoint = null;
+    [SerializeField]
     private GameObject weaponObj = null;
     [SerializeField]
     private GameObject leftWeaponPos = null;
@@ -35,9 +37,12 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     private Vector2 weaponPos;
 
     public WeaponModule[] module;
-    public int weapon { private set; get; } = 0;
+    public int leftWeapon { private set; get; } = 0;
+    public int rightWeapon { private set; get; } = 0;
 
-    private float curtime = 0;
+    private float leftCurtime = 0;
+    private float rightCurtime = 0;
+
     private float timer = 0;
     float rotation;
 
@@ -65,7 +70,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     void Update()
     {
         Debug.Log((int)weaponSet.SetWeaponNum().y - 1);
-        curtime += Time.deltaTime;
+        leftCurtime += Time.deltaTime;
+        rightCurtime += Time.deltaTime;
 
         RotateGun();
 
@@ -116,8 +122,11 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     {
         float num = 0;
         gameObject.GetComponent<SpriteRenderer>().flipX = isturn;
-        rightWeaponList[(int)weaponSet.SetWeaponNum().x - 1].GetComponent<SpriteRenderer>().flipY = isturn;
-        leftWeaponList[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<SpriteRenderer>().flipY = isturn;
+        rightWeaponList[rightWeapon].GetComponent<SpriteRenderer>().flipY = isturn;
+        leftWeaponList[leftWeapon].GetComponent<SpriteRenderer>().flipY = isturn;
+
+        //rightWeaponList[(int)weaponSet.SetWeaponNum().x - 1].GetComponent<SpriteRenderer>().flipY = isturn;
+        //leftWeaponList[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<SpriteRenderer>().flipY = isturn;
         weaponObj.transform.localPosition = new Vector2(weaponPos.x * TurnCheck(isturn), weaponPos.y);
         
     }
@@ -147,61 +156,112 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     void CurrentWeapon()
     {
-        switch (weaponSet.SubWeaponState) // 총알발사 가능하게끔 하기
+        switch (weaponSet.SubWeaponState)
         {
             case WeaponKind.RIFLE:
-                weapon = 0;
-                Fire();
+                leftWeapon = 0;
+                LeftWeaponFire();
                 break;
             case WeaponKind.SNIPER:
-                weapon = 1;
-                Fire();
+                leftWeapon = 1;
+                LeftWeaponFire();
                 break;
             case WeaponKind.SHOTGUN:
-                weapon = 2;
-                ShotGunFire();
+                leftWeapon = 2;
+                LeftShotGunFire();
                 break;
             case WeaponKind.GRANADE:
-                weapon = 3;
-                Fire();
+                leftWeapon = 3;
+                LeftWeaponFire();
                 break;
             default:
                 break;
-                
+        }
+
+        switch (weaponSet.MainWeaponState)
+        {
+            case WeaponKind.RIFLE:
+                rightWeapon = 0;
+                RightWeaponFire();
+                break;
+            case WeaponKind.SNIPER:
+                rightWeapon = 1;
+                RightWeaponFire();
+                break;
+            case WeaponKind.SHOTGUN:
+                rightWeapon = 2;
+                RightShotGunFire();
+                break;
+            case WeaponKind.GRANADE:
+                rightWeapon = 3;
+                RightWeaponFire();
+                break;
+            default:
+                break;
         }
     }
 
-    void Fire()
+    void LeftWeaponFire()
     {
         if (Input.GetMouseButton(0))
         {
-            if (inventoryScript.isShop) return;
+            if (inventoryScript.isShop)/* || PlayerManager.Instance.Stat.SubMagazine == 0)*/ return;
 
-            if(curtime >= module[weapon].atkSpeed)
+            if (leftCurtime >= module[leftWeapon].atkSpeed)
             {
                 GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
-                timer = 0.08f;
                 bullet.transform.SetParent(null);
-                curtime = 0;
+                //PlayerManager.Instance.Stat.SubMagazine -= 1;
+                leftCurtime = 0;
             }
-
         }
     }
 
-    void ShotGunFire()
+    void RightWeaponFire()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            if (inventoryScript.isShop)/* || PlayerManager.Instance.Stat.SubMagazine == 0)*/ return;
+
+            if (rightCurtime >= module[rightWeapon].atkSpeed)
+            {
+                GameObject bullet = Instantiate(rifleBullet, rightGunpoint.transform);
+                bullet.transform.SetParent(null);
+                rightCurtime = 0;
+            }
+        }
+    }
+
+    void LeftShotGunFire()
     {
         if (Input.GetMouseButton(0))
         {
-            if (curtime >= module[weapon].atkSpeed)
+            if (leftCurtime >= module[leftWeapon].atkSpeed)
             {
-                timer = 0.08f;
                 for (int i = 0; i <= 8; i++)
                 {
                     GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
-                    bullet.transform.Rotate(0, 0, Random.Range(-module[weapon].bulletSpread , module[weapon].bulletSpread));
+                    bullet.transform.Rotate(0, 0, Random.Range(-module[leftWeapon].bulletSpread, module[leftWeapon].bulletSpread));
                     bullet.transform.SetParent(null);
                 }
-                    curtime = 0;
+                leftCurtime = 0;
+            }
+        }
+    }
+
+    void RightShotGunFire()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            if (rightCurtime >= module[rightWeapon].atkSpeed)
+            {
+                for (int i = 0; i <= 8; i++)
+                {
+                    GameObject bullet = Instantiate(rifleBullet, rightGunpoint.transform);
+                    bullet.transform.Rotate(0, 0, Random.Range(-module[rightWeapon].bulletSpread, module[rightWeapon].bulletSpread));
+                    bullet.transform.SetParent(null);
+                }
+                rightCurtime = 0;
             }
         }
     }
