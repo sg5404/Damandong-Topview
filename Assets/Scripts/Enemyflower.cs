@@ -6,7 +6,8 @@ public enum flowerEnemyType
 {
     sniper = 0,
     rifle = 1,
-    shotgun = 2
+    shotgun = 2,
+    none,
 }
 
 public class Enemyflower : MonoBehaviour
@@ -49,18 +50,30 @@ public class Enemyflower : MonoBehaviour
     [SerializeField] private Transform distanceShow;
 
     Vector2 targetDir;
+    Vector2 dir;
 
     private GameObject Player;
+    private Rigidbody2D rigid;
+
+    [SerializeField]
+    private float speed;
 
     void Start()
     {
-
+        rigid = GetComponent<Rigidbody2D>();
         hp = stat.maxHp;
         CreateBulletPool();
         _enemyBase = GetComponent<EnemyBase>();
         StatSet();
         InvokeRepeating("CreateBullet", 2.0f, reloadTime);
         distanceShow.localScale = new Vector3(atkdistance * 2, atkdistance * 2, 0);
+    }
+
+    private void Update()
+    {
+        dir = targetDir.normalized;
+        rigid.velocity = dir * speed;
+        Debug.Log(dir);
     }
 
     void StatSet()

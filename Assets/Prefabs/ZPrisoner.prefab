@@ -107,8 +107,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -321486361
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8753161656554223558, guid: edbbddc59aa5a44b5bdc9c1b6f7b62f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -171,6 +171,7 @@ MonoBehaviour:
   - 10
   atkdistance: 10
   distanceShow: {fileID: 7848447395915284527}
+  speed: 2
 --- !u!114 &3327075006320048281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ MonoBehaviour:
   _enemyModule: {fileID: 11400000, guid: 681c52374d64fd4409627369f248a608, type: 2}
   hpBarImage: {fileID: 4280905198988456814}
   MaxHp: 0
-  _hp: 50
+  _hp: 150
   _isEnemy: 1
   _statusAilment: 0
   <OnDie>k__BackingField:
@@ -362,7 +363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7848447395915284527
 Transform:
   m_ObjectHideFlags: 0
@@ -414,8 +415,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -321486361
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.05882353}
@@ -505,11 +506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6683493173433761775, guid: b0336db87b4f35148b91913af8ba7e62, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5.9
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6683493173433761775, guid: b0336db87b4f35148b91913af8ba7e62, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -9.2
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6683493173433761775, guid: b0336db87b4f35148b91913af8ba7e62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
