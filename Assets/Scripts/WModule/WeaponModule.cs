@@ -18,4 +18,6 @@ public class WeaponModule : ScriptableObject
     public int maxMagazine;//최대 탄창
     public bool isInfiniteBullet;//한무 탄창
     public float reload;//재장전 시간
+
+    public GameObject bullet;
 }

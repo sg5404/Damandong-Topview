@@ -134,7 +134,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     void RotateWeapons(bool isturn)
     {
-        float num = 0;
         gameObject.GetComponent<SpriteRenderer>().flipX = isturn;
         rightWeaponList[rightWeapon].GetComponent<SpriteRenderer>().flipY = isturn;
         leftWeaponList[leftWeapon].GetComponent<SpriteRenderer>().flipY = isturn;
@@ -223,7 +222,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
             if (leftCurtime >= module[leftWeapon].atkSpeed)
             {
-                GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
+                GameObject bullet = Instantiate(module[leftWeapon].bullet, leftGunpoint.transform);
                 bullet.transform.SetParent(null);
                 //PlayerManager.Instance.Stat.SubMagazine -= 1;
                 leftCurtime = 0;
@@ -240,7 +239,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
             if (rightCurtime >= module[rightWeapon].atkSpeed)
             {
-                GameObject bullet = Instantiate(rifleBullet, rightGunpoint.transform);
+                GameObject bullet = Instantiate(module[rightWeapon].bullet, rightGunpoint.transform);
                 bullet.transform.SetParent(null);
                 rightCurtime = 0;
                 rightTimer = 0.08f;
