@@ -26,11 +26,14 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     private Animator animator;
 
+    public int rightWeapon { private set; get; } = 0;
+
     public bool isDead { set; get; }
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        rightWeapon = (int)WeaponSet.Instance.MainWeaponState - 1;
     }
 
     void Start()
@@ -42,7 +45,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
         Debug.Log(PlayerAttack.Instance.leftWeapon);
         leftWeapons[0].SetActive(true);
 
-        rightWeapons[PlayerAttack.Instance.rightWeapon].SetActive(true);
+        rightWeapons[rightWeapon].SetActive(true);
         //leftWeapons[PlayerAttack.Instance.leftWeapon].SetActive(true);
 
         //PlayerManager.Instance.Stat.MainMaxMagazine = rightWeapons[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine;

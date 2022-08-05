@@ -25,7 +25,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         pausePanel.SetActive(false);
         ChangeUIWeaponSpriteImg(PlayerAttack.Instance.leftWeapon);
-        mainWeaponImageObj[PlayerAttack.Instance.rightWeapon].SetActive(true);
+        mainWeaponImageObj[PlayerCtrl.Instance.rightWeapon].SetActive(true);
         Fade.Instance.FadeOut();
     }
 

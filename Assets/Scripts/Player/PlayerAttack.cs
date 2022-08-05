@@ -122,7 +122,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     void RotateGun()
     {
-
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         var direction = mousePosition - bulletTransform.position;
