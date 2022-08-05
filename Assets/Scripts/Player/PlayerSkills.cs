@@ -70,4 +70,9 @@ public class PlayerSkills : MonoBehaviour
         stun.transform.SetParent(null);
         stun.transform.DOMove(stun.transform.position + (stun.transform.right * 2.5f), 0.75f);
     }
+
+    public void None()
+    {
+
+    }
 }

@@ -26,6 +26,9 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     [SerializeField]
     private GameObject rightWeaponPos = null;
 
+    public List<GameObject> fireEff;
+    public List<GameObject> fireEff2;
+
     public GameObject[] leftWeaponList;
     public GameObject[] rightWeaponList;
 
@@ -35,6 +38,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     public int weapon { private set; get; } = 0;
 
     private float curtime = 0;
+    private float timer = 0;
+    float rotation;
 
     private WeaponSet weaponSet = null;
     private PlayerSkills playerSkills = null;
@@ -48,13 +53,18 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         weaponSet = GetComponent<WeaponSet>();
         playerSkills = GetComponent<PlayerSkills>();
         inventoryScript = FindObjectOfType<InventoryScript>();
+
         weaponPos = weaponObj.transform.localPosition;
         leftWeaponPosTemp = leftWeaponPos.transform.localPosition;
         rightWeaponPosTemp = rightWeaponPos.transform.localPosition;
+
+        fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(false);
+        
     }
 
     void Update()
     {
+        Debug.Log((int)weaponSet.SetWeaponNum().y - 1);
         curtime += Time.deltaTime;
 
         RotateGun();
@@ -65,6 +75,18 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             WeaponSkills();
         }
+
+        if (timer >= 0)
+        {
+            fireEff[(int)weaponSet.SetWeaponNum().y-1].SetActive(true);
+            fireEff[(int)weaponSet.SetWeaponNum().y-1].GetComponent<ParticleSystem>().startRotation = (rotation+180)/57.295f * -1;
+            //Debug.Log(rotation);
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            fireEff[(int)weaponSet.SetWeaponNum().y - 1].SetActive(false);
+        }
     }
 
     void RotateGun()
@@ -74,7 +96,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
         var direction = mousePosition - bulletTransform.position;
 
-        var rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         //Debug.Log(rotation);
         bulletTransform.rotation = Quaternion.Euler(0, 0, rotation);
@@ -96,22 +118,31 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         gameObject.GetComponent<SpriteRenderer>().flipX = isturn;
         rightWeaponList[(int)weaponSet.SetWeaponNum().x - 1].GetComponent<SpriteRenderer>().flipY = isturn;
         leftWeaponList[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<SpriteRenderer>().flipY = isturn;
-
-        if (isturn)
-        {
-            num = -1;
-            leftWeaponPos.transform.localPosition = rightWeaponPosTemp;
-            rightWeaponPos.transform.localPosition = leftWeaponPosTemp;
-        }
-        else
-        {
-            num = 1;
-            rightWeaponPos.transform.localPosition = rightWeaponPosTemp;
-            leftWeaponPos.transform.localPosition = leftWeaponPosTemp;
-        }
-
-        weaponObj.transform.localPosition = new Vector2(weaponPos.x * num, weaponPos.y);
+        weaponObj.transform.localPosition = new Vector2(weaponPos.x * TurnCheck(isturn), weaponPos.y);
         
+    }
+
+    int TurnCheck(bool isturn)
+    {
+        int num = 0;
+
+        leftWeaponPos.transform.localPosition = isturn switch
+        {
+            true => rightWeaponPosTemp,
+            false => leftWeaponPosTemp,
+        };
+
+        rightWeaponPos.transform.localPosition = isturn switch
+        {
+            true => leftWeaponPosTemp,
+            false => rightWeaponPosTemp,
+        };
+
+        return num = isturn switch
+        {
+            true => -1,
+            false => 1,
+        };
     }
 
     void CurrentWeapon()
@@ -149,6 +180,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             if(curtime >= module[weapon].atkSpeed)
             {
                 GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
+                timer = 0.08f;
                 bullet.transform.SetParent(null);
                 curtime = 0;
             }
@@ -162,7 +194,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             if (curtime >= module[weapon].atkSpeed)
             {
-                for(int i = 0; i <= 8; i++)
+                timer = 0.08f;
+                for (int i = 0; i <= 8; i++)
                 {
                     GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
                     bullet.transform.Rotate(0, 0, Random.Range(-module[weapon].bulletSpread , module[weapon].bulletSpread));
@@ -190,5 +223,4 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
                 break;
         }
     }
-
 }
