@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EnemyModule
   m_EditorClassIdentifier: 
   atk: 10
+  isEnemy: 1
   range: 2
   speed: 3
   crtDmg: 0
