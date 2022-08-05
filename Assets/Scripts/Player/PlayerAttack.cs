@@ -67,6 +67,11 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             WeaponSkills();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            //Reload();
+        }
     }
 
     void RotateGun()
@@ -146,15 +151,15 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     {
         if (Input.GetMouseButton(0))
         {
-            if (inventoryScript.isShop) return;
+            if (inventoryScript.isShop)/* || PlayerManager.Instance.Stat.SubMagazine == 0)*/ return;
 
             if(curtime >= module[weapon].atkSpeed)
             {
                 GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
                 bullet.transform.SetParent(null);
+                //PlayerManager.Instance.Stat.SubMagazine -= 1;
                 curtime = 0;
             }
-
         }
     }
 

@@ -13,8 +13,8 @@ public class UIManager : MonoSingleton<UIManager>
 
     [SerializeField] public Slider plyerHpSlider;
     [SerializeField] public TextMeshProUGUI playerHpTmp;
-    [SerializeField] public TextMeshProUGUI main_magazineQuantity;
-    [SerializeField] public TextMeshProUGUI sub_magazineQuantity;
+    //[SerializeField] public TextMeshProUGUI main_magazineQuantity;
+    //[SerializeField] public TextMeshProUGUI sub_magazineQuantity;
 
 
     private void Awake()
@@ -27,8 +27,7 @@ public class UIManager : MonoSingleton<UIManager>
         DisableAllWeaponSpriteImg();
         subWeaponImageObj[weaponNumber].SetActive(true);
 
-        main_magazineQuantity.text = $"{PlayerCtrl.Instance.rightWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().x - 1].GetComponent<Consumable>().weaponModule.magazine}/{PlayerCtrl.Instance.rightWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().x - 1].GetComponent<Consumable>().weaponModule.maxMagazine}";
-        sub_magazineQuantity.text = $"{PlayerCtrl.Instance.leftWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.magazine}/{PlayerCtrl.Instance.leftWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine}";
+        //sub_magazineQuantity.text = $"{PlayerBase.Instance.SubMagazine}/{PlayerBase.Instance.SubMaxMagazine}";
     }
 
     void DisableAllWeaponSpriteImg()
