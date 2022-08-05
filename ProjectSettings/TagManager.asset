@@ -13,6 +13,8 @@ TagManager:
   - DungeonPortal
   - Smith
   - SalesMan
+  - Home
+  - ETC
   layers:
   - Default
   - TransparentFX

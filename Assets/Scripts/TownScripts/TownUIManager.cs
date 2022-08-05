@@ -29,6 +29,14 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     //[SerializeField] string salesmanContent = "No items have been added to the store yet!";
     [SerializeField] string salesmanContent = "상점에 아이템재고가 들어오지 않았습니다!";
 
+    [Header("집")]
+    [SerializeField] string homeName = "도움말";
+    [SerializeField] string homeContent = "좌클릭 : 왼손무기 총공격, 우클릭 : 오른손 무기공격, E : 무기스킬 발동";
+
+    [Header("ETC")]
+    [SerializeField] string etcName = "집";
+    [SerializeField] string etcContent = "문이 잠겨있다.";
+
     // AboutInteraction
     public bool isDialogue = false;
     public bool isDialogueWithNpc = false;
@@ -111,6 +119,40 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         {
             Debug.Log("dialogueWithSalesMan");
             SetDialogueInfo(salesmanName, salesmanContent);
+            DialogueSystem.Instance.Begin();
+            dialoguePanel.SetActive(true);
+            isDialogue = true;
+        }
+    }
+
+    public void InteractionHome()
+    {
+        if (isDialogue)
+        {
+            isDialogue = false;
+            dialoguePanel.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("dialogueWithHome");
+            SetDialogueInfo(homeName, homeContent);
+            DialogueSystem.Instance.Begin();
+            dialoguePanel.SetActive(true);
+            isDialogue = true;
+        }
+    }
+
+    public void InteractionETC()
+    {
+        if (isDialogue)
+        {
+            isDialogue = false;
+            dialoguePanel.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("dialogueWithETC");
+            SetDialogueInfo(etcName, etcContent);
             DialogueSystem.Instance.Begin();
             dialoguePanel.SetActive(true);
             isDialogue = true;
