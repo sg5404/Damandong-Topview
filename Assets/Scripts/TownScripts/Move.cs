@@ -61,6 +61,12 @@ public class Move : MonoSingleton<Move>
                     case "SalesMan":
                         TownUIManager.Instance.InteractionSalesman();
                         break;
+                    case "Home":
+                        TownUIManager.Instance.InteractionHome();
+                        break;
+                    case "ETC":
+                        TownUIManager.Instance.InteractionETC();
+                        break;
                 }
             }
         }

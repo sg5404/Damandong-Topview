@@ -154,12 +154,12 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             ActiveWeapon(2);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            weaponSet.SubWeaponState = weaponSet.SetWeapon("4");
-            Debug.Log(weaponSet.SubWeaponState);
-            ActiveFalseAllWepaon();
-            ActiveWeapon(3);
-        }
+        //else if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    weaponSet.SubWeaponState = weaponSet.SetWeapon("4");
+        //    Debug.Log(weaponSet.SubWeaponState);
+        //    ActiveFalseAllWepaon();
+        //    ActiveWeapon(3);
+        //}
     }
 }

@@ -66,6 +66,7 @@ public class UIManager : MonoSingleton<UIManager>
     public void ReturnToTown()
     {
         Time.timeScale = 1;
+        SceneManager.LoadScene("TownScene");
     }
 
     public IEnumerator ReturnToTownCoroutine()

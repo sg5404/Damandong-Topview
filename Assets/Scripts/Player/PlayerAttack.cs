@@ -257,9 +257,10 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             {
                 for (int i = 0; i <= 8; i++)
                 {
-                    GameObject bullet = Instantiate(rifleBullet, leftGunpoint.transform);
-                    bullet.transform.Rotate(0, 0, Random.Range(-module[leftWeapon].bulletSpread, module[leftWeapon].bulletSpread));
-                    bullet.transform.SetParent(null);
+                    GameObject Lbullet = Instantiate(rifleBullet, leftGunpoint.transform);
+                    //bullet.transform.Rotate(0, 0, Random.Range(-module[leftWeapon].bulletSpread, module[leftWeapon].bulletSpread));
+                    Lbullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
+                    Lbullet.transform.SetParent(null);
                 }
                 leftCurtime = 0;
                 leftTimer = 0.08f;
@@ -275,9 +276,10 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             {
                 for (int i = 0; i <= 8; i++)
                 {
-                    GameObject bullet = Instantiate(rifleBullet, rightGunpoint.transform);
-                    bullet.transform.Rotate(0, 0, Random.Range(-module[rightWeapon].bulletSpread, module[rightWeapon].bulletSpread));
-                    bullet.transform.SetParent(null);
+                    GameObject Rbullet = Instantiate(rifleBullet, rightGunpoint.transform);
+                    //bullet.transform.Rotate(0, 0, Random.Range(-module[rightWeapon].bulletSpread, module[rightWeapon].bulletSpread));
+                    Rbullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
+                    Rbullet.transform.SetParent(null);
                 }
                 rightCurtime = 0;
                 
@@ -291,15 +293,15 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         switch (weaponSet.SubWeaponState)
         {
             case WeaponKind.RIFLE:
-                playerSkills.Lambo();
+                StartCoroutine(PlayerSkills.Instance.Lambo());
                 break;
             case WeaponKind.SNIPER:
                 break;
             case WeaponKind.SHOTGUN:
-                playerSkills.MadangSslGi();
+                PlayerSkills.Instance.MadangSslGi();
                 break;
             case WeaponKind.GRANADE:
-                playerSkills.Stun();
+                StartCoroutine(PlayerSkills.Instance.Stun());
                 break;
         }
     }
