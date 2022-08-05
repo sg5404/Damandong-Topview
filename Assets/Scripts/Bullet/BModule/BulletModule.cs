@@ -7,6 +7,8 @@ public class BulletModule : ScriptableObject
 {
     public int atk;//공격력
 
+    public bool isEnemy;//적이 쏘는 총알인가
+
     public float range;//사거리
     public float speed;//속도
 
