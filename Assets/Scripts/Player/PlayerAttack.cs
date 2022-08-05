@@ -43,7 +43,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     private float leftCurtime = 0;
     private float rightCurtime = 0;
 
-    private float timer = 0;
+    private float leftTimer = 0;
+    private float rightTimer = 0;
     float rotation;
 
     private WeaponSet weaponSet = null;
@@ -69,7 +70,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     void Update()
     {
-        Debug.Log((int)weaponSet.SetWeaponNum().y - 1);
+        //Debug.Log((int)weaponSet.SetWeaponNum().y - 1);
         leftCurtime += Time.deltaTime;
         rightCurtime += Time.deltaTime;
 
@@ -82,16 +83,28 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             WeaponSkills();
         }
 
-        if (timer >= 0)
+        if (leftTimer >= 0)
         {
             fireEff[(int)weaponSet.SetWeaponNum().y-1].SetActive(true);
             fireEff[(int)weaponSet.SetWeaponNum().y-1].GetComponent<ParticleSystem>().startRotation = (rotation+180)/57.295f * -1;
             //Debug.Log(rotation);
-            timer -= Time.deltaTime;
+            leftTimer -= Time.deltaTime;
         }
         else
         {
             fireEff[(int)weaponSet.SetWeaponNum().y - 1].SetActive(false);
+        }
+
+        if (rightTimer >= 0)
+        {
+            fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(true);
+            fireEff2[(int)weaponSet.SetWeaponNum().x - 1].GetComponent<ParticleSystem>().startRotation = (rotation + 180) / 57.295f * -1;
+            //Debug.Log(rotation);
+            rightTimer -= Time.deltaTime;
+        }
+        else
+        {
+            fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(false);
         }
     }
 
@@ -213,6 +226,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
                 bullet.transform.SetParent(null);
                 //PlayerManager.Instance.Stat.SubMagazine -= 1;
                 leftCurtime = 0;
+                leftTimer = 0.08f;
             }
         }
     }
@@ -228,6 +242,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
                 GameObject bullet = Instantiate(rifleBullet, rightGunpoint.transform);
                 bullet.transform.SetParent(null);
                 rightCurtime = 0;
+                rightTimer = 0.08f;
+                Debug.Log("½ÇÇà");
             }
         }
     }
@@ -245,6 +261,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
                     bullet.transform.SetParent(null);
                 }
                 leftCurtime = 0;
+                leftTimer = 0.08f;
             }
         }
     }
@@ -262,6 +279,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
                     bullet.transform.SetParent(null);
                 }
                 rightCurtime = 0;
+                
+                rightTimer = 0.08f;
             }
         }
     }
