@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kind: 4
   WeaponSprite: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
-  atkSpeed: 1
-  bulletSpread: 1
+  atkSpeed: 2
+  bulletSpread: 5
   oneShotBullets: 1
   isAutoShot: 0
   magazine: 3

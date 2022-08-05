@@ -86,6 +86,7 @@ public class EnemyBase : MonoBehaviour, CharBase
             OnDie?.Invoke();
             enemy.DeadCheck(Hp);
             Debug.Log($"{gameObject.name}이 죽었음미다");
+            PlayerMoney.Instance.ChangeMoney(Random.Range(1, 4));
             //내가 임의로 수정함 -기현-
             gameObject.SetActive(false);
             //여기까지

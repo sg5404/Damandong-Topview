@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kind: 1
   WeaponSprite: {fileID: 2477708518685008648, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
-  atkSpeed: 0.1
-  bulletSpread: 1
+  atkSpeed: 0.15
+  bulletSpread: 10
   oneShotBullets: 1
-  isAutoShot: 0
+  isAutoShot: 1
   magazine: 50
   maxMagazine: 50
   isInfiniteBullet: 0

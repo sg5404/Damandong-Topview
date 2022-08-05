@@ -2,33 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
 {
+    [SerializeField] GameObject pausePanel;
+
     [SerializeField] Sprite[] weaponSprites;
 
-    [SerializeField] GameObject[] mainWeaponImageObj;
-    [SerializeField] GameObject[] subWeaponImageObj;
+    [SerializeField] GameObject[] mainWeaponImageObj; // right
+    [SerializeField] GameObject[] subWeaponImageObj; // left
 
     [SerializeField] public Slider plyerHpSlider;
     [SerializeField] public TextMeshProUGUI playerHpTmp;
-    [SerializeField] public TextMeshProUGUI main_magazineQuantity;
-    [SerializeField] public TextMeshProUGUI sub_magazineQuantity;
+    //[SerializeField] public TextMeshProUGUI main_magazineQuantity;
+    //[SerializeField] public TextMeshProUGUI sub_magazineQuantity;
 
+    private bool isStoped = false;
 
-    private void Awake()
+    private void Start()
     {
-        ChangeUIWeaponSpriteImg(PlayerAttack.Instance.weapon);
+        pausePanel.SetActive(false);
+        ChangeUIWeaponSpriteImg(PlayerAttack.Instance.leftWeapon);
+        mainWeaponImageObj[PlayerAttack.Instance.rightWeapon].SetActive(true);
     }
 
-    public void ChangeUIWeaponSpriteImg(int weaponNumber)
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePausePanel();
+        }
+    }
+
+    public void ChangeUIWeaponSpriteImg(int leftWeaponNumber)
     {
         DisableAllWeaponSpriteImg();
-        subWeaponImageObj[weaponNumber].SetActive(true);
+        subWeaponImageObj[leftWeaponNumber].SetActive(true);
 
-        main_magazineQuantity.text = $"{PlayerCtrl.Instance.rightWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().x - 1].GetComponent<Consumable>().weaponModule.magazine}/{PlayerCtrl.Instance.rightWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().x - 1].GetComponent<Consumable>().weaponModule.maxMagazine}";
-        sub_magazineQuantity.text = $"{PlayerCtrl.Instance.leftWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.magazine}/{PlayerCtrl.Instance.leftWeapons[(int)PlayerCtrl.Instance.weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine}";
+        //sub_magazineQuantity.text = $"{PlayerBase.Instance.SubMagazine}/{PlayerBase.Instance.SubMaxMagazine}";
     }
 
     void DisableAllWeaponSpriteImg()
@@ -37,5 +50,21 @@ public class UIManager : MonoSingleton<UIManager>
         {
             imgItem.SetActive(false);
         }
+    }
+
+    public void TogglePausePanel()
+    {
+        pausePanel.SetActive(!pausePanel.activeSelf);
+        isStoped = !isStoped;
+        if (isStoped)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
+    }
+
+    public void ReturnToTown()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("TownScene");
     }
 }

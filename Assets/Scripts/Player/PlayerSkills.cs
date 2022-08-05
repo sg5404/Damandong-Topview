@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class PlayerSkills : MonoBehaviour
+public class PlayerSkills : MonoSingleton<PlayerSkills>
 {
     private float curDelay = 0f;
 
@@ -28,12 +28,16 @@ public class PlayerSkills : MonoBehaviour
     {
         Debug.Log("LamboMode On");
 
-        playerAttack.module[playerAttack.weapon].isInfiniteBullet = true;
+        float defaultWSpd = PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed;
+
         while (curDelay <= 15f)
         {
-            //playerData.Atk_Speed += (playerData.Atk_Speed * 0.3f);
+            // 공속증가
+            PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed *= 1.3f;
             curDelay += Time.deltaTime;
         }
+
+        PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed = defaultWSpd;
 
     }
 
@@ -50,16 +54,13 @@ public class PlayerSkills : MonoBehaviour
                 rb = enemyItem.GetComponent<Rigidbody2D>();
                 Vector3 reactVec = enemyItem.transform.position - transform.position;
                 reactVec = reactVec.normalized;
-                //enemyItem.transform.position += reactVec * 5;
                 enemyItem.transform.DOMove(enemyItem.transform.position + (reactVec * 5f), 0.5f);
-                //rb.velocity = reactVec * 5;
-                //rb.AddForce(reactVec * 5, ForceMode2D.Impulse);
                 Debug.Log(reactVec);
                 Debug.Log("넉백");
             }
 
         }
-        playerAttack.module[playerAttack.weapon].magazine = 8;
+        //playerAttack.module[playerAttack.weapon].magazine = 8;
     }
 
     public void Stun()

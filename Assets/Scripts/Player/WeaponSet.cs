@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class WeaponSet : MonoSingleton<WeaponSet>
 {
-   public WeaponSet()
+    public WeaponSet()
     {
-        MainWeaponState = WeaponKind.RIFLE;
-        SubWeaponState = WeaponKind.RIFLE;
+        //MainWeaponState = WeaponKind.RIFLE;
+        //SubWeaponState = WeaponKind.RIFLE;
     }
-    private WeaponKind mainWeaponState = 0; // 고정된 무기(왼팔)
-    private WeaponKind subWeaponState = 0; // 변경가능 무기(오른팔)
+    private static WeaponKind mainWeaponState = WeaponKind.RIFLE; // 고정된 무기(오른팔)
+    private static WeaponKind subWeaponState = WeaponKind.RIFLE; // 변경가능 무기(왼팔)
     public WeaponKind MainWeaponState
     {
         get

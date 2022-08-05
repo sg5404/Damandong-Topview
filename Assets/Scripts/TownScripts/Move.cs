@@ -9,12 +9,24 @@ public class Move : MonoSingleton<Move>
     [SerializeField]
     private float speed = 10f;
     [SerializeField]
-    private GameObject smithObj;
+    private GameObject[] npcObj;
 
     Vector3 playerDir;
 
+    float shortestDisToNpc;
+    private GameObject shortestNpcObj = null;
+    private Animator animator;
+
+    private bool isStop = false;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
+        if (isStop) return;
         Interaction();
         MovePlayer();
     }
@@ -23,25 +35,50 @@ public class Move : MonoSingleton<Move>
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if(Vector2.Distance(transform.position, smithObj.transform.position) <= 3f
-                && !TownUIManager.Instance.isDialogueWithSmith)
+            shortestDisToNpc = Vector2.Distance(transform.position, npcObj[0].transform.position);
+            shortestNpcObj = npcObj[0];
+            foreach (GameObject npcObjItem in npcObj)
             {
-                StartCoroutine(TownUIManager.Instance.InteractionSmith());
+                float distance = Vector2.Distance(transform.position, npcObjItem.transform.position);
+                if (distance < shortestDisToNpc)
+                {
+                    shortestNpcObj = npcObjItem;
+                    shortestDisToNpc = distance;
+                }
+            }
+
+            Debug.Log(shortestNpcObj.tag);
+
+            if (Vector2.Distance(transform.position, shortestNpcObj.transform.position) <= 3f
+                && !TownUIManager.Instance.isDialogueWithNpc)
+            {
+                switch (shortestNpcObj.tag)
+                {
+                    case "Smith":
+                        TownUIManager.Instance.InteractionSmith();
+                        break;
+                    case "SalesMan":
+                        TownUIManager.Instance.InteractionSalesman();
+                        break;
+                }
             }
         }
 
-        if (Vector2.Distance(transform.position, smithObj.transform.position) >= 5f
-            && Vector2.Distance(transform.position, smithObj.transform.position) <= 10f)
+        if(shortestNpcObj != null)
         {
-            TownUIManager.Instance.DisActiveAllPanel();
-            TownUIManager.Instance.isDialogue = false;
-            TownUIManager.Instance.isDialogueWithSmith = false;
+            if (Vector2.Distance(transform.position, shortestNpcObj.transform.position) >= 5f
+                && Vector2.Distance(transform.position, shortestNpcObj.transform.position) <= 10f)
+                {
+                    TownUIManager.Instance.DisActiveAllPanel();
+                    TownUIManager.Instance.isDialogue = false;
+                    TownUIManager.Instance.isDialogueWithNpc = false;
+                }
         }
     }
 
     public void MovePlayer()
     {
-        if (Fade.Instance.isFade) return;
+        if (Fade.Instance.isFade || TownUIManager.Instance.isWeaponChoose || TownUIManager.Instance.isDialogue) return;
 
         playerDir = transform.position;
 
@@ -54,6 +91,10 @@ public class Move : MonoSingleton<Move>
         playerDir.y = Mathf.Clamp(transform.position.y, -6.5f, 6.5f);
 
         transform.position = playerDir;
+        if (h != 0 || v != 0) 
+            animator.SetBool("isMove", true);
+        else
+            animator.SetBool("isMove", false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,5 +111,10 @@ public class Move : MonoSingleton<Move>
         {
             TownUIManager.Instance.ToggleGoDungeonPanel(false);
         }
+    }
+
+    public void TogglePause(bool stop)
+    {
+        isStop = stop;
     }
 }

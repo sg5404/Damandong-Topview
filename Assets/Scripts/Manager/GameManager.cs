@@ -4,23 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-
     public Transform Playertransform;
 
-    private static GameManager instance;
-
-    public static GameManager GetInstance()
+    private void Start()
     {
-        if (instance == null)
-        {
-            instance = FindObjectOfType<GameManager>();
-
-            if (instance == null)
-            {
-                GameObject container = new GameObject("GameManager");
-                instance = container.AddComponent<GameManager>();
-            }
-        }
-        return instance;
+        Debug.Log("MainWeaponState : " + WeaponSet.Instance.MainWeaponState);
+        Debug.Log("SubeaponState : " + WeaponSet.Instance.SubWeaponState);
     }
 }

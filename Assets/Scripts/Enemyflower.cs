@@ -184,6 +184,6 @@ public class Enemyflower : MonoBehaviour
 
     private float GetDistance()
     {
-        return Vector2.Distance(GameManager.GetInstance().Playertransform.position, transform.position);
+        return Vector2.Distance(GameManager.Instance.Playertransform.position, transform.position);
     }
 }
