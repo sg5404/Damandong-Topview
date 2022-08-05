@@ -18,13 +18,12 @@ public class BulletMove : Bullet
     private void Start()
     {
         IsEnemy = BulletData.isEnemy;
+        Destroy(gameObject, BulletData.range);
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
         transform.Translate(Vector3.right * _bulletModule.speed * Time.deltaTime);
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

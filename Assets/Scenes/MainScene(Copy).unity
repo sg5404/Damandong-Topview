@@ -6662,6 +6662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Playertransform: {fileID: 1011429739}
+  zombie: {fileID: 0}
+  spawnPos: []
 --- !u!1 &848067918
 GameObject:
   m_ObjectHideFlags: 0
@@ -14397,11 +14399,11 @@ PrefabInstance:
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: module.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: a2907cc1be88cd1479b3772339dd98ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 594a41ffda4c11a4a84e9ed2ad6145ed, type: 2}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: module.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 594a41ffda4c11a4a84e9ed2ad6145ed, type: 2}
+      objectReference: {fileID: 11400000, guid: a2907cc1be88cd1479b3772339dd98ee, type: 2}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: module.Array.data[3]
       value: 

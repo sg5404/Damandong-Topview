@@ -22,3 +22,4 @@ MonoBehaviour:
   maxMagazine: 5
   isInfiniteBullet: 0
   reload: 1
+  bullet: {fileID: 99796228922257285, guid: 64a2decdcca301b488f42eebfaa0cfd5, type: 3}
