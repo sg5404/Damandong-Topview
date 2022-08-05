@@ -44,9 +44,10 @@ public class Fade : MonoSingleton<Fade>
     private IEnumerator FadeOutCoroutine()
     {
         isFade = true;
-        fadeImg.fillOrigin = 0;
-        fadeImg.DOFade(0f, fadeTime / 2).From(1f);
-        yield return new WaitForSeconds(fadeTime / 2);
+        fadeImg.gameObject.SetActive(true);
+        fadeImg.fillOrigin = 1;
+        fadeImg.DOFade(0f, fadeTime).From(1f);
+        yield return new WaitForSeconds(fadeTime);
         isFade = false;
         fadeImg.gameObject.SetActive(false);
         fadeImg.raycastTarget = false;

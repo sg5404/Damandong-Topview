@@ -7,7 +7,15 @@ public class TownBtnManager : MonoBehaviour
 
     public void GoDungeon()
     {
+        StartCoroutine(GoDungeonCoroutine());
+    }
+
+    public IEnumerator GoDungeonCoroutine()
+    {
+        Fade.Instance.FadeIn();
+        yield return new WaitForSeconds(1f);
         TownUIManager.Instance.MoveToMainScene();
+        yield break;
     }
 
     public void DisActiveGoDungeonPanel()
