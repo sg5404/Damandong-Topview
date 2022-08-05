@@ -97,6 +97,13 @@ public class EnemyBase : MonoBehaviour, CharBase
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+        var hit = collision.GetComponent<CharBase>();
+        hit.Hit(10, gameObject, StatusAilments.None, 0);
+    }
+
     public void Stun(float durationTime)
     {
         _statusAilment = StatusAilments.Stun;
