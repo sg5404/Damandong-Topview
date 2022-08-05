@@ -58,7 +58,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     #region 적 수치
     public StatusAilments _statusAilment;
     #endregion
-
+    Animator ani;
     private float stunTime;
     [field:SerializeField] public UnityEvent OnDie { get; set; }
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
@@ -67,6 +67,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     private void Start()
     {
         enemy = GetComponent<Enemyflower>();
+        ani = GetComponent<Animator>();
         MaxHp = Hp;
     }
     private void Update()
@@ -77,12 +78,14 @@ public class EnemyBase : MonoBehaviour, CharBase
     {
         if (IsDead) return;
         OnGetHit?.Invoke();
+        ani.SetTrigger("Hit");
         if(_statusAilment==StatusAilments.None)
             _statusAilment = status;
         Hp -= damage;
         hpBarImage.fillAmount = Hp / MaxHp;
         if (Hp <= 0)
         {
+            ani.SetTrigger("Die");
             OnDie?.Invoke();
             enemy.DeadCheck(Hp);
             Debug.Log($"{gameObject.name}이 죽었음미다");
