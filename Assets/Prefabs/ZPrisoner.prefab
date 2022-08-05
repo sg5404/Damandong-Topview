@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 8373833177061370708}
   m_Layer: 0
   m_Name: ZPrisoner
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   _enemyModule: {fileID: 11400000, guid: 681c52374d64fd4409627369f248a608, type: 2}
   hpBarImage: {fileID: 4280905198988456814}
   MaxHp: 0
-  _hp: 0
+  _hp: 50
   _isEnemy: 1
   _statusAilment: 0
   <OnDie>k__BackingField:
