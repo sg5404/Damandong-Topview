@@ -56,6 +56,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         weaponPos = weaponObj.transform.localPosition;
         leftWeaponPosTemp = leftWeaponPos.transform.localPosition;
         rightWeaponPosTemp = rightWeaponPos.transform.localPosition;
+
+        CurrentWeapon();
     }
 
     void Update()
@@ -101,8 +103,10 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     {
         float num = 0;
         gameObject.GetComponent<SpriteRenderer>().flipX = isturn;
-        rightWeaponList[(int)weaponSet.SetWeaponNum().x - 1].GetComponent<SpriteRenderer>().flipY = isturn;
-        leftWeaponList[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<SpriteRenderer>().flipY = isturn;
+        //rightWeaponList[(int)weaponSet.SetWeaponNum().x - 1].GetComponent<SpriteRenderer>().flipY = isturn;
+        //leftWeaponList[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<SpriteRenderer>().flipY = isturn;
+        rightWeaponList[rightWeapon].GetComponent<SpriteRenderer>().flipY = isturn;
+        leftWeaponList[leftWeapon].GetComponent<SpriteRenderer>().flipY = isturn;
 
         if (isturn)
         {

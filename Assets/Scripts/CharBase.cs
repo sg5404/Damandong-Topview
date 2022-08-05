@@ -13,8 +13,7 @@ public enum StatusAilments
 
 public enum WeaponKind
 {
-    SWORD = 0,
-    RIFLE,
+    RIFLE = 1,
     SNIPER,
     SHOTGUN,
     GRANADE

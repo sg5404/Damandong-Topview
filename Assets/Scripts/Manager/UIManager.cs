@@ -16,7 +16,7 @@ public class UIManager : MonoSingleton<UIManager>
     //[SerializeField] public TextMeshProUGUI main_magazineQuantity;
     //[SerializeField] public TextMeshProUGUI sub_magazineQuantity;
 
-    private void Awake()
+    private void Start()
     {
         ChangeUIWeaponSpriteImg(PlayerAttack.Instance.leftWeapon);
         mainWeaponImageObj[PlayerAttack.Instance.rightWeapon].SetActive(true);
