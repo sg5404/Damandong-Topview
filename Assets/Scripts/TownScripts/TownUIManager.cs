@@ -54,6 +54,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
             TogglePausePanel(!pausePanel.activeSelf);
         }
     }
+
     public void DisActiveAllPanel()
     {
         goDungeonPanel.SetActive(false);
