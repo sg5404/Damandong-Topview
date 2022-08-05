@@ -41,6 +41,8 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
         ActiveFalseAllWepaon();
         leftWeapons[0].SetActive(true);
 
+        rightWeapons[PlayerAttack.Instance.rightWeapon].SetActive(true);
+
         //PlayerManager.Instance.Stat.MainMaxMagazine = rightWeapons[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine;
         //PlayerManager.Instance.Stat.SubMaxMagazine = leftWeapons[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine;
     }
@@ -55,32 +57,32 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
         float h = Input.GetAxisRaw("Horizontal") * speed;
         float v = Input.GetAxisRaw("Vertical") * speed;
         rigid.velocity = new Vector2(h, v);
-        WeaponEquip();
+        //WeaponEquip();
         WeaponChange();
-        GetItem();
+        //GetItem();
         if (h != 0 || v != 0)
             animator.SetBool("isMove", true);
         else
             animator.SetBool("isMove", false);
     }
 
-    private void WeaponEquip()
-    {
-        if (Input.GetKeyDown(KeyCode.F) && isEquip)
-        {
-            Debug.Log("Click");
-            Main_Weapon.sprite = nearObject.GetComponent<SpriteRenderer>().sprite;
-            nearObject.SetActive(false);
-        }
-    }
-    private void GetItem()
-    {
-        if (Input.GetKeyDown(KeyCode.F) && isItem)
-        {
-            Debug.Log("Item");
-            nearObject.SetActive(false);
-        }
-    }
+    //private void WeaponEquip()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.F) && isEquip)
+    //    {
+    //        Debug.Log("Click");
+    //        Main_Weapon.sprite = nearObject.GetComponent<SpriteRenderer>().sprite;
+    //        nearObject.SetActive(false);
+    //    }
+    //}
+    //private void GetItem()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.F) && isItem)
+    //    {
+    //        Debug.Log("Item");
+    //        nearObject.SetActive(false);
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -121,15 +123,11 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
         {
             weaponItem.SetActive(false);
         }
-        foreach (var weaponItem in rightWeapons)
-        {
-            weaponItem.SetActive(false);
-        }
     }
 
     void ActiveWeapon(int weaponNumber)
     {
-        rightWeapons[weaponNumber].SetActive(true);
+        leftWeapons[weaponNumber].SetActive(true);
         UIManager.Instance.ChangeUIWeaponSpriteImg(weaponNumber);
     }
 

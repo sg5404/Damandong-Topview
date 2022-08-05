@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WeaponSet : MonoSingleton<WeaponSet>
 {
-   public WeaponSet()
+    public WeaponSet()
     {
         MainWeaponState = WeaponKind.RIFLE;
         SubWeaponState = WeaponKind.RIFLE;
