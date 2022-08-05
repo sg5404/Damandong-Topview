@@ -85,6 +85,15 @@ public class Move : MonoSingleton<Move>
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
+        if(h == 1)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
+        }
+        else if(h == -1)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+
         transform.position += new Vector3(h, v, 0) * Time.deltaTime * speed;
 
         playerDir.x = Mathf.Clamp(transform.position.x, -12f, 12f);
