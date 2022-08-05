@@ -71,6 +71,7 @@ public class Enemyflower : MonoBehaviour
 
     private void Update()
     {
+        targetDir = (GameManager.Instance.Playertransform.position - transform.position);
         dir = targetDir.normalized;
         rigid.velocity = dir * speed;
         Debug.Log(dir);

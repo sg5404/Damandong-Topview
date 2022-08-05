@@ -39,9 +39,11 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
         rigid = GetComponent<Rigidbody2D>();
         weaponSet = GetComponent<WeaponSet>();
         ActiveFalseAllWepaon();
+        Debug.Log(PlayerAttack.Instance.leftWeapon);
         leftWeapons[0].SetActive(true);
 
         rightWeapons[PlayerAttack.Instance.rightWeapon].SetActive(true);
+        //leftWeapons[PlayerAttack.Instance.leftWeapon].SetActive(true);
 
         //PlayerManager.Instance.Stat.MainMaxMagazine = rightWeapons[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine;
         //PlayerManager.Instance.Stat.SubMaxMagazine = leftWeapons[(int)weaponSet.SetWeaponNum().y - 1].GetComponent<Consumable>().weaponModule.maxMagazine;

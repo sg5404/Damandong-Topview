@@ -65,7 +65,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         rightWeaponPosTemp = rightWeaponPos.transform.localPosition;
 
         fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(false);
-
+        Setting();
         CurrentWeapon();
     }
 
@@ -107,6 +107,17 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(false);
         }
+    }
+
+    private void Setting()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            fireEff[i].SetActive(false);
+            fireEff2[i].SetActive(false);
+        }
+        fireEff[(int)weaponSet.SetWeaponNum().y - 1].SetActive(true);
+        fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(true);
     }
 
     void RotateGun()
