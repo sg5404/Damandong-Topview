@@ -305,6 +305,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
                 StartCoroutine(PlayerSkills.Instance.Lambo());
                 break;
             case WeaponKind.SNIPER:
+                StartCoroutine(PlayerSkills.Instance.Stun());
                 break;
             case WeaponKind.SHOTGUN:
                 PlayerSkills.Instance.MadangSslGi();

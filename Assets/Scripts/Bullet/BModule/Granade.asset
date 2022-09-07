@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66490689f407f1e45ada03f6449d47bf, type: 3}
-  m_Name: SniperBullet
+  m_Name: Granade
   m_EditorClassIdentifier: 
-  atk: 60
+  atk: 0
   isEnemy: 0
-  range: 3
-  speed: 15
+  range: 0
+  speed: 0
   crtDmg: 0
-  crtChance: 0.7
+  crtChance: 0
   statusAilment: 0
   saChance: 0
-  isExplosion: 0
-  explosionRange: 0
+  isExplosion: 1
+  explosionRange: 10
   isKnockBack: 0
   knockBackRange: 0

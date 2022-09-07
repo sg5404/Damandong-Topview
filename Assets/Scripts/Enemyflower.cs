@@ -71,6 +71,12 @@ public class Enemyflower : MonoBehaviour
 
     private void Update()
     {
+        if (_enemyBase._statusAilment == StatusAilments.Stun)
+        {
+            rigid.velocity = new Vector3(0, 0);
+            return;
+        }
+
         targetDir = (GameManager.Instance.Playertransform.position - transform.position);
         dir = targetDir.normalized;
         rigid.velocity = dir * speed;
