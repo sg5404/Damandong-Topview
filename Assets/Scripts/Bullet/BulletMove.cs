@@ -6,6 +6,7 @@ public class BulletMove : Bullet
 {
 
     private float timer = 0;
+
     public override BulletModule BulletData 
     { 
         get => _bulletModule;
@@ -32,7 +33,17 @@ public class BulletMove : Bullet
         if (!collision.CompareTag("Enemy")&&!collision.CompareTag("Player")) return;
         var hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;
-        hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
+        if(_bulletModule.isExplosion)
+        {
+            Collider2D[] cols = Physics2D.OverlapCircleAll(collision.transform.position, _bulletModule.explosionRange/2);
+            foreach(Collider2D col in cols)
+            {
+                col.GetComponent<EnemyBase>()?.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
+            }
+            Destroy(gameObject);
+        }
+        else
+            hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
         if (collision.CompareTag("Player"))
         {
             gameObject.SetActive(false);
