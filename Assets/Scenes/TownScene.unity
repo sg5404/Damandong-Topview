@@ -16425,6 +16425,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9044859859347026611, guid: b0ed05a60362d274382dcc7629ea5de8, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044859859347026612, guid: b0ed05a60362d274382dcc7629ea5de8, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9044859859347026612, guid: b0ed05a60362d274382dcc7629ea5de8, type: 3}
       propertyPath: smithObj
       value: 
