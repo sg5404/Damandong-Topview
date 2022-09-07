@@ -37,6 +37,7 @@ public class Move : MonoSingleton<Move>
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+            rigid.velocity = Vector2.zero;
             shortestDisToNpc = Vector2.Distance(transform.position, npcObj[0].transform.position);
             shortestNpcObj = npcObj[0];
             foreach (GameObject npcObjItem in npcObj)
