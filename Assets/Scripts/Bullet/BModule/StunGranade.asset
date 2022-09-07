@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: StunGranade
   m_EditorClassIdentifier: 
   atk: 0
-  range: 0
+  isEnemy: 0
+  range: 10
   speed: 0
   crtDmg: 0
   crtChance: 0

@@ -9,6 +9,9 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
     private float madangDelay = 0f;
     private float stunDelay = 0f;
 
+    [SerializeField]
+    private Transform lookTrs;
+
     private PlayerBase playerData = null;
     private PlayerAttack playerAttack = null;
 
@@ -85,10 +88,10 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
         {
             Debug.Log("Stun On");
 
-            GameObject stun = Instantiate(stunGranade, transform.position, transform.rotation);
+            GameObject stun = Instantiate(stunGranade, transform.position, lookTrs.rotation);
             stun.transform.SetParent(null);
             stun.transform.DOMove(stun.transform.position + (stun.transform.right * 2.5f), 0.75f);
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(2f);
             Destroy(stun);
         }
     }
