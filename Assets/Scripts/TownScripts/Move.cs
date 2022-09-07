@@ -16,12 +16,14 @@ public class Move : MonoSingleton<Move>
     float shortestDisToNpc;
     private GameObject shortestNpcObj = null;
     private Animator animator;
+    private Rigidbody2D rigid;
 
     private bool isStop = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -101,7 +103,9 @@ public class Move : MonoSingleton<Move>
             gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
-        transform.position += new Vector3(h, v, 0) * Time.deltaTime * speed;
+        //transform.position += new Vector3(h, v, 0) * Time.deltaTime * speed;
+
+        rigid.velocity = new Vector3(h, v, 0) * speed;// * Time.deltaTime * speed;
 
         playerDir.x = Mathf.Clamp(transform.position.x, -12f, 12f);
         playerDir.y = Mathf.Clamp(transform.position.y, -6.5f, 6.5f);

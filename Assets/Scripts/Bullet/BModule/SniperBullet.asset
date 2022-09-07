@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66490689f407f1e45ada03f6449d47bf, type: 3}
   m_Name: SniperBullet
   m_EditorClassIdentifier: 
-  atk: 50
+  atk: 60
   isEnemy: 0
   range: 3
   speed: 15
