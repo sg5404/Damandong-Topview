@@ -16,6 +16,12 @@ public class MoveTownObj : MonoBehaviour
     private Vector3 tempPos;
 
     private GameObject townObj = null;
+    private Rigidbody2D rigid;
+
+    private void Start()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+    }
 
     private enum TOWMOBJ
     {
@@ -30,6 +36,7 @@ public class MoveTownObj : MonoBehaviour
         if(collision.CompareTag("InDoor"))
         {
             if (Fade.Instance.isFade) yield return null;
+            rigid.velocity = Vector2.zero;
             Fade.Instance.FadeIn();
             yield return new WaitForSeconds(Fade.Instance.fadeTime);
             GetInTownObj();
@@ -40,6 +47,7 @@ public class MoveTownObj : MonoBehaviour
         if(collision.CompareTag("OutDoor"))
         {
             if (Fade.Instance.isFade) yield return null;
+            rigid.velocity = Vector2.zero;
             Fade.Instance.FadeIn();
             yield return new WaitForSeconds(Fade.Instance.fadeTime);
             GetOutTownObj();
