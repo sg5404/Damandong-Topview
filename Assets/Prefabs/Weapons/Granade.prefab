@@ -105,6 +105,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 6413910573505714981}
     m_Modifications:
     - target: {fileID: 6123094783687027326, guid: bc7a4cf94eece9e4fbff7cae948d5c75, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123094783687027326, guid: bc7a4cf94eece9e4fbff7cae948d5c75, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123094783687027326, guid: bc7a4cf94eece9e4fbff7cae948d5c75, type: 3}
       propertyPath: InitialModule.rotation3D
       value: 0
       objectReference: {fileID: 0}
@@ -122,11 +130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6838176306330573054, guid: bc7a4cf94eece9e4fbff7cae948d5c75, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.194
+      value: 0.231
       objectReference: {fileID: 0}
     - target: {fileID: 6838176306330573054, guid: bc7a4cf94eece9e4fbff7cae948d5c75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.005
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6838176306330573054, guid: bc7a4cf94eece9e4fbff7cae948d5c75, type: 3}
       propertyPath: m_LocalPosition.z

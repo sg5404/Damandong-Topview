@@ -11346,6 +11346,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056560, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: lookTrs
+      value: 
+      objectReference: {fileID: 1216037857}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: leftTransform
       value: 
