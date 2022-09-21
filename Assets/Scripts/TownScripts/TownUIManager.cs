@@ -33,9 +33,9 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     [SerializeField] string homeName = "도움말";
     [SerializeField] string homeContent = "좌클릭 : 왼손무기 총공격, 우클릭 : 오른손 무기공격, E : 무기스킬 발동";
 
-    [Header("ETC")]
-    [SerializeField] string etcName = "집";
-    [SerializeField] string etcContent = "문이 잠겨있다.";
+    [Header("창고")]
+    [SerializeField] string etcName = "창고";
+    [SerializeField] string etcContent = "아직 업그레이드를 할 수 없습니다!";
 
     // AboutInteraction
     public bool isDialogue = false;
