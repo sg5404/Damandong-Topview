@@ -11777,6 +11777,11 @@ MonoBehaviour:
   - {fileID: 304678198}
   - {fileID: 1655536210}
   - {fileID: 255883514}
+  spawnNum: 0a0000000f0000001400000019000000
+  stage: 0
+  isClear: 0
+  enemyCount: 0
+  enemyList: []
 --- !u!4 &966338356
 Transform:
   m_ObjectHideFlags: 0
@@ -25733,7 +25738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2078488681
 Transform:
   m_ObjectHideFlags: 0

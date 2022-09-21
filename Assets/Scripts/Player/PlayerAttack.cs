@@ -51,11 +51,14 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     private PlayerSkills playerSkills = null;
     private InventoryScript inventoryScript = null;
 
+    private UIManager _ui;
+
     Vector3 leftWeaponPosTemp;
     Vector3 rightWeaponPosTemp;
 
     void Start()
     {
+        _ui = FindObjectOfType<UIManager>();
         weaponSet = GetComponent<WeaponSet>();
         playerSkills = GetComponent<PlayerSkills>();
         inventoryScript = FindObjectOfType<InventoryScript>();
@@ -75,7 +78,9 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         leftCurtime += Time.deltaTime;
         rightCurtime += Time.deltaTime;
 
-        RotateGun();
+        Debug.Log($"isStoped : {_ui.isStoped}");
+        if (!_ui.isStoped)
+            RotateGun();
 
         CurrentWeapon();
 
@@ -125,7 +130,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         var leftDir = mousePosition - leftWeaponPos.transform.position;
-
         leftRotation = Mathf.Atan2(leftDir.y, leftDir.x) * Mathf.Rad2Deg;
 
         rightWeaponPos.transform.rotation = Quaternion.Euler(0, 0, leftRotation);
@@ -133,14 +137,16 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
         if (leftRotation >= -90 && leftRotation <= 90)
         {
-            RotateWeapons(false);
+            flipWeapons(false);
             return;
         }
-        RotateWeapons(true);
+        flipWeapons(true);
     }
 
-    void RotateWeapons(bool isturn)
+    void flipWeapons(bool isturn)
     {
+
+
         gameObject.GetComponent<SpriteRenderer>().flipX = isturn;
         rightWeaponList[rightWeapon].GetComponent<SpriteRenderer>().flipY = isturn;
         leftWeaponList[leftWeapon].GetComponent<SpriteRenderer>().flipY = isturn;
