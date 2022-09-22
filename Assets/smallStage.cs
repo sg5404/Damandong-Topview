@@ -11,7 +11,7 @@ public class smallStage : MonoBehaviour
 
     [SerializeField] private GameObject Gate;
 
-    bool isClear = false;
+    public bool isClear = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class smallStage : MonoBehaviour
         }
     }
 
-    void EnemyClear()
+    public void EnemyClear()
     {
         while (!isClear)
         {

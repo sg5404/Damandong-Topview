@@ -42,7 +42,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
         rigid = GetComponent<Rigidbody2D>();
         weaponSet = GetComponent<WeaponSet>();
         ActiveFalseAllWepaon();
-        Debug.Log(PlayerAttack.Instance.leftWeapon);
+        //Debug.Log(PlayerAttack.Instance.leftWeapon);
         leftWeapons[0].SetActive(true);
 
         rightWeapons[rightWeapon].SetActive(true);
