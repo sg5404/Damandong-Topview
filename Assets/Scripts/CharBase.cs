@@ -16,7 +16,8 @@ public enum WeaponKind
     RIFLE = 1,
     SNIPER,
     SHOTGUN,
-    GRANADE
+    GRANADE,
+    SWORD
 }
 
 public interface CharBase

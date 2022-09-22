@@ -166,5 +166,12 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             ActiveWeapon(3);
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            weaponSet.SubWeaponState = weaponSet.SetWeapon("5");
+            Debug.Log(weaponSet.SubWeaponState);
+            ActiveFalseAllWepaon();
+            ActiveWeapon(4);
+        }
     }
 }
