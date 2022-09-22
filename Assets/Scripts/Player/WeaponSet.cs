@@ -18,7 +18,7 @@ public class WeaponSet : MonoSingleton<WeaponSet>
         }
         set
         {
-            if (value >= WeaponKind.RIFLE && value <= WeaponKind.SWOARD)
+            if (value >= WeaponKind.RIFLE && value <= WeaponKind.SWORD)
             {
                 mainWeaponState = value;
             }
@@ -32,7 +32,7 @@ public class WeaponSet : MonoSingleton<WeaponSet>
         }
         set
         {
-            if (value >= WeaponKind.RIFLE && value <= WeaponKind.SWOARD)
+            if (value >= WeaponKind.RIFLE && value <= WeaponKind.SWORD)
             {
                 subWeaponState = value;
             }
@@ -57,7 +57,7 @@ public class WeaponSet : MonoSingleton<WeaponSet>
                 _weaponKind = WeaponKind.GRANADE;
                 break;
             case "5":
-                _weaponKind = WeaponKind.SWOARD;
+                _weaponKind = WeaponKind.SWORD;
                 break;
             default:
                 break;
