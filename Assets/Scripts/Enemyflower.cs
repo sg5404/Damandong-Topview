@@ -2,36 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum flowerEnemyType
-{
-    sniper = 0,
-    rifle = 1,
-    shotgun = 2,
-    none,
-}
-
 public class Enemyflower : MonoBehaviour
 {
-    public flowerEnemyType flowertype;
     private EnemyBase _enemyBase;
-    [SerializeField]
-    private EnemyModule stat;
+    [SerializeField] private EnemyModule stat;
     private int hp;
 
-    [SerializeField]
-    private int shotgunBullet;
+    [SerializeField] private int shotgunBullet;
 
-    [SerializeField]
-    private float tanpegim;
+    [SerializeField] private float tanpegim;
 
-    [SerializeField]
-    private int maxBullets;
+    [SerializeField] private int maxBullets;
 
-    [SerializeField]
-    private GameObject bullet;
+    [SerializeField] private GameObject bullet;
 
-    [SerializeField]
-    private GameObject bulletPoolObject;
+    [SerializeField] private GameObject bulletPoolObject;
 
     private List<GameObject> bulletPool = new List<GameObject>();
 
@@ -48,8 +33,7 @@ public class Enemyflower : MonoBehaviour
 
     private Rigidbody2D rigid;
 
-    [SerializeField]
-    private float speed;
+    [SerializeField] private float speed;
 
     void Start()
     {
@@ -62,18 +46,22 @@ public class Enemyflower : MonoBehaviour
 
     private void Update()
     {
-        if (_enemyBase._statusAilment == StatusAilments.Stun)
+        Enemymove();
+        turnEnemy();
+
+        //Debug.Log(dir);
+    }
+
+    void Enemymove()
+    {
+        if (_enemyBase._statusAilment == StatusAilments.Stun || _enemyBase.IsDead)
         {
             rigid.velocity = new Vector3(0, 0);
             return;
         }
-
         targetDir = (GameManager.Instance.Playertransform.position - transform.position);
         dir = targetDir.normalized;
         rigid.velocity = dir * speed;
-        turnEnemy();
-
-        //Debug.Log(dir);
     }
 
     void turnEnemy()
@@ -85,32 +73,5 @@ public class Enemyflower : MonoBehaviour
         }
         gameObject.GetComponent<SpriteRenderer>().flipX = false;
         return;
-    }
-
-    void CreateBullet()
-    {
-        if (_enemyBase._statusAilment == StatusAilments.Stun) return;
-        targetDir = (GameManager.Instance.Playertransform.position - transform.position);
-    }
-
-    public GameObject GetBulletinPool()
-    {
-        foreach (var _monster in bulletPool)
-        {
-            if (_monster.activeSelf == false)
-            {
-                return _monster;
-            }
-        }
-        return null;
-    }
-
-    public void DeadCheck(int _hp)
-    {
-        if (_hp <= 0)
-        {
-            CancelInvoke("CreateBullet");
-            gameObject.SetActive(false);
-        }
     }
 }

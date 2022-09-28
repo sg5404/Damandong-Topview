@@ -62,6 +62,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
 
     Enemyflower enemy;
+    private float timer = 0;
     private void Start()
     {
         enemy = GetComponent<Enemyflower>();
@@ -71,6 +72,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     private void Update()
     {
         DurationChange();
+        DeadCheck();
     }
     public virtual void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
@@ -81,20 +83,28 @@ public class EnemyBase : MonoBehaviour, CharBase
             _statusAilment = status;
         Hp -= damage;
         hpBarImage.fillAmount = Hp / MaxHp;
-        if (Hp <= 0)
+        if (Hp > 0)
         {
-            ani.SetTrigger("Die");
-            OnDie?.Invoke();
-            enemy.DeadCheck(Hp);
-            Debug.Log($"{gameObject.name}이 죽었음미다");
-            PlayerMoney.Instance.ChangeMoney(Random.Range(1, 4));
-            gameObject.SetActive(false);
-            IsDead = true;
+            return;
         }
+        ani.SetTrigger("Die");
+        OnDie?.Invoke();
+        Debug.Log($"{gameObject.name}이 죽었음미다");
+        PlayerMoney.Instance.ChangeMoney(Random.Range(1, 4));
+        IsDead = true;
+    }
+
+    private void DeadCheck()
+    {
+        if (!IsDead) return;
+        timer += Time.deltaTime;
+        if (timer < 2.0f) return;
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (IsDead) return;
         if (!collision.CompareTag("Player")) return;
         var hit = collision.GetComponent<CharBase>();
         hit.Hit(10, gameObject, StatusAilments.None, 0);
