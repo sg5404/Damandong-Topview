@@ -20,8 +20,6 @@ public class Enemyflower : MonoBehaviour
 
     private List<GameObject> bulletPool = new List<GameObject>();
 
-    public float reloadTime;
-    public float bulletSpeed;
     public List<float> weaponreloadTime = new List<float>();
     public List<float> weponbulletSpeed = new List<float>();
 
@@ -40,7 +38,6 @@ public class Enemyflower : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         hp = stat.maxHp;
         _enemyBase = GetComponent<EnemyBase>();
-        InvokeRepeating("CreateBullet", 2.0f, reloadTime);
         distanceShow.localScale = new Vector3(atkdistance * 2, atkdistance * 2, 0);
     }
 
