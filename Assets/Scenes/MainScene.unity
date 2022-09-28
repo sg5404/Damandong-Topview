@@ -6049,6 +6049,7 @@ MonoBehaviour:
   - {fileID: 1030612854}
   plyerHpSlider: {fileID: 1714070623}
   playerHpTmp: {fileID: 1629187653}
+  isStoped: 0
 --- !u!114 &812208810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6077,6 +6078,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Playertransform: {fileID: 1011429739}
+  zombie: {fileID: 0}
+  spawnPos: []
+  spawnNum: 
+  stage: 0
+  isClear: 0
+  enemyCount: 0
+  enemyList: []
 --- !u!1 &848067918
 GameObject:
   m_ObjectHideFlags: 0
