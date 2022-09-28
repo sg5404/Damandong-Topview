@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbee060c2b7420f4e886e9a0131685bb, type: 3}
   m_Name: SwordModule
   m_EditorClassIdentifier: 
-  kind: 0
+  kind: 5
   WeaponSprite: {fileID: 4039527258408786561, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
   atkSpeed: 0.5
   bulletSpread: 0
