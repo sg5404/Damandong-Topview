@@ -8338,7 +8338,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 800}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -8356,7 +8356,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 319535780}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -8364,7 +8364,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: -357505359
   m_SortingOrder: 99
   m_TargetDisplay: 0
 --- !u!224 &675321433
@@ -11358,6 +11358,10 @@ PrefabInstance:
       propertyPath: lookTrs
       value: 
       objectReference: {fileID: 1216037857}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: swordBullet
+      value: 
+      objectReference: {fileID: 1229071472517966478, guid: f0a659b7a298e7b44b7eb5c8bd7a37db, type: 3}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: swoardBullet
       value: 
