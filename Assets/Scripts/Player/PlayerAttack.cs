@@ -14,6 +14,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     private GameObject shotgunBullet = null;
     [SerializeField]
     private GameObject granadeBullet = null;
+    [SerializeField]
+    private GameObject swordBullet = null;
 
     [SerializeField]
     private Transform bulletTransform = null;
@@ -198,6 +200,10 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
                 leftWeapon = 3;
                 LeftWeaponFire();
                 break;
+            case WeaponKind.SWORD:
+                leftWeapon = 4;
+                LeftWeaponFire();
+                break;
             default:
                 break;
         }
@@ -218,6 +224,10 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
                 break;
             case WeaponKind.GRANADE:
                 rightWeapon = 3;
+                RightWeaponFire();
+                break;
+            case WeaponKind.SWORD:
+                rightWeapon = 4;
                 RightWeaponFire();
                 break;
             default:

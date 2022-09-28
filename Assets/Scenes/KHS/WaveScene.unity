@@ -11058,6 +11058,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1163118347001275361, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2621744056192747612, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11069,6 +11073,10 @@ PrefabInstance:
     - target: {fileID: 2621744056192747613, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_SortingLayerID
       value: -321486361
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621744057635854137, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2621744057635854138, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_SortingLayer
@@ -11351,6 +11359,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1216037857}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: swoardBullet
+      value: 
+      objectReference: {fileID: 1229071472517966478, guid: f0a659b7a298e7b44b7eb5c8bd7a37db, type: 3}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: leftTransform
       value: 
       objectReference: {fileID: 1216037857}
@@ -11362,6 +11374,22 @@ PrefabInstance:
       propertyPath: rightTransform
       value: 
       objectReference: {fileID: 674418406}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: fireEff.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: fireEff2.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: fireEff.Array.data[4]
+      value: 
+      objectReference: {fileID: 955600033}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: fireEff2.Array.data[4]
+      value: 
+      objectReference: {fileID: 955600032}
     - target: {fileID: 9034370365618243909, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: moneyText
       value: 
@@ -11384,6 +11412,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+--- !u!1 &955600032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7690375725361328368, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 955600031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &955600033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5861733169977283638, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 955600031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &956083507
 GameObject:
   m_ObjectHideFlags: 0
@@ -11732,11 +11770,13 @@ MonoBehaviour:
   - {fileID: 1824907177}
   - {fileID: 575441788}
   - {fileID: 1362511089}
+  - {fileID: 80292837}
   subWeaponImageObj:
   - {fileID: 1875096091}
   - {fileID: 89983116}
   - {fileID: 1624815855}
   - {fileID: 1117373540}
+  - {fileID: 1568224142}
   plyerHpSlider: {fileID: 682966818}
   playerHpTmp: {fileID: 1725332538}
   isStoped: 0
