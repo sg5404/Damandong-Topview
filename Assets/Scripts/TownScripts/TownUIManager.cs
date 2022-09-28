@@ -10,6 +10,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     [SerializeField] GameObject dungeonPortal;
     [SerializeField] GameObject goDungeonPanel;
     [SerializeField] GameObject pausePanel;
+    [SerializeField] TextMeshProUGUI moneyTmp;
 
     [Header("Dialogue")]
     [SerializeField] GameObject dialoguePanel;
@@ -54,6 +55,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
             changeWeaponPanel.SetActive(true);
             isWeaponChoose = true;
         }
+        moneyTmp.text = string.Format("{0}", SaveManager.Instance.CurrentUser.money);
     }
     private void Update()
     {

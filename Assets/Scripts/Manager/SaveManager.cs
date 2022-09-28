@@ -11,6 +11,10 @@ public class SaveManager : MonoSingleton<SaveManager>
     ""money"": 0,
 }";
 
+    [SerializeField] private User user = null;
+
+    public User CurrentUser { get { return user; } }
+
     private void Awake()
     {
         SAVE_PATH = Application.dataPath + "/Json";
@@ -22,26 +26,29 @@ public class SaveManager : MonoSingleton<SaveManager>
         LoadFromJson();
     }
 
+    private void Start()
+    {
+        InvokeRepeating("SaveToJson", 1f, 60f);
+    }
+
     private void LoadFromJson()
     {
         if(File.Exists(SAVE_PATH + SAVE_FILENAME))
         {
             string json = File.ReadAllText(SAVE_PATH + SAVE_FILENAME);
-            Debug.Log("Loading Complete!");
-        }
+            user = JsonUtility.FromJson<User>(json);
+        }   
     }
 
-    public void Save(string saveFileName)
+    public void SaveToJson()
     {
-        if (!Directory.Exists(SAVE_PATH))
-        {
-            Directory.CreateDirectory(SAVE_PATH);
-            Debug.Log("CreateNewSaveFile");
-        }
-        //string saveJson = JsonUtility.ToJson(GameManager.Instance.CurrentGameData);
-        string saveFilePath = SAVE_PATH + saveFileName + ".json";
-        //File.WriteAllText(saveFilePath, saveJson);
-        Debug.Log("세이브 완료!");
+        string json = JsonUtility.ToJson(user, true);
+        File.WriteAllText(SAVE_PATH + SAVE_FILENAME, json, System.Text.Encoding.UTF8);
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveToJson();
     }
 
 }

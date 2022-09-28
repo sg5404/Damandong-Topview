@@ -16,7 +16,12 @@ public class PlayerMoney : MonoSingleton<PlayerMoney>
 
     public void ChangeMoney(int price)
     {
-        money += price;
-        moneyText.SetText($"{money}");
+        SaveManager.Instance.CurrentUser.money += price;
+    }
+
+    public void UpdateMoneyText()
+    {
+        //moneyText.SetText($"{money}");
+        moneyText.text = string.Format("{0}", SaveManager.Instance.CurrentUser.money);
     }
 }
