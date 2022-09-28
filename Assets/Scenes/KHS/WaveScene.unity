@@ -6417,7 +6417,7 @@ PrefabInstance:
     - target: {fileID: 9034370365618243909, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: moneyText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 90623737}
     - target: {fileID: 9034370366507896663, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07

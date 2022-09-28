@@ -30,7 +30,7 @@ public class BulletMove : Bullet
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("OutDoor")) Destroy(gameObject);
-        if (!collision.CompareTag("Enemy")&&!collision.CompareTag("Player")) return;
+        if (!collision.CompareTag("Enemy")) return;
         var hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;
         if(_bulletModule.isExplosion)
