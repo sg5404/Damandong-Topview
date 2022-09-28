@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
 {
-    [SerializeField]
-    private PlayerModule _playerModule;
+    [SerializeField] private PlayerModule _playerModule;
+    [SerializeField] private float enableTimer = 0.0f;
 
     private Animator animator;
 
@@ -42,6 +42,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         get => _def;
         set { _def = (value + _playerModule.def); }
     }
+
 
     //private int _mainMagazine;
 
@@ -131,13 +132,13 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         get => _isEnemy;
         set { _isEnemy = value; }
     }
-
     private bool _isDead;
     public bool IsDead
     {
         get => _isDead;
         set { _isDead = value; }
     }
+
     #endregion
     #region 적 수치
     public StatusAilments _statusAilment;
@@ -158,20 +159,31 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     }
     public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
-        Debug.Log("플레이어 적중");
+        if(enableTimer > 0.0f) return;
         if (IsDead) return;
+        HitEvent(damage, status);
+        if (Die()) return;
+        animator.SetTrigger("Hit");
+        enableTimer = 2.0f;
+    }
+
+    private void HitEvent(int damage, StatusAilments status)
+    {
         PlayerManager.Instance.Damaged(damage);
         OnGetHit?.Invoke();
         _statusAilment = status;
-        if (Hp <= 0)
+    }
+
+    private bool Die()
+    {
+        if (Hp > 0)
         {
-            OnDie?.Invoke();
-            Debug.Log($"플레이어 사망!");
-            IsDead = true;
-            PlayerCtrl.Instance.isDead = true;
-            animator.SetTrigger("Die");
-            return;
+            return false;
         }
-        animator.SetTrigger("Hit");
+        OnDie?.Invoke();
+        //PlayerCtrl.Instance.isDead = true;
+        IsDead = true;
+        animator.SetTrigger("Die");
+        return true;
     }
 }

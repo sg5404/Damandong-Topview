@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour, CharBase
 {
-    [SerializeField]
-    private EnemyModule _enemyModule;
-    [SerializeField]
-    private Image hpBarImage;
+    [SerializeField] private EnemyModule _enemyModule;
+    [SerializeField] private Image hpBarImage;
 
     #region 캐릭터 기본 수치
     public float MaxHp;

@@ -28,7 +28,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     public int rightWeapon { private set; get; } = 0;
 
-    public bool isDead { set; get; }
+    public PlayerBase playerBase;
 
     private void Awake()
     {
@@ -38,6 +38,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     void Start()
     {
+        playerBase = GetComponent<PlayerBase>();
         inventory = FindObjectOfType<Inventory>();
         rigid = GetComponent<Rigidbody2D>();
         weaponSet = GetComponent<WeaponSet>();
@@ -54,7 +55,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     void Update()
     {
-        if (isDead)
+        if (playerBase.IsDead)
         {
             rigid.velocity = new Vector2(0, 0);
             return;

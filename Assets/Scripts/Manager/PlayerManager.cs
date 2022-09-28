@@ -32,7 +32,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     private void Update()
     {
-        if (!PlayerCtrl.Instance.isDead) return;
+        if (!PlayerCtrl.Instance.playerBase.IsDead) return;
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
