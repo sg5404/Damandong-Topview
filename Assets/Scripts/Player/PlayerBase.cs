@@ -184,6 +184,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         //PlayerCtrl.Instance.isDead = true;
         IsDead = true;
         animator.SetTrigger("Die");
+        SaveManager.Instance.SaveToJson();
         return true;
     }
 }
