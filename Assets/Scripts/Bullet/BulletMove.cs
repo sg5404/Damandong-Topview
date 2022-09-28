@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletMove : Bullet
 {
+    public WeaponKind weaponKind;
 
     private float timer = 0;
 
@@ -33,20 +34,33 @@ public class BulletMove : Bullet
         if (!collision.CompareTag("Enemy")) return;
         var hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;
-        if(_bulletModule.isExplosion)
+        if(!_bulletModule.isExplosion)
         {
-            Collider2D[] cols = Physics2D.OverlapCircleAll(collision.transform.position, _bulletModule.explosionRange/2);
-            foreach(Collider2D col in cols)
-            {
-                col.GetComponent<EnemyBase>()?.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
-            }
-            Destroy(gameObject);
-        }
-        else
             hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
-        if (collision.CompareTag("Player"))
-        {
-            gameObject.SetActive(false);
+            SniperCheck();
+            return;
         }
+        EnemyHit(collision);
+        SniperCheck();
+    }
+
+    private void EnemyHit(Collider2D collision)
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(collision.transform.position, _bulletModule.explosionRange / 2);
+        foreach (Collider2D col in cols)
+        {
+            col.GetComponent<EnemyBase>()?.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
+        }
+        Destroy(gameObject);
+    }
+
+    private void SniperCheck()
+    {
+        bool result = weaponKind switch
+        {
+            WeaponKind.SNIPER => true,
+            _ => false,
+        };
+        if (!result) Destroy(gameObject);
     }
 }
