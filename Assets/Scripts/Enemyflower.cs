@@ -21,12 +21,8 @@ public class Enemyflower : MonoBehaviour
     [SerializeField]
     private int shotgunBullet;
 
-    private int bulletAmount;
-
     [SerializeField]
     private float tanpegim;
-
-    private float addfloat;
 
     [SerializeField]
     private int maxBullets;
@@ -44,15 +40,12 @@ public class Enemyflower : MonoBehaviour
     public List<float> weaponreloadTime = new List<float>();
     public List<float> weponbulletSpeed = new List<float>();
 
-    private List<FlowerBullet> flowerBullets = new List<FlowerBullet>();
-
     [SerializeField] private float atkdistance;
     [SerializeField] private Transform distanceShow;
 
     Vector2 targetDir;
     Vector2 dir;
 
-    private GameObject Player;
     private Rigidbody2D rigid;
 
     [SerializeField]
@@ -62,9 +55,7 @@ public class Enemyflower : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         hp = stat.maxHp;
-        CreateBulletPool();
         _enemyBase = GetComponent<EnemyBase>();
-        StatSet();
         InvokeRepeating("CreateBullet", 2.0f, reloadTime);
         distanceShow.localScale = new Vector3(atkdistance * 2, atkdistance * 2, 0);
     }
@@ -82,7 +73,7 @@ public class Enemyflower : MonoBehaviour
         rigid.velocity = dir * speed;
         turnEnemy();
 
-        Debug.Log(dir);
+        //Debug.Log(dir);
     }
 
     void turnEnemy()
@@ -96,81 +87,10 @@ public class Enemyflower : MonoBehaviour
         return;
     }
 
-    void StatSet()
-    {
-        reloadTime = weaponreloadTime[(int)flowertype];
-        bulletSpeed = weponbulletSpeed[(int)flowertype];
-        //flowerBullet.speed = bulletSpeed;
-
-        for (int i = 0; i < 100; i++)
-        {
-            flowerBullets.Add(bulletPool[i].GetComponent<FlowerBullet>());
-            flowerBullets[i].speed = bulletSpeed;
-        }
-    }
-
     void CreateBullet()
     {
         if (_enemyBase._statusAilment == StatusAilments.Stun) return;
-        GameObject _bullet = GetBulletinPool();
-        _bullet.transform.SetParent(null);
         targetDir = (GameManager.Instance.Playertransform.position - transform.position);
-        //Debug.DrawRay(gameObject.transform.position, targetDir*100, Color.green,10);
-
-        WeaponInstance();
-
-        if (atkdistance > GetDistance())
-        {
-            Shooting(_bullet);
-        }
-    }
-
-    void WeaponInstance()
-    {
-        switch (flowertype)
-        {
-            case flowerEnemyType.rifle:
-                addfloat = Random.Range(-tanpegim, tanpegim);
-                bulletAmount = 1;
-                break;
-            case flowerEnemyType.sniper:
-                addfloat = 0;
-                bulletAmount = 1;
-                break;
-            case flowerEnemyType.shotgun:
-                bulletAmount = shotgunBullet;
-                break;
-            default:
-                break;
-        }
-    }
-
-    void Shooting(GameObject _bullet)
-    {
-        for (int i = 0; i < bulletAmount; i++)
-        {
-            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg + addfloat;
-            Quaternion angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);
-            _bullet?.transform.SetPositionAndRotation(this.gameObject.transform.position, angleAxis);
-            _bullet.SetActive(true);
-            //_bullet.transform.SetParent(null);
-        }
-    }
-
-    void CreateBulletPool()
-    {
-        for (int i = 0; i < maxBullets; ++i)
-        {
-            var _bullet = Instantiate<GameObject>(bullet);
-
-            _bullet.name = $"Bullet_{i:00}";
-
-            _bullet.SetActive(false);
-
-            bulletPool.Add(_bullet);
-
-            _bullet.transform.SetParent(bulletPoolObject.transform);
-        }
     }
 
     public GameObject GetBulletinPool()
@@ -185,24 +105,6 @@ public class Enemyflower : MonoBehaviour
         return null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Bullet"))
-        {
-            
-            /*BulletModule bulletHit = collision.gameObject.GetComponent<BulletMove>().BulletData;
-            float crit = Random.value;
-            //Debug.Log(crit);
-            hp -= bulletHit.atk;
-            if (crit<bulletHit.crtChance)
-            {
-                hp -= bulletHit.atk;
-            }
-            DeadCheck();*/
-            //Destroy(collision.gameObject);
-        }
-    }
-
     public void DeadCheck(int _hp)
     {
         if (_hp <= 0)
@@ -210,10 +112,5 @@ public class Enemyflower : MonoBehaviour
             CancelInvoke("CreateBullet");
             gameObject.SetActive(false);
         }
-    }
-
-    private float GetDistance()
-    {
-        return Vector2.Distance(GameManager.Instance.Playertransform.position, transform.position);
     }
 }

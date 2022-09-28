@@ -76,11 +76,12 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     void Update()
     {
+        if (PlayerCtrl.Instance.playerBase.IsDead) return;
         //Debug.Log((int)weaponSet.SetWeaponNum().y - 1);
         leftCurtime += Time.deltaTime;
         rightCurtime += Time.deltaTime;
 
-        Debug.Log($"isStoped : {_ui.isStoped}");
+        //Debug.Log($"isStoped : {_ui.isStoped}");
         if (!_ui.isStoped)
             RotateGun();
 
