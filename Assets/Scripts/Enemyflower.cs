@@ -80,7 +80,20 @@ public class Enemyflower : MonoBehaviour
         targetDir = (GameManager.Instance.Playertransform.position - transform.position);
         dir = targetDir.normalized;
         rigid.velocity = dir * speed;
+        turnEnemy();
+
         Debug.Log(dir);
+    }
+
+    void turnEnemy()
+    {
+        if (dir.x < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            return;
+        }
+        gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        return;
     }
 
     void StatSet()

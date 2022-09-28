@@ -19,7 +19,7 @@ public class UIManager : MonoSingleton<UIManager>
     //[SerializeField] public TextMeshProUGUI main_magazineQuantity;
     //[SerializeField] public TextMeshProUGUI sub_magazineQuantity;
 
-    private bool isStoped = false;
+    public bool isStoped = false;
 
     private void Start()
     {
