@@ -3543,7 +3543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288292567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 16, z: 0}
+  m_LocalPosition: {x: 22.47, y: 18.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2078488681}
@@ -11739,6 +11739,7 @@ MonoBehaviour:
   - {fileID: 1117373540}
   plyerHpSlider: {fileID: 682966818}
   playerHpTmp: {fileID: 1725332538}
+  isStoped: 0
 --- !u!114 &966338354
 MonoBehaviour:
   m_ObjectHideFlags: 0
