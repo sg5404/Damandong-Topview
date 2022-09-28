@@ -79,19 +79,22 @@ public class EnemyBase : MonoBehaviour, CharBase
         if (IsDead) return;
         OnGetHit?.Invoke();
         ani.SetTrigger("Hit");
-        if(_statusAilment==StatusAilments.None)
-            _statusAilment = status;
-        Hp -= damage;
-        hpBarImage.fillAmount = Hp / MaxHp;
-        if (Hp > 0)
-        {
-            return;
-        }
+        if(_statusAilment==StatusAilments.None) _statusAilment = status;
+        HpBar(damage);
+        if (Hp > 0) return;
         ani.SetTrigger("Die");
         OnDie?.Invoke();
-        Debug.Log($"{gameObject.name}이 죽었음미다");
+        //Debug.Log($"{gameObject.name}이 죽었음미다");
         PlayerMoney.Instance.ChangeMoney(Random.Range(1, 4));
+        //레이어 바꿔주기
+        gameObject.tag = "Untagged";
         IsDead = true;
+    }
+
+    private void HpBar(int damage)
+    {
+        Hp -= damage;
+        hpBarImage.fillAmount = Hp / MaxHp;
     }
 
     private void DeadCheck()
