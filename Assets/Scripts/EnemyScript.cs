@@ -2,26 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemyflower : MonoBehaviour
+public class EnemyScript : MonoBehaviour
 {
     private EnemyBase _enemyBase;
     [SerializeField] private EnemyModule stat;
     private int hp;
-
-    [SerializeField] private int shotgunBullet;
-
-    [SerializeField] private float tanpegim;
-
-    [SerializeField] private int maxBullets;
-
-    [SerializeField] private GameObject bullet;
-
-    [SerializeField] private GameObject bulletPoolObject;
-
-    private List<GameObject> bulletPool = new List<GameObject>();
-
-    public List<float> weaponreloadTime = new List<float>();
-    public List<float> weponbulletSpeed = new List<float>();
 
     [SerializeField] private float atkdistance;
     [SerializeField] private Transform distanceShow;

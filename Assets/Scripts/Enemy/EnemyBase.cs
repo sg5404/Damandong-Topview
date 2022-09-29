@@ -61,11 +61,11 @@ public class EnemyBase : MonoBehaviour, CharBase
     [field:SerializeField] public UnityEvent OnDie { get; set; }
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
 
-    Enemyflower enemy;
+    EnemyScript enemy;
     private float timer = 0;
     private void Start()
     {
-        enemy = GetComponent<Enemyflower>();
+        enemy = GetComponent<EnemyScript>();
         ani = GetComponent<Animator>();
         MaxHp = Hp;
     }
