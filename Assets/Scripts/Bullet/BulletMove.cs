@@ -7,6 +7,7 @@ public class BulletMove : Bullet
     public WeaponKind weaponKind;
 
     private float timer = 0;
+    private float finalDamage;
 
     public override BulletModule BulletData 
     { 
@@ -34,9 +35,13 @@ public class BulletMove : Bullet
         if (!collision.CompareTag("Enemy")) return;
         var hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;
+        if (Random.value < _bulletModule.crtChance)
+            finalDamage = _bulletModule.atk * _bulletModule.crtDmg;
+        else
+            finalDamage = _bulletModule.atk;
         if(!_bulletModule.isExplosion)
         {
-            hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
+            hit.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
             SniperCheck();
             return;
         }

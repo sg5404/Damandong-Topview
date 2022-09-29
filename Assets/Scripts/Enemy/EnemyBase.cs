@@ -74,7 +74,7 @@ public class EnemyBase : MonoBehaviour, CharBase
         DurationChange();
         DeadCheck();
     }
-    public virtual void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
+    public virtual void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if (IsDead) return;
         OnGetHit?.Invoke();
@@ -91,9 +91,9 @@ public class EnemyBase : MonoBehaviour, CharBase
         IsDead = true;
     }
 
-    private void HpBar(int damage)
+    private void HpBar(float damage)
     {
-        Hp -= damage;
+        Hp -= (int)damage;
         hpBarImage.fillAmount = Hp / MaxHp;
     }
 

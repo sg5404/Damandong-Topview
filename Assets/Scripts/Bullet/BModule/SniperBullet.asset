@@ -16,7 +16,7 @@ MonoBehaviour:
   isEnemy: 0
   range: 3
   speed: 15
-  crtDmg: 0
+  crtDmg: 2
   crtChance: 0.7
   statusAilment: 0
   saChance: 0

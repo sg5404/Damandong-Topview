@@ -29,7 +29,7 @@ public interface CharBase
     public bool IsEnemy { get; }//¾ê°¡ ÀûÀÎ°¡?
     public bool IsDead { get; }//µÚÁü?
 
-    public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance);
+    public void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance);
     
     public UnityEvent OnDie { get; set; }
     public UnityEvent OnGetHit { get; set; }

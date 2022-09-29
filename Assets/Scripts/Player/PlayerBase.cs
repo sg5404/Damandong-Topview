@@ -161,7 +161,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     {
         enableTimer -= Time.deltaTime;
     }
-    public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
+    public void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if(enableTimer > 0.0f) return;
         if (IsDead) return;
@@ -171,7 +171,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         enableTimer = 1.2f;
     }
 
-    private void HitEvent(int damage, StatusAilments status)
+    private void HitEvent(float damage, StatusAilments status)
     {
         PlayerManager.Instance.Damaged(damage);
         OnGetHit?.Invoke();
