@@ -1,4 +1,8 @@
 {
-  "money": 0
-  
+  "money": 0,
+  "attack": 0,
+  "attack_Speed": 0,
+  "defense": 0,
+  "criticalPercent": 0,
+  "criticalDamage": 0,
 }
