@@ -7,9 +7,6 @@ public class SaveManager : MonoSingleton<SaveManager>
 {
     private string SAVE_PATH = "";
     private string SAVE_FILENAME = "/SaveFile.json";
-    private string default_save = @"{
-    ""money"": 0,
-}";
 
     [SerializeField] private User user = null;
 
@@ -21,7 +18,7 @@ public class SaveManager : MonoSingleton<SaveManager>
         if (!Directory.Exists(SAVE_PATH))
         {
             Directory.CreateDirectory(SAVE_PATH);
-            File.WriteAllText(SAVE_PATH + SAVE_FILENAME, default_save, System.Text.Encoding.UTF8);
+            File.WriteAllText(SAVE_PATH + SAVE_FILENAME, JsonUtility.ToJson(new User()), System.Text.Encoding.UTF8);
         }
         LoadFromJson();
     }

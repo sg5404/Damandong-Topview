@@ -86,6 +86,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
 
     public void MoveToMainScene()
     {
+        SaveManager.Instance.SaveToJson();
         SceneManager.LoadScene(2);
     }
 
@@ -170,6 +171,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
 
     public void ExitGame()
     {
+        SaveManager.Instance.SaveToJson();
         Application.Quit();
     }
 }
