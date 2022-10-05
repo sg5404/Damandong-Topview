@@ -19691,6 +19691,7 @@ MonoBehaviour:
   dungeonPortal: {fileID: 1272301384}
   goDungeonPanel: {fileID: 1442478175}
   pausePanel: {fileID: 1439994562}
+  shopPanel: {fileID: 1488443425}
   moneyTmp: {fileID: 1393468757}
   dialoguePanel: {fileID: 1986527876}
   npcName: {fileID: 1452027480}
