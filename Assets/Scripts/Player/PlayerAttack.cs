@@ -34,8 +34,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     private float leftCurtime = 0;
     private float rightCurtime = 0;
 
-    private float leftTimer = 0;
-    private float rightTimer = 0;
+    public float leftTimer = 0;
+    public float rightTimer = 0;
     float leftRotation;
 
     GameObject bullet;
@@ -74,11 +74,11 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         CurrentWeapon();
         if (Input.GetKeyDown(KeyCode.E)) WeaponSkills();
 
-        showFireEff(leftTimer, 0);
-        showFireEff(rightTimer, 1);
+        DisableEff(leftTimer, 0);
+        DisableEff(rightTimer, 1);
     }
 
-    private void showFireEff(float timer, int pos) //0ÀÏ¶© FireEff1.x 1ÀÏ¶© FireEff1.y 2ÀÏ¶© FireEff2.x 3ÀÌ»óºÎÅÏ FireEff2.y 
+    private void showFireEff(int pos) //0ÀÏ¶© FireEff1.x 1ÀÏ¶© FireEff1.y 2ÀÏ¶© FireEff2.x 3ÀÌ»óºÎÅÏ FireEff2.y 
     {
         var Eff = pos switch
         {
@@ -86,12 +86,21 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             _ => fireEff2[(int)weaponSet.SetWeaponNum().x - 1],
         };
 
-        if (timer < 0) Eff.SetActive(false); return;
-
         Eff.SetActive(true);
         Eff.GetComponent<ParticleSystem>().startRotation = (leftRotation + 180) / 57.295f * -1;
-        timer -= Time.deltaTime;
-        return;
+    }
+
+    private void DisableEff(float timer, int pos)
+    {
+        var Eff = pos switch
+        {
+            0 => fireEff[(int)weaponSet.SetWeaponNum().y - 1],
+            _ => fireEff2[(int)weaponSet.SetWeaponNum().x - 1],
+        };
+
+        if (leftTimer > 0) leftTimer -= Time.deltaTime;
+        if (rightTimer > 0) rightTimer -= Time.deltaTime;
+        if (timer <= 0) Eff.SetActive(false);
     }
 
     private void Setting()
@@ -161,7 +170,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             case WeaponKind.RIFLE: LeftWeaponFire(0); break;
             case WeaponKind.SNIPER: LeftWeaponFire(1); break;
-            case WeaponKind.SHOTGUN: LeftShotGunFire(2); break;
+            case WeaponKind.SHOTGUN: LeftWeaponFire(2); break;
             case WeaponKind.GRANADE: LeftWeaponFire(3); break;
             case WeaponKind.SWORD: LeftWeaponFire(4); break;
             default: break;
@@ -171,7 +180,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             case WeaponKind.RIFLE: RightWeaponFire(0); break;
             case WeaponKind.SNIPER: RightWeaponFire(1); break;
-            case WeaponKind.SHOTGUN: RightShotGunFire(2); break;
+            case WeaponKind.SHOTGUN: RightWeaponFire(2); break;
             case WeaponKind.GRANADE: RightWeaponFire(3); break;
             case WeaponKind.SWORD: RightWeaponFire(4); break;
             default:
@@ -186,10 +195,23 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             if (inventoryScript.isShop) return;
             if (leftCurtime < module[leftWeapon].atkSpeed) return;
-            GameObject bullet = Instantiate(module[leftWeapon].bullet, leftGunpoint.transform);
-            bullet.transform.SetParent(null);
+
+            int bulletAmount = num switch
+            {
+                2 => 8,
+                _ => 1,
+            };
+
+            for (int i = 0; i < bulletAmount; i++)
+            {
+                GameObject bullet = Instantiate(module[leftWeapon].bullet, leftGunpoint.transform);
+                if(bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
+                bullet.transform.SetParent(null);
+            }
+
             leftCurtime = 0;
             leftTimer = 0.08f;
+            showFireEff(0);
         }
     }
 
@@ -200,44 +222,23 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             if (inventoryScript.isShop) return;
             if (rightCurtime < module[rightWeapon].atkSpeed) return;
-            GameObject bullet = Instantiate(module[rightWeapon].bullet, rightGunpoint.transform);
-            bullet.transform.SetParent(null);
+
+            int bulletAmount = num switch
+            {
+                2 => 8,
+                _ => 1,
+            };
+
+            for(int i = 0; i < bulletAmount; i++)
+            {
+                GameObject bullet = Instantiate(module[rightWeapon].bullet, rightGunpoint.transform);
+                if(bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
+                bullet.transform.SetParent(null);
+            }
+
             rightCurtime = 0;
             rightTimer = 0.08f;
-        }
-    }
-
-    void LeftShotGunFire(int num)
-    {
-        leftWeapon = num;
-        if (Input.GetMouseButton(0))
-        {
-            if (leftCurtime < module[leftWeapon].atkSpeed) return;
-            for (int i = 0; i <= 8; i++)
-            {
-                GameObject Lbullet = Instantiate(rifleBullet, leftGunpoint.transform);
-                Lbullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
-                Lbullet.transform.SetParent(null);
-            }
-            leftCurtime = 0;
-            leftTimer = 0.08f;
-        }
-    }
-
-    void RightShotGunFire(int num)
-    {
-        rightWeapon = num;
-        if (Input.GetMouseButton(1))
-        {
-            if (rightCurtime < module[rightWeapon].atkSpeed) return;
-            for (int i = 0; i <= 8; i++)
-            {
-                GameObject Rbullet = Instantiate(rifleBullet, rightGunpoint.transform);
-                Rbullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
-                Rbullet.transform.SetParent(null);
-            }
-            rightCurtime = 0;
-            rightTimer = 0.08f;
+            showFireEff(1);
         }
     }
 
