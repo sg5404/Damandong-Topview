@@ -11,8 +11,6 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
     [SerializeField]
     Image Main_Weapon;
 
-    [SerializeField] private float speed;
-
     bool isEquip = false;
     bool isItem = false;
 
@@ -60,8 +58,8 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             rigid.velocity = new Vector2(0, 0);
             return;
         }
-        float h = Input.GetAxisRaw("Horizontal") * speed;
-        float v = Input.GetAxisRaw("Vertical") * speed;
+        float h = Input.GetAxisRaw("Horizontal") * playerBase.MoveSpeed;
+        float v = Input.GetAxisRaw("Vertical") * playerBase.MoveSpeed;
         rigid.velocity = new Vector2(h, v);
         //WeaponEquip();
         WeaponChange();

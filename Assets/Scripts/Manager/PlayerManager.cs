@@ -15,9 +15,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         continueText.SetActive(false);
     }
 
-    public void Damaged(int damage)
+    public void Damaged(float damage)
     {
-        Stat.Hp -= damage;
+        Stat.Hp -= (int)damage;
         if (Stat.Hp <= 0)
         {
             Dead();

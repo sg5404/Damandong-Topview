@@ -7,6 +7,7 @@ public class BulletMove : Bullet
     public WeaponKind weaponKind;
 
     private float timer = 0;
+    private float finalDamage;
 
     public override BulletModule BulletData 
     { 
@@ -34,9 +35,12 @@ public class BulletMove : Bullet
         if (!collision.CompareTag("Enemy")) return;
         var hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;
+        finalDamage = _bulletModule.atk + PlayerStat.GetAtk();
+        if (Random.value < _bulletModule.crtChance + PlayerStat.GetCriticalChance())
+            finalDamage *= _bulletModule.crtDmg+PlayerStat.GetCriticalDamage();
         if(!_bulletModule.isExplosion)
         {
-            hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
+            hit.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
             SniperCheck();
             return;
         }
@@ -49,7 +53,7 @@ public class BulletMove : Bullet
         Collider2D[] cols = Physics2D.OverlapCircleAll(collision.transform.position, _bulletModule.explosionRange / 2);
         foreach (Collider2D col in cols)
         {
-            col.GetComponent<EnemyBase>()?.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
+            col.GetComponent<EnemyBase>()?.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
         }
         Destroy(gameObject);
     }

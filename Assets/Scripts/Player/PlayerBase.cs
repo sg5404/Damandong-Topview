@@ -35,15 +35,6 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     private int _maxHp;
     public int MaxHP { get { return _maxHp; } }
 
-
-    private float _def;
-    public float Def
-    {
-        get => _def;
-        set { _def = (value + _playerModule.def); }
-    }
-
-
     //private int _mainMagazine;
 
     //public int MainMagazine
@@ -147,13 +138,17 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     [field: SerializeField] public UnityEvent OnDie { get; set; }
     [field: SerializeField] public UnityEvent OnGetHit { get; set; }
 
+    private void Awake()
+    {
+        PlayerStat.SetBase(_playerModule.HP, _playerModule.ammo, _playerModule.atk, _playerModule.criticalChance, _playerModule.criticalDamage, _playerModule.moveSpeed, _playerModule.attackSpeed);
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
-        _maxHp = _playerModule.HP;
+        _maxHp = PlayerStat.GetHP();
         Hp = _maxHp;
-        Def = _playerModule.def;
-        MoveSpeed = _playerModule.moveSpeed;
+        MoveSpeed = PlayerStat.GetMoveSpeed();
         //_mainMagazine = _mainMaxMagazine;
         //_subMagazine = _subMaxMagazine;
     }
@@ -161,7 +156,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     {
         enableTimer -= Time.deltaTime;
     }
-    public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
+    public void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if(enableTimer > 0.0f) return;
         if (IsDead) return;
@@ -171,7 +166,7 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         enableTimer = 1.2f;
     }
 
-    private void HitEvent(int damage, StatusAilments status)
+    private void HitEvent(float damage, StatusAilments status)
     {
         PlayerManager.Instance.Damaged(damage);
         OnGetHit?.Invoke();

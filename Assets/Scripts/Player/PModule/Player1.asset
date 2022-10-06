@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Player1
   m_EditorClassIdentifier: 
   HP: 100
-  MP: 100
   ammo: 100
   atk: 5
-  def: 3
-  criticalChance: 20
+  criticalChance: 0.2
   criticalDamage: 2
-  moveSpeed: 1
+  moveSpeed: 3
   attackSpeed: 1
