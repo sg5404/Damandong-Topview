@@ -31,6 +31,7 @@ public class Move : MonoSingleton<Move>
         if (isStop) return;
         Interaction();
         MovePlayer();
+        KeyDown();
     }
 
     void Interaction()
@@ -116,6 +117,14 @@ public class Move : MonoSingleton<Move>
             animator.SetBool("isMove", true);
         else
             animator.SetBool("isMove", false);
+    }
+
+    void KeyDown()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TownUIManager.Instance.DisActiveAllPanel();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

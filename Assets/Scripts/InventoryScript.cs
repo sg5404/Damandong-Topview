@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryScript : MonoBehaviour
+public class InventoryScript : MonoSingleton<InventoryScript>
 {
     [Header("Inventory")]
     [SerializeField] private GameObject Inventory;

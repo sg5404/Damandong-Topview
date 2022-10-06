@@ -1733,6 +1733,16 @@ Transform:
   m_Father: {fileID: 2078488681}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &289803528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3804973295042722462, guid: 7680b5affd0d9a1479cd3f1f0fc33201, type: 3}
+  m_PrefabInstance: {fileID: 4334595148352830139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &289803529 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -2655763905438945562, guid: 7680b5affd0d9a1479cd3f1f0fc33201, type: 3}
+  m_PrefabInstance: {fileID: 4334595148352830139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &304678197
 GameObject:
   m_ObjectHideFlags: 0
@@ -6612,9 +6622,8 @@ MonoBehaviour:
   - {fileID: 1655536210}
   - {fileID: 255883514}
   spawnNum: 0a0000000f0000001400000019000000
-  stage: 0
-  isClear: 0
-  enemyCount: 0
+  Elevator: {fileID: 289803528}
+  elevatorAni: {fileID: 289803529}
   enemyList: []
 --- !u!4 &966338356
 Transform:
