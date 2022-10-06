@@ -42,7 +42,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     private WeaponSet weaponSet = null;
     private PlayerSkills playerSkills = null;
-    private InventoryScript inventoryScript = null;
 
     private UIManager _ui;
 
@@ -54,7 +53,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         _ui = FindObjectOfType<UIManager>();
         weaponSet = GetComponent<WeaponSet>();
         playerSkills = GetComponent<PlayerSkills>();
-        inventoryScript = FindObjectOfType<InventoryScript>();
 
         weaponPos = weaponObj.transform.localPosition;
         leftWeaponPosTemp = leftWeaponPos.transform.localPosition;
@@ -193,7 +191,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         leftWeapon = num;
         if (Input.GetMouseButton(0))
         {
-            if (inventoryScript.isShop) return;
+            if (InventoryScript.Instance.isShop) return;
             if (leftCurtime < module[leftWeapon].atkSpeed) return;
 
             int bulletAmount = num switch
@@ -220,7 +218,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         rightWeapon = num;
         if (Input.GetMouseButton(1))
         {
-            if (inventoryScript.isShop) return;
+            if (InventoryScript.Instance.isShop) return;
             if (rightCurtime < module[rightWeapon].atkSpeed) return;
 
             int bulletAmount = num switch

@@ -5,12 +5,15 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     public Transform Playertransform;
-    public GameObject zombie;
-    public List<Transform> spawnPos;
-    public List<int> spawnNum;
-    public int stage;
-    public bool isClear = false;
-    public int enemyCount = 0;
+    [SerializeField] private GameObject zombie;
+    [SerializeField] private List<Transform> spawnPos;
+    [SerializeField] private List<int> spawnNum;
+    [SerializeField] private GameObject Elevator;
+    [ReadOnly] private int stage;
+    [ReadOnly] private bool isClear = false;
+    [ReadOnly] private int enemyCount = 0;
+
+    [SerializeField] private Animator elevatorAni;
 
     [SerializeField] private List<GameObject> enemyList;
 
@@ -72,6 +75,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         isClear = false;
         StartCoroutine(spawnEnemy());
+        StartCoroutine(Delay());
     }
 
     /// <summary>
@@ -81,7 +85,21 @@ public class GameManager : MonoSingleton<GameManager>
     {
         //스폰 코드
         Debug.Log("엘리베이터 스폰!");
+        Elevator.SetActive(true);
+        elevatorAni.SetTrigger("Open");
         //해야할일
         //포탈을 타면 startspawn다시 켜주면됨
+    }
+
+    IEnumerator Delay()
+    {
+        while(true)
+        {
+            elevatorAni.SetTrigger("Close");
+            yield return new WaitForSeconds(2f);
+            Elevator.SetActive(false);
+            StopCoroutine(Delay());
+        }
+
     }
 }
