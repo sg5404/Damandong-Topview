@@ -2,28 +2,39 @@ using UnityEngine;
 
 public static class PlayerStat
 {
-    public static int baseHP;
-    public static int addHP;
-    public static float perHP;
+    public static int baseHP = 0;
+    public static int addHP = 0;
+    public static float perHP = 1;
 
-    public static int baseAmmo;
-    public static int addAmmo;
+    public static int baseAmmo = 0;
+    public static int addAmmo = 0;
 
-    public static float baseAtk;
-    public static float addAtk;
-    public static float perAtk;
+    public static float baseAtk = 0;
+    public static float addAtk = 0;
+    public static float perAtk = 1;
 
-    public static float baseCriticalChance;
-    public static float addCriticalChance;
+    public static float baseCriticalChance = 0;
+    public static float addCriticalChance = 0;
 
-    public static float baseCriticalDamage;
-    public static float addCriticalDamage;
+    public static float baseCriticalDamage = 0;
+    public static float addCriticalDamage = 0;
 
-    public static float baseMoveSpeed;
-    public static float addMoveSpeed;
+    public static float baseMoveSpeed = 0;
+    public static float addMoveSpeed = 0;
 
-    public static float baseAttackSpeed;
-    public static float addAttackSpeed;
+    public static float baseAttackSpeed = 0;
+    public static float addAttackSpeed = 0;
+
+    public static void SetBase(int hp, int ammo, float atk, float criChance, float criDamage, float moveSpeed, float attackSpeed)
+    {
+        baseHP = hp;
+        baseAmmo = ammo;
+        baseAtk = atk;
+        baseCriticalChance = criChance;
+        baseCriticalDamage = criDamage;
+        baseMoveSpeed = moveSpeed;
+        baseAttackSpeed = attackSpeed;
+    }
 
     public static int GetHP()
     {

@@ -35,10 +35,9 @@ public class BulletMove : Bullet
         if (!collision.CompareTag("Enemy")) return;
         var hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;
-        if (Random.value < _bulletModule.crtChance)
-            finalDamage = _bulletModule.atk * _bulletModule.crtDmg;
-        else
-            finalDamage = _bulletModule.atk;
+        finalDamage = _bulletModule.atk + PlayerStat.GetAtk();
+        if (Random.value < _bulletModule.crtChance + PlayerStat.GetCriticalChance())
+            finalDamage *= _bulletModule.crtDmg+PlayerStat.GetCriticalDamage();
         if(!_bulletModule.isExplosion)
         {
             hit.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
@@ -54,7 +53,7 @@ public class BulletMove : Bullet
         Collider2D[] cols = Physics2D.OverlapCircleAll(collision.transform.position, _bulletModule.explosionRange / 2);
         foreach (Collider2D col in cols)
         {
-            col.GetComponent<EnemyBase>()?.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
+            col.GetComponent<EnemyBase>()?.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
         }
         Destroy(gameObject);
     }

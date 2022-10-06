@@ -38,8 +38,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     public float rightTimer = 0;
     float leftRotation;
 
-    GameObject bullet;
-
     private WeaponSet weaponSet = null;
     private PlayerSkills playerSkills = null;
 
@@ -192,7 +190,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         if (Input.GetMouseButton(0))
         {
             if (InventoryScript.Instance.isShop) return;
-            if (leftCurtime < module[leftWeapon].atkSpeed) return;
+            if (leftCurtime < module[leftWeapon].atkSpeed/PlayerStat.GetAttackSpeed()) return;
 
             int bulletAmount = num switch
             {
@@ -219,7 +217,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         if (Input.GetMouseButton(1))
         {
             if (InventoryScript.Instance.isShop) return;
-            if (rightCurtime < module[rightWeapon].atkSpeed) return;
+            if (rightCurtime < module[rightWeapon].atkSpeed/ PlayerStat.GetAttackSpeed()) return;
 
             int bulletAmount = num switch
             {

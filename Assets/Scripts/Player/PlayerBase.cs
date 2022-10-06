@@ -138,12 +138,17 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     [field: SerializeField] public UnityEvent OnDie { get; set; }
     [field: SerializeField] public UnityEvent OnGetHit { get; set; }
 
+    private void Awake()
+    {
+        PlayerStat.SetBase(_playerModule.HP, _playerModule.ammo, _playerModule.atk, _playerModule.criticalChance, _playerModule.criticalDamage, _playerModule.moveSpeed, _playerModule.attackSpeed);
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
-        _maxHp = _playerModule.HP;
+        _maxHp = PlayerStat.GetHP();
         Hp = _maxHp;
-        MoveSpeed = _playerModule.moveSpeed;
+        MoveSpeed = PlayerStat.GetMoveSpeed();
         //_mainMagazine = _mainMaxMagazine;
         //_subMagazine = _subMaxMagazine;
     }
