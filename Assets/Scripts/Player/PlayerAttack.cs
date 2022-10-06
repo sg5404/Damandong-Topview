@@ -45,6 +45,18 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     private UIManager _ui;
 
+    public List<int> LcurrentBullet = new List<int>();
+    public List<int> RcurrentBullet = new List<int>();
+    public List<int> magazineAmount = new List<int>();
+
+    //[ReadOnly] public int rifleBulletAmount = 25;
+    //[ReadOnly] public int sniperBulletAmount = 5;
+    //[ReadOnly] public int shotgunBulletAmount = 7;
+    //[ReadOnly] public int granadeBulletAmount = 3;
+    [ReadOnly] public int[] BulletAmounts = { 25, 5, 7, 3 };
+    [ReadOnly] public float Ltimer;
+    [ReadOnly] public float Rtimer;
+
     Vector3 leftWeaponPosTemp;
     Vector3 rightWeaponPosTemp;
 
@@ -66,6 +78,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     void Update()
     {
         if (PlayerCtrl.Instance.playerBase.IsDead) return;
+        ReloadLeft();
+        ReloadRight();
         leftCurtime += Time.deltaTime;
         rightCurtime += Time.deltaTime;
         if (!_ui.isStoped) RotateGun();
@@ -164,26 +178,44 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     void CurrentWeapon()
     {
-        switch (weaponSet.SubWeaponState)
-        {
-            case WeaponKind.RIFLE: LeftWeaponFire(0); break;
-            case WeaponKind.SNIPER: LeftWeaponFire(1); break;
-            case WeaponKind.SHOTGUN: LeftWeaponFire(2); break;
-            case WeaponKind.GRANADE: LeftWeaponFire(3); break;
-            case WeaponKind.SWORD: LeftWeaponFire(4); break;
-            default: break;
-        }
+        LeftWeaponFire(weaponNum());
+        RightWeaponFire(weaponNum());
 
-        switch (weaponSet.MainWeaponState)
+        //switch (weaponSet.SubWeaponState)
+        //{
+        //    case WeaponKind.RIFLE: LeftWeaponFire(0); break;
+        //    case WeaponKind.SNIPER: LeftWeaponFire(1); break;
+        //    case WeaponKind.SHOTGUN: LeftWeaponFire(2); break;
+        //    case WeaponKind.GRANADE: LeftWeaponFire(3); break;
+        //    case WeaponKind.SWORD: LeftWeaponFire(4); break;
+        //    default: break;
+        //}
+
+        //switch (weaponSet.MainWeaponState)
+        //{
+        //    case WeaponKind.RIFLE: RightWeaponFire(0); break;
+        //    case WeaponKind.SNIPER: RightWeaponFire(1); break;
+        //    case WeaponKind.SHOTGUN: RightWeaponFire(2); break;
+        //    case WeaponKind.GRANADE: RightWeaponFire(3); break;
+        //    case WeaponKind.SWORD: RightWeaponFire(4); break;
+        //    default:
+        //        break;
+        //}
+    }
+
+    int weaponNum()
+    {
+        int num = 0;
+        num = weaponSet.SubWeaponState switch
         {
-            case WeaponKind.RIFLE: RightWeaponFire(0); break;
-            case WeaponKind.SNIPER: RightWeaponFire(1); break;
-            case WeaponKind.SHOTGUN: RightWeaponFire(2); break;
-            case WeaponKind.GRANADE: RightWeaponFire(3); break;
-            case WeaponKind.SWORD: RightWeaponFire(4); break;
-            default:
-                break;
-        }
+            WeaponKind.RIFLE => 0,
+            WeaponKind.SNIPER => 1,
+            WeaponKind.SHOTGUN => 2,
+            WeaponKind.GRANADE => 3,
+            WeaponKind.SWORD => 4,
+            _ => 0,
+        };
+        return num;
     }
 
     void LeftWeaponFire(int num)//weaponNum이 0이면 왼쪽 아니면 오른쪽
@@ -193,6 +225,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             if (InventoryScript.Instance.isShop) return;
             if (leftCurtime < module[leftWeapon].atkSpeed) return;
+            if (LcurrentBullet[num] < 1) return;
 
             int bulletAmount = num switch
             {
@@ -210,6 +243,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             leftCurtime = 0;
             leftTimer = 0.08f;
             showFireEff(0);
+            LcurrentBullet[num]--;
         }
     }
 
@@ -220,6 +254,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         {
             if (InventoryScript.Instance.isShop) return;
             if (rightCurtime < module[rightWeapon].atkSpeed) return;
+            if (RcurrentBullet[num] < 1) return;
 
             int bulletAmount = num switch
             {
@@ -237,6 +272,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             rightCurtime = 0;
             rightTimer = 0.08f;
             showFireEff(1);
+            RcurrentBullet[num]--;
         }
     }
 
@@ -249,5 +285,27 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             case WeaponKind.SHOTGUN: PlayerSkills.Instance.MadangSslGi(); break;
             case WeaponKind.GRANADE: StartCoroutine(PlayerSkills.Instance.Stun()); break;
         }
+    }
+
+    void ReloadLeft()
+    {
+        if (LcurrentBullet[leftWeapon] > 0) return;
+        if (magazineAmount[leftWeapon] < 1) return;
+        Ltimer += Time.deltaTime;
+        if (Ltimer < 5f) return;
+        magazineAmount[leftWeapon]--;
+        LcurrentBullet[leftWeapon] = BulletAmounts[leftWeapon];
+        Ltimer = 0f;
+    }
+
+    void ReloadRight()
+    {
+        if (RcurrentBullet[rightWeapon] > 0) return;
+        if (magazineAmount[rightWeapon] < 1) return;
+        Rtimer += Time.deltaTime;
+        if (Rtimer < 5f) return;
+        magazineAmount[rightWeapon]--;
+        RcurrentBullet[rightWeapon] = BulletAmounts[rightWeapon];
+        Rtimer = 0f;
     }
 }
