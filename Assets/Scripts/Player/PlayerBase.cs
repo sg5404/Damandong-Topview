@@ -35,15 +35,6 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     private int _maxHp;
     public int MaxHP { get { return _maxHp; } }
 
-
-    private float _def;
-    public float Def
-    {
-        get => _def;
-        set { _def = (value + _playerModule.def); }
-    }
-
-
     //private int _mainMagazine;
 
     //public int MainMagazine
@@ -152,7 +143,6 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         animator = GetComponent<Animator>();
         _maxHp = _playerModule.HP;
         Hp = _maxHp;
-        Def = _playerModule.def;
         MoveSpeed = _playerModule.moveSpeed;
         //_mainMagazine = _mainMaxMagazine;
         //_subMagazine = _subMaxMagazine;

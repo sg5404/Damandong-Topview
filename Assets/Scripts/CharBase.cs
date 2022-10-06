@@ -23,7 +23,6 @@ public enum WeaponKind
 public interface CharBase
 {
     public int Hp { get; }
-    public float Def { get; }
     public float MoveSpeed { get; }
     public bool CanAilments { get; }//상태이상을 걸릴수 있나?
     public bool IsEnemy { get; }//얘가 적인가?

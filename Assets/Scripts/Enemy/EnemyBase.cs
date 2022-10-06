@@ -18,13 +18,6 @@ public class EnemyBase : MonoBehaviour, CharBase
         set { _hp = Mathf.Clamp(value, 0, _enemyModule.maxHp); }
     }
 
-    private float _def;
-    public float Def
-    {
-        get => _def;
-        set { _def = (value + _enemyModule.def); }
-    }
-
     private float _moveSpeed;
     public float MoveSpeed
     {
