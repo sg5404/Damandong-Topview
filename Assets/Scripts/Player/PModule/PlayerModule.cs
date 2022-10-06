@@ -6,10 +6,8 @@ using UnityEngine;
 public class PlayerModule : ScriptableObject
 {
     public int HP;
-    public int MP;
     public int ammo;
     public float atk;
-    public float def;
     public float criticalChance;
     public float criticalDamage;
     public float moveSpeed;
