@@ -9,9 +9,9 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private List<Transform> spawnPos;
     [SerializeField] private List<int> spawnNum;
     [SerializeField] private GameObject Elevator;
-    [ReadOnly] private int stage;
-    [ReadOnly] private bool isClear = false;
-    [ReadOnly] private int enemyCount = 0;
+    [ReadOnly] public int stage;
+    [ReadOnly] public bool isClear = false;
+    private int enemyCount = 0;
 
     [SerializeField] private Animator elevatorAni;
 
@@ -63,9 +63,9 @@ public class GameManager : MonoSingleton<GameManager>
         isClear = true;
         enemyCount = 0;
         stage++;
+        StopCoroutine(spawnEnemy());
         enemyList.Clear();
         ElavatorSpawn();
-        StopCoroutine(spawnEnemy());
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         isClear = false;
         StartCoroutine(spawnEnemy());
-        StartCoroutine(Delay());
+        StartCoroutine(Delay("Close", false));
     }
 
     /// <summary>
@@ -85,21 +85,15 @@ public class GameManager : MonoSingleton<GameManager>
     {
         //스폰 코드
         Debug.Log("엘리베이터 스폰!");
-        Elevator.SetActive(true);
-        elevatorAni.SetTrigger("Open");
-        //해야할일
+        StartCoroutine(Delay("Open", true));
         //포탈을 타면 startspawn다시 켜주면됨
     }
 
-    IEnumerator Delay()
+    IEnumerator Delay(string trigger, bool IsActive)
     {
-        while(true)
-        {
-            elevatorAni.SetTrigger("Close");
-            yield return new WaitForSeconds(2f);
-            Elevator.SetActive(false);
-            StopCoroutine(Delay());
-        }
-
+        elevatorAni.SetTrigger(trigger);
+        yield return new WaitForSeconds(2f);
+        Elevator.SetActive(IsActive);
+        StopCoroutine(Delay(trigger, IsActive));
     }
 }
