@@ -14,4 +14,5 @@ public class User
     public float criticalDamage = 50f;        // 치명타 데미지
     public int maxMagazine = 30;             // 최대 탄창
     public float speed = 10f;                 // 이동속도 
+    public List<ShopItem> shopItem = new List<ShopItem>();
 }

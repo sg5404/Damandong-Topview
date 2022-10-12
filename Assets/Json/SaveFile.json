@@ -1,7 +1,7 @@
 ﻿{
-    "money": 26,
-    "level": 2,
-    "experience": 9,
+    "money": 0,
+    "level": 1,
+    "experience": 0,
     "maxExperience": [
         5,
         10,
@@ -19,5 +19,35 @@
     "criticalChance": 0.0,
     "criticalDamage": 50.0,
     "maxMagazine": 30,
-    "speed": 10.0
+    "speed": 10.0,
+    "shopItem": [
+        {
+            "itemNumber": 0,
+            "itemName": "공격력 상승",
+            "itemDiscription": "공격력이 상승한다",
+            "price": 0,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 1,
+            "itemName": "IncreaseAtkDamage",
+            "itemDiscription": "공격력이 상승한다",
+            "price": 0,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 2,
+            "itemName": "IncreaseAtkDamage",
+            "itemDiscription": "공격력이 상승한다",
+            "price": 0,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 3,
+            "itemName": "IncreaseAtkDamage",
+            "itemDiscription": "공격력이 상승한다",
+            "price": 0,
+            "upgradeValue": 0
+        }
+    ]
 }
