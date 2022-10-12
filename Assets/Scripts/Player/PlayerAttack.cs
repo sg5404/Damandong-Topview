@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerAttack : MonoSingleton<PlayerAttack>
 {
@@ -18,6 +19,9 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     [SerializeField] private GameObject weaponObj = null;
     [SerializeField] private GameObject leftWeaponPos = null;
     [SerializeField] private GameObject rightWeaponPos = null;
+
+    [SerializeField] private TextMeshProUGUI lText = null;
+    [SerializeField] private TextMeshProUGUI rText = null;
 
     public List<GameObject> fireEff;
     public List<GameObject> fireEff2;
@@ -37,6 +41,9 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     public float leftTimer = 0;
     public float rightTimer = 0;
     float leftRotation;
+
+    private bool left = true;
+    private bool right = false;
 
     GameObject bullet;
 
@@ -71,6 +78,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         rightWeaponPosTemp = rightWeaponPos.transform.localPosition;
 
         fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(false);
+        LoadBulletAmount();
         Setting();
         CurrentWeapon();
     }
@@ -176,10 +184,26 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         };
     }
 
+    private void LoadBulletAmount()
+    {
+        ChangeText(weaponNum(left), left);
+        ChangeText(weaponNum(right), right);
+    }
+
+    public void ChangeText(int num, bool isLeft)
+    {
+        if(isLeft)
+        {
+            lText.text = $"{LcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
+            return;
+        }
+        rText.text = $"{RcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
+    }
+
     void CurrentWeapon()
     {
-        LeftWeaponFire(weaponNum());
-        RightWeaponFire(weaponNum());
+        LeftWeaponFire(weaponNum(left));
+        RightWeaponFire(weaponNum(right));
 
         //switch (weaponSet.SubWeaponState)
         //{
@@ -203,10 +227,17 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         //}
     }
 
-    int weaponNum()
+    int weaponNum(bool a)
     {
         int num = 0;
-        num = weaponSet.SubWeaponState switch
+
+        var weapon = a switch
+        {
+            true => weaponSet.SubWeaponState,
+            false => weaponSet.MainWeaponState,
+        };
+
+        num = weapon switch
         {
             WeaponKind.RIFLE => 0,
             WeaponKind.SNIPER => 1,
@@ -244,6 +275,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             leftTimer = 0.08f;
             showFireEff(0);
             LcurrentBullet[num]--;
+            lText.text = $"{LcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
         }
     }
 
@@ -273,6 +305,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             rightTimer = 0.08f;
             showFireEff(1);
             RcurrentBullet[num]--;
+            rText.text = $"{RcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
         }
     }
 
@@ -296,6 +329,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         magazineAmount[leftWeapon]--;
         LcurrentBullet[leftWeapon] = BulletAmounts[leftWeapon];
         Ltimer = 0f;
+        LoadBulletAmount();
     }
 
     void ReloadRight()
@@ -307,5 +341,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         magazineAmount[rightWeapon]--;
         RcurrentBullet[rightWeapon] = BulletAmounts[rightWeapon];
         Rtimer = 0f;
+        LoadBulletAmount();
     }
 }

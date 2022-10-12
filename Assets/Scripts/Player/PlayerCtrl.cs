@@ -137,40 +137,51 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     private void WeaponChange()
     {
+        int num = 0;
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("1");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(0);
+            num = 0;
+            ActiveWeapon(num);
+            PlayerAttack.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("2");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(1);
+            num = 1;
+            ActiveWeapon(num);
+            PlayerAttack.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("3");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(2);
+            num = 2;
+            ActiveWeapon(num);
+            PlayerAttack.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("4");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(3);
+            num = 3;
+            ActiveWeapon(num);
+            PlayerAttack.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("5");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(4);
+            num = 4;
+            ActiveWeapon(num);
+            PlayerAttack.Instance.ChangeText(num, true);
         }
     }
 }
