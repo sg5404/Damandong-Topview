@@ -39,6 +39,8 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     [SerializeField] string etcName = "창고";
     [SerializeField] string etcContent = "아직 업그레이드를 할 수 없습니다!";
 
+    [SerializeField] Scrollbar shopScrollbar = null;
+
     // AboutInteraction
     public bool isDialogue = false;
     public bool isDialogueWithNpc = false;
@@ -121,6 +123,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
             isDialogue = false;
             dialoguePanel.SetActive(false);
             shopPanel.SetActive(true);
+            InitShopSliderValue();
         }
         else
         {
@@ -171,6 +174,11 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         Dialogue.Instance.NpcName = name;
         Dialogue.Instance.sentences.Clear();
         Dialogue.Instance.sentences.Add(content);
+    }
+
+    public void InitShopSliderValue()
+    {
+        shopScrollbar.value = 1;
     }
 
     public void ExitGame()

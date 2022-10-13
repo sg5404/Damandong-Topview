@@ -18,13 +18,6 @@ public class EnemyBase : MonoBehaviour, CharBase
         set { _hp = Mathf.Clamp(value, 0, _enemyModule.maxHp); }
     }
 
-    private float _def;
-    public float Def
-    {
-        get => _def;
-        set { _def = (value + _enemyModule.def); }
-    }
-
     private float _moveSpeed;
     public float MoveSpeed
     {
@@ -74,7 +67,7 @@ public class EnemyBase : MonoBehaviour, CharBase
         DurationChange();
         DeadCheck();
     }
-    public virtual void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
+    public virtual void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if (IsDead) return;
         OnGetHit?.Invoke();
@@ -86,14 +79,15 @@ public class EnemyBase : MonoBehaviour, CharBase
         OnDie?.Invoke();
         //Debug.Log($"{gameObject.name}이 죽었음미다");
         PlayerMoney.Instance.ChangeMoney(Random.Range(1, 4));
+        PlayerExperience.Instance.ChangeExperience(1); //경험치 얼마 올릴지 몰라서 대충 정해놓음
         //레이어 바꿔주기
         gameObject.tag = "Untagged";
         IsDead = true;
     }
 
-    private void HpBar(int damage)
+    private void HpBar(float damage)
     {
-        Hp -= damage;
+        Hp -= (int)damage;
         hpBarImage.fillAmount = Hp / MaxHp;
     }
 
