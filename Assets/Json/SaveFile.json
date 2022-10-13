@@ -25,28 +25,70 @@
             "itemNumber": 0,
             "itemName": "공격력 상승",
             "itemDiscription": "공격력이 상승한다",
-            "price": 0,
+            "price": 100,
             "upgradeValue": 0
         },
         {
             "itemNumber": 1,
-            "itemName": "IncreaseAtkDamage",
-            "itemDiscription": "공격력이 상승한다",
-            "price": 0,
+            "itemName": "공격력 퍼센트 상승",
+            "itemDiscription": "공격력 퍼센트가 상승한다",
+            "price": 300,
             "upgradeValue": 0
         },
         {
             "itemNumber": 2,
-            "itemName": "IncreaseAtkDamage",
-            "itemDiscription": "공격력이 상승한다",
-            "price": 0,
+            "itemName": "방어력 상승",
+            "itemDiscription": "방어력이 상승한다",
+            "price": 100,
             "upgradeValue": 0
         },
         {
             "itemNumber": 3,
-            "itemName": "IncreaseAtkDamage",
-            "itemDiscription": "공격력이 상승한다",
-            "price": 0,
+            "itemName": "방어력 퍼센트 상승",
+            "itemDiscription": "방어력 퍼센트가 상승한다",
+            "price": 300,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 4,
+            "itemName": "체력 상승",
+            "itemDiscription": "체력이 상승한다",
+            "price": 100,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 5,
+            "itemName": "체력 퍼센트 상승",
+            "itemDiscription": "체력 퍼센트가 상승한다",
+            "price": 300,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 6,
+            "itemName": "최대 탄창 증가",
+            "itemDiscription": "최대 탄창 개수가 늘어난다",
+            "price": 200,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 7,
+            "itemName": "이동속도 증가",
+            "itemDiscription": "이동속도가 증가한다",
+            "price": 200,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 8,
+            "itemName": "크리티컬 확률 상승",
+            "itemDiscription": "크리티컬 확률이 상승한다",
+            "price": 200,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 9,
+            "itemName": "크리티컬 데미지 상승",
+            "itemDiscription": "크리티컬 데미지가 상승한다",
+            "price": 200,
             "upgradeValue": 0
         }
     ]

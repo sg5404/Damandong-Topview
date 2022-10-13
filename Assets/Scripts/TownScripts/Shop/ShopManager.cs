@@ -19,13 +19,12 @@ public class ShopManager : MonoSingleton<ShopManager>
         GameObject newPanel = null;
         ShopPanel newPanelComponent = null;
 
-        int i = 0;
-        foreach (ShopItem shopItems in SaveManager.Instance.CurrentUser.shopItem)
-        {
-            ++i;
-        }
-
-        Debug.Log(i);
+        //int i = 0;
+        //foreach (ShopItem shopItems in SaveManager.Instance.CurrentUser.shopItem)
+        //{
+        //    ++i;
+        //}
+        //Debug.Log(i);
 
         foreach(ShopItem shopItems in SaveManager.Instance.CurrentUser.shopItem)
         {

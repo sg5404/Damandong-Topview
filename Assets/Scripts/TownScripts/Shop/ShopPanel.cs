@@ -11,7 +11,9 @@ public class ShopPanel : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI itemName = null;
     [SerializeField]
-    private TextMeshProUGUI itemPrice = null;
+    private TextMeshProUGUI itemPriceTMP = null;
+    [SerializeField]
+    private long itemPrice;
     [SerializeField]
     private TextMeshProUGUI itemDiscription = null;
     [SerializeField]
@@ -31,10 +33,10 @@ public class ShopPanel : MonoBehaviour
 
     public void UpdateValues()
     {
-        itemImg.sprite = itemSprite[shopItem.itemNumber];
+        //itemImg.sprite = itemSprite[shopItem.itemNumber];
         itemName.text = shopItem.itemName;
         itemDiscription.text = shopItem.itemDiscription;
-        itemPrice.text = string.Format("{0}$", shopItem.price);
+        itemPriceTMP.text = string.Format("{0}$", shopItem.price);
         itemUpgradeValue = shopItem.upgradeValue;
     }
 }
