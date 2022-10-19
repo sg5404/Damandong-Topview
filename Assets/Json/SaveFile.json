@@ -91,5 +91,6 @@
             "price": 200,
             "upgradeValue": 0
         }
-    ]
+    ],
+    "shopItemInDungeon": []
 }
