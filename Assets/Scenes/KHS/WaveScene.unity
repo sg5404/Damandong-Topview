@@ -5121,6 +5121,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784090487}
   m_CullTransparentMesh: 1
+--- !u!1 &793467602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1236673469506100037, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 955600031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &810130076
 GameObject:
   m_ObjectHideFlags: 0
@@ -5345,6 +5350,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819754692}
   m_CullTransparentMesh: 1
+--- !u!1 &833742056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1076649681415787781, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 955600031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &851720490
 GameObject:
   m_ObjectHideFlags: 0
@@ -6107,6 +6117,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5048739362267824553, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9034370364741056553, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_Name
       value: Player(Dungeon)
@@ -6155,6 +6169,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056556, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: playerBase
+      value: 
+      objectReference: {fileID: 255036896}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: lText
       value: 
@@ -6163,6 +6181,54 @@ PrefabInstance:
       propertyPath: rText
       value: 
       objectReference: {fileID: 201162571}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: leftGunpoint
+      value: 
+      objectReference: {fileID: 833742056}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: rightGunpoint
+      value: 
+      objectReference: {fileID: 793467602}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: fireEff2.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: BulletAmounts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: LcurrentBullet.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: RcurrentBullet.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: leftWeaponList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: magazineAmount.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: BulletAmounts.Array.data[4]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: LcurrentBullet.Array.data[4]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: RcurrentBullet.Array.data[4]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: magazineAmount.Array.data[4]
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
 --- !u!1 &958746571

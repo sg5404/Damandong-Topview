@@ -174,14 +174,5 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveWeapon(num);
             PlayerAttack.Instance.ChangeText(num, true);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            weaponSet.SubWeaponState = weaponSet.SetWeapon("5");
-            Debug.Log(weaponSet.SubWeaponState);
-            ActiveFalseAllWepaon();
-            num = 4;
-            ActiveWeapon(num);
-            PlayerAttack.Instance.ChangeText(num, true);
-        }
     }
 }
