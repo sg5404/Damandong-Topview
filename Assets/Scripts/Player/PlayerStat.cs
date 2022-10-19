@@ -2,28 +2,31 @@ using UnityEngine;
 
 public static class PlayerStat
 {
-    public static int baseHP = 0;
-    public static int addHP = 0;
-    public static float perHP = 1;
+    private static int baseHP = 0;
+    private static int addHP = 0;
+    private static float perHP = 1;
+    
+    private static int baseAmmo = 0;
+    private static int addAmmo = 0;
+    
+    private static float baseAtk = 0;
+    private static float addAtk = 0;
+    private static float perAtk = 1;
+    
+    private static float baseCriticalChance = 0;
+    private static float addCriticalChance = 0;
+    
+    private static float baseCriticalDamage = 0;
+    private static float addCriticalDamage = 0;
+    
+    private static float baseMoveSpeed = 0;
+    private static float addMoveSpeed = 0;
+    
+    private static float baseAttackSpeed = 0;
+    private static float addAttackSpeed = 0;
 
-    public static int baseAmmo = 0;
-    public static int addAmmo = 0;
-
-    public static float baseAtk = 0;
-    public static float addAtk = 0;
-    public static float perAtk = 1;
-
-    public static float baseCriticalChance = 0;
-    public static float addCriticalChance = 0;
-
-    public static float baseCriticalDamage = 0;
-    public static float addCriticalDamage = 0;
-
-    public static float baseMoveSpeed = 0;
-    public static float addMoveSpeed = 0;
-
-    public static float baseAttackSpeed = 0;
-    public static float addAttackSpeed = 0;
+    private static float[] reloadTime = { };
+    private static float timeDecreasePer = 0.0f;
 
     public static void SetBase(int hp, int ammo, float atk, float criChance, float criDamage, float moveSpeed, float attackSpeed)
     {
@@ -68,4 +71,25 @@ public static class PlayerStat
     {
         return (baseAttackSpeed + addAttackSpeed);
     }
+
+    public static void AddAtk(int stat, int per)
+    {
+        addAtk += stat;
+        perAtk += per / 100;
+    }
+
+    public static float[] GetReloadTime()
+    {
+        float[] c_reloadTime = { };
+        for(int i = 0; i < reloadTime.Length; i++)
+            c_reloadTime[i] = reloadTime[i] - (reloadTime[i] * timeDecreasePer / 100); 
+        return c_reloadTime;
+    }
+
+    public static void upgradeReloadTime(int num)
+    {
+        timeDecreasePer += num;
+    }
+
+
 }
