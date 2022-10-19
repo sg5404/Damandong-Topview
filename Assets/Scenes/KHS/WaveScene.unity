@@ -327,11 +327,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8442996215189292448, guid: 1831cff2fd1c1d84a92182c938593718, type: 3}
   m_PrefabInstance: {fileID: 23115524}
   m_PrefabAsset: {fileID: 0}
---- !u!60 &49626284 stripped
-PolygonCollider2D:
-  m_CorrespondingSourceObject: {fileID: 5048739362267824553, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
-  m_PrefabInstance: {fileID: 955600031}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &53118414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -807,25 +802,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124002647}
   m_CullTransparentMesh: 1
---- !u!1 &161674883 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9034370364741056553, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
-  m_PrefabInstance: {fileID: 955600031}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &161674892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161674883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eaa5e7318635444d83059aa1a708301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rangeCol: {fileID: 49626284}
-  _swordData: {fileID: 11400000, guid: eaa8c79e8ed620c4fb74d228bd2ea166, type: 2}
 --- !u!1001 &163932342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1616,7 +1592,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9034370364741056559, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
   m_PrefabInstance: {fileID: 955600031}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161674883}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4d7f9b2e98cfe84eb91a581487fe750, type: 3}
@@ -5145,6 +5121,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784090487}
   m_CullTransparentMesh: 1
+--- !u!1 &793467602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1236673469506100037, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 955600031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &810130076
 GameObject:
   m_ObjectHideFlags: 0
@@ -5369,6 +5350,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819754692}
   m_CullTransparentMesh: 1
+--- !u!1 &833742056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1076649681415787781, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 955600031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &851720490
 GameObject:
   m_ObjectHideFlags: 0
@@ -6183,6 +6169,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056556, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: playerBase
+      value: 
+      objectReference: {fileID: 255036896}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: lText
       value: 
@@ -6192,20 +6182,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 201162571}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: leftGunpoint
+      value: 
+      objectReference: {fileID: 833742056}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: rightGunpoint
+      value: 
+      objectReference: {fileID: 793467602}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: fireEff2.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: BulletAmounts.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: LcurrentBullet.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: RcurrentBullet.Array.size
-      value: 5
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: leftWeaponList.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: magazineAmount.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: BulletAmounts.Array.data[4]

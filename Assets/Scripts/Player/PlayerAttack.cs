@@ -11,7 +11,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     [SerializeField] private GameObject sniperBullet = null;
     [SerializeField] private GameObject shotgunBullet = null;
     [SerializeField] private GameObject granadeBullet = null;
-    [SerializeField] private GameObject swordBullet = null;
 
     [SerializeField] private Transform bulletTransform = null;
     [SerializeField] private GameObject leftGunpoint = null;
@@ -51,7 +50,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     private PlayerSkills playerSkills = null;
 
     private UIManager _ui;
-    private SwordAttack swordAttack;
 
     public List<int> LcurrentBullet = new List<int>();
     public List<int> RcurrentBullet = new List<int>();
@@ -73,7 +71,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         _ui = FindObjectOfType<UIManager>();
         weaponSet = GetComponent<WeaponSet>();
         playerSkills = GetComponent<PlayerSkills>();
-        swordAttack = GetComponent<SwordAttack>();
 
         weaponPos = weaponObj.transform.localPosition;
         leftWeaponPosTemp = leftWeaponPos.transform.localPosition;
@@ -245,7 +242,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             WeaponKind.SNIPER => 1,
             WeaponKind.SHOTGUN => 2,
             WeaponKind.GRANADE => 3,
-            WeaponKind.SWORD => 4,
             _ => 0,
         };
         return num;
@@ -259,10 +255,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             if (InventoryScript.Instance.isShop) return;
             if (leftCurtime < module[leftWeapon].atkSpeed) return;
             if (LcurrentBullet[num] < 1) return;
-            if (weaponSet.SubWeaponState == WeaponKind.SWORD)
-            {
-                swordAttack.SwordSwing();
-            }
             else
             {
                 int bulletAmount = num switch
@@ -295,10 +287,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             if (InventoryScript.Instance.isShop) return;
             if (rightCurtime < module[rightWeapon].atkSpeed) return;
             if (RcurrentBullet[num] < 1) return;
-            if (weaponSet.MainWeaponState == WeaponKind.SWORD)
-            {
-                swordAttack.SwordSwing();
-            }
             else
             {
                 int bulletAmount = num switch
