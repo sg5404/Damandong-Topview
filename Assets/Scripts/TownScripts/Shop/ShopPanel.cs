@@ -39,4 +39,19 @@ public class ShopPanel : MonoBehaviour
         itemPriceTMP.text = string.Format("{0}$", shopItem.price);
         itemUpgradeValue = shopItem.upgradeValue;
     }
+
+    public void PurchaseItem()
+    {
+        if (SaveManager.Instance.CurrentUser.money < shopItem.price)
+        {
+            return;
+        }
+
+        SaveManager.Instance.CurrentUser.money -= (int)shopItem.price;
+        Debug.Log("구매 : " + shopItem.itemName);
+        // TODO : 아이템 종류에 따라 수치 상승
+
+        // TODO : 아이템 구매 시 아이템 구매비용 증가 수열
+        UpdateValues();
+    }
 }
