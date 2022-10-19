@@ -17,7 +17,6 @@ public enum WeaponKind
     SNIPER,
     SHOTGUN,
     GRANADE,
-    SWORD
 }
 
 public interface CharBase

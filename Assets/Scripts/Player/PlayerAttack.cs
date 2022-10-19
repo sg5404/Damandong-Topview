@@ -11,7 +11,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     [SerializeField] private GameObject sniperBullet = null;
     [SerializeField] private GameObject shotgunBullet = null;
     [SerializeField] private GameObject granadeBullet = null;
-    [SerializeField] private GameObject swordBullet = null;
 
     [SerializeField] private Transform bulletTransform = null;
     [SerializeField] private GameObject leftGunpoint = null;
@@ -192,7 +191,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
 
     public void ChangeText(int num, bool isLeft)
     {
-        if(isLeft)
+        if (isLeft)
         {
             lText.text = $"{LcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
             return;
@@ -243,7 +242,6 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             WeaponKind.SNIPER => 1,
             WeaponKind.SHOTGUN => 2,
             WeaponKind.GRANADE => 3,
-            WeaponKind.SWORD => 4,
             _ => 0,
         };
         return num;
@@ -257,25 +255,27 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             if (InventoryScript.Instance.isShop) return;
             if (leftCurtime < module[leftWeapon].atkSpeed) return;
             if (LcurrentBullet[num] < 1) return;
-
-            int bulletAmount = num switch
+            else
             {
-                2 => 8,
-                _ => 1,
-            };
+                int bulletAmount = num switch
+                {
+                    2 => 8,
+                    _ => 1,
+                };
 
-            for (int i = 0; i < bulletAmount; i++)
-            {
-                GameObject bullet = Instantiate(module[leftWeapon].bullet, leftGunpoint.transform);
-                if (bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
-                bullet.transform.SetParent(null);
+                for (int i = 0; i < bulletAmount; i++)
+                {
+                    GameObject bullet = Instantiate(module[leftWeapon].bullet, leftGunpoint.transform);
+                    if (bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
+                    bullet.transform.SetParent(null);
+                }
+
+                leftCurtime = 0;
+                leftTimer = 0.08f;
+                showFireEff(0);
+                LcurrentBullet[num]--;
+                lText.text = $"{LcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
             }
-
-            leftCurtime = 0;
-            leftTimer = 0.08f;
-            showFireEff(0);
-            LcurrentBullet[num]--;
-            lText.text = $"{LcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
         }
     }
 
@@ -287,28 +287,29 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
             if (InventoryScript.Instance.isShop) return;
             if (rightCurtime < module[rightWeapon].atkSpeed) return;
             if (RcurrentBullet[num] < 1) return;
-
-            int bulletAmount = num switch
+            else
             {
-                2 => 8,
-                _ => 1,
-            };
+                int bulletAmount = num switch
+                {
+                    2 => 8,
+                    _ => 1,
+                };
 
-            for (int i = 0; i < bulletAmount; i++)
-            {
-                GameObject bullet = Instantiate(module[rightWeapon].bullet, rightGunpoint.transform);
-                if (bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
-                bullet.transform.SetParent(null);
+                for (int i = 0; i < bulletAmount; i++)
+                {
+                    GameObject bullet = Instantiate(module[rightWeapon].bullet, rightGunpoint.transform);
+                    if (bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
+                    bullet.transform.SetParent(null);
+                }
+
+                rightCurtime = 0;
+                rightTimer = 0.08f;
+                showFireEff(1);
+                RcurrentBullet[num]--;
+                rText.text = $"{RcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
             }
-
-            rightCurtime = 0;
-            rightTimer = 0.08f;
-            showFireEff(1);
-            RcurrentBullet[num]--;
-            rText.text = $"{RcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
         }
     }
-
     void WeaponSkills()
     {
         switch (weaponSet.SubWeaponState)
