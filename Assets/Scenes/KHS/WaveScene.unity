@@ -6175,26 +6175,8 @@ PrefabInstance:
       propertyPath: rText
       value: 
       objectReference: {fileID: 201162571}
-    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
-      propertyPath: leftGunpoint
-      value: 
-      objectReference: {fileID: 955600033}
-    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
-      propertyPath: rightGunpoint
-      value: 
-      objectReference: {fileID: 955600032}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
---- !u!1 &955600032 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1236673469506100037, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
-  m_PrefabInstance: {fileID: 955600031}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &955600033 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1076649681415787781, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
-  m_PrefabInstance: {fileID: 955600031}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &958746571
 GameObject:
   m_ObjectHideFlags: 0
