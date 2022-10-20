@@ -16,7 +16,7 @@ public static class PlayerStat
     private static float baseCriticalChance = 0;
     private static float addCriticalChance = 0;
     
-    private static float baseCriticalDamage = 0;
+    private static float baseCriticalDamage = 1;
     private static float addCriticalDamage = 0;
     
     private static float baseMoveSpeed = 0;
@@ -91,5 +91,38 @@ public static class PlayerStat
         timeDecreasePer += num;
     }
 
+    public static void UpAddAtk()
+    {
+        addAtk += 5;
+    }
 
+    public static void UpPerAtk()
+    {
+        perAtk += 0.01f;
+    }
+
+    public static void UpAddHP()
+    {
+        addHP += 10;
+    }
+
+    public static void UpPerHP()
+    {
+        perHP += 0.01f;
+    }
+
+    public static void UpMoveSpeed()
+    {
+        addMoveSpeed += 0.3f;
+    }
+
+    public static void UpCriticalChance()
+    {
+        addCriticalChance += 0.025f;
+    }
+
+    public static void UpCriticalDamage()
+    {
+        addCriticalDamage += 0.075f;
+    }
 }

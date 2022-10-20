@@ -36,4 +36,38 @@ public class ShopManager : MonoSingleton<ShopManager>
         }
     }
 
+    public void IncreaseStat(int item)
+    {
+        switch(item)
+        {
+            case 0:
+                PlayerStat.UpAddAtk();
+                break;
+            case 1:
+                PlayerStat.UpPerAtk();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                PlayerStat.UpAddHP();
+                break;
+            case 5:
+                PlayerStat.UpPerHP();
+                break;
+            case 6:
+                //탄창증가히히
+                break;
+            case 7:
+                PlayerStat.UpMoveSpeed();
+                break;
+            case 8:
+                PlayerStat.UpCriticalChance();
+                break;
+            case 9:
+                PlayerStat.UpCriticalDamage();
+                break;
+        }
+    }
 }
