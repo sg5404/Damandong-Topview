@@ -88,27 +88,6 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
     //    }
     //}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Weapon"))
-        {
-            var Objects = GameObject.FindGameObjectsWithTag("Weapon").ToList();
-            nearObject = Objects.OrderBy(obj =>
-            {
-                return Vector3.Distance(transform.position, obj.transform.position);
-            }).FirstOrDefault();
-            isEquip = true;
-        }
-        if(collision.CompareTag("ITEM"))
-        {
-            var item = collision.gameObject.GetComponent<Item>();
-            var iSprite = item.GetComponent<SpriteRenderer>().sprite;
-            nearObject = item.gameObject;
-            inventory.Push(item.itemCode, item.gameObject, iSprite);
-            isItem = true;
-        }    
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Weapon"))
