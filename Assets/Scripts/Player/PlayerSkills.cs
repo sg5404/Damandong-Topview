@@ -36,19 +36,19 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
             curDelay = 0f;
             Debug.Log("LamboMode On");
 
-            float defaultWSpd = PlayerAttack.Instance.module[PlayerAttack.Instance.leftWeapon].atkSpeed;
+            float defaultWSpd = PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed;
 
             // ��������
-            PlayerAttack.Instance.module[PlayerAttack.Instance.leftWeapon].atkSpeed = defaultWSpd * 0.5f;
+            PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed = defaultWSpd * 0.5f;
 
             //����źâ
-            PlayerAttack.Instance.infinityBullet = true;
+            PlayerController.Instance.infinityBullet = true;
 
             yield return new WaitForSeconds(15f);
 
-            PlayerAttack.Instance.infinityBullet = false;
+            PlayerController.Instance.infinityBullet = false;
 
-            PlayerAttack.Instance.module[PlayerAttack.Instance.leftWeapon].atkSpeed = defaultWSpd;
+            PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed = defaultWSpd;
         }
 
     }
