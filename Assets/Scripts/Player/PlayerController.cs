@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerAttack : MonoSingleton<PlayerAttack>
+public class PlayerController : MonoSingleton<PlayerController>
 {
 
     [Header("ÃÑ¾Ë")]

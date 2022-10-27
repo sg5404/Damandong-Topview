@@ -13,7 +13,7 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
     private Transform lookTrs;
 
     private PlayerBase playerData = null;
-    private PlayerAttack playerAttack = null;
+    private PlayerController playerAttack = null;
 
     private List<GameObject> enemyObject = new List<GameObject>();
 
@@ -26,7 +26,7 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
     private void Awake()
     {
         playerData = GetComponent<PlayerBase>();
-        playerAttack = GetComponent<PlayerAttack>();
+        playerAttack = GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -43,14 +43,14 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
             curDelay = 0f;
             Debug.Log("LamboMode On");
 
-            float defaultWSpd = PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed;
+            float defaultWSpd = PlayerController.Instance.module[PlayerController.Instance.rightWeapon].atkSpeed;
 
             // 공속증가
-            PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed = 0.1f;
+            PlayerController.Instance.module[PlayerController.Instance.rightWeapon].atkSpeed = 0.1f;
 
             yield return new WaitForSeconds(15f);
 
-            PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed = defaultWSpd;
+            PlayerController.Instance.module[PlayerController.Instance.rightWeapon].atkSpeed = defaultWSpd;
         }
 
     }
