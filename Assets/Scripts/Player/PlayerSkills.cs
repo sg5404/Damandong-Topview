@@ -38,10 +38,10 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
 
             float defaultWSpd = PlayerAttack.Instance.module[PlayerAttack.Instance.leftWeapon].atkSpeed;
 
-            // °ø¼ÓÁõ°¡
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             PlayerAttack.Instance.module[PlayerAttack.Instance.leftWeapon].atkSpeed = defaultWSpd * 0.5f;
 
-            //¹«ÇÑÅºÃ¢
+            //ï¿½ï¿½ï¿½ï¿½ÅºÃ¢
             PlayerAttack.Instance.infinityBullet = true;
 
             yield return new WaitForSeconds(15f);
@@ -77,7 +77,7 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
                     reactVec = reactVec.normalized;
                     enemyItem.transform.DOMove(enemyItem.transform.position + (reactVec * 5f), 0.5f);
                     Debug.Log(reactVec);
-                    Debug.Log("³Ë¹é");
+                    Debug.Log("ï¿½Ë¹ï¿½");
                 }
 
             }
