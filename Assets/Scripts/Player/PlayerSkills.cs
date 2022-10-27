@@ -12,22 +12,15 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
     [SerializeField]
     private Transform lookTrs;
 
-    private PlayerBase playerData = null;
-    private PlayerAttack playerAttack = null;
-
     private List<GameObject> enemyObject = new List<GameObject>();
 
     [SerializeField]
     private GameObject stunGranade;
 
+    [SerializeField]
+    private CircleCollider2D collide;
+
     private Rigidbody2D rb = null;
-
-
-    private void Awake()
-    {
-        playerData = GetComponent<PlayerBase>();
-        playerAttack = GetComponent<PlayerAttack>();
-    }
 
     private void Update()
     {
@@ -38,21 +31,31 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
 
     public IEnumerator Lambo()
     {
-        if(curDelay >= 30f)
+        if(curDelay >= 10f)
         {
             curDelay = 0f;
             Debug.Log("LamboMode On");
 
-            float defaultWSpd = PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed;
+            float defaultWSpd = PlayerAttack.Instance.module[PlayerAttack.Instance.leftWeapon].atkSpeed;
 
             // 공속증가
-            PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed = 0.1f;
+            PlayerAttack.Instance.module[PlayerAttack.Instance.leftWeapon].atkSpeed = defaultWSpd * 0.5f;
+
+            //무한탄창
+            PlayerAttack.Instance.infinityBullet = true;
 
             yield return new WaitForSeconds(15f);
 
-            PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed = defaultWSpd;
+            PlayerAttack.Instance.infinityBullet = false;
+
+            PlayerAttack.Instance.module[PlayerAttack.Instance.leftWeapon].atkSpeed = defaultWSpd;
         }
 
+    }
+
+    public void LastBullet()
+    {
+        List<Collider2D> targets;
     }
 
     public void MadangSslGi()

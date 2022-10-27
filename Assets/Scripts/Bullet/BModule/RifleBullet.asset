@@ -17,7 +17,7 @@ MonoBehaviour:
   range: 2
   speed: 10
   crtDmg: 0
-  crtChance: 0.5
+  crtChance: 0.2
   statusAilment: 0
   saChance: 0
   isExplosion: 0

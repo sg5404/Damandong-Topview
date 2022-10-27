@@ -6175,8 +6175,38 @@ PrefabInstance:
       propertyPath: rText
       value: 
       objectReference: {fileID: 201162571}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: leftGunpoint
+      value: 
+      objectReference: {fileID: 955600033}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: rightGunpoint
+      value: 
+      objectReference: {fileID: 955600032}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: fireEff2.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: leftWeaponList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034370364741056561, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: leftWeaponList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1807949663}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+--- !u!1 &955600032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1236673469506100037, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 955600031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &955600033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1076649681415787781, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 955600031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &958746571
 GameObject:
   m_ObjectHideFlags: 0
@@ -15562,6 +15592,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805638881}
   m_CullTransparentMesh: 1
+--- !u!1 &1807949663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2621744056192747614, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+  m_PrefabInstance: {fileID: 955600031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1811572556
 GameObject:
   m_ObjectHideFlags: 0

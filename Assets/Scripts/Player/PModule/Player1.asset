@@ -15,7 +15,7 @@ MonoBehaviour:
   HP: 100
   ammo: 100
   atk: 5
-  criticalChance: 0.2
+  criticalChance: 0.05
   criticalDamage: 2
   moveSpeed: 3
   attackSpeed: 1

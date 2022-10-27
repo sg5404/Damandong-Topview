@@ -33,6 +33,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
     public WeaponModule[] module;
     public int leftWeapon { private set; get; } = 0;
     public int rightWeapon { private set; get; } = 0;
+    public bool infinityBullet { set; get; } = false;
 
     private float leftCurtime = 0;
     private float rightCurtime = 0;
@@ -273,7 +274,8 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
                 leftCurtime = 0;
                 leftTimer = 0.08f;
                 showFireEff(0);
-                LcurrentBullet[num]--;
+                if(!infinityBullet)
+                    LcurrentBullet[num]--;
                 lText.text = $"{LcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
             }
         }
@@ -315,7 +317,7 @@ public class PlayerAttack : MonoSingleton<PlayerAttack>
         switch (weaponSet.SubWeaponState)
         {
             case WeaponKind.RIFLE: StartCoroutine(PlayerSkills.Instance.Lambo()); break;
-            case WeaponKind.SNIPER: break;
+            case WeaponKind.SNIPER: PlayerSkills.Instance.LastBullet(); break;
             case WeaponKind.SHOTGUN: PlayerSkills.Instance.MadangSslGi(); break;
             case WeaponKind.GRANADE: StartCoroutine(PlayerSkills.Instance.Stun()); break;
         }
