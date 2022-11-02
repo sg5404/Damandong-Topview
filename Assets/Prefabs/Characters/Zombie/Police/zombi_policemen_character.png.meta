@@ -60,6 +60,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -424,6 +425,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      zombi_police_character_7: 8562739236221162155
+      zombi_police_character_0: -6376898787676838491
+      zombi_police_character_9: 1091347964707906450
+      zombi_police_character_1: -6529134596256728763
+      zombi_police_character_4: -2950448801173462674
+      zombi_police_character_11: -7242730611419334689
+      zombi_police_character_8: -1911312640066298248
+      zombi_police_character_2: 2759184669451111313
+      zombi_police_character_10: -1637119180272129703
+      zombi_police_character_3: 4330231114019279857
+      zombi_police_character_5: 2731359266782322485
+      zombi_police_character_6: -5027072285585086004
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

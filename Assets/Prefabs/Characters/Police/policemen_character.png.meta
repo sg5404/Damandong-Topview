@@ -96,6 +96,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -460,6 +461,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      policemen_character_4: 7633419436986103915
+      policemen_character_7: 1979583130398573893
+      policemen_character_5: -684406966202590400
+      policemen_character_10: 4618699098367615415
+      policemen_character_1: 7474779754837947448
+      policemen_character_0: -6201299510922417820
+      policemen_character_6: 6395977757150270745
+      policemen_character_3: -8144626319971284186
+      policemen_character_11: 2354816217605533173
+      policemen_character_9: 3427408561534187629
+      policemen_character_2: 4005249674874680953
+      policemen_character_8: 2526392285782503177
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
