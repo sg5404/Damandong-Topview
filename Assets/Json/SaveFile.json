@@ -1,11 +1,11 @@
 ﻿{
 <<<<<<< HEAD
-    "money": 17,
-    "level": 2,
-=======
     "money": 15,
     "level": 3,
->>>>>>> a8b9b213ae478f0e72190cb59cdb343830d0809f
+=======
+    "money": 17,
+    "level": 2,
+>>>>>>> 93efe750777018c9374638c140595c067fe45ae9
     "experience": 3,
     "maxExperience": [
         5,
