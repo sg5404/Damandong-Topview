@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletModule: {fileID: 11400000, guid: 3f02b7180fd322648b49bcd34cf0b339, type: 2}
   damage: 1
+  weaponKind: 1
 --- !u!58 &-6542449287728460843
 CircleCollider2D:
   m_ObjectHideFlags: 0

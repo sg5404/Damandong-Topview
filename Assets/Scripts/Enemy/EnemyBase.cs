@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour, CharBase
 {
-    [SerializeField]
-    private EnemyModule _enemyModule;
-    [SerializeField]
-    private Image hpBarImage;
+    [SerializeField] private EnemyModule _enemyModule;
+    [SerializeField] private Image hpBarImage;
 
     #region 캐릭터 기본 수치
     public float MaxHp;
@@ -18,13 +16,6 @@ public class EnemyBase : MonoBehaviour, CharBase
     {
         get => _hp;
         set { _hp = Mathf.Clamp(value, 0, _enemyModule.maxHp); }
-    }
-
-    private float _def;
-    public float Def
-    {
-        get => _def;
-        set { _def = (value + _enemyModule.def); }
     }
 
     private float _moveSpeed;
@@ -63,42 +54,54 @@ public class EnemyBase : MonoBehaviour, CharBase
     [field:SerializeField] public UnityEvent OnDie { get; set; }
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
 
-    Enemyflower enemy;
+    EnemyScript enemy;
+    private float timer = 0;
     private void Start()
     {
-        enemy = GetComponent<Enemyflower>();
+        enemy = GetComponent<EnemyScript>();
         ani = GetComponent<Animator>();
         MaxHp = Hp;
     }
     private void Update()
     {
         DurationChange();
+        DeadCheck();
     }
-    public virtual void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
+    public virtual void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if (IsDead) return;
         OnGetHit?.Invoke();
         ani.SetTrigger("Hit");
-        if(_statusAilment==StatusAilments.None)
-            _statusAilment = status;
-        Hp -= damage;
-        hpBarImage.fillAmount = Hp / MaxHp;
-        if (Hp <= 0)
-        {
-            ani.SetTrigger("Die");
-            OnDie?.Invoke();
-            enemy.DeadCheck(Hp);
-            Debug.Log($"{gameObject.name}이 죽었음미다");
-            PlayerMoney.Instance.ChangeMoney(Random.Range(1, 4));
-            //내가 임의로 수정함 -기현-
-            gameObject.SetActive(false);
-            //여기까지
-            IsDead = true;
-        }
+        if(_statusAilment==StatusAilments.None) _statusAilment = status;
+        HpBar(damage);
+        if (Hp > 0) return;
+        ani.SetTrigger("Die");
+        OnDie?.Invoke();
+        //Debug.Log($"{gameObject.name}이 죽었음미다");
+        PlayerMoney.Instance.ChangeMoney(Random.Range(1, 4));
+        PlayerExperience.Instance.ChangeExperience(1); //경험치 얼마 올릴지 몰라서 대충 정해놓음
+        //레이어 바꿔주기
+        gameObject.tag = "Untagged";
+        IsDead = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void HpBar(float damage)
     {
+        Hp -= (int)damage;
+        hpBarImage.fillAmount = Hp / MaxHp;
+    }
+
+    private void DeadCheck()
+    {
+        if (!IsDead) return;
+        timer += Time.deltaTime;
+        if (timer < 2.0f) return;
+        gameObject.SetActive(false);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (IsDead) return;
         if (!collision.CompareTag("Player")) return;
         var hit = collision.GetComponent<CharBase>();
         hit.Hit(10, gameObject, StatusAilments.None, 0);
@@ -108,7 +111,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     {
         _statusAilment = StatusAilments.Stun;
         stunTime = durationTime;
-        Debug.Log("으앙 스턴");
+        Debug.Log("스턴");
     }
 
     private void DurationChange()

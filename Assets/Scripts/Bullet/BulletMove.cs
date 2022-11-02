@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BulletMove : Bullet
 {
+    public WeaponKind weaponKind;
 
     private float timer = 0;
+    private float finalDamage;
 
     public override BulletModule BulletData 
     { 
@@ -30,23 +32,39 @@ public class BulletMove : Bullet
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("OutDoor")) Destroy(gameObject);
-        if (!collision.CompareTag("Enemy")&&!collision.CompareTag("Player")) return;
+        if (!collision.CompareTag("Enemy")) return;
         var hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;
-        if(_bulletModule.isExplosion)
+        finalDamage = _bulletModule.atk + PlayerStat.GetAtk();
+        if (Random.value < _bulletModule.crtChance + PlayerStat.GetCriticalChance())
+            finalDamage *= _bulletModule.crtDmg+PlayerStat.GetCriticalDamage();
+        if(!_bulletModule.isExplosion)
         {
-            Collider2D[] cols = Physics2D.OverlapCircleAll(collision.transform.position, _bulletModule.explosionRange/2);
-            foreach(Collider2D col in cols)
-            {
-                col.GetComponent<EnemyBase>()?.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
-            }
-            Destroy(gameObject);
+            hit.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
+            SniperCheck();
+            return;
         }
-        else
-            hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
-        if (collision.CompareTag("Player"))
+        EnemyHit(collision);
+        SniperCheck();
+    }
+
+    private void EnemyHit(Collider2D collision)
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(collision.transform.position, _bulletModule.explosionRange / 2);
+        foreach (Collider2D col in cols)
         {
-            gameObject.SetActive(false);
+            col.GetComponent<EnemyBase>()?.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
         }
+        Destroy(gameObject);
+    }
+
+    private void SniperCheck()
+    {
+        bool result = weaponKind switch
+        {
+            WeaponKind.SNIPER => true,
+            _ => false,
+        };
+        if (!result) Destroy(gameObject);
     }
 }

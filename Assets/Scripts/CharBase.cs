@@ -17,19 +17,17 @@ public enum WeaponKind
     SNIPER,
     SHOTGUN,
     GRANADE,
-    SWORD
 }
 
 public interface CharBase
 {
     public int Hp { get; }
-    public float Def { get; }
     public float MoveSpeed { get; }
     public bool CanAilments { get; }//상태이상을 걸릴수 있나?
     public bool IsEnemy { get; }//얘가 적인가?
     public bool IsDead { get; }//뒤짐?
 
-    public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance);
+    public void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance);
     
     public UnityEvent OnDie { get; set; }
     public UnityEvent OnGetHit { get; set; }

@@ -67,3 +67,6 @@ TagManager:
   - name: ZOMBIE
     uniqueID: 2056731963
     locked: 0
+  - name: UI
+    uniqueID: 3937461937
+    locked: 0

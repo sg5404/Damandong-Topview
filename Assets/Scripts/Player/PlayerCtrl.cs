@@ -11,8 +11,6 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
     [SerializeField]
     Image Main_Weapon;
 
-    [SerializeField] private float speed;
-
     bool isEquip = false;
     bool isItem = false;
 
@@ -28,7 +26,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     public int rightWeapon { private set; get; } = 0;
 
-    public bool isDead { set; get; }
+    public PlayerBase playerBase;
 
     private void Awake()
     {
@@ -38,6 +36,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     void Start()
     {
+        playerBase = GetComponent<PlayerBase>();
         inventory = FindObjectOfType<Inventory>();
         rigid = GetComponent<Rigidbody2D>();
         weaponSet = GetComponent<WeaponSet>();
@@ -54,13 +53,13 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     void Update()
     {
-        if (isDead)
+        if (playerBase.IsDead)
         {
             rigid.velocity = new Vector2(0, 0);
             return;
         }
-        float h = Input.GetAxisRaw("Horizontal") * speed;
-        float v = Input.GetAxisRaw("Vertical") * speed;
+        float h = Input.GetAxisRaw("Horizontal") * playerBase.MoveSpeed;
+        float v = Input.GetAxisRaw("Vertical") * playerBase.MoveSpeed;
         rigid.velocity = new Vector2(h, v);
         //WeaponEquip();
         WeaponChange();
@@ -88,27 +87,6 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
     //        nearObject.SetActive(false);
     //    }
     //}
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Weapon"))
-        {
-            var Objects = GameObject.FindGameObjectsWithTag("Weapon").ToList();
-            nearObject = Objects.OrderBy(obj =>
-            {
-                return Vector3.Distance(transform.position, obj.transform.position);
-            }).FirstOrDefault();
-            isEquip = true;
-        }
-        if(collision.CompareTag("ITEM"))
-        {
-            var item = collision.gameObject.GetComponent<Item>();
-            var iSprite = item.GetComponent<SpriteRenderer>().sprite;
-            nearObject = item.gameObject;
-            inventory.Push(item.itemCode, item.gameObject, iSprite);
-            isItem = true;
-        }    
-    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -138,40 +116,42 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     private void WeaponChange()
     {
+        int num = 0;
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("1");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(0);
+            num = 0;
+            ActiveWeapon(num);
+            PlayerController.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("2");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(1);
+            num = 1;
+            ActiveWeapon(num);
+            PlayerController.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("3");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(2);
+            num = 2;
+            ActiveWeapon(num);
+            PlayerController.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             weaponSet.SubWeaponState = weaponSet.SetWeapon("4");
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            ActiveWeapon(3);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            weaponSet.SubWeaponState = weaponSet.SetWeapon("5");
-            Debug.Log(weaponSet.SubWeaponState);
-            ActiveFalseAllWepaon();
-            ActiveWeapon(4);
+            num = 3;
+            ActiveWeapon(num);
+            PlayerController.Instance.ChangeText(num, true);
         }
     }
 }

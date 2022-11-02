@@ -12,22 +12,15 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
     [SerializeField]
     private Transform lookTrs;
 
-    private PlayerBase playerData = null;
-    private PlayerAttack playerAttack = null;
-
     private List<GameObject> enemyObject = new List<GameObject>();
 
     [SerializeField]
     private GameObject stunGranade;
 
+    [SerializeField]
+    private CircleCollider2D collide;
+
     private Rigidbody2D rb = null;
-
-
-    private void Awake()
-    {
-        playerData = GetComponent<PlayerBase>();
-        playerAttack = GetComponent<PlayerAttack>();
-    }
 
     private void Update()
     {
@@ -38,21 +31,31 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
 
     public IEnumerator Lambo()
     {
-        if(curDelay >= 30f)
+        if(curDelay >= 10f)
         {
             curDelay = 0f;
             Debug.Log("LamboMode On");
 
-            float defaultWSpd = PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed;
+            float defaultWSpd = PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed;
 
-            // °ø¼ÓÁõ°¡
-            PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed = 0.1f;
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed = defaultWSpd * 0.5f;
+
+            //ï¿½ï¿½ï¿½ï¿½ÅºÃ¢
+            PlayerController.Instance.infinityBullet = true;
 
             yield return new WaitForSeconds(15f);
 
-            PlayerAttack.Instance.module[PlayerAttack.Instance.rightWeapon].atkSpeed = defaultWSpd;
+            PlayerController.Instance.infinityBullet = false;
+
+            PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed = defaultWSpd;
         }
 
+    }
+
+    public void LastBullet()
+    {
+        List<Collider2D> targets;
     }
 
     public void MadangSslGi()
@@ -74,7 +77,7 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
                     reactVec = reactVec.normalized;
                     enemyItem.transform.DOMove(enemyItem.transform.position + (reactVec * 5f), 0.5f);
                     Debug.Log(reactVec);
-                    Debug.Log("³Ë¹é");
+                    Debug.Log("ï¿½Ë¹ï¿½");
                 }
 
             }

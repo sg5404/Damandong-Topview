@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
 {
-    [SerializeField]
-    private PlayerModule _playerModule;
+    [SerializeField] private PlayerModule _playerModule;
+    [SerializeField] private float enableTimer = 0.0f;
 
     private Animator animator;
 
@@ -34,14 +34,6 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
 
     private int _maxHp;
     public int MaxHP { get { return _maxHp; } }
-
-
-    private float _def;
-    public float Def
-    {
-        get => _def;
-        set { _def = (value + _playerModule.def); }
-    }
 
     //private int _mainMagazine;
 
@@ -131,13 +123,13 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         get => _isEnemy;
         set { _isEnemy = value; }
     }
-
     private bool _isDead;
     public bool IsDead
     {
         get => _isDead;
         set { _isDead = value; }
     }
+
     #endregion
     #region 적 수치
     public StatusAilments _statusAilment;
@@ -146,32 +138,52 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     [field: SerializeField] public UnityEvent OnDie { get; set; }
     [field: SerializeField] public UnityEvent OnGetHit { get; set; }
 
+    private void Awake()
+    {
+        PlayerStat.SetBase(_playerModule.HP, _playerModule.ammo, _playerModule.atk, _playerModule.criticalChance, _playerModule.criticalDamage, _playerModule.moveSpeed, _playerModule.attackSpeed);
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
-        _maxHp = _playerModule.HP;
+        _maxHp = PlayerStat.GetHP();
         Hp = _maxHp;
-        Def = _playerModule.def;
-        MoveSpeed = _playerModule.moveSpeed;
+        MoveSpeed = PlayerStat.GetMoveSpeed();
         //_mainMagazine = _mainMaxMagazine;
         //_subMagazine = _subMaxMagazine;
     }
-    public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
+    private void Update()
     {
-        Debug.Log("플레이어 적중");
+        enableTimer -= Time.deltaTime;
+    }
+    public void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance)
+    {
+        if(enableTimer > 0.0f) return;
         if (IsDead) return;
+        HitEvent(damage, status);
+        if (Die()) return;
+        animator.SetTrigger("Hit");
+        enableTimer = 1.2f;
+    }
+
+    private void HitEvent(float damage, StatusAilments status)
+    {
         PlayerManager.Instance.Damaged(damage);
         OnGetHit?.Invoke();
         _statusAilment = status;
-        if (Hp <= 0)
+    }
+
+    private bool Die()
+    {
+        if (Hp > 0)
         {
-            OnDie?.Invoke();
-            Debug.Log($"플레이어 사망!");
-            IsDead = true;
-            PlayerCtrl.Instance.isDead = true;
-            animator.SetTrigger("Die");
-            return;
+            return false;
         }
-        animator.SetTrigger("Hit");
+        OnDie?.Invoke();
+        //PlayerCtrl.Instance.isDead = true;
+        IsDead = true;
+        animator.SetTrigger("Die");
+        SaveManager.Instance.SaveToJson();
+        return true;
     }
 }

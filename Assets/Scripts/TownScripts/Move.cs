@@ -29,61 +29,8 @@ public class Move : MonoSingleton<Move>
     void Update()
     {
         if (isStop) return;
-        Interaction();
         MovePlayer();
-    }
-
-    void Interaction()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            rigid.velocity = Vector2.zero;
-            shortestDisToNpc = Vector2.Distance(transform.position, npcObj[0].transform.position);
-            shortestNpcObj = npcObj[0];
-            foreach (GameObject npcObjItem in npcObj)
-            {
-                float distance = Vector2.Distance(transform.position, npcObjItem.transform.position);
-                if (distance < shortestDisToNpc)
-                {
-                    shortestNpcObj = npcObjItem;
-                    shortestDisToNpc = distance;
-                }
-            }
-
-            Debug.Log(Vector2.Distance(transform.position, shortestNpcObj.transform.position));
-            Debug.Log(shortestNpcObj.tag);
-
-            if (Vector2.Distance(transform.position, shortestNpcObj.transform.position) <= 2f
-                && !TownUIManager.Instance.isDialogueWithNpc)
-            {
-                switch (shortestNpcObj.tag)
-                {
-                    case "Smith":
-                        TownUIManager.Instance.InteractionSmith();
-                        break;
-                    case "SalesMan":
-                        TownUIManager.Instance.InteractionSalesman();
-                        break;
-                    case "Home":
-                        TownUIManager.Instance.InteractionHome();
-                        break;
-                    case "ETC":
-                        TownUIManager.Instance.InteractionETC();
-                        break;
-                }
-            }
-        }
-
-        if(shortestNpcObj != null)
-        {
-            if (Vector2.Distance(transform.position, shortestNpcObj.transform.position) >= 2.5f
-                && Vector2.Distance(transform.position, shortestNpcObj.transform.position) <= 10f)
-                {
-                    TownUIManager.Instance.DisActiveAllPanel();
-                    TownUIManager.Instance.isDialogue = false;
-                    TownUIManager.Instance.isDialogueWithNpc = false;
-                }
-        }
+        KeyDown();
     }
 
     public void MovePlayer()
@@ -116,6 +63,14 @@ public class Move : MonoSingleton<Move>
             animator.SetBool("isMove", true);
         else
             animator.SetBool("isMove", false);
+    }
+
+    void KeyDown()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TownUIManager.Instance.DisActiveAllPanel();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

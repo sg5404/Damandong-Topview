@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TownBtnManager : MonoBehaviour
 {
-
     public void GoDungeon()
     {
         StartCoroutine(GoDungeonCoroutine());
@@ -31,4 +30,8 @@ public class TownBtnManager : MonoBehaviour
         TownUIManager.Instance.isWeaponChoose = false;
     }
 
+    public void PurchaseItem(string cost)
+    {
+
+    }
 }

@@ -10,6 +10,8 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     [SerializeField] GameObject dungeonPortal;
     [SerializeField] GameObject goDungeonPanel;
     [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject shopPanel;
+    [SerializeField] TextMeshProUGUI moneyTmp;
 
     [Header("Dialogue")]
     [SerializeField] GameObject dialoguePanel;
@@ -27,7 +29,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     //[SerializeField] string salesmanName = "SalesMan";
     [SerializeField] string salesmanName = "판매원";
     //[SerializeField] string salesmanContent = "No items have been added to the store yet!";
-    [SerializeField] string salesmanContent = "상점에 아이템재고가 들어오지 않았습니다!";
+    [SerializeField] string salesmanContent = "무엇을 구매하러 오셨나요?";
 
     [Header("집")]
     [SerializeField] string homeName = "도움말";
@@ -36,6 +38,8 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     [Header("창고")]
     [SerializeField] string etcName = "창고";
     [SerializeField] string etcContent = "아직 업그레이드를 할 수 없습니다!";
+
+    [SerializeField] Scrollbar shopScrollbar = null;
 
     // AboutInteraction
     public bool isDialogue = false;
@@ -54,6 +58,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
             changeWeaponPanel.SetActive(true);
             isWeaponChoose = true;
         }
+        moneyTmp.text = string.Format("{0}", SaveManager.Instance.CurrentUser.money);
     }
     private void Update()
     {
@@ -69,6 +74,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         TogglePausePanel(false);
         dialoguePanel.SetActive(false);
         changeWeaponPanel.SetActive(false);
+        shopPanel.SetActive(false);
     }
 
     public void ToggleGoDungeonPanel(bool isActive)
@@ -84,6 +90,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
 
     public void MoveToMainScene()
     {
+        SaveManager.Instance.SaveToJson();
         SceneManager.LoadScene(2);
     }
 
@@ -112,8 +119,11 @@ public class TownUIManager : MonoSingleton<TownUIManager>
     {
         if (isDialogue)
         {
+            isDialogueWithNpc = true;
             isDialogue = false;
             dialoguePanel.SetActive(false);
+            shopPanel.SetActive(true);
+            InitShopSliderValue();
         }
         else
         {
@@ -166,8 +176,14 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         Dialogue.Instance.sentences.Add(content);
     }
 
+    public void InitShopSliderValue()
+    {
+        shopScrollbar.value = 1;
+    }
+
     public void ExitGame()
     {
+        SaveManager.Instance.SaveToJson();
         Application.Quit();
     }
 }
