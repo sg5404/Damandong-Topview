@@ -124,7 +124,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             num = 0;
             ActiveWeapon(num);
-            PlayerAttack.Instance.ChangeText(num, true);
+            PlayerController.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -133,7 +133,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             num = 1;
             ActiveWeapon(num);
-            PlayerAttack.Instance.ChangeText(num, true);
+            PlayerController.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -142,7 +142,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             num = 2;
             ActiveWeapon(num);
-            PlayerAttack.Instance.ChangeText(num, true);
+            PlayerController.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
@@ -151,7 +151,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             num = 3;
             ActiveWeapon(num);
-            PlayerAttack.Instance.ChangeText(num, true);
+            PlayerController.Instance.ChangeText(num, true);
         }
     }
 }

@@ -50,7 +50,7 @@ public class ShopPanel : MonoBehaviour
         SaveManager.Instance.CurrentUser.money -= (int)shopItem.price;
         Debug.Log("구매 : " + shopItem.itemName);
         // TODO : 아이템 종류에 따라 수치 상승
-
+        shopItem.upgradeValue++;
         // TODO : 아이템 구매 시 아이템 구매비용 증가 수열
         UpdateValues();
     }

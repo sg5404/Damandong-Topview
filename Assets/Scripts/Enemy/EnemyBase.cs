@@ -111,7 +111,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     {
         _statusAilment = StatusAilments.Stun;
         stunTime = durationTime;
-        Debug.Log("으앙 스턴");
+        Debug.Log("스턴");
     }
 
     private void DurationChange()
