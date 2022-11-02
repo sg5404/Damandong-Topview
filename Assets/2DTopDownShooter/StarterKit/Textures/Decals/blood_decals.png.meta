@@ -60,7 +60,7 @@ TextureImporter:
       213: 5901876961954542785
     second: blood_decals_18
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -80,6 +80,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -89,8 +91,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -111,10 +113,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -166,6 +172,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
@@ -588,6 +606,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      blood_decals_3: -7967621936277804957
+      blood_decals_7: 5487234649327240257
+      blood_decals_8: -6075842808224516569
+      blood_decals_11: 2277451344929878263
+      blood_decals_2: 2835228675581750154
+      blood_decals_4: -8068519179787690431
+      blood_decals_18: 5901876961954542785
+      blood_decals_17: 5079060784648714544
+      blood_decals_10: 461546472878067910
+      blood_decals_12: 1661333516867224820
+      blood_decals_1: 1250248729166981039
+      blood_decals_5: -1389885985363828427
+      blood_decals_9: 4057449200518204463
+      blood_decals_16: 7527724605688616920
+      blood_decals_14: 301353597533304320
+      blood_decals_15: -6775469443949385240
+      blood_decals_0: -7860211657600393995
+      blood_decals_13: 2360103621337663304
+      blood_decals_6: 3274529248679793615
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
