@@ -267,7 +267,7 @@ TextureImporter:
       213: -4535880571525141291
     second: Furnitues_87
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -288,6 +288,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -326,6 +327,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -2224,6 +2226,95 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Furnitues_40: 5560316782989714259
+      Furnitues_36: 7456843371408876754
+      Furnitues_65: -4885774607677512935
+      Furnitues_0: 9179490423327973244
+      Furnitues_4: -3188841046729859346
+      Furnitues_21: -1274998929142329460
+      Furnitues_2: -1133136559911329965
+      Furnitues_18: 2640627109467943965
+      Furnitues_49: 8942907008533951314
+      Furnitues_44: 1121867506065405372
+      Furnitues_74: -4349431603581268961
+      Furnitues_52: -8153038835219952766
+      Furnitues_37: -1511727029793087596
+      Furnitues_66: 6978954318880849779
+      Furnitues_13: -1808048212268678631
+      Furnitues_39: 3505848810654551459
+      Furnitues_16: 702624291097643062
+      Furnitues_72: -733935032312931114
+      Furnitues_50: 1278084846741740155
+      Furnitues_42: -1953664760478330375
+      Furnitues_47: -3738418884850639576
+      Furnitues_28: -5816583106961106651
+      Furnitues_17: -5136906343645350920
+      Furnitues_32: -2870747672289231762
+      Furnitues_31: -8486187722942093961
+      Furnitues_60: 5837238840908153259
+      Furnitues_83: -1624018578024671250
+      Furnitues_75: 3216330677900884517
+      Furnitues_82: -3086832564955206515
+      Furnitues_81: -5652138791518796519
+      Furnitues_57: -7325392303146024862
+      Furnitues_80: -6330239427139258651
+      Furnitues_25: -2846446334866431971
+      Furnitues_78: -6041948533075076575
+      Furnitues_11: -5191609635119983634
+      Furnitues_26: 7463115924988547055
+      Furnitues_20: 94068762952727970
+      Furnitues_7: -5722551920428734585
+      Furnitues_86: -241415913424034183
+      Furnitues_79: -3187953844072087512
+      Furnitues_59: -2424289768773578192
+      Furnitues_6: -6851276263174249534
+      Furnitues_34: -9095023951310175623
+      Furnitues_54: 8562211208082815996
+      Furnitues_62: -654421858662044654
+      Furnitues_58: 2984422547916668074
+      Furnitues_43: 8924446233910134775
+      Furnitues_38: -6631596894138221654
+      Furnitues_87: -4535880571525141291
+      Furnitues_51: 2115197744450350528
+      Furnitues_68: -6500103666538525071
+      Furnitues_19: -8401320938621306659
+      Furnitues_48: 3164049582675925106
+      Furnitues_8: -147180322406391260
+      Furnitues_9: 6928709874558949168
+      Furnitues_41: 4858389725142174888
+      Furnitues_84: -5134896960784718231
+      Furnitues_35: 3943722020954917576
+      Furnitues_46: -2847815488740484728
+      Furnitues_30: 1185895896051021394
+      Furnitues_5: 1564855486441282552
+      Furnitues_70: 3417593047615739535
+      Furnitues_33: 2126685540092070178
+      Furnitues_22: -3975285032169388456
+      Furnitues_71: -3100081368070677314
+      Furnitues_3: 6977599943131569252
+      Furnitues_64: -5201124039220624291
+      Furnitues_29: -294911131523577018
+      Furnitues_53: 2659067502354828536
+      Furnitues_23: -6833380089800833288
+      Furnitues_45: -6785674267050881056
+      Furnitues_10: 4795070897954422800
+      Furnitues_55: 6023835395044203939
+      Furnitues_69: 5802746843203755102
+      Furnitues_73: 7738838871114142890
+      Furnitues_15: 3568162176397794103
+      Furnitues_12: 8607578898799893034
+      Furnitues_1: 8679110847174588974
+      Furnitues_24: 3360361042903411260
+      Furnitues_67: 3054616344220794321
+      Furnitues_76: -5205358234108731961
+      Furnitues_56: 9088160139624151865
+      Furnitues_61: -8640682530702342111
+      Furnitues_14: -5815248381908109123
+      Furnitues_27: -3985794934163431738
+      Furnitues_77: 1860302423106826883
+      Furnitues_63: -3040237019564491857
+      Furnitues_85: -5301658595953642922
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
