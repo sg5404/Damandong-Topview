@@ -1,6 +1,11 @@
 ﻿{
+<<<<<<< HEAD
     "money": 17,
     "level": 2,
+=======
+    "money": 15,
+    "level": 3,
+>>>>>>> a8b9b213ae478f0e72190cb59cdb343830d0809f
     "experience": 3,
     "maxExperience": [
         5,
@@ -37,55 +42,41 @@
         },
         {
             "itemNumber": 2,
-            "itemName": "방어력 상승",
-            "itemDiscription": "방어력이 상승한다",
-            "price": 100,
-            "upgradeValue": 0
-        },
-        {
-            "itemNumber": 3,
-            "itemName": "방어력 퍼센트 상승",
-            "itemDiscription": "방어력 퍼센트가 상승한다",
-            "price": 300,
-            "upgradeValue": 0
-        },
-        {
-            "itemNumber": 4,
             "itemName": "체력 상승",
             "itemDiscription": "체력이 상승한다",
             "price": 100,
             "upgradeValue": 0
         },
         {
-            "itemNumber": 5,
+            "itemNumber": 3,
             "itemName": "체력 퍼센트 상승",
             "itemDiscription": "체력 퍼센트가 상승한다",
             "price": 300,
             "upgradeValue": 0
         },
         {
-            "itemNumber": 6,
+            "itemNumber": 4,
             "itemName": "최대 탄창 증가",
             "itemDiscription": "최대 탄창 개수가 늘어난다",
             "price": 200,
             "upgradeValue": 0
         },
         {
-            "itemNumber": 7,
+            "itemNumber": 5,
             "itemName": "이동속도 증가",
             "itemDiscription": "이동속도가 증가한다",
             "price": 200,
             "upgradeValue": 0
         },
         {
-            "itemNumber": 8,
+            "itemNumber": 6,
             "itemName": "크리티컬 확률 상승",
             "itemDiscription": "크리티컬 확률이 상승한다",
             "price": 200,
             "upgradeValue": 0
         },
         {
-            "itemNumber": 9,
+            "itemNumber": 7,
             "itemName": "크리티컬 데미지 상승",
             "itemDiscription": "크리티컬 데미지가 상승한다",
             "price": 200,

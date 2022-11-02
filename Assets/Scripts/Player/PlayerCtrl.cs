@@ -88,27 +88,6 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
     //    }
     //}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Weapon"))
-        {
-            var Objects = GameObject.FindGameObjectsWithTag("Weapon").ToList();
-            nearObject = Objects.OrderBy(obj =>
-            {
-                return Vector3.Distance(transform.position, obj.transform.position);
-            }).FirstOrDefault();
-            isEquip = true;
-        }
-        if(collision.CompareTag("ITEM"))
-        {
-            var item = collision.gameObject.GetComponent<Item>();
-            var iSprite = item.GetComponent<SpriteRenderer>().sprite;
-            nearObject = item.gameObject;
-            inventory.Push(item.itemCode, item.gameObject, iSprite);
-            isItem = true;
-        }    
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Weapon"))
@@ -145,7 +124,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             num = 0;
             ActiveWeapon(num);
-            PlayerAttack.Instance.ChangeText(num, true);
+            PlayerController.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -154,7 +133,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             num = 1;
             ActiveWeapon(num);
-            PlayerAttack.Instance.ChangeText(num, true);
+            PlayerController.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -163,7 +142,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             num = 2;
             ActiveWeapon(num);
-            PlayerAttack.Instance.ChangeText(num, true);
+            PlayerController.Instance.ChangeText(num, true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
@@ -172,7 +151,7 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             ActiveFalseAllWepaon();
             num = 3;
             ActiveWeapon(num);
-            PlayerAttack.Instance.ChangeText(num, true);
+            PlayerController.Instance.ChangeText(num, true);
         }
     }
 }

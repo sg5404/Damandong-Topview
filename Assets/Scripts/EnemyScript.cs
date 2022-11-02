@@ -43,6 +43,12 @@ public class EnemyScript : MonoBehaviour
         }
         targetDir = (GameManager.Instance.Playertransform.position - transform.position);
         dir = targetDir.normalized;
+
+        if(Vector2.Distance(GameManager.Instance.Playertransform.position, transform.position) < 0.1f)
+        {
+            return;
+        }
+
         rigid.velocity = dir * speed;
     }
 
