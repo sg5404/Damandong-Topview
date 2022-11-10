@@ -43,7 +43,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -190,8 +190,8 @@ GameObject:
   - component: {fileID: 9034370364741056555}
   - component: {fileID: 9034370364741056554}
   - component: {fileID: 9034370364741056556}
+  - component: {fileID: 1756403266940069710}
   - component: {fileID: 9034370364741056557}
-  - component: {fileID: 9034370364741056561}
   - component: {fileID: 9034370364741056560}
   - component: {fileID: 9034370364741056559}
   - component: {fileID: 9034370364741056562}
@@ -296,7 +296,63 @@ MonoBehaviour:
   - {fileID: 6889814173951589204}
   - {fileID: 242960378285843466}
   - {fileID: 2621744057635854137}
-  playerBase: {fileID: 0}
+  playerBase: {fileID: 9034370364741056559}
+--- !u!114 &1756403266940069710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034370364741056553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5993c7ec6425d4d909385dfb110c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rifleBullet: {fileID: 99796228922257285, guid: cae0499bd922c10429c0e812fb9d23d6, type: 3}
+  sniperBullet: {fileID: 99796228922257285, guid: 64a2decdcca301b488f42eebfaa0cfd5, type: 3}
+  shotgunBullet: {fileID: 99796228922257285, guid: 15a0422f9e162a64da3a824440294d17, type: 3}
+  granadeBullet: {fileID: 99796228922257285, guid: 0f35a0e737d72964a8569f4bf25888f9, type: 3}
+  bulletTransform: {fileID: 7895972306297062016}
+  leftGunpoint: {fileID: 1076649681415787781}
+  rightGunpoint: {fileID: 1236673469506100037}
+  leftWeaponPos: {fileID: 9034370366675662876}
+  rightWeaponPos: {fileID: 9034370366507896662}
+  lText: {fileID: 0}
+  rText: {fileID: 0}
+  fireEff:
+  - {fileID: 8670105510090467669}
+  - {fileID: 7080002107593106707}
+  - {fileID: 5452249864119987036}
+  - {fileID: 3507921582336591286}
+  fireEff2:
+  - {fileID: 8670105509908832000}
+  - {fileID: 7080002107442354492}
+  - {fileID: 5452249863224789327}
+  - {fileID: 3507921580894542545}
+  leftWeaponList:
+  - {fileID: 7520394150547491626}
+  - {fileID: 6889814173598943099}
+  - {fileID: 242960379315766809}
+  - {fileID: 2621744056192747614}
+  rightWeaponList:
+  - {fileID: 7520394150224838015}
+  - {fileID: 6889814173951589204}
+  - {fileID: 242960378285843466}
+  - {fileID: 2621744057635854137}
+  module:
+  - {fileID: 11400000, guid: a32b6b6ddec68ea4083f71d5c94cd067, type: 2}
+  - {fileID: 11400000, guid: 594a41ffda4c11a4a84e9ed2ad6145ed, type: 2}
+  - {fileID: 11400000, guid: a2907cc1be88cd1479b3772339dd98ee, type: 2}
+  - {fileID: 11400000, guid: 521a71e8a599be048b709078ab5228b1, type: 2}
+  leftTimer: 0
+  rightTimer: 0
+  LcurrentBullet: 19000000050000000700000003000000
+  RcurrentBullet: 19000000050000000700000003000000
+  magazineAmount: 04000000040000000400000004000000
+  BulletAmounts: 19000000050000000700000003000000
+  Ltimer: 0
+  Rtimer: 0
 --- !u!50 &9034370364741056557
 Rigidbody2D:
   serializedVersion: 4
@@ -318,65 +374,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9034370364741056561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9034370364741056553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af347b87dd6a714a95ae4394ee4821e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rifleBullet: {fileID: 99796228922257285, guid: cae0499bd922c10429c0e812fb9d23d6, type: 3}
-  sniperBullet: {fileID: 99796228922257285, guid: 64a2decdcca301b488f42eebfaa0cfd5, type: 3}
-  shotgunBullet: {fileID: 99796228922257285, guid: 15a0422f9e162a64da3a824440294d17, type: 3}
-  granadeBullet: {fileID: 99796228922257285, guid: 0f35a0e737d72964a8569f4bf25888f9, type: 3}
-  bulletTransform: {fileID: 7895972306297062016}
-  leftGunpoint: {fileID: 0}
-  rightGunpoint: {fileID: 0}
-  weaponObj: {fileID: 7356145456513179318}
-  leftWeaponPos: {fileID: 9034370366675662876}
-  rightWeaponPos: {fileID: 9034370366507896662}
-  lText: {fileID: 0}
-  rText: {fileID: 0}
-  fireEff:
-  - {fileID: 8670105510090467669}
-  - {fileID: 7080002107593106707}
-  - {fileID: 5452249864119987036}
-  - {fileID: 3507921582336591286}
-  fireEff2:
-  - {fileID: 8670105509908832000}
-  - {fileID: 7080002107442354492}
-  - {fileID: 5452249863224789327}
-  - {fileID: 3507921580894542545}
-  - {fileID: 0}
-  leftWeaponList:
-  - {fileID: 7520394150547491626}
-  - {fileID: 6889814173598943099}
-  - {fileID: 242960379315766809}
-  - {fileID: 2621744056192747614}
-  - {fileID: 0}
-  rightWeaponList:
-  - {fileID: 7520394150224838015}
-  - {fileID: 6889814173951589204}
-  - {fileID: 242960378285843466}
-  - {fileID: 2621744057635854137}
-  module:
-  - {fileID: 11400000, guid: a32b6b6ddec68ea4083f71d5c94cd067, type: 2}
-  - {fileID: 11400000, guid: 594a41ffda4c11a4a84e9ed2ad6145ed, type: 2}
-  - {fileID: 11400000, guid: a2907cc1be88cd1479b3772339dd98ee, type: 2}
-  - {fileID: 11400000, guid: 521a71e8a599be048b709078ab5228b1, type: 2}
-  leftTimer: 0
-  rightTimer: 0
-  LcurrentBullet: 19000000050000000700000003000000
-  RcurrentBullet: 19000000050000000700000003000000
-  magazineAmount: 06000000060000000600000006000000
-  BulletAmounts: 19000000050000000700000003000000
-  Ltimer: 0
-  Rtimer: 0
 --- !u!114 &9034370364741056560
 MonoBehaviour:
   m_ObjectHideFlags: 0
