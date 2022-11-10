@@ -42,7 +42,9 @@ public class GameManager : MonoSingleton<GameManager>
     {
         // 올림(15 + (5 + 스테이지 레벨) * (스테이지 레벨 / 2 + 제곱(내림(스테이지레벨 / 10, 1의자리), 2), 1의자리)
         
-        totalEnemyCount = (int)Mathf.Ceil(15 + (5 + stage) * (stage / 2 + Mathf.Pow(Mathf.Floor(stage / 10), 2)));
+        totalEnemyCount = (int)Mathf.Ceil(15 + (5 + stage) * (float)(stage * 0.5 + Mathf.Pow(Mathf.Floor(stage / 10), 2)));
+
+        Debug.Log("Total Enemy Count : " + totalEnemyCount);
 
         while (enemyCount < totalEnemyCount || !ClearCheck(enemyCount))
         {
