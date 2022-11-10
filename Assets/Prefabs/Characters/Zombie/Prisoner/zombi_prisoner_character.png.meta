@@ -36,7 +36,7 @@ TextureImporter:
       213: 2355723418629971470
     second: zombi_prisoner_character_10
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -57,6 +57,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -95,6 +96,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -146,6 +148,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
@@ -400,6 +414,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      zombi_prisoner_character_9: 1959997058585842461
+      zombi_prisoner_character_1: -7317564793665283635
+      zombi_prisoner_character_4: -8600123245004007705
+      zombi_prisoner_character_7: 8398845097502385495
+      zombi_prisoner_character_3: -1039867265225098972
+      zombi_prisoner_character_0: -8753161656554223558
+      zombi_prisoner_character_8: 737055889491743067
+      zombi_prisoner_character_2: -1618306920317274390
+      zombi_prisoner_character_10: 2355723418629971470
+      zombi_prisoner_character_5: 5400740769610000022
+      zombi_prisoner_character_6: 3107618359047895209
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

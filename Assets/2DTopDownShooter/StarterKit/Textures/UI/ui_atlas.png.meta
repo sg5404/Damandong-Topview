@@ -129,7 +129,7 @@ TextureImporter:
       213: 6082147223891446313
     second: ui_atlas_41
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -149,6 +149,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -158,8 +160,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -180,10 +182,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -235,6 +241,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1056,6 +1074,45 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ui_atlas_22: -5342110865260471478
+      ui_atlas_13: 6848447007634959500
+      ui_atlas_32: -6836538006359722749
+      ui_atlas_25: 2990205570244244794
+      ui_atlas_8: 1504981112498394058
+      ui_atlas_26: -964247387593509554
+      ui_atlas_35: 1394782163174795540
+      ui_atlas_36: 5888467720726950936
+      ui_atlas_7: 8060847166058842764
+      ui_atlas_38: -6357105790152048821
+      ui_atlas_10: -7534010495956275324
+      ui_atlas_39: 3275640847614604383
+      ui_atlas_31: -897684244660753672
+      ui_atlas_41: 6082147223891446313
+      ui_atlas_30: -2681795657782479364
+      ui_atlas_16: 4813574635757351515
+      ui_atlas_23: -4208213574249976389
+      ui_atlas_4: 3836725587945801416
+      ui_atlas_9: -7638098790578912670
+      ui_atlas_20: -4043147362427660469
+      ui_atlas_27: -4356310007532287662
+      ui_atlas_40: -590013171352523941
+      ui_atlas_12: -3336929936663558087
+      ui_atlas_18: -7655123730853062189
+      ui_atlas_14: 6427035136651936252
+      ui_atlas_17: 3962255973646303992
+      ui_atlas_5: 7980853219166280902
+      ui_atlas_24: -5417622905168805772
+      ui_atlas_15: 2359997398674613487
+      ui_atlas_6: 3303189428467558304
+      ui_atlas_21: 5174992675021852642
+      ui_atlas_29: 3084039963823693227
+      ui_atlas_11: 8723733780741235874
+      ui_atlas_19: 8127006913015445022
+      ui_atlas_34: 4167760664947135369
+      ui_atlas_28: 4052187721407706161
+      ui_atlas_33: -6315553595738514949
+      ui_atlas_37: -5126286101570685878
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
