@@ -17,9 +17,6 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
     [SerializeField]
     private GameObject stunGranade;
 
-    [SerializeField]
-    private CircleCollider2D collide;
-
     private Rigidbody2D rb = null;
 
     private void Update()
