@@ -7,10 +7,11 @@ public class GameManager : MonoSingleton<GameManager>
     public Transform Playertransform;
     [SerializeField] private GameObject zombie;
     [SerializeField] private List<Transform> spawnPos;
-    [SerializeField] private List<int> spawnNum;
     [SerializeField] private GameObject Elevator;
     [ReadOnly] public int stage;
     [ReadOnly] public bool isClear = false;
+    //private List<int> spawnNum;
+    private int totalEnemyCount = 0;
     private int enemyCount = 0;
 
     [SerializeField] private Animator elevatorAni;
@@ -21,7 +22,16 @@ public class GameManager : MonoSingleton<GameManager>
     {
         Debug.Log("MainWeaponState : " + WeaponSet.Instance.MainWeaponState);
         Debug.Log("SubeaponState : " + WeaponSet.Instance.SubWeaponState);
+
+        //for (int i = 1; i < 31; ++i)
+        //{
+        //    spawnNum[i - 1] = (int)Mathf.Ceil(15 + (5 + i) * (i / 2 + Mathf.Pow(Mathf.Floor(i / 10), 2)));
+        //    Debug.Log(spawnNum[i - 1]);
+        //}
+        stage = 1;
+        Debug.Log("stage : " + stage);
         StartSpawn();
+
     }
 
     /// <summary>
@@ -30,10 +40,13 @@ public class GameManager : MonoSingleton<GameManager>
     /// <returns></returns>
     private IEnumerator spawnEnemy()
     {
+        // 올림(15 + (5 + 스테이지 레벨) * (스테이지 레벨 / 2 + 제곱(내림(스테이지레벨 / 10, 1의자리), 2), 1의자리)
+        
+        totalEnemyCount = (int)Mathf.Ceil(15 + (5 + stage) * (stage / 2 + Mathf.Pow(Mathf.Floor(stage / 10), 2)));
 
-        while(enemyCount < spawnNum[stage] || !ClearCheck(enemyCount))
+        while (enemyCount < totalEnemyCount || !ClearCheck(enemyCount))
         {
-            if (enemyCount < spawnNum[stage])
+            if (enemyCount < totalEnemyCount)
             {
                 int num = Random.Range(0, 8);
                 enemyList.Add(Instantiate(zombie, spawnPos[num]));
@@ -48,7 +61,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     bool ClearCheck(int enemyCount)
     {
-        if (enemyCount < spawnNum[stage])
+        if (enemyCount < totalEnemyCount)
             return false;
         for (int i = 0; i < enemyList.Count; i++)
         {
