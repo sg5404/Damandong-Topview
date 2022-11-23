@@ -71,7 +71,7 @@ public class GameManager : MonoSingleton<GameManager>
     /// <summary>
     /// 넘어왔을때 실행
     /// </summary>
-    void StartSpawn()
+    public void StartSpawn()
     {
         isClear = false;
         StartCoroutine(spawnEnemy());
