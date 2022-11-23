@@ -48,7 +48,7 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     GameObject bullet;
 
-    private WeaponSet weaponSet = null;
+    public WeaponSet weaponSet = null;
     private PlayerSkills playerSkills = null;
 
     private UIManager _ui;
@@ -318,7 +318,6 @@ public class PlayerController : MonoSingleton<PlayerController>
         switch (weaponSet.SubWeaponState)
         {
             case WeaponKind.RIFLE: StartCoroutine(PlayerSkills.Instance.Lambo()); break;
-            case WeaponKind.SNIPER: PlayerSkills.Instance.LastBullet(); break;
             case WeaponKind.SHOTGUN: PlayerSkills.Instance.MadangSslGi(); break;
             case WeaponKind.GRANADE: StartCoroutine(PlayerSkills.Instance.Stun()); break;
         }

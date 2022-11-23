@@ -50,11 +50,6 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
 
     }
 
-    public void LastBullet()
-    {
-        List<Collider2D> targets;
-    }
-
     public void MadangSslGi()
     {
         if(madangDelay >= 6f)
