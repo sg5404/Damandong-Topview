@@ -12,13 +12,22 @@ public class AnimatedTexture : MonoBehaviour
     void Start()
     {
         rendererMy = GetComponent<MeshRenderer>();
-        NextFrame();
-        InvokeRepeating("NextFrame", 1 / fps, 1 / fps);
+        InvokeRepeating(nameof(NextFrame), 0, 1 / fps);
     }
 
     void NextFrame()
     {
         rendererMy.sharedMaterial.SetTexture("_MainTex", frames[frameIndex]);
         frameIndex = (frameIndex + 1) % frames.Length;
+        if (frameIndex == frames.Length - 1)
+        {
+            Stop();
+        }
+    }
+
+    private void Stop()
+    {
+        CancelInvoke("NextFrame");
+        Destroy(gameObject);
     }
 }
