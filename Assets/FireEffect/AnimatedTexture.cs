@@ -12,8 +12,12 @@ public class AnimatedTexture : MonoBehaviour
     void Start()
     {
         rendererMy = GetComponent<MeshRenderer>();
-        NextFrame();
-        InvokeRepeating("NextFrame", 1 / fps, 1 / fps);
+        InvokeRepeating(nameof(NextFrame), 0, 1 / fps);
+    }
+
+    private void OnEnable()
+    {
+        frameIndex = 0;
     }
 
     void NextFrame()

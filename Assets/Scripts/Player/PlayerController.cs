@@ -26,6 +26,10 @@ public class PlayerController : MonoSingleton<PlayerController>
     public List<GameObject> fireEff;
     public List<GameObject> fireEff2;
 
+    public GameObject fireEffect;
+    private GameObject leftEffect;
+    private GameObject rightEffect;
+
     public GameObject[] leftWeaponList;
     public GameObject[] rightWeaponList;
 
@@ -78,7 +82,6 @@ public class PlayerController : MonoSingleton<PlayerController>
         leftWeaponPosTemp = leftWeaponPos.transform.localPosition;
         rightWeaponPosTemp = rightWeaponPos.transform.localPosition;
 
-        fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(false);
         LoadBulletAmount();
         Setting();
         CurrentWeapon();
@@ -99,24 +102,45 @@ public class PlayerController : MonoSingleton<PlayerController>
         DisableEff(rightTimer, 1);
     }
 
+    private void CreateEffect()
+    {
+        leftEffect = Instantiate(fireEffect, leftGunpoint.transform);
+        rightEffect = Instantiate(fireEffect, rightGunpoint.transform);
+
+        leftEffect.SetActive(false);
+        rightEffect.SetActive(false);
+    }
+
     private void showFireEff(int pos) //0老订 FireEff1.x 1老订 FireEff1.y 2老订 FireEff2.x 3捞惑何畔 FireEff2.y 
     {
-        var Eff = pos switch
-        {
-            0 => fireEff[(int)weaponSet.SetWeaponNum().y - 1],
-            _ => fireEff2[(int)weaponSet.SetWeaponNum().x - 1],
-        };
+        //GameObject fireEffect = pos switch
+        //{
+        //    0 => fireEff[(int)weaponSet.SetWeaponNum().y - 1],
+        //    _ => fireEff2[(int)weaponSet.SetWeaponNum().x - 1],
+        //};
 
-        Eff.SetActive(true);
-        Eff.GetComponent<ParticleSystem>().startRotation = (leftRotation + 180) / 57.295f * -1;
+        if (pos == 0)
+        {
+            leftEffect.SetActive(true);
+        }
+        else
+        {
+            rightEffect.SetActive(true);
+        }
     }
 
     private void DisableEff(float timer, int pos)
     {
+        //var Eff = pos switch
+        //{
+        //    0 => fireEff[(int)weaponSet.SetWeaponNum().y - 1],
+        //    _ => fireEff2[(int)weaponSet.SetWeaponNum().x - 1],
+        //};
+
         var Eff = pos switch
         {
-            0 => fireEff[(int)weaponSet.SetWeaponNum().y - 1],
-            _ => fireEff2[(int)weaponSet.SetWeaponNum().x - 1],
+            0 => leftEffect,
+            _ => rightEffect,
         };
 
         if (leftTimer > 0) leftTimer -= Time.deltaTime;
@@ -126,13 +150,15 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     private void Setting()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            fireEff[i].SetActive(false);
-            fireEff2[i].SetActive(false);
-        }
-        fireEff[(int)weaponSet.SetWeaponNum().y - 1].SetActive(true);
-        fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(true);
+        //for (int i = 0; i < 4; i++)
+        //{
+        //    fireEff[i].SetActive(false);
+        //    fireEff2[i].SetActive(false);
+        //}
+        //fireEff[(int)weaponSet.SetWeaponNum().y - 1].SetActive(true);
+        //fireEff2[(int)weaponSet.SetWeaponNum().x - 1].SetActive(true);
+
+        CreateEffect();
     }
 
     void RotateGun()
@@ -272,9 +298,9 @@ public class PlayerController : MonoSingleton<PlayerController>
                     bullet.transform.SetParent(null);
                 }
 
+                showFireEff(0);
                 leftCurtime = 0;
                 leftTimer = 0.08f;
-                showFireEff(0);
                 if(!infinityBullet)
                     LcurrentBullet[num]--;
                 lText.text = $"{LcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
