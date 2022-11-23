@@ -15,19 +15,14 @@ public class AnimatedTexture : MonoBehaviour
         InvokeRepeating(nameof(NextFrame), 0, 1 / fps);
     }
 
+    private void OnEnable()
+    {
+        frameIndex = 0;
+    }
+
     void NextFrame()
     {
         rendererMy.sharedMaterial.SetTexture("_MainTex", frames[frameIndex]);
         frameIndex = (frameIndex + 1) % frames.Length;
-        if (frameIndex == frames.Length - 1)
-        {
-            Stop();
-        }
-    }
-
-    private void Stop()
-    {
-        CancelInvoke("NextFrame");
-        Destroy(gameObject);
     }
 }
