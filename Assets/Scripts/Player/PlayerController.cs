@@ -16,7 +16,7 @@ public class PlayerController : MonoSingleton<PlayerController>
     [SerializeField] private Transform bulletTransform = null;
     [SerializeField] private GameObject leftGunpoint = null;
     [SerializeField] private GameObject rightGunpoint = null;
-    [SerializeField] private GameObject weaponObj = null;
+    //[SerializeField] private GameObject weaponObj = null;
     [SerializeField] private GameObject leftWeaponPos = null;
     [SerializeField] private GameObject rightWeaponPos = null;
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoSingleton<PlayerController>
     public GameObject[] leftWeaponList;
     public GameObject[] rightWeaponList;
 
-    private Vector2 weaponPos = new Vector2(0, 0);
+    //private Vector2 weaponPos = new Vector2(0, 0);
 
     public WeaponModule[] module;
     public int leftWeapon { private set; get; } = 0;
@@ -48,7 +48,7 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     GameObject bullet;
 
-    private WeaponSet weaponSet = null;
+    public WeaponSet weaponSet = null;
     private PlayerSkills playerSkills = null;
 
     private UIManager _ui;
@@ -74,7 +74,7 @@ public class PlayerController : MonoSingleton<PlayerController>
         weaponSet = GetComponent<WeaponSet>();
         playerSkills = GetComponent<PlayerSkills>();
 
-        weaponPos = weaponObj.transform.localPosition;
+        //weaponPos = weaponObj.transform.localPosition;
         leftWeaponPosTemp = leftWeaponPos.transform.localPosition;
         rightWeaponPosTemp = rightWeaponPos.transform.localPosition;
 
@@ -318,7 +318,6 @@ public class PlayerController : MonoSingleton<PlayerController>
         switch (weaponSet.SubWeaponState)
         {
             case WeaponKind.RIFLE: StartCoroutine(PlayerSkills.Instance.Lambo()); break;
-            case WeaponKind.SNIPER: PlayerSkills.Instance.LastBullet(); break;
             case WeaponKind.SHOTGUN: PlayerSkills.Instance.MadangSslGi(); break;
             case WeaponKind.GRANADE: StartCoroutine(PlayerSkills.Instance.Stun()); break;
         }

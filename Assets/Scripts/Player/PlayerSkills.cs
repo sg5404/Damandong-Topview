@@ -17,9 +17,6 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
     [SerializeField]
     private GameObject stunGranade;
 
-    [SerializeField]
-    private CircleCollider2D collide;
-
     private Rigidbody2D rb = null;
 
     private void Update()
@@ -51,11 +48,6 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
             PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed = defaultWSpd;
         }
 
-    }
-
-    public void LastBullet()
-    {
-        List<Collider2D> targets;
     }
 
     public void MadangSslGi()
