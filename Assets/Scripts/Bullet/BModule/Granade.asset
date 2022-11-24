@@ -21,6 +21,6 @@ MonoBehaviour:
   statusAilment: 0
   saChance: 0
   isExplosion: 1
-  explosionRange: 10
+  explosionRange: 5
   isKnockBack: 0
   knockBackRange: 0
