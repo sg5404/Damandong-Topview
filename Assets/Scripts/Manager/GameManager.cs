@@ -11,8 +11,8 @@ public class GameManager : MonoSingleton<GameManager>
     [ReadOnly] public int stage;
     [ReadOnly] public bool isClear = false;
     //private List<int> spawnNum;
-    private int totalEnemyCount = 0;
-    private int enemyCount = 0;
+    [SerializeField] private int totalEnemyCount = 0;
+    [SerializeField] private int curEnemyCount = 0;
 
     [SerializeField] private Animator elevatorAni;
 
@@ -46,13 +46,13 @@ public class GameManager : MonoSingleton<GameManager>
 
         Debug.Log("Total Enemy Count : " + totalEnemyCount);
 
-        while (enemyCount < totalEnemyCount || !ClearCheck(enemyCount))
+        while (curEnemyCount < totalEnemyCount || !ClearCheck(curEnemyCount))
         {
-            if (enemyCount < totalEnemyCount)
+            if (curEnemyCount < totalEnemyCount)
             {
                 int num = Random.Range(0, 8);
                 enemyList.Add(Instantiate(zombie, spawnPos[num]));
-                enemyCount++;
+                curEnemyCount++;
                 yield return new WaitForSeconds(1.5f);
             }
             else
@@ -76,7 +76,7 @@ public class GameManager : MonoSingleton<GameManager>
     void Clear()
     {
         isClear = true;
-        enemyCount = 0;
+        curEnemyCount = 0;
         stage++;
         StopCoroutine(spawnEnemy());
         enemyList.Clear();
