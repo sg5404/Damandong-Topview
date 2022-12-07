@@ -70,11 +70,11 @@ public class TownUIManager : MonoSingleton<TownUIManager>
 
     public void DisActiveAllPanel()
     {
-        goDungeonPanel.SetActive(false);
+        goDungeonPanel?.SetActive(false);
         TogglePausePanel(false);
-        dialoguePanel.SetActive(false);
-        changeWeaponPanel.SetActive(false);
-        shopPanel.SetActive(false);
+        dialoguePanel?.SetActive(false);
+        changeWeaponPanel?.SetActive(false);
+        shopPanel?.SetActive(false);
     }
 
     public void ToggleGoDungeonPanel(bool isActive)
@@ -84,8 +84,8 @@ public class TownUIManager : MonoSingleton<TownUIManager>
 
     public void TogglePausePanel(bool isActive)
     {
-        pausePanel.SetActive(isActive);
-        Move.Instance.TogglePause(isActive);
+        pausePanel?.SetActive(isActive);
+        Move.Instance?.TogglePause(isActive);
     }
 
     public void MoveToMainScene()

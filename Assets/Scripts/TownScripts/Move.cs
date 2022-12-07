@@ -8,8 +8,8 @@ public class Move : MonoSingleton<Move>
 
     [SerializeField]
     private float speed = 10f;
-    [SerializeField]
-    private GameObject[] npcObj;
+    //[SerializeField]
+    //private GameObject[] npcObj;
 
     Vector3 playerDir;
 

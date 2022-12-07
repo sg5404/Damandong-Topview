@@ -35,6 +35,7 @@ public class SaveManager : MonoSingleton<SaveManager>
         {
             string json = File.ReadAllText(SAVE_PATH + SAVE_FILENAME);
             user = JsonUtility.FromJson<User>(json);
+            PlayerStat.LoadStat();
         }   
     }
 
