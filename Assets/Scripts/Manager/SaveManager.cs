@@ -25,6 +25,7 @@ public class SaveManager : MonoSingleton<SaveManager>
 
     private void Start()
     {
+        SaveToJson();
         InvokeRepeating("SaveToJson", 1f, 60f);
     }
 
