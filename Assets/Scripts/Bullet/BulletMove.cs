@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletMove : Bullet
 {
+    [SerializeField] GameObject effect;
     public WeaponKind weaponKind;
 
     private float timer = 0;
@@ -61,6 +62,8 @@ public class BulletMove : Bullet
         {
             col.GetComponent<EnemyBase>()?.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
         }
+        GameObject gm = Instantiate(effect, transform.position, Quaternion.identity);
+        Destroy(gm, 0.5f);
         Destroy(gameObject);
     }
 
