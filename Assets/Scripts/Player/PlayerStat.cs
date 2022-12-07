@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class PlayerStat
@@ -37,6 +38,19 @@ public static class PlayerStat
         baseCriticalDamage = criDamage;
         baseMoveSpeed = moveSpeed;
         baseAttackSpeed = attackSpeed;
+    }
+
+    public static void LoadStat()
+    {
+        List<ShopItem> items = SaveManager.Instance.CurrentUser.shopItem;
+        addAtk = items[0].upgradeValue;
+        perAtk = items[1].upgradeValue + 1;
+        addHP = (int)items[2].upgradeValue;
+        perHP = items[3].upgradeValue + 1;
+        addAmmo = (int)items[4].upgradeValue;
+        addMoveSpeed = items[5].upgradeValue;
+        addCriticalChance = items[6].upgradeValue;
+        addCriticalDamage = items[7].upgradeValue;
     }
 
     public static int GetHP()
