@@ -21,3 +21,4 @@ MonoBehaviour:
   isStun: 0
   isSlow: 0
   isBurn: 0
+  exp: 10
