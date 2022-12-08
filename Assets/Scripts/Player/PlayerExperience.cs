@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerExperience : MonoSingleton<PlayerExperience>
 {
-    private static int money;
+    [SerializeField]
+    private int maxExp;
+    private int currentExp;
 
     private void Start()
     {
+        StartCoroutine(RemoveExp());
         ChangeExperience(0);
     }
 
@@ -26,5 +29,28 @@ public class PlayerExperience : MonoSingleton<PlayerExperience>
     public void UpdateExperienceText()
     {
 
+    }
+
+    private IEnumerator RemoveExp()
+    {
+        currentExp = maxExp;
+        while(true)
+        {
+            if (currentExp <= 0) break;
+            currentExp--;
+            Debug.Log(currentExp);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    public void StopRemoveExp()
+    {
+        StopAllCoroutines();
+        ChangeExperience(currentExp);
+    }
+
+    public void RestartRemoveExp()
+    {
+        StartCoroutine(RemoveExp());
     }
 }

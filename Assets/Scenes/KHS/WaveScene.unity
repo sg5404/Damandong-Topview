@@ -3335,7 +3335,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1478466538}
         m_TargetAssemblyTypeName: ShopPanel, Assembly-CSharp
-        m_MethodName: PurchaseItem
+        m_MethodName: DPurchaseItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5321,6 +5321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38da24bcdf214d24ab5e227b8faeda22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxExp: 150
 --- !u!1 &691363794
 GameObject:
   m_ObjectHideFlags: 0
@@ -7158,7 +7159,6 @@ GameObject:
   - component: {fileID: 966338353}
   - component: {fileID: 966338355}
   - component: {fileID: 966338354}
-  - component: {fileID: 966338357}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -7259,19 +7259,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &966338357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966338352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 733062ce15b30ef45b52bccac135c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopPanelTemplate: {fileID: 1478466536}
 --- !u!1001 &976081456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9359,8 +9346,7 @@ GameObject:
   - component: {fileID: 1308409577}
   - component: {fileID: 1308409576}
   - component: {fileID: 1308409575}
-  - component: {fileID: 1308409574}
-  - component: {fileID: 1308409573}
+  - component: {fileID: 1308409578}
   m_Layer: 0
   m_Name: Managers2
   m_TagString: Untagged
@@ -9368,85 +9354,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1308409573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308409572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 733062ce15b30ef45b52bccac135c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopPanelTemplate: {fileID: 1478466536}
---- !u!114 &1308409574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308409572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8085b874af7f054480b0bf348aa7561, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  user:
-    money: 0
-    level: 1
-    experience: 0
-    maxExperience: 050000000a00000014000000280000003c0000005a0000007800000096000000c8000000
-    attack: 20
-    attackSpeed: 10
-    defense: 20
-    criticalChance: 0
-    criticalDamage: 50
-    maxMagazine: 30
-    speed: 10
-    shopItem:
-    - itemNumber: 0
-      itemName: "\uACF5\uACA9\uB825 \uC0C1\uC2B9"
-      itemDiscription: "\uACF5\uACA9\uB825\uC774 \uC0C1\uC2B9\uD55C\uB2E4"
-      price: 100
-      upgradeValue: 0
-    - itemNumber: 1
-      itemName: "\uACF5\uACA9\uB825 \uD37C\uC13C\uD2B8 \uC0C1\uC2B9"
-      itemDiscription: "\uACF5\uACA9\uB825 \uD37C\uC13C\uD2B8\uAC00 \uC0C1\uC2B9\uD55C\uB2E4"
-      price: 300
-      upgradeValue: 0
-    - itemNumber: 2
-      itemName: "\uCCB4\uB825 \uC0C1\uC2B9"
-      itemDiscription: "\uCCB4\uB825\uC774 \uC0C1\uC2B9\uD55C\uB2E4"
-      price: 100
-      upgradeValue: 0
-    - itemNumber: 3
-      itemName: "\uCCB4\uB825 \uD37C\uC13C\uD2B8 \uC0C1\uC2B9"
-      itemDiscription: "\uCCB4\uB825 \uD37C\uC13C\uD2B8\uAC00 \uC0C1\uC2B9\uD55C\uB2E4"
-      price: 300
-      upgradeValue: 0
-    - itemNumber: 4
-      itemName: "\uCD5C\uB300 \uD0C4\uCC3D \uC99D\uAC00"
-      itemDiscription: "\uCD5C\uB300 \uD0C4\uCC3D \uAC1C\uC218\uAC00 \uB298\uC5B4\uB09C\uB2E4"
-      price: 200
-      upgradeValue: 0
-    - itemNumber: 5
-      itemName: "\uC774\uB3D9\uC18D\uB3C4 \uC99D\uAC00"
-      itemDiscription: "\uC774\uB3D9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD55C\uB2E4"
-      price: 200
-      upgradeValue: 0
-    - itemNumber: 6
-      itemName: "\uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960 \uC0C1\uC2B9"
-      itemDiscription: "\uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 \uC0C1\uC2B9\uD55C\uB2E4"
-      price: 200
-      upgradeValue: 0
-    - itemNumber: 7
-      itemName: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0 \uC0C1\uC2B9"
-      itemDiscription: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 \uC0C1\uC2B9\uD55C\uB2E4"
-      price: 200
-      upgradeValue: 0
-    shopItemInDungeon: []
 --- !u!114 &1308409575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9509,6 +9416,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308409578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308409572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c551697503a46b64a87fc092f14b9dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopPanelTemplate: {fileID: 1478466536}
 --- !u!1001 &1313405392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10360,6 +10280,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386368923}
   m_CullTransparentMesh: 1
+--- !u!1 &1396372675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1396372676}
+  - component: {fileID: 1396372678}
+  - component: {fileID: 1396372677}
+  m_Layer: 0
+  m_Name: Portal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1396372676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396372675}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.478, z: 1}
+  m_LocalScale: {x: 0.04, y: 0.10000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5280685430945117759}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1396372677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396372675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52448252435260b40b42dd9a676dd66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrivePos: {fileID: 1813245641}
+  startStage: 1
+--- !u!61 &1396372678
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396372675}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &1476697701
 GameObject:
   m_ObjectHideFlags: 0
@@ -14477,7 +14470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878670437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60, y: -5.5, z: 0}
+  m_LocalPosition: {x: 60, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16675,6 +16668,7 @@ Transform:
   m_Children:
   - {fileID: 5280685431372353144}
   - {fileID: 5280685431545898484}
+  - {fileID: 1396372676}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

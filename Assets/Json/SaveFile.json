@@ -1,7 +1,7 @@
 ﻿{
-    "money": 0,
-    "level": 1,
-    "experience": 0,
+    "money": 36,
+    "level": 3,
+    "experience": 3,
     "maxExperience": [
         5,
         10,
@@ -78,5 +78,17 @@
             "upgradeValue": 0
         }
     ],
-    "shopItemInDungeon": []
+    "shopItemInDungeon": [
+        {
+            "itemNumber": 0,
+            "itemName": "흑야의 회고록",
+            "itemImage": {
+                "instanceID": 34106
+            },
+            "itemDiscription": "아니 명일방주가 애니화가 됐다고요!",
+            "price": 10,
+            "upgradeValue": 0,
+            "isBuyit": false
+        }
+    ]
 }

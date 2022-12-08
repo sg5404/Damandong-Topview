@@ -25,14 +25,21 @@ public class ShopPanel : MonoBehaviour
     [SerializeField]
 
     private ShopItem shopItem = null;
+    private DungeonItem dShopItem = null;
 
     public void SetValue(ShopItem shopItem)
     {
         this.shopItem = shopItem;
-        UpdateValues();
+        UpdateValues(this.shopItem);
     }
 
-    public void UpdateValues()
+    public void SetValue(DungeonItem shopItem)
+    {
+        dShopItem = shopItem;
+        UpdateValues(dShopItem);
+    }
+
+    public void UpdateValues(ShopItem shopItem)
     {
         //itemImg.sprite = itemSprite[shopItem.itemNumber];
         itemName.text = shopItem.itemName;
@@ -41,7 +48,16 @@ public class ShopPanel : MonoBehaviour
         itemUpgradeValue = shopItem.upgradeValue;
     }
 
-    public void PurchaseItem()
+    public void UpdateValues(DungeonItem shopItem)
+    {
+        itemImg.sprite = shopItem.itemImage;
+        itemName.text = shopItem.itemName;
+        itemDiscription.text = shopItem.itemDiscription;
+        itemPriceTMP.text = string.Format("{0}$", shopItem.price);
+        itemUpgradeValue = shopItem.upgradeValue;
+    }
+
+    public void SPurchaseItem()
     {
         //Debug.Log("Purchase");
         if (SaveManager.Instance.CurrentUser.money < shopItem.price)
@@ -50,11 +66,25 @@ public class ShopPanel : MonoBehaviour
         }
 
         SaveManager.Instance.CurrentUser.money -= (int)shopItem.price;
-        Debug.Log("±¸¸Å : " + shopItem.itemName);
-        // TODO : ¾ÆÀÌÅÛ Á¾·ù¿¡ µû¶ó ¼öÄ¡ »ó½Â
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ : " + shopItem.itemName);
+        // TODO : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
         shopItem.upgradeValue++;
-        // TODO : ¾ÆÀÌÅÛ ±¸¸Å ½Ã ¾ÆÀÌÅÛ ±¸¸Åºñ¿ë Áõ°¡ ¼ö¿­
-        shopItem.price += 200;
-        UpdateValues();
+        // TODO : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Åºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        UpdateValues(shopItem);
+    }
+
+    public void DPurchaseItem()
+    {
+        if (SaveManager.Instance.CurrentUser.money < dShopItem.price)
+        {
+            return;
+        }
+
+        SaveManager.Instance.CurrentUser.money -= (int)dShopItem.price;
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ : " + dShopItem.itemName);
+        // TODO : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
+        dShopItem.upgradeValue++;
+        // TODO : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Åºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        UpdateValues(dShopItem);
     }
 }

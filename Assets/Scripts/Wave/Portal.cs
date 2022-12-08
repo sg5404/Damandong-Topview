@@ -15,7 +15,15 @@ public class Portal : MonoBehaviour
     {
         if(collision.CompareTag("Player") && GameManager.Instance.isClear)
         {
-            if(startStage) GameManager.Instance.StartSpawn();
+            if (startStage)
+            {
+                GameManager.Instance.StartSpawn();
+                PlayerExperience.Instance.RestartRemoveExp();
+            }
+            else
+            {
+                PlayerExperience.Instance.StopRemoveExp();
+            }
             GameManager.Instance.Playertransform.position  = arrivePos.position;
         }
     }

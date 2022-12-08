@@ -15,4 +15,6 @@ public class EnemyModule : ScriptableObject
     public bool isStun;
     public bool isSlow;
     public bool isBurn;
+
+    public int exp;
 }

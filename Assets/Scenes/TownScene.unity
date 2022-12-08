@@ -7296,7 +7296,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1516355309}
         m_TargetAssemblyTypeName: ShopPanel, Assembly-CSharp
-        m_MethodName: PurchaseItem
+        m_MethodName: SPurchaseItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27353,7 +27353,15 @@ MonoBehaviour:
       itemDiscription: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 \uC0C1\uC2B9\uD55C\uB2E4"
       price: 200
       upgradeValue: 0
-    shopItemInDungeon: []
+    shopItemInDungeon:
+    - itemNumber: 0
+      itemName: "\uD751\uC57C\uC758 \uD68C\uACE0\uB85D"
+      itemImage: {fileID: -5167413608083449488, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC544\uB2C8 \uBA85\uC77C\uBC29\uC8FC\uAC00 \uC560\uB2C8\uD654\uAC00
+        \uB410\uB2E4\uACE0\uC694!"
+      price: 10
+      upgradeValue: 0
+      isBuyit: 0
 --- !u!114 &2037980886
 MonoBehaviour:
   m_ObjectHideFlags: 0
