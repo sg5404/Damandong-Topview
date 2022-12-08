@@ -22,6 +22,7 @@ public class ShopPanel : MonoBehaviour
     private Button itemPurchaseBtn = null;
     [SerializeField]
     private Sprite[] itemSprite = null;
+    [SerializeField]
 
     private ShopItem shopItem = null;
 
@@ -42,6 +43,7 @@ public class ShopPanel : MonoBehaviour
 
     public void PurchaseItem()
     {
+        //Debug.Log("Purchase");
         if (SaveManager.Instance.CurrentUser.money < shopItem.price)
         {
             return;
@@ -52,6 +54,7 @@ public class ShopPanel : MonoBehaviour
         // TODO : 아이템 종류에 따라 수치 상승
         shopItem.upgradeValue++;
         // TODO : 아이템 구매 시 아이템 구매비용 증가 수열
+        shopItem.price += 200;
         UpdateValues();
     }
 }

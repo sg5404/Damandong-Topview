@@ -28,7 +28,7 @@ public class ShopManager : MonoSingleton<ShopManager>
 
         foreach(ShopItem shopItems in SaveManager.Instance.CurrentUser.shopItem)
         {
-            Debug.Log("아이템 생성");
+            // Debug.Log("아이템 생성");
             newPanel = Instantiate(shopPanelTemplate, shopPanelTemplate.transform.parent);
             newPanelComponent = newPanel.GetComponent<ShopPanel>();
             newPanelComponent.SetValue(shopItems);
