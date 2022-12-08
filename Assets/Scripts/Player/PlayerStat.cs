@@ -58,9 +58,9 @@ public static class PlayerStat
         return Mathf.RoundToInt((baseHP + addHP) * perHP);
     }
 
-    public static int GetAmmo()
+    public static int GetAddAmmo()
     {
-        return (baseAmmo + addAmmo);
+        return addAmmo;
     }
 
     public static float GetAtk()

@@ -65,6 +65,7 @@ public class PlayerController : MonoSingleton<PlayerController>
     //[ReadOnly] public int sniperBulletAmount = 5;
     //[ReadOnly] public int shotgunBulletAmount = 7;
     //[ReadOnly] public int granadeBulletAmount = 3;
+    private int[] InitBulletAmounts = { 25, 5, 7, 3 };
     [ReadOnly] public int[] BulletAmounts = { 25, 5, 7, 3 };
     [ReadOnly] public float Ltimer;
     [ReadOnly] public float Rtimer;
@@ -81,6 +82,11 @@ public class PlayerController : MonoSingleton<PlayerController>
         //weaponPos = weaponObj.transform.localPosition;
         leftWeaponPosTemp = leftWeaponPos.transform.localPosition;
         rightWeaponPosTemp = rightWeaponPos.transform.localPosition;
+
+        for (int i = 0; i < BulletAmounts.Length; ++i)
+        {
+            BulletAmounts[i] += (InitBulletAmounts[i] / 2) * PlayerStat.GetAddAmmo();
+        }
 
         LoadBulletAmount();
         Setting();

@@ -62,16 +62,14 @@ public class ShopPanel : MonoBehaviour
     public void SPurchaseItem()
     {
         //Debug.Log("Purchase");
-        if (SaveManager.Instance.CurrentUser.money < shopItem.price)
-        {
-            return;
-        }
+        //if (SaveManager.Instance.CurrentUser.money < shopItem.price)
+        //{
+        //    return;
+        //}
 
         SaveManager.Instance.CurrentUser.money -= (int)shopItem.price;
         Debug.Log("���� : " + shopItem.itemName);
-        // TODO : ������ ������ ���� ��ġ ���
         shopItem.upgradeValue++;
-        // TODO : ������ ���� �� ������ ���ź�� ���� ����
         UpdateValues(shopItem);
     }
 
