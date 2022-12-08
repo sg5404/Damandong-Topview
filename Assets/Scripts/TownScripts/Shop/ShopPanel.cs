@@ -46,6 +46,7 @@ public class ShopPanel : MonoBehaviour
         itemDiscription.text = shopItem.itemDiscription;
         itemPriceTMP.text = string.Format("{0}$", shopItem.price);
         itemUpgradeValue = shopItem.upgradeValue;
+        SaveManager.Instance.SaveToJson();
     }
 
     public void UpdateValues(DungeonItem shopItem)
@@ -55,6 +56,7 @@ public class ShopPanel : MonoBehaviour
         itemDiscription.text = shopItem.itemDiscription;
         itemPriceTMP.text = string.Format("{0}$", shopItem.price);
         itemUpgradeValue = shopItem.upgradeValue;
+        SaveManager.Instance.SaveToJson();
     }
 
     public void SPurchaseItem()

@@ -43,6 +43,7 @@ public class SaveManager : MonoSingleton<SaveManager>
     {
         string json = JsonUtility.ToJson(user, true);
         File.WriteAllText(SAVE_PATH + SAVE_FILENAME, json, System.Text.Encoding.UTF8);
+        PlayerStat.LoadStat();
     }
 
     private void OnApplicationQuit()
