@@ -15,5 +15,5 @@ public class User
     public int maxMagazine = 30;             // 최대 탄창
     public float speed = 10f;                 // 이동속도 
     public List<ShopItem> shopItem = new List<ShopItem>();          // 마을 내 아이템
-    public List<ShopItem> shopItemInDungeon = new List<ShopItem>(); // 던전 내 아이템
+    public List<DungeonItem> shopItemInDungeon = new List<DungeonItem>(); // 던전 내 아이템
 }
