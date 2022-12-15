@@ -7,7 +7,7 @@ using TMPro;
 public class ShopPanel : MonoBehaviour
 {
     [SerializeField]
-    private Image itemImg = null;
+    private Image itemIcon = null;
     [SerializeField]
     private TextMeshProUGUI itemName = null;
     [SerializeField]
@@ -21,8 +21,7 @@ public class ShopPanel : MonoBehaviour
     [SerializeField]
     private Button itemPurchaseBtn = null;
     [SerializeField]
-    private Sprite[] itemSprite = null;
-    [SerializeField]
+    private Sprite[] itemSprites;
 
     private ShopItem shopItem = null;
     private DungeonItem dShopItem = null;
@@ -41,7 +40,7 @@ public class ShopPanel : MonoBehaviour
 
     public void UpdateValues(ShopItem shopItem)
     {
-        //itemImg.sprite = itemSprite[shopItem.itemNumber];
+        itemIcon.sprite = itemSprites[shopItem.itemNumber];
         itemName.text = shopItem.itemName;
         itemDiscription.text = shopItem.itemDiscription;
         itemPriceTMP.text = string.Format("{0}$", shopItem.price);
@@ -51,7 +50,7 @@ public class ShopPanel : MonoBehaviour
 
     public void UpdateValues(DungeonItem shopItem)
     {
-        itemImg.sprite = shopItem.itemImage;
+        //itemIcon.sprite = shopItem.itemIcon;
         itemName.text = shopItem.itemName;
         itemDiscription.text = shopItem.itemDiscription;
         itemPriceTMP.text = string.Format("{0}$", shopItem.price);
