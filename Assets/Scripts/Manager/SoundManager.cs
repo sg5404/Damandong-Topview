@@ -7,9 +7,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     public AudioSource BGMPlayer;
     public AudioSource effectPlayer;
 
-    //[Header] 
-    //public 
-
+    [Header("Set Name : 0 TownBGM / 1 DungeonBGM\n 2 Rifle Sound / 3 Sniper Sound / 4 ShotGun Sound / 5 Granade Sound")]
     public AudioClip[] containSound;
     public enum STATE
     {
