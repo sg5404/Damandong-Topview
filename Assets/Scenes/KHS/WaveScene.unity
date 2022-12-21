@@ -6886,6 +6886,26 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: module.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a32b6b6ddec68ea4083f71d5c94cd067, type: 2}
+    - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: module.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 594a41ffda4c11a4a84e9ed2ad6145ed, type: 2}
+    - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: module.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: a2907cc1be88cd1479b3772339dd98ee, type: 2}
+    - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: module.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 521a71e8a599be048b709078ab5228b1, type: 2}
+    - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: basemodule.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: fireEff.Array.data[0]
       value: 
       objectReference: {fileID: 7593828381699650005, guid: 9e5715b4a99bc4c4bb12e918b22d0169, type: 3}
@@ -6917,6 +6937,22 @@ PrefabInstance:
       propertyPath: fireEff2.Array.data[3]
       value: 
       objectReference: {fileID: 7593828381699650005, guid: 9e5715b4a99bc4c4bb12e918b22d0169, type: 3}
+    - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: basemodule.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e7c1137fc84cdf48b19a208835fb5f8, type: 2}
+    - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: basemodule.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 31b1cacccc4855c4a9068b8a573b2e6a, type: 2}
+    - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: basemodule.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6fb580091a5aa3941973a16866dbf8ff, type: 2}
+    - target: {fileID: 1756403266940069710, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
+      propertyPath: basemodule.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1896a69fb02371e49882d7156e00b22f, type: 2}
     - target: {fileID: 2621744056192747613, guid: 7ae32952e93bd9f4f9b531d2801549ed, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -10482,14 +10518,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86316d30cd5f48d48a993592b4a07d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemImg: {fileID: 504396925}
+  itemIcon: {fileID: 0}
   itemName: {fileID: 1586376354}
   itemPriceTMP: {fileID: 1386368925}
   itemPrice: 0
   itemDiscription: {fileID: 1343036464}
   itemUpgradeValue: 0
   itemPurchaseBtn: {fileID: 471447802}
-  itemSprite: []
+  itemSprites: []
 --- !u!1 &1496642014
 GameObject:
   m_ObjectHideFlags: 0
