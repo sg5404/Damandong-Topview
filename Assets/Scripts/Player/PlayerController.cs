@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerController : MonoSingleton<PlayerController>
 {
 
-    [Header("ÃÑ¾Ë")]
+    [Header("ï¿½Ñ¾ï¿½")]
     [SerializeField] private GameObject rifleBullet = null;
     [SerializeField] private GameObject sniperBullet = null;
     [SerializeField] private GameObject shotgunBullet = null;
@@ -67,8 +67,11 @@ public class PlayerController : MonoSingleton<PlayerController>
     //[ReadOnly] public int granadeBulletAmount = 3;
     private int[] InitBulletAmounts = { 25, 5, 7, 3 };
     [ReadOnly] public int[] BulletAmounts = { 25, 5, 7, 3 };
-    [ReadOnly] public float Ltimer;
-    [ReadOnly] public float Rtimer;
+    public float Ltimer;
+    public float Rtimer;
+
+    public Image rightWeaponFade;
+    public Image leftWeaponFade;
 
     Vector3 leftWeaponPosTemp;
     Vector3 rightWeaponPosTemp;
@@ -117,7 +120,7 @@ public class PlayerController : MonoSingleton<PlayerController>
         rightEffect.SetActive(false);
     }
 
-    private void showFireEff(int pos) //0ÀÏ¶© FireEff1.x 1ÀÏ¶© FireEff1.y 2ÀÏ¶© FireEff2.x 3ÀÌ»óºÎÅÏ FireEff2.y 
+    private void showFireEff(int pos) //0ï¿½Ï¶ï¿½ FireEff1.x 1ï¿½Ï¶ï¿½ FireEff1.y 2ï¿½Ï¶ï¿½ FireEff2.x 3ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ FireEff2.y 
     {
         //GameObject fireEffect = pos switch
         //{
@@ -281,7 +284,7 @@ public class PlayerController : MonoSingleton<PlayerController>
         return num;
     }
 
-    void LeftWeaponFire(int num)//weaponNumÀÌ 0ÀÌ¸é ¿ÞÂÊ ¾Æ´Ï¸é ¿À¸¥ÂÊ
+    void LeftWeaponFire(int num)//weaponNumï¿½ï¿½ 0ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         leftWeapon = num;
         if (Input.GetMouseButton(0))
@@ -359,8 +362,11 @@ public class PlayerController : MonoSingleton<PlayerController>
     {
         if (LcurrentBullet[leftWeapon] > 0) return;
         if (magazineAmount[leftWeapon] < 1) return;
+        leftWeaponFade.gameObject.SetActive(true);
         Ltimer += Time.deltaTime;
+        leftWeaponFade.fillAmount = 1 - (Ltimer / 5f);
         if (Ltimer < 5f) return;
+        leftWeaponFade.gameObject.SetActive(false);
         magazineAmount[leftWeapon]--;
         LcurrentBullet[leftWeapon] = BulletAmounts[leftWeapon];
         Ltimer = 0f;
@@ -371,8 +377,11 @@ public class PlayerController : MonoSingleton<PlayerController>
     {
         if (RcurrentBullet[rightWeapon] > 0) return;
         if (magazineAmount[rightWeapon] < 1) return;
+        rightWeaponFade.gameObject.SetActive(true);
+        rightWeaponFade.fillAmount = 1 - (Rtimer / 5f);
         Rtimer += Time.deltaTime;
         if (Rtimer < 5f) return;
+        rightWeaponFade.gameObject.SetActive(false);
         magazineAmount[rightWeapon]--;
         RcurrentBullet[rightWeapon] = BulletAmounts[rightWeapon];
         Rtimer = 0f;

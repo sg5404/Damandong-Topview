@@ -1,0 +1,94 @@
+﻿{
+    "money": 6694,
+    "level": 10,
+    "experience": 32762,
+    "maxExperience": [
+        5,
+        10,
+        20,
+        40,
+        60,
+        90,
+        120,
+        150,
+        200
+    ],
+    "attack": 20.0,
+    "attackSpeed": 10.0,
+    "defense": 20.0,
+    "criticalChance": 0.0,
+    "criticalDamage": 50.0,
+    "maxMagazine": 30,
+    "speed": 10.0,
+    "shopItem": [
+        {
+            "itemNumber": 0,
+            "itemName": "공격력 상승",
+            "itemDiscription": "공격력이 상승한다",
+            "price": 100,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 1,
+            "itemName": "공격력 퍼센트 상승",
+            "itemDiscription": "공격력 퍼센트가 상승한다",
+            "price": 300,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 2,
+            "itemName": "체력 상승",
+            "itemDiscription": "체력이 상승한다",
+            "price": 100,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 3,
+            "itemName": "체력 퍼센트 상승",
+            "itemDiscription": "체력 퍼센트가 상승한다",
+            "price": 300,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 4,
+            "itemName": "최대 탄창 증가",
+            "itemDiscription": "최대 탄창 개수가 늘어난다",
+            "price": 200,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 5,
+            "itemName": "이동속도 증가",
+            "itemDiscription": "이동속도가 증가한다",
+            "price": 200,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 6,
+            "itemName": "크리티컬 확률 상승",
+            "itemDiscription": "크리티컬 확률이 상승한다",
+            "price": 200,
+            "upgradeValue": 0
+        },
+        {
+            "itemNumber": 7,
+            "itemName": "크리티컬 데미지 상승",
+            "itemDiscription": "크리티컬 데미지가 상승한다",
+            "price": 200,
+            "upgradeValue": 0
+        }
+    ],
+    "shopItemInDungeon": [
+        {
+            "itemNumber": 0,
+            "itemName": "흑야의 회고록",
+            "itemImage": {
+                "instanceID": 40388
+            },
+            "itemDiscription": "아니 명일방주가 애니화가 됐다고요!",
+            "price": 10,
+            "upgradeValue": 0,
+            "isBuyit": false
+        }
+    ]
+}
