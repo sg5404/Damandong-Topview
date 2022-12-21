@@ -7,8 +7,16 @@ public class SoundManager : MonoSingleton<SoundManager>
     public AudioSource BGMPlayer;
     public AudioSource effectPlayer;
 
-    [Header("Set Name : 0 TownBGM / 1 DungeonBGM\n 2 Rifle Sound / 3 Sniper Sound / 4 ShotGun Sound / 5 Granade Sound")]
-    public AudioClip[] containSound;
+    [Header("Set Name : 0 TownBGM / 1 DungeonBGM")]
+    public AudioClip[] BGMContainSound;
+    [Header("0 Rifle Sound / 1 Sniper Sound / 2 ShotGun Sound / 3 Granade Sound")]
+    public AudioClip[] effectContainSound;
+    public enum SCENE
+    {
+        NONE,
+        TOWN,
+        DUNGEON
+    }
     public enum STATE
     {
         NONE,
@@ -17,31 +25,14 @@ public class SoundManager : MonoSingleton<SoundManager>
         SHOTGUN,
         GRANADE
     }
-    public STATE state = STATE.RIFLE;
-    public enum SCENE
+    public void EffectSoundPlay(STATE _state)
     {
-        NONE,
-        TOWN,
-        DUNGEON
-    }
-    public SCENE scene = SCENE.TOWN;
-    public Dictionary<SCENE, AudioClip> bgmDict;
-    public Dictionary<STATE, AudioClip> effectDict;
-
-    private void Start()
-    {
-    }
-
-    public void PlayEffect(STATE _state)
-    {
-        if (state != _state)
-            effectPlayer.clip = effectDict[_state];
+        effectPlayer.clip = effectContainSound[(int)_state];
         effectPlayer.Play();
     }
-    public void PlayBGM(SCENE _scene)
+    public void BGMSoundPlay(SCENE _scene)
     {
-        if (_scene != scene)
-            BGMPlayer.clip = bgmDict[_scene];
+        BGMPlayer.clip = BGMContainSound[(int)_scene];
         BGMPlayer.Play();
     }
 }
