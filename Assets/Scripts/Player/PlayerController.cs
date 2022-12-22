@@ -35,7 +35,7 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     //private Vector2 weaponPos = new Vector2(0, 0);
 
-    public WeaponModule[] module;
+    public CurrentWeaponModule[] module;
     public int leftWeapon { private set; get; } = 0;
     public int rightWeapon { private set; get; } = 0;
     public bool infinityBullet { set; get; } = false;
@@ -107,6 +107,7 @@ public class PlayerController : MonoSingleton<PlayerController>
         DisableEff(leftTimer, 0);
         DisableEff(rightTimer, 1);
     }
+
 
     private void CreateEffect()
     {

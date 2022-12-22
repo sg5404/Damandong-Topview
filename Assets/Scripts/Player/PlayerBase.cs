@@ -156,6 +156,40 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
     {
         enableTimer -= Time.deltaTime;
     }
+
+    public void GetItem()
+    {
+        if(SaveManager.Instance.CurrentUser.shopItemInDungeon[0].upgradeValue>0)
+        {
+            SaveManager.Instance.CurrentUser.shopItemInDungeon[0].upgradeValue--;
+            Hp = _maxHp;
+            SaveManager.Instance.SaveToJson();
+        }
+        if(SaveManager.Instance.CurrentUser.shopItemInDungeon[1].upgradeValue>0)
+        {
+            PlayerController.Instance.magazineAmount[0]++;
+            PlayerController.Instance.magazineAmount[1]++;
+            PlayerController.Instance.magazineAmount[2]++;
+            PlayerController.Instance.magazineAmount[3]++;
+        }
+        if(SaveManager.Instance.CurrentUser.shopItemInDungeon[2].upgradeValue>0)
+        {
+            PlayerController.Instance.module[0].Upgrade();
+        }
+        if (SaveManager.Instance.CurrentUser.shopItemInDungeon[3].upgradeValue > 0)
+        {
+            PlayerController.Instance.module[1].Upgrade();
+        }
+        if (SaveManager.Instance.CurrentUser.shopItemInDungeon[4].upgradeValue > 0)
+        {
+            PlayerController.Instance.module[2].Upgrade();
+        }
+        if (SaveManager.Instance.CurrentUser.shopItemInDungeon[5].upgradeValue > 0)
+        {
+            PlayerController.Instance.module[3].Upgrade();
+        }
+    }
+
     public void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if(enableTimer > 0.0f) return;

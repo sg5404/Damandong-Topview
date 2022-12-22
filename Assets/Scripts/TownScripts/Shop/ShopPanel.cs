@@ -55,16 +55,17 @@ public class ShopPanel : MonoBehaviour
         itemDiscription.text = shopItem.itemDiscription;
         itemPriceTMP.text = string.Format("{0}$", shopItem.price);
         itemUpgradeValue = shopItem.upgradeValue;
+        PlayerBase.Instance.GetItem();
         SaveManager.Instance.SaveToJson();
     }
 
     public void SPurchaseItem()
     {
         //Debug.Log("Purchase");
-        //if (SaveManager.Instance.CurrentUser.money < shopItem.price)
-        //{
-        //    return;
-        //}
+        if (SaveManager.Instance.CurrentUser.money < shopItem.price)
+        {
+            return;
+        }
 
         SaveManager.Instance.CurrentUser.money -= (int)shopItem.price;
         Debug.Log("���� : " + shopItem.itemName);
@@ -74,16 +75,14 @@ public class ShopPanel : MonoBehaviour
 
     public void DPurchaseItem()
     {
-        if (SaveManager.Instance.CurrentUser.money < dShopItem.price)
+        if (SaveManager.Instance.CurrentUser.money < dShopItem.price || dShopItem.upgradeValue>0)
         {
             return;
         }
 
         SaveManager.Instance.CurrentUser.money -= (int)dShopItem.price;
         Debug.Log("���� : " + dShopItem.itemName);
-        // TODO : ������ ������ ���� ��ġ ���
         dShopItem.upgradeValue++;
-        // TODO : ������ ���� �� ������ ���ź�� ���� ����
         UpdateValues(dShopItem);
     }
 }
