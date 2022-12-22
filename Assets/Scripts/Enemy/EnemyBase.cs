@@ -51,6 +51,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     #endregion
     Animator ani;
     private float stunTime;
+    private float burnTime;
     [field:SerializeField] public UnityEvent OnDie { get; set; }
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
 
@@ -112,6 +113,23 @@ public class EnemyBase : MonoBehaviour, CharBase
         _statusAilment = StatusAilments.Stun;
         stunTime = durationTime;
         Debug.Log("½ºÅÏ");
+    }
+
+    public void Burn(float burnTime)
+    {
+        _statusAilment = StatusAilments.Burn;
+        this.burnTime = burnTime;
+        Debug.Log("Burn");
+    }
+
+    private void BurnDuration(float burnTime)
+    {
+        while(burnTime > 0)
+        {
+            burnTime -= Time.deltaTime;
+        }
+
+        _statusAilment = StatusAilments.None;
     }
 
     private void DurationChange()

@@ -24,6 +24,8 @@ public class EnemyScript : MonoBehaviour
         hp = stat.maxHp;
         _enemyBase = GetComponent<EnemyBase>();
         distanceShow.localScale = new Vector3(atkdistance * 2, atkdistance * 2, 0);
+
+        StartCoroutine(CheckCurrentState());
     }
 
     private void Update()
@@ -50,6 +52,28 @@ public class EnemyScript : MonoBehaviour
         }
 
         rigid.velocity = dir * speed;
+    }
+
+    public IEnumerator CheckCurrentState()
+    {
+        while (true)
+        {
+            if(_enemyBase._statusAilment == StatusAilments.None)
+            {
+                continue;
+            }
+            else if (_enemyBase._statusAilment == StatusAilments.Burn)
+            {
+                hp -= 1;
+            }
+            else if(_enemyBase._statusAilment == StatusAilments.Slow)
+            {
+                
+            }
+
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     void turnEnemy()
