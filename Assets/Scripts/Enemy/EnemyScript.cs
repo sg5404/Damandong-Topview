@@ -17,9 +17,11 @@ public class EnemyScript : MonoBehaviour
     private Rigidbody2D rigid;
 
     [SerializeField] private float speed;
+    private float _speed;
 
     void Start()
     {
+        _speed = speed;
         rigid = GetComponent<Rigidbody2D>();
         hp = stat.maxHp;
         _enemyBase = GetComponent<EnemyBase>();
@@ -64,13 +66,16 @@ public class EnemyScript : MonoBehaviour
             }
             else if (_enemyBase._statusAilment == StatusAilments.Burn)
             {
-                hp -= 1;
+                hp -= 5;
             }
             else if(_enemyBase._statusAilment == StatusAilments.Slow)
             {
-                
+                speed /= 2;
             }
-
+            else
+            {
+                speed = _speed;
+            }
 
             yield return new WaitForSeconds(1f);
         }

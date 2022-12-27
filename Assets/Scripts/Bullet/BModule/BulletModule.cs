@@ -21,4 +21,8 @@ public class BulletModule : ScriptableObject
     public float explosionRange;//±¤¿ª¹üÀ§
     public bool isKnockBack;//³Ë¹é
     public float knockBackRange;//³Ë¹é¹üÀ§
+
+    // °­È­
+    public bool isFlameBullet; // È­¿°Åº - ¼¦°Ç
+    public bool isSlowBullet; // ±¸¼ÓÅº - ¶óÀÌÇÃ
 }
