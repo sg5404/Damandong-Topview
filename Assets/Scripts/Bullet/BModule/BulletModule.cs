@@ -25,4 +25,5 @@ public class BulletModule : ScriptableObject
     // 강화
     public bool isFlameBullet; // 화염탄 - 샷건
     public bool isSlowBullet; // 구속탄 - 라이플
+    public bool isBigBullet; // 대형탄 - 스나이퍼
 }

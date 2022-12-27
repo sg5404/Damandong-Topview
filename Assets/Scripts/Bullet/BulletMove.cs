@@ -35,6 +35,11 @@ public class BulletMove : Bullet
     void Update()
     {
         transform.Translate(Vector3.right * _bulletModule.speed * Time.deltaTime);
+
+        if (_bulletModule.isBigBullet)
+        {
+            this.gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
