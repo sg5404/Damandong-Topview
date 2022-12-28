@@ -23,6 +23,7 @@ public class CBulletModule : BulletModule
         knockBackRange = baseSO.knockBackRange;
         isFlameBullet = baseSO.isFlameBullet;
         isSlowBullet = baseSO.isSlowBullet;
+        isBigBullet = baseSO.isBigBullet;
     }
 
     public void UpgradeIron()
