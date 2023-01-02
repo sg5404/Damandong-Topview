@@ -19,11 +19,6 @@ public class PlayerExperience : MonoSingleton<PlayerExperience>
     {
         var CurrencUser = SaveManager.Instance.CurrentUser;
         CurrencUser.experience += exp;
-        if(CurrencUser.experience >= CurrencUser.maxExperience[CurrencUser.level - 1])
-        {
-            CurrencUser.experience -= CurrencUser.maxExperience[CurrencUser.level - 1];
-            CurrencUser.level++;
-        }
     }
 
     public void UpdateExperienceText()

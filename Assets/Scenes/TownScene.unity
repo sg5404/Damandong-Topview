@@ -27302,12 +27302,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user:
     money: 0
-    level: 1
     experience: 0
-    maxExperience: 050000000a00000014000000280000003c0000005a0000007800000096000000c8000000
     attack: 20
     attackSpeed: 10
-    defense: 20
     criticalChance: 0
     criticalDamage: 50
     maxMagazine: 30
@@ -27357,6 +27354,22 @@ MonoBehaviour:
     - itemNumber: 0
       itemName: "\uD751\uC57C\uC758 \uD68C\uACE0\uB85D"
       itemImage: {fileID: -5167413608083449488, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC544\uB2C8 \uBA85\uC77C\uBC29\uC8FC\uAC00 \uC560\uB2C8\uD654\uAC00
+        \uB410\uB2E4\uACE0\uC694!"
+      price: 10
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 1
+      itemName: "\uD751\uC57C\uC758 \uD68C\uACE0\uB85D"
+      itemImage: {fileID: 0}
+      itemDiscription: "\uC544\uB2C8 \uBA85\uC77C\uBC29\uC8FC\uAC00 \uC560\uB2C8\uD654\uAC00
+        \uB410\uB2E4\uACE0\uC694!"
+      price: 10
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 2
+      itemName: "\uD751\uC57C\uC758 \uD68C\uACE0\uB85D"
+      itemImage: {fileID: 0}
       itemDiscription: "\uC544\uB2C8 \uBA85\uC77C\uBC29\uC8FC\uAC00 \uC560\uB2C8\uD654\uAC00
         \uB410\uB2E4\uACE0\uC694!"
       price: 10
