@@ -67,7 +67,7 @@ public class Move : MonoSingleton<Move>
 
     void KeyDown()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !TownUIManager.Instance.isWeaponChoose)
         {
             TownUIManager.Instance.DisActiveAllPanel();
         }
