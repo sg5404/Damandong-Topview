@@ -19,7 +19,10 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private List<GameObject> enemyList;
 
 
-
+    private void Awake()
+    {
+        SoundManager.Instance.SetEnum();
+    }
     private void Start()
     {
         Debug.Log("MainWeaponState : " + WeaponSet.Instance.MainWeaponState);
@@ -35,7 +38,6 @@ public class GameManager : MonoSingleton<GameManager>
         StartSpawn();
 
     }
-
     /// <summary>
     /// Àû ½ºÆù
     /// </summary>

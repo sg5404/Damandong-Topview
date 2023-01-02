@@ -14,7 +14,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     public enum SCENE
     {
         NONE,
-        TOWN,
+        TOWN = 0,
         DUNGEON
     }
     public enum STATE
@@ -25,6 +25,13 @@ public class SoundManager : MonoSingleton<SoundManager>
         SHOTGUN,
         GRANADE
     }
+    public SCENE scene = SCENE.TOWN;
+    public void SetEnum()
+    {
+        scene = gameObject.CompareTag("Town") ? SCENE.TOWN : SCENE.DUNGEON;
+        BGMSoundPlay(scene);
+    }
+
     public void EffectSoundPlay(STATE _state)
     {
         effectPlayer.clip = effectContainSound[(int)_state];

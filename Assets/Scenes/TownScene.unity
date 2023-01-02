@@ -27484,7 +27484,7 @@ GameObject:
   - component: {fileID: 2037980887}
   m_Layer: 0
   m_Name: Managers
-  m_TagString: Untagged
+  m_TagString: Town
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27676,6 +27676,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  scene: 0
 --- !u!1 &2046221362
 GameObject:
   m_ObjectHideFlags: 0

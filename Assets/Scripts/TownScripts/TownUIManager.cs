@@ -48,6 +48,11 @@ public class TownUIManager : MonoSingleton<TownUIManager>
 
     private static bool isFirst = false;
 
+    private void Awake()
+    {
+        SoundManager.Instance.SetEnum();
+    }
+
     private void Start()
     {
         DisActiveAllPanel();
