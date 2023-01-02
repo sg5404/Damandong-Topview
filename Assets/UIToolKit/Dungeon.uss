@@ -1,0 +1,6 @@
+.Scroll {
+    flex-shrink: 0;
+    flex-grow: 1;
+    width: 50%;
+    background-color: rgba(225, 225, 225, 255);
+}

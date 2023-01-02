@@ -4,9 +4,7 @@ using System.Collections.Generic;
 public class User
 {
     public int money = 0; //현재 돈
-    public int level = 1; //현재 레벨
     public int experience = 0; //현재 경험치
-    public int[] maxExperience = { 5, 10, 20, 40, 60, 90, 120, 150, 200 }; //level - 1 넣어줘야함 경험치 할당량
     public float attack = 20f;                // 공격력
     public float attackSpeed = 10f;           // 공격속도
     public float defense = 20f;               // 방어력
