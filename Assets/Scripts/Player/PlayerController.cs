@@ -300,11 +300,23 @@ public class PlayerController : MonoSingleton<PlayerController>
                     _ => 1,
                 };
 
-                for (int i = 0; i < bulletAmount; i++)
+                if (!module[3].bulletModule.isUpgrade)
                 {
-                    GameObject bullet = Instantiate(module[leftWeapon].bullet, leftGunpoint.transform);
-                    if (bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
-                    bullet.transform.SetParent(null);
+                    for (int i = 0; i < bulletAmount; i++)
+                    {
+                        GameObject bullet = Instantiate(module[leftWeapon].bullet, leftGunpoint.transform);
+                        if (bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
+                        bullet.transform.SetParent(null);
+                    }
+                }
+                else
+                {
+                    for (int i = -1; i < 2; i++)
+                    {
+                        GameObject bullet = Instantiate(module[leftWeapon].bullet, leftGunpoint.transform);
+                        bullet.transform.Rotate(0, 0, i * 20f);
+                        bullet.transform.SetParent(null);
+                    }
                 }
 
                 showFireEff(0);
@@ -333,11 +345,23 @@ public class PlayerController : MonoSingleton<PlayerController>
                     _ => 1,
                 };
 
-                for (int i = 0; i < bulletAmount; i++)
+                if(!module[3].bulletModule.isUpgrade)
                 {
-                    GameObject bullet = Instantiate(module[rightWeapon].bullet, rightGunpoint.transform);
-                    if (bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
-                    bullet.transform.SetParent(null);
+                    for (int i = 0; i < bulletAmount; i++)
+                    {
+                        GameObject bullet = Instantiate(module[rightWeapon].bullet, rightGunpoint.transform);
+                        if (bulletAmount > 1) bullet.transform.Rotate(0, 0, Random.Range(-20f, 20f));
+                        bullet.transform.SetParent(null);
+                    }
+                }
+                else
+                {
+                    for(int i = -1; i < 2; i++)
+                    {
+                        GameObject bullet = Instantiate(module[rightWeapon].bullet, rightGunpoint.transform);
+                        bullet.transform.Rotate(0, 0, i * 20f);
+                        bullet.transform.SetParent(null);
+                    }
                 }
 
                 rightCurtime = 0;
@@ -392,7 +416,7 @@ public class PlayerController : MonoSingleton<PlayerController>
     {
         var b_module = module[3].bulletModule;
         if (b_module.isUpgrade) return;
-        b_module.explosionRange += 2;
+        b_module.explosionRange -= 2;
         b_module.isUpgrade = false;
     }
 }
