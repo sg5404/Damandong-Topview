@@ -1,8 +1,21 @@
 ﻿{
-    "money": 191,
-    "experience": 1023,
+    "money": 6694,
+    "level": 10,
+    "experience": 32762,
+    "maxExperience": [
+        5,
+        10,
+        20,
+        40,
+        60,
+        90,
+        120,
+        150,
+        200
+    ],
     "attack": 20.0,
     "attackSpeed": 10.0,
+    "defense": 20.0,
     "criticalChance": 0.0,
     "criticalDamage": 50.0,
     "maxMagazine": 30,
@@ -70,7 +83,7 @@
             "itemNumber": 0,
             "itemName": "흑야의 회고록",
             "itemImage": {
-                "instanceID": 0
+                "instanceID": 40388
             },
             "itemDiscription": "아니 명일방주가 애니화가 됐다고요!",
             "price": 10,

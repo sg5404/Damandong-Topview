@@ -18,6 +18,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField] private List<GameObject> enemyList;
 
+
+
     private void Start()
     {
         Debug.Log("MainWeaponState : " + WeaponSet.Instance.MainWeaponState);

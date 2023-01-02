@@ -5,20 +5,26 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/Module/Bullet")]
 public class BulletModule : ScriptableObject
 {
-    public int atk;//°ø°Ý·Â
+    public int atk;//ï¿½ï¿½ï¿½Ý·ï¿½
 
-    public bool isEnemy;//ÀûÀÌ ½î´Â ÃÑ¾ËÀÎ°¡
+    public bool isEnemy;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½Î°ï¿½
 
-    public float range;//»ç°Å¸®
-    public float speed;//¼Óµµ
+    public float range;//ï¿½ï¿½Å¸ï¿½
+    public float speed;//ï¿½Óµï¿½
 
-    public float crtDmg;//Ä¡µ©
+    public float crtDmg;//Ä¡ï¿½ï¿½
     public float crtChance;//Ä¡È®
 
-    public StatusAilments statusAilment;//¹ßµ¿µÇ´Â »óÅÂÀÌ»ó
-    public float saChance;//»óÅÂÀÌ»óÈ®·ü
-    public bool isExplosion;//±¤¿ª
-    public float explosionRange;//±¤¿ª¹üÀ§
-    public bool isKnockBack;//³Ë¹é
-    public float knockBackRange;//³Ë¹é¹üÀ§
+    public StatusAilments statusAilment;//ï¿½ßµï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½
+    public float saChance;//ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½È®ï¿½ï¿½
+    public bool isExplosion;//ï¿½ï¿½ï¿½ï¿½
+    public float explosionRange;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public bool isKnockBack;//ï¿½Ë¹ï¿½
+    public float knockBackRange;//ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½
+
+    // ï¿½ï¿½È­
+    public bool isFlameBullet; // È­ï¿½ï¿½Åº - ï¿½ï¿½ï¿½ï¿½
+    public bool isSlowBullet; // ï¿½ï¿½ï¿½ï¿½Åº - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public bool isBigBullet; // ï¿½ï¿½ï¿½ï¿½Åº - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public bool isUpgrade = false; //ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½Ç¾ï¿½ï¿½Â°ï¿½?
 }
