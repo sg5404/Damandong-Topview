@@ -7,20 +7,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8359eb42b0d53d34b9351878c6e34465, type: 3}
+  m_Script: {fileID: 11500000, guid: dbee060c2b7420f4e886e9a0131685bb, type: 3}
   m_Name: SniperModule
   m_EditorClassIdentifier: 
   kind: 2
-  WeaponSprite: {fileID: 0}
-  atkSpeed: 0
+  WeaponSprite: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
+  atkSpeed: 1.5
   bulletSpread: 0
-  oneShotBullets: 0
+  oneShotBullets: 1
   isAutoShot: 0
-  magazine: 0
-  maxMagazine: 0
+  magazine: 5
+  maxMagazine: 5
   isInfiniteBullet: 0
-  reload: 0
-  bullet: {fileID: 0}
-  baseSO: {fileID: 11400000, guid: 1896a69fb02371e49882d7156e00b22f, type: 2}
+  reload: 1
+  bullet: {fileID: 99796228922257285, guid: 64a2decdcca301b488f42eebfaa0cfd5, type: 3}

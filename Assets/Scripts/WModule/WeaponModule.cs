@@ -5,19 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="SO/Module/Weapon")]
 public class WeaponModule : ScriptableObject
 {
-    public WeaponKind kind;//¹«±âÁ¾·ù
+    public WeaponKind kind;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public Sprite WeaponSprite;
-    public float atkSpeed;//°ø¼Ó
+    public float atkSpeed;//ï¿½ï¿½ï¿½ï¿½
 
-    public float bulletSpread;//ÅºÆÛÁü
-    public int oneShotBullets;//ÇÑ¹ø¿¡ ³ª°¡´Â ÃÑ¾Ë ¼ö
+    public float bulletSpread;//Åºï¿½ï¿½ï¿½ï¿½
+    public int oneShotBullets;//ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½
 
-    public bool isAutoShot;//¿¬»ç
+    public bool isAutoShot;//ï¿½ï¿½ï¿½ï¿½
 
     public int magazine;//ÅºÃ¢
-    public int maxMagazine;//ÃÖ´ë ÅºÃ¢
-    public bool isInfiniteBullet;//ÇÑ¹« ÅºÃ¢
-    public float reload;//ÀçÀåÀü ½Ã°£
+    public int maxMagazine;//ï¿½Ö´ï¿½ ÅºÃ¢
+    public bool isInfiniteBullet;//ï¿½Ñ¹ï¿½ ÅºÃ¢
+    public float reload;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
     public GameObject bullet;
+    public BulletModule bulletModule;
 }

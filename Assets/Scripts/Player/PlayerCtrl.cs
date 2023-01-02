@@ -116,42 +116,57 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
 
     private void WeaponChange()
     {
-        int num = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        string key = Input.inputString;
+
+        if(key == "1" || key == "2" || key =="3" || key == "4")
         {
-            weaponSet.SubWeaponState = weaponSet.SetWeapon("1");
+            var num = key switch { "1" => 0, "2" => 1, "3" => 2, "4" => 3, _ => 0, };
+
+            weaponSet.SubWeaponState = weaponSet.SetWeapon((num + 1).ToString());
             Debug.Log(weaponSet.SubWeaponState);
             ActiveFalseAllWepaon();
-            num = 0;
             ActiveWeapon(num);
             PlayerController.Instance.ChangeText(num, true);
+            PlayerController.Instance.Ltimer = 0;
+            PlayerController.Instance.leftWeaponFade.gameObject.SetActive(false);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            weaponSet.SubWeaponState = weaponSet.SetWeapon("2");
-            Debug.Log(weaponSet.SubWeaponState);
-            ActiveFalseAllWepaon();
-            num = 1;
-            ActiveWeapon(num);
-            PlayerController.Instance.ChangeText(num, true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            weaponSet.SubWeaponState = weaponSet.SetWeapon("3");
-            Debug.Log(weaponSet.SubWeaponState);
-            ActiveFalseAllWepaon();
-            num = 2;
-            ActiveWeapon(num);
-            PlayerController.Instance.ChangeText(num, true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            weaponSet.SubWeaponState = weaponSet.SetWeapon("4");
-            Debug.Log(weaponSet.SubWeaponState);
-            ActiveFalseAllWepaon();
-            num = 3;
-            ActiveWeapon(num);
-            PlayerController.Instance.ChangeText(num, true);
-        }
+
+
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    weaponSet.SubWeaponState = weaponSet.SetWeapon("1");
+        //    Debug.Log(weaponSet.SubWeaponState);
+        //    ActiveFalseAllWepaon();
+        //    num = 0;
+        //    ActiveWeapon(num);
+        //    PlayerController.Instance.ChangeText(num, true);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    weaponSet.SubWeaponState = weaponSet.SetWeapon("2");
+        //    Debug.Log(weaponSet.SubWeaponState);
+        //    ActiveFalseAllWepaon();
+        //    num = 1;
+        //    ActiveWeapon(num);
+        //    PlayerController.Instance.ChangeText(num, true);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    weaponSet.SubWeaponState = weaponSet.SetWeapon("3");
+        //    Debug.Log(weaponSet.SubWeaponState);
+        //    ActiveFalseAllWepaon();
+        //    num = 2;
+        //    ActiveWeapon(num);
+        //    PlayerController.Instance.ChangeText(num, true);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    weaponSet.SubWeaponState = weaponSet.SetWeapon("4");
+        //    Debug.Log(weaponSet.SubWeaponState);
+        //    ActiveFalseAllWepaon();
+        //    num = 3;
+        //    ActiveWeapon(num);
+        //    PlayerController.Instance.ChangeText(num, true);
+        //}
     }
 }
