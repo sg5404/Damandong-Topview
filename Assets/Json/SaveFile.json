@@ -1,18 +1,6 @@
 ﻿{
-    "money": 6694,
-    "level": 10,
-    "experience": 32762,
-    "maxExperience": [
-        5,
-        10,
-        20,
-        40,
-        60,
-        90,
-        120,
-        150,
-        200
-    ],
+    "money": 6705,
+    "experience": 32822,
     "attack": 20.0,
     "attackSpeed": 10.0,
     "defense": 20.0,

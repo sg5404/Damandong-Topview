@@ -231,6 +231,7 @@ public class PlayerController : MonoSingleton<PlayerController>
         if (isLeft)
         {
             lText.text = $"{LcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
+            leftWeapon = num;
             return;
         }
         rText.text = $"{RcurrentBullet[num]} / {magazineAmount[num] * BulletAmounts[num]}";
