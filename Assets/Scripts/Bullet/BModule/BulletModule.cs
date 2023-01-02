@@ -21,4 +21,6 @@ public class BulletModule : ScriptableObject
     public float explosionRange;//광역범위
     public bool isKnockBack;//넉백
     public float knockBackRange;//넉백범위
+
+    public bool isUpgrade = false; //업그레이드 되었는가?
 }
