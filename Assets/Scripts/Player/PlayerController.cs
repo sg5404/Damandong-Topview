@@ -387,4 +387,12 @@ public class PlayerController : MonoSingleton<PlayerController>
         Rtimer = 0f;
         LoadBulletAmount();
     }
+
+    void GranadeUpgrade()
+    {
+        var b_module = module[3].bulletModule;
+        if (b_module.isUpgrade) return;
+        b_module.explosionRange += 2;
+        b_module.isUpgrade = false;
+    }
 }
