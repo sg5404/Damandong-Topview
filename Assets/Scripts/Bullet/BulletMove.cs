@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletMove : Bullet
 {
     [SerializeField] GameObject effect;
+    [SerializeField] private float burnTime = 3f; 
     public WeaponKind weaponKind;
 
     private float timer = 0;
@@ -34,6 +35,11 @@ public class BulletMove : Bullet
     void Update()
     {
         transform.Translate(Vector3.right * _bulletModule.speed * Time.deltaTime);
+
+        if (_bulletModule.isBigBullet)
+        {
+            this.gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,6 +66,14 @@ public class BulletMove : Bullet
         Collider2D[] cols = Physics2D.OverlapCircleAll(collision.transform.position, _bulletModule.explosionRange / 2);
         foreach (Collider2D col in cols)
         {
+            if (_bulletModule.isFlameBullet)
+            {
+                col.GetComponent<EnemyBase>().Burn(burnTime);
+            }
+            else if (_bulletModule.isSlowBullet)
+            {
+                col.GetComponent<EnemyBase>()._statusAilment = StatusAilments.Slow;
+            }
             col.GetComponent<EnemyBase>()?.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
         }
         GameObject gm = Instantiate(effect, transform.position, Quaternion.identity);

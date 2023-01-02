@@ -52,6 +52,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     Animator ani;
     private float stunTime;
     private float burnTime;
+    private float slowTime;
     [field:SerializeField] public UnityEvent OnDie { get; set; }
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
 
@@ -75,6 +76,7 @@ public class EnemyBase : MonoBehaviour, CharBase
         ani.SetTrigger("Hit");
         if(_statusAilment==StatusAilments.None) _statusAilment = status;
         HpBar(damage);
+
         if (Hp > 0) return;
         ani.SetTrigger("Die");
         OnDie?.Invoke();
@@ -119,14 +121,23 @@ public class EnemyBase : MonoBehaviour, CharBase
     {
         _statusAilment = StatusAilments.Burn;
         this.burnTime = burnTime;
+        CrowdControlDuration(burnTime);
         Debug.Log("Burn");
     }
 
-    private void BurnDuration(float burnTime)
+    public void Slow(float slowTime)
     {
-        while(burnTime > 0)
+        _statusAilment = StatusAilments.Slow;
+        this.slowTime = slowTime;
+        CrowdControlDuration(slowTime);
+        Debug.Log("Slow");
+    }
+
+    private void CrowdControlDuration(float time)
+    {
+        while(time > 0)
         {
-            burnTime -= Time.deltaTime;
+            time -= Time.deltaTime;
         }
 
         _statusAilment = StatusAilments.None;
