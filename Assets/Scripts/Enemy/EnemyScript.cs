@@ -60,15 +60,15 @@ public class EnemyScript : MonoBehaviour
     {
         while (true)
         {
-            if(_enemyBase._statusAilment == StatusAilments.None)
+            if (_enemyBase._statusAilment == StatusAilments.None)
             {
-                continue;
+
             }
             else if (_enemyBase._statusAilment == StatusAilments.Burn)
             {
                 hp -= 5;
             }
-            else if(_enemyBase._statusAilment == StatusAilments.Slow)
+            else if (_enemyBase._statusAilment == StatusAilments.Slow)
             {
                 speed /= 2;
             }
