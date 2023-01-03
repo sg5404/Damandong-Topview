@@ -33,7 +33,7 @@ public class PlayerExperience : MonoSingleton<PlayerExperience>
         {
             if (currentExp <= 0) break;
             currentExp--;
-            Debug.Log(currentExp);
+            //Debug.Log(currentExp);
             yield return new WaitForSeconds(1f);
         }
     }
