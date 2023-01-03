@@ -86,5 +86,6 @@ public class ShopPanel : MonoBehaviour
         dShopItem.upgradeValue++;
         // TODO : ������ ���� �� ������ ���ź�� ���� ����
         UpdateValues(dShopItem);
+        PlayerController.Instance.UpdateDUpgrade();
     }
 }

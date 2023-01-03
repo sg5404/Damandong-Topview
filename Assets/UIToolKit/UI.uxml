@@ -1,12 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIToolKit/Dungeon.uss?fileID=7433441132597879392&amp;guid=573ed567d062d244d96efe0d599cd037&amp;type=3#Dungeon" />
-    <ui:VisualElement name="BackGround" style="width: 90%; height: 90%; flex-direction: column; justify-content: flex-end; align-items: flex-start; margin-left: 5%; margin-top: 2.5%; margin-right: 5%; margin-bottom: 2.5%; background-color: rgba(255, 255, 255, 255);">
-        <ui:VisualElement name="ScrollBack" style="width: 100%; height: 80%; flex-direction: row;">
-            <ui:VisualElement name="RScroll" class="Scroll" />
-            <ui:VisualElement name="LScroll" class="Scroll">
-                <ui:ScrollView mode="Vertical" style="flex-grow: 1; flex-direction: column;">
-                    <ui:VisualElement />
-                </ui:ScrollView>
+    <ui:VisualElement name="BackGround" style="width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center;">
+        <ui:VisualElement name="ScrollView" style="width: 90%; height: 90%; justify-content: flex-end; background-color: rgb(255, 255, 255);">
+            <ui:VisualElement name="ScrollBack" style="width: 100%; height: 80%; flex-direction: row;">
+                <ui:ScrollView name="LScroll" class="Scroll" style="padding-left: 1%; padding-right: 1%; padding-top: 1%; padding-bottom: 1%;" />
+                <ui:ScrollView name="RScroll" class="Scroll" style="padding-left: 1%; padding-right: 1%; padding-top: 1%; padding-bottom: 1%;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

@@ -11,11 +11,14 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
     [SerializeField] private float sniper_SkillDelay = 0f;
     [SerializeField] private float shotgun_SkillDelay;
     [SerializeField] private float granade_SkillDelay;
+
+
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI tmp;
     public WeaponSet weaponSet = null;
 
-    private float curDelay = 0f;
+    private float rifleDelay = 0f;
+    private float sniperDelay = 0f;
     private float madangDelay = 0f;
     private float stunDelay = 0f;
 
@@ -32,24 +35,25 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
     private void Start()
     {
         weaponSet = GetComponent<WeaponSet>();
+
     }
 
     private void Update()
     {
         SkillDelayKind();
-        if (weaponSet.MainWeaponState == WeaponKind.SNIPER)
-        {
-            curDelay = 0.0f;
-            return;
-        }
-        curDelay += Time.deltaTime;
+        rifleDelay += Time.deltaTime;
         madangDelay += Time.deltaTime;
         stunDelay += Time.deltaTime;
     }
 
+    //void SkillDelayReceive()
+    //{
+
+    //}
+
     void SkillDelayKind()
     {
-        var coolTime = weaponSet.MainWeaponState switch
+        var coolTime = weaponSet.SubWeaponState switch
         {
             WeaponKind.RIFLE => rifle_SkillDelay,
             WeaponKind.SNIPER => sniper_SkillDelay,
@@ -57,28 +61,29 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
             WeaponKind.GRANADE => granade_SkillDelay,
         };
 
-        var delay = weaponSet.MainWeaponState switch
+        var delay = weaponSet.SubWeaponState switch
         {
-            WeaponKind.RIFLE => curDelay,
-            WeaponKind.SNIPER => curDelay,
+            WeaponKind.RIFLE => rifleDelay,
+            WeaponKind.SNIPER => sniperDelay,
             WeaponKind.SHOTGUN => madangDelay,
             WeaponKind.GRANADE => stunDelay,
         };
 
+        //Debug.Log(weaponSet.MainWeaponState.ToString());
         CoolTimeDisplay(coolTime, delay);
     }
 
     public IEnumerator Lambo()
     {
-        if(curDelay > rifle_SkillDelay)
+        if (rifleDelay >= rifle_SkillDelay)
         {
-            curDelay = 0f;
+            rifleDelay = 0f;
             Debug.Log("LamboMode On");
 
-            float defaultWSpd = PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed;
+            float defaultWSpd = PlayerController.Instance.module[0].atkSpeed;
 
             // ��������
-            PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed = defaultWSpd * 0.5f;
+            PlayerController.Instance.module[0].atkSpeed = defaultWSpd * 0.5f;
 
             //����źâ
             PlayerController.Instance.infinityBullet = true;
@@ -87,14 +92,14 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
 
             PlayerController.Instance.infinityBullet = false;
 
-            PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed = defaultWSpd;
+            PlayerController.Instance.module[0].atkSpeed = defaultWSpd;
         }
 
     }
 
     public void MadangSslGi()
     {
-        if(madangDelay >= shotgun_SkillDelay)
+        if (madangDelay >= shotgun_SkillDelay)
         {
             madangDelay = 0f;
 
@@ -121,8 +126,9 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
 
     public IEnumerator Stun()
     {
-        if(stunDelay >= granade_SkillDelay)
+        if (stunDelay >= granade_SkillDelay)
         {
+            stunDelay = 0f;
             Debug.Log("Stun On");
 
             GameObject stun = Instantiate(stunGranade, transform.position, lookTrs.rotation);
@@ -140,7 +146,7 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
 
     void CoolTimeDisplay(float coolTime, float curTime)
     {
-        if(curTime > coolTime)
+        if (curTime > coolTime)
         {
             curTime = coolTime;
         }
@@ -148,23 +154,20 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
         float percent = curTime / coolTime;
         tmp.text = ((int)(coolTime - curTime)).ToString();
 
-        if (percent > 0.99f)
+        if (percent > 0.99f || coolTime == 0f)
         {
             image.gameObject.SetActive(false);
             tmp.gameObject.SetActive(false);
             return;
         }
-        else
-        {
-            image.gameObject.SetActive(true);
-            tmp.gameObject.SetActive(true);
-        }
 
+        image.gameObject.SetActive(true);
+        tmp.gameObject.SetActive(true);
         image.fillAmount = 1 - percent;
     }
 
     private void OnApplicationQuit()
     {
-        PlayerController.Instance.module[PlayerController.Instance.leftWeapon].atkSpeed = 0.15f;
+        PlayerController.Instance.module[0].atkSpeed = 0.15f;
     }
 }

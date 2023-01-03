@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Content" class="content" style="flex-direction: row; align-items: center; justify-content: flex-start; margin-bottom: 1%;">
+        <ui:IMGUIContainer name="Image" style="width: 20%; height: 60%; margin-left: 3%; background-color: rgb(255, 255, 255);" />
+        <ui:Label text="Title" display-tooltip-when-elided="true" name="Title" class="text" style="position: absolute; top: 8%; left: 28%; font-size: 40%;" />
+        <ui:Button text="BUY" display-tooltip-when-elided="true" name="Buy" style="position: absolute; width: 30%; height: 25%; top: 70%; left: 68%; font-size: 40px; background-color: rgb(89, 89, 89); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; color: rgb(255, 255, 255);" />
+        <ui:Label text="one&#10;two&#10;three" display-tooltip-when-elided="true" name="Info" class="text" style="position: absolute; top: 24%; left: 28%; width: 70%; height: 45%; font-size: 35%;" />
+    </ui:VisualElement>
+</ui:UXML>

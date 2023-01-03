@@ -50,23 +50,28 @@ public class EnemyBase : MonoBehaviour, CharBase
     public StatusAilments _statusAilment;
     #endregion
     Animator ani;
-    private float stunTime;
-    private float burnTime;
-    private float slowTime;
+    private float crowdTime;
+    //private float stunTime;
+    //private float burnTime;
+    //private float slowTime;
     [field:SerializeField] public UnityEvent OnDie { get; set; }
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
 
     EnemyScript enemy;
     private float timer = 0;
+   
     private void Start()
     {
         enemy = GetComponent<EnemyScript>();
         ani = GetComponent<Animator>();
         MaxHp = Hp;
+        StartCoroutine(CrowdControlDuration());
     }
     private void Update()
     {
-        DurationChange();
+        //DurationChange();
+        //BurnDuration();
+        //SlowDuration();
         DeadCheck();
     }
     public virtual void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance)
@@ -75,8 +80,8 @@ public class EnemyBase : MonoBehaviour, CharBase
         OnGetHit?.Invoke();
         ani.SetTrigger("Hit");
         if(_statusAilment==StatusAilments.None) _statusAilment = status;
+        CheckStatus(status);
         HpBar(damage);
-
         if (Hp > 0) return;
         ani.SetTrigger("Die");
         OnDie?.Invoke();
@@ -88,7 +93,20 @@ public class EnemyBase : MonoBehaviour, CharBase
         IsDead = true;
     }
 
-    private void HpBar(float damage)
+    void CheckStatus(StatusAilments status)
+    {
+        if(status == StatusAilments.Burn)
+        {
+            Burn(3f);
+        }
+        if (status == StatusAilments.Slow)
+        {
+            Slow(3f);
+        }
+
+    }
+
+    public void HpBar(float damage)
     {
         Hp -= (int)damage;
         hpBarImage.fillAmount = Hp / MaxHp;
@@ -106,50 +124,74 @@ public class EnemyBase : MonoBehaviour, CharBase
     {
         if (IsDead) return;
         if (!collision.CompareTag("Player")) return;
+
         var hit = collision.GetComponent<CharBase>();
-        hit.Hit(10, gameObject, StatusAilments.None, 0);
+        //hit.Hit(10, gameObject, StatusAilments.None, 0);
     }
 
     public void Stun(float durationTime)
     {
         _statusAilment = StatusAilments.Stun;
-        stunTime = durationTime;
+        crowdTime = durationTime;
         Debug.Log("½ºÅÏ");
     }
 
     public void Burn(float burnTime)
     {
         _statusAilment = StatusAilments.Burn;
-        this.burnTime = burnTime;
-        CrowdControlDuration(burnTime);
+        Debug.Log(_statusAilment);
+        this.crowdTime = burnTime;
         Debug.Log("Burn");
     }
 
     public void Slow(float slowTime)
     {
         _statusAilment = StatusAilments.Slow;
-        this.slowTime = slowTime;
-        CrowdControlDuration(slowTime);
+        this.crowdTime = slowTime;
         Debug.Log("Slow");
     }
 
-    private void CrowdControlDuration(float time)
+    private IEnumerator CrowdControlDuration()
     {
-        while(time > 0)
+        while (true)
         {
-            time -= Time.deltaTime;
+            if (crowdTime > 0)
+                crowdTime -= Time.deltaTime;
+            if (crowdTime < 0)
+                crowdTime = 0;
+            if (crowdTime == 0)
+                _statusAilment = StatusAilments.None;
+            yield return new WaitForEndOfFrame();
         }
-
-        _statusAilment = StatusAilments.None;
     }
 
-    private void DurationChange()
-    {
-        if (stunTime > 0)
-            stunTime -= Time.deltaTime;
-        if (stunTime < 0)
-            stunTime = 0;
-        if (stunTime == 0)
-            _statusAilment = StatusAilments.None;
-    }
+    //private void BurnDuration()
+    //{
+    //    if (burnTime > 0)
+    //        burnTime -= Time.deltaTime;
+    //    if (burnTime < 0)
+    //        burnTime = 0;
+    //    if (burnTime == 0)
+    //        _statusAilment = StatusAilments.None;
+    //}
+
+    //private void SlowDuration()
+    //{
+    //    if (slowTime > 0)
+    //        slowTime -= Time.deltaTime;
+    //    if (slowTime < 0)
+    //        slowTime = 0;
+    //    //if (slowTime == 0)
+    //    //    _statusAilment = StatusAilments.None;
+    //}
+
+    //private void DurationChange()
+    //{
+    //    if (stunTime > 0)
+    //        stunTime -= Time.deltaTime;
+    //    if (stunTime < 0)
+    //        stunTime = 0;
+    //    //if (stunTime == 0)
+    //    //    _statusAilment = StatusAilments.None;
+    //}
 }
