@@ -8166,7 +8166,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4e86ef7fd663e0943a4a47546e8d6b07, type: 3}
   - {fileID: 8300000, guid: f73468edc17111243a21f0d0ad114455, type: 3}
   effectContainSound:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 31cd19dd08a40c842b4a08fdf852d77f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

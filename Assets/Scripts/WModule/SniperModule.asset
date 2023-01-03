@@ -23,3 +23,4 @@ MonoBehaviour:
   isInfiniteBullet: 0
   reload: 1
   bullet: {fileID: 99796228922257285, guid: 64a2decdcca301b488f42eebfaa0cfd5, type: 3}
+  bulletModule: {fileID: 11400000, guid: dd61f7bb6f20b934ca52a634a35f890e, type: 2}
