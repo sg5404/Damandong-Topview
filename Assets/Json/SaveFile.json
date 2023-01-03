@@ -1,6 +1,6 @@
 ﻿{
-    "money": 6804,
-    "experience": 33589,
+    "money": 6708,
+    "experience": 32842,
     "attack": 20.0,
     "attackSpeed": 10.0,
     "defense": 20.0,
@@ -75,7 +75,7 @@
             },
             "itemDiscription": "아니 명일방주가 애니화가 됐다고요!",
             "price": 10,
-            "upgradeValue": 2,
+            "upgradeValue": 0,
             "isBuyit": false
         }
     ]
