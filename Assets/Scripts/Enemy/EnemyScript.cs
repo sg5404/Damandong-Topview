@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
 
     [SerializeField] private float atkdistance;
     [SerializeField] private Transform distanceShow;
+    [SerializeField] private float burnDmg = 5f;
 
     Vector2 targetDir;
     Vector2 dir;
@@ -63,19 +64,15 @@ public class EnemyScript : MonoBehaviour
             Debug.Log($"Enemy State : {_enemyBase._statusAilment}");
             if (_enemyBase._statusAilment == StatusAilments.None)
             {
-
+                speed = _speed;
             }
             else if (_enemyBase._statusAilment == StatusAilments.Burn)
             {
-                hp -= 5;
+                _enemyBase.HpBar(burnDmg);
             }
             else if (_enemyBase._statusAilment == StatusAilments.Slow)
             {
-                speed /= 2;
-            }
-            else
-            {
-                speed = _speed;
+                speed = (_speed / 2);
             }
 
             yield return new WaitForSeconds(0.5f);
