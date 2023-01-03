@@ -1,6 +1,6 @@
 ﻿{
-    "money": 6708,
-    "experience": 32842,
+    "money": 0,
+    "experience": 0,
     "attack": 20.0,
     "attackSpeed": 10.0,
     "defense": 20.0,
@@ -66,15 +66,28 @@
             "upgradeValue": 0
         }
     ],
-    "shopItemInDungeon": [
+    "shopItemInDungeonOne": [
         {
             "itemNumber": 0,
-            "itemName": "흑야의 회고록",
+            "itemName": "일음",
             "itemImage": {
                 "instanceID": 0
             },
-            "itemDiscription": "아니 명일방주가 애니화가 됐다고요!",
-            "price": 10,
+            "itemDiscription": "서르명",
+            "price": 0,
+            "upgradeValue": 2,
+            "isBuyit": false
+        }
+    ],
+    "shopItemInDungeonMul": [
+        {
+            "itemNumber": 0,
+            "itemName": "일음",
+            "itemImage": {
+                "instanceID": 0
+            },
+            "itemDiscription": "서르르명",
+            "price": 0,
             "upgradeValue": 0,
             "isBuyit": false
         }

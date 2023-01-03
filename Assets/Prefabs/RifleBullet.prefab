@@ -99,8 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405159d081b36b14ca559b3141b579c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletModule: {fileID: 11400000, guid: 3f02b7180fd322648b49bcd34cf0b339, type: 2}
+  _bulletModule: {fileID: 11400000, guid: a287a1d054cbb3b4c93c44e28792e716, type: 2}
   damage: 1
+  effect: {fileID: 0}
+  burnTime: 3
   weaponKind: 1
   addCrit: 0
 --- !u!58 &-6542449287728460843

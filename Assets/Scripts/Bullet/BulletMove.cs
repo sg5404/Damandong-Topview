@@ -15,7 +15,7 @@ public class BulletMove : Bullet
 
     private int TrueCrit;
 
-    public override BulletModule BulletData 
+    public override CBulletModule BulletData 
     { 
         get => _bulletModule;
         set 

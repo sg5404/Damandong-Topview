@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804c7e57e4ca0b443aef2b81efe00904, type: 3}
+  m_Name: CRifle
+  m_EditorClassIdentifier: 
+  atk: 8
+  isEnemy: 0
+  range: 2
+  speed: 10
+  crtDmg: 0
+  crtChance: 0.2
+  statusAilment: 0
+  saChance: 0
+  isExplosion: 0
+  explosionRange: 0
+  isKnockBack: 0
+  knockBackRange: 0
+  isFlameBullet: 0
+  isSlowBullet: 0
+  isBigBullet: 0
+  isUpgrade: 0
+  baseSO: {fileID: 11400000, guid: 3f02b7180fd322648b49bcd34cf0b339, type: 2}

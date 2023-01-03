@@ -20,5 +20,5 @@ public class WeaponModule : ScriptableObject
     public float reload;//������ �ð�
 
     public GameObject bullet;
-    public BulletModule bulletModule;
+    public CBulletModule bulletModule;
 }
