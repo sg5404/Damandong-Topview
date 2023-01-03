@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,6 +46,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -97,9 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405159d081b36b14ca559b3141b579c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletModule: {fileID: 11400000, guid: 184715c83b497cc4d8d10cf2f5f0e1a5, type: 2}
+  _bulletModule: {fileID: 11400000, guid: dd61f7bb6f20b934ca52a634a35f890e, type: 2}
   damage: 50
+  effect: {fileID: 0}
+  burnTime: 3
   weaponKind: 2
+  addCrit: 0
 --- !u!58 &-4575693644651836087
 CircleCollider2D:
   m_ObjectHideFlags: 0

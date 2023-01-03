@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    protected BulletModule _bulletModule;
+    protected CBulletModule _bulletModule;
 
     protected bool _isEnemy;
     public bool IsEnemy
@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
 
     public int damage = 1; //총알의 데미지 계수
 
-    public virtual BulletModule BulletData
+    public virtual CBulletModule BulletData
     {
         get => _bulletModule;
         set

@@ -35,7 +35,7 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     //private Vector2 weaponPos = new Vector2(0, 0);
 
-    public WeaponModule[] module;
+    public CWeaponModule[] module;
     public int leftWeapon { private set; get; } = 0;
     public int rightWeapon { private set; get; } = 0;
     public bool infinityBullet { set; get; } = false;
@@ -419,5 +419,10 @@ public class PlayerController : MonoSingleton<PlayerController>
         if (b_module.isUpgrade) return;
         b_module.explosionRange -= 2;
         b_module.isUpgrade = false;
+    }
+
+    public void UpdateDUpgrade()
+    {
+
     }
 }

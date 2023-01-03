@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "SO/Module/CBullet")]
 public class CBulletModule : BulletModule
 {
     [SerializeField]
@@ -24,6 +25,7 @@ public class CBulletModule : BulletModule
         isFlameBullet = baseSO.isFlameBullet;
         isSlowBullet = baseSO.isSlowBullet;
         isBigBullet = baseSO.isBigBullet;
+        isUpgrade = baseSO.isUpgrade;
     }
 
     public void UpgradeIron()

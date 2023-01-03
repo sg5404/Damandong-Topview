@@ -25,8 +25,8 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
             {
                 _hp = 0;
             }
-            Debug.Log(_hp);
-            Debug.Log(_maxHp);
+            //Debug.Log(_hp);
+            //Debug.Log(_maxHp);
             UIManager.Instance.playerHpTmp.text = $"{_hp}/{_maxHp}";
             UIManager.Instance.plyerHpSlider.value = (_hp / (float)_maxHp);
         }

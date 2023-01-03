@@ -15,7 +15,7 @@ public class BulletMove : Bullet
 
     private int TrueCrit;
 
-    public override BulletModule BulletData 
+    public override CBulletModule BulletData 
     { 
         get => _bulletModule;
         set 
@@ -53,6 +53,15 @@ public class BulletMove : Bullet
             finalDamage *= _bulletModule.crtDmg+PlayerStat.GetCriticalDamage();
         if(!_bulletModule.isExplosion)
         {
+            if (BulletData.isFlameBullet)
+            {
+                BulletData.statusAilment = StatusAilments.Burn;
+            }
+            else if (BulletData.isSlowBullet)
+            {
+                BulletData.statusAilment = StatusAilments.Slow;
+            }
+
             hit.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
             SniperCheck();
             return;
@@ -66,14 +75,6 @@ public class BulletMove : Bullet
         Collider2D[] cols = Physics2D.OverlapCircleAll(collision.transform.position, _bulletModule.explosionRange / 2);
         foreach (Collider2D col in cols)
         {
-            if (_bulletModule.isFlameBullet)
-            {
-                col.GetComponent<EnemyBase>().Burn(burnTime);
-            }
-            else if (_bulletModule.isSlowBullet)
-            {
-                col.GetComponent<EnemyBase>()._statusAilment = StatusAilments.Slow;
-            }
             col.GetComponent<EnemyBase>()?.Hit(finalDamage, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
         }
         GameObject gm = Instantiate(effect, transform.position, Quaternion.identity);

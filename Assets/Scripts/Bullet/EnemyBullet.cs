@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBullet : BulletMove
 {
-    public override BulletModule BulletData
+    public override CBulletModule BulletData
     {
         get => _bulletModule;
         set
