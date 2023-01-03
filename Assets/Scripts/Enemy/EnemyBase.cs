@@ -67,6 +67,8 @@ public class EnemyBase : MonoBehaviour, CharBase
     private void Update()
     {
         DurationChange();
+        BurnDuration();
+        SlowDuration();
         DeadCheck();
     }
     public virtual void Hit(float damage, GameObject damageDealer, StatusAilments status, float chance)
@@ -75,8 +77,8 @@ public class EnemyBase : MonoBehaviour, CharBase
         OnGetHit?.Invoke();
         ani.SetTrigger("Hit");
         if(_statusAilment==StatusAilments.None) _statusAilment = status;
+        CheckStatus(status);
         HpBar(damage);
-
         if (Hp > 0) return;
         ani.SetTrigger("Die");
         OnDie?.Invoke();
@@ -86,6 +88,19 @@ public class EnemyBase : MonoBehaviour, CharBase
         //레이어 바꿔주기
         gameObject.tag = "Untagged";
         IsDead = true;
+    }
+
+    void CheckStatus(StatusAilments status)
+    {
+        if(status == StatusAilments.Burn)
+        {
+            Burn(3f);
+        }
+        if (status == StatusAilments.Slow)
+        {
+            Slow(3f);
+        }
+
     }
 
     private void HpBar(float damage)
@@ -106,8 +121,9 @@ public class EnemyBase : MonoBehaviour, CharBase
     {
         if (IsDead) return;
         if (!collision.CompareTag("Player")) return;
+
         var hit = collision.GetComponent<CharBase>();
-        hit.Hit(10, gameObject, StatusAilments.None, 0);
+        //hit.Hit(10, gameObject, StatusAilments.None, 0);
     }
 
     public void Stun(float durationTime)
@@ -121,7 +137,6 @@ public class EnemyBase : MonoBehaviour, CharBase
     {
         _statusAilment = StatusAilments.Burn;
         this.burnTime = burnTime;
-        CrowdControlDuration(burnTime);
         Debug.Log("Burn");
     }
 
@@ -129,18 +144,27 @@ public class EnemyBase : MonoBehaviour, CharBase
     {
         _statusAilment = StatusAilments.Slow;
         this.slowTime = slowTime;
-        CrowdControlDuration(slowTime);
         Debug.Log("Slow");
     }
 
-    private void CrowdControlDuration(float time)
+    private void BurnDuration()
     {
-        while(time > 0)
-        {
-            time -= Time.deltaTime;
-        }
+        if (burnTime > 0)
+            burnTime -= Time.deltaTime;
+        if (burnTime < 0)
+            burnTime = 0;
+        if (burnTime == 0)
+            _statusAilment = StatusAilments.None;
+    }
 
-        _statusAilment = StatusAilments.None;
+    private void SlowDuration()
+    {
+        if (slowTime > 0)
+            slowTime -= Time.deltaTime;
+        if (slowTime < 0)
+            slowTime = 0;
+        if (slowTime == 0)
+            _statusAilment = StatusAilments.None;
     }
 
     private void DurationChange()

@@ -60,6 +60,7 @@ public class EnemyScript : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log($"Enemy State : {_enemyBase._statusAilment}");
             if (_enemyBase._statusAilment == StatusAilments.None)
             {
 
@@ -77,7 +78,7 @@ public class EnemyScript : MonoBehaviour
                 speed = _speed;
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 

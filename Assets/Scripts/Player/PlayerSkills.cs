@@ -121,8 +121,8 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
 
     public IEnumerator Stun()
     {
-        if(stunDelay >= granade_SkillDelay)
-        {
+        //if(stunDelay >= granade_SkillDelay)
+        //{
             Debug.Log("Stun On");
 
             GameObject stun = Instantiate(stunGranade, transform.position, lookTrs.rotation);
@@ -130,7 +130,7 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
             stun.transform.DOMove(stun.transform.position + (stun.transform.right * 2.5f), 0.75f);
             yield return new WaitForSeconds(2f);
             Destroy(stun);
-        }
+        //}
     }
 
     public void None()

@@ -18,9 +18,13 @@ MonoBehaviour:
   speed: 10
   crtDmg: 0
   crtChance: 0.2
-  statusAilment: 0
+  statusAilment: 3
   saChance: 0
   isExplosion: 0
   explosionRange: 0
   isKnockBack: 0
   knockBackRange: 0
+  isFlameBullet: 1
+  isSlowBullet: 0
+  isBigBullet: 0
+  isUpgrade: 0
