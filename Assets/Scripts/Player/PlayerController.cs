@@ -429,9 +429,45 @@ public class PlayerController : MonoSingleton<PlayerController>
         foreach(DungeonItem dungeonItem in SaveManager.Instance.CurrentUser.shopItemInDungeonOne)
         {
             if (!dungeonItem.isBuyit) return;
-            switch(dungeonItem.itemNumber)
+
+            var num = dungeonItem.itemNumber switch
             {
-                case 0: break;
+                0 => 2,
+                1 => 2,
+                2 => 2,
+                3 => 2,
+                _ => 1,
+            };
+
+            module[dungeonItem.itemNumber].bulletModule.atk *= num;
+
+
+            switch (dungeonItem.itemNumber)
+            {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    module[dungeonItem.itemNumber].bulletModule.atk *= 2;
+                    break;
+                case 4: 
+                    // 미니언
+                    break;
+                case 5:
+                    // 장판
+                    break;
+                case 6:
+                    // 번개
+                    break;
+                case 7: 
+                    // 보호 장막
+                    break;
+                case 8: 
+                case 9: 
+                case 10:
+                case 11:
+                    module[dungeonItem.itemNumber].bulletModule.atk *= 2;
+                    break;
                 default: Debug.Log("응애 오류");
                     break;
             }
@@ -441,6 +477,19 @@ public class PlayerController : MonoSingleton<PlayerController>
             switch(dungeonItem.itemNumber)
             {
                 case 0: break;
+                case 1: break;
+                case 2: break;
+                case 3: break;
+                case 4: break;
+                case 5: break;
+                case 6: break;
+                case 7: break;
+                case 8: break;
+                case 9: break;
+                case 10: break;
+                case 11: break;
+                case 12: break;
+                default: break;
             }
         }
     }
