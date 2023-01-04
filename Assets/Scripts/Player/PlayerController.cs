@@ -76,6 +76,8 @@ public class PlayerController : MonoSingleton<PlayerController>
     Vector3 leftWeaponPosTemp;
     Vector3 rightWeaponPosTemp;
 
+    public List<bool> isSkillOn;
+
     void Start()
     {
         _ui = FindObjectOfType<UIManager>();
@@ -385,6 +387,40 @@ public class PlayerController : MonoSingleton<PlayerController>
             case WeaponKind.GRANADE: StartCoroutine(PlayerSkills.Instance.Stun()); break;
         }
     }
+
+    //void PassiveSkills()
+    //{
+    //    StartCoroutine(ShunderSkill());
+    //    StartCoroutine(BarriorSkill());
+    //    StartCoroutine(BookSkill());
+    //}
+
+    //IEnumerator ShunderSkill() //2초마다 범위에 투명한 오브젝트 생성해서 데미지 주기
+    //{
+    //    while(true)
+    //    {
+    //        if (!isSkillOn[0]) continue;
+    //        //번개 떨어뜨리기
+    //        yield return new WaitForSeconds(0.1f);
+    //        //번개 범위 없애기
+    //        yield return new WaitForSeconds(1.9f); //쿨타임 기다리기
+    //    }
+    //}
+
+    //IEnumerator BarriorSkill()
+    //{
+    //    while (true)
+    //    {
+    //        //범위 안에 데미지
+    //        yield return new WaitForSeconds(0.5f);
+    //    }
+    //}
+
+    //IEnumerator BookSkill()
+    //{
+    //    //책 돌아가는거 만들어줘야함;
+    //    yield return null;
+    //}
 
     void ReloadLeft()
     {
