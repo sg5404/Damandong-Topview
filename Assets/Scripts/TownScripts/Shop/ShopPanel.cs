@@ -75,13 +75,14 @@ public class ShopPanel : MonoBehaviour
 
     public void DPurchaseItem()
     {
-        if (SaveManager.Instance.CurrentUser.money < dShopItem.price)
+        if (SaveManager.Instance.CurrentUser.money < dShopItem.price || dShopItem.isBuyit)
         {
             return;
         }
 
         SaveManager.Instance.CurrentUser.money -= (int)dShopItem.price;
         Debug.Log("���� : " + dShopItem.itemName);
+        dShopItem.isBuyit = true;
         // TODO : ������ ������ ���� ��ġ ���
         dShopItem.upgradeValue++;
         // TODO : ������ ���� �� ������ ���ź�� ���� ����

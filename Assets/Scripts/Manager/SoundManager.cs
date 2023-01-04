@@ -19,8 +19,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     }
     public enum STATE
     {
-        NONE,
-        RIFLE,
+        RIFLE = 0,
         SNIPER,
         SHOTGUN,
         GRANADE
@@ -35,6 +34,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     public void EffectSoundPlay(STATE _state)
     {
         effectPlayer.clip = effectContainSound[(int)_state];
+        Debug.Log((int)_state);
         effectPlayer.Play();
     }
     public void BGMSoundPlay(SCENE _scene)

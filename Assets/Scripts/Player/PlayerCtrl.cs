@@ -58,9 +58,9 @@ public class PlayerCtrl : MonoSingleton<PlayerCtrl>
             rigid.velocity = new Vector2(0, 0);
             return;
         }
-        float h = Input.GetAxisRaw("Horizontal") * playerBase.MoveSpeed;
-        float v = Input.GetAxisRaw("Vertical") * playerBase.MoveSpeed;
-        rigid.velocity = new Vector2(h, v);
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+        rigid.velocity = new Vector2(h, v) * playerBase.MoveSpeed;
         //WeaponEquip();
         WeaponChange();
         //GetItem();

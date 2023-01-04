@@ -10,6 +10,11 @@ public class CBulletModule : BulletModule
 
     private void OnEnable()
     {
+        Reset();
+    }
+
+    public void Reset()
+    {
         atk = baseSO.atk;
         isEnemy = baseSO.isEnemy;
         range = baseSO.range;
