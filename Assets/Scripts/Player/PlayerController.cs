@@ -440,7 +440,30 @@ public class PlayerController : MonoSingleton<PlayerController>
         {
             switch(dungeonItem.itemNumber)
             {
-                case 0: break;
+                case 0:
+                case 1:
+                case 2:
+                case 3: // 총알 채우기
+                        // 가격 세팅
+                    magazineAmount[dungeonItem.itemNumber]++;
+                    break;
+                case 4: break;
+                case 5: break;
+                case 6: break;
+                case 7: // 스킬 강화 
+                    break;
+                case 8: // 플레이어 회복
+                    
+                    break;
+                case 9: // 돈 획득량 증가 +10%
+
+                    break;
+                case 10: // 경험치 증가 +10%
+
+                    break;
+                case 11: break;
+                case 12: break;
+                default: break;
             }
         }
     }
