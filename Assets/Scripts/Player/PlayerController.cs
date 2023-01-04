@@ -319,7 +319,8 @@ public class PlayerController : MonoSingleton<PlayerController>
                         bullet.transform.SetParent(null);
                     }
                 }
-
+                Debug.Log((SoundManager.STATE)(weaponSet.MainWeaponState - 1));
+                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)weaponSet.MainWeaponState - 1);
                 showFireEff(0);
                 leftCurtime = 0;
                 leftTimer = 0.08f;
@@ -364,6 +365,8 @@ public class PlayerController : MonoSingleton<PlayerController>
                         bullet.transform.SetParent(null);
                     }
                 }
+                Debug.Log((SoundManager.STATE)(weaponSet.SubWeaponState - 1));
+                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)(weaponSet.SubWeaponState - 1));
 
                 rightCurtime = 0;
                 rightTimer = 0.08f;
