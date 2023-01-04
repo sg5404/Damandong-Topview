@@ -472,7 +472,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                 case 1:
                 case 2:
                 case 3:
-                    // 총기 강화
+                    module[dungeonItem.itemNumber].Upgrade(dungeonItem.itemNumber);
                     break;
                 case 4: 
                 case 5: 

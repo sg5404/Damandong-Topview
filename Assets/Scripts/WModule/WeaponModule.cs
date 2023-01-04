@@ -21,4 +21,6 @@ public class WeaponModule : ScriptableObject
 
     public GameObject bullet;
     public CBulletModule bulletModule;
+
+    public bool isUpgrade;
 }
