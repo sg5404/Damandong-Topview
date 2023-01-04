@@ -423,6 +423,22 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     public void UpdateDUpgrade()
     {
-
+        foreach(DungeonItem dungeonItem in SaveManager.Instance.CurrentUser.shopItemInDungeonOne)
+        {
+            if (!dungeonItem.isBuyit) return;
+            switch(dungeonItem.itemNumber)
+            {
+                case 0: break;
+                default: Debug.Log("응애 오류");
+                    break;
+            }
+        }
+        foreach(DungeonItem dungeonItem in SaveManager.Instance.CurrentUser.shopItemInDungeonMul)
+        {
+            switch(dungeonItem.itemNumber)
+            {
+                case 0: break;
+            }
+        }
     }
 }

@@ -10,6 +10,11 @@ public class CWeaponModule : WeaponModule
 
     private void OnEnable()
     {
+        Reset();
+    }
+
+    public void Reset()
+    {
         kind = baseSO.kind;
         WeaponSprite = baseSO.WeaponSprite;
         atkSpeed = baseSO.atkSpeed;
