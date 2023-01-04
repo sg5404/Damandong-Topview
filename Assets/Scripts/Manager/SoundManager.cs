@@ -18,7 +18,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         DUNGEON
     }
     public enum STATE
-    {
+    {   
         RIFLE = 0,
         SNIPER,
         SHOTGUN,

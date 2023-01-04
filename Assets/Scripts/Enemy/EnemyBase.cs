@@ -126,7 +126,7 @@ public class EnemyBase : MonoBehaviour, CharBase
         if (!collision.CompareTag("Player")) return;
 
         var hit = collision.GetComponent<CharBase>();
-        //hit.Hit(10, gameObject, StatusAilments.None, 0);
+        hit.Hit(10, gameObject, StatusAilments.None, 0);
     }
 
     public void Stun(float durationTime)
