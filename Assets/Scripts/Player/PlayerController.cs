@@ -430,42 +430,18 @@ public class PlayerController : MonoSingleton<PlayerController>
         {
             if (!dungeonItem.isBuyit) return;
 
-            var num = dungeonItem.itemNumber switch
-            {
-                0 => 2,
-                1 => 2,
-                2 => 2,
-                3 => 2,
-                _ => 1,
-            };
-
-            module[dungeonItem.itemNumber].bulletModule.atk *= num;
-
-
             switch (dungeonItem.itemNumber)
             {
                 case 0:
                 case 1:
                 case 2:
                 case 3:
-                    module[dungeonItem.itemNumber].bulletModule.atk *= 2;
+                    // 총기 강화
                     break;
                 case 4: 
-                    // 미니언
-                    break;
-                case 5:
-                    // 장판
-                    break;
+                case 5: 
                 case 6:
-                    // 번개
-                    break;
-                case 7: 
-                    // 보호 장막
-                    break;
-                case 8: 
-                case 9: 
-                case 10:
-                case 11:
+                case 7:
                     module[dungeonItem.itemNumber].bulletModule.atk *= 2;
                     break;
                 default: Debug.Log("응애 오류");
@@ -476,20 +452,28 @@ public class PlayerController : MonoSingleton<PlayerController>
         {
             switch(dungeonItem.itemNumber)
             {
-                case 0: break;
-                case 1: break;
-                case 2: break;
-                case 3: break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
-                case 7: break;
-                case 8: break;
-                case 9: break;
-                case 10: break;
-                case 11: break;
-                case 12: break;
-                default: break;
+                case 0: 
+                case 1:
+                case 2:
+                case 3:
+                    //  총알 채우기
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    // 스킬 강화
+                    break;
+                case 8:
+                    // 플레이어 회복
+                    break;
+                case 9:
+                    // 돈 획득량 증가 10퍼
+                    break;
+                case 10:
+                    // 경험치 증가 10퍼
+                    break;
+                default:
+                    break;
             }
         }
     }
