@@ -78,7 +78,8 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     public List<bool> isSkillOn;
 
-    public bool isShop = false;
+    public float addExp { private set; get; } = 1f;
+    public float addMoney { private set; get; } = 1f;
 
     void Start()
     {
@@ -95,6 +96,7 @@ public class PlayerController : MonoSingleton<PlayerController>
             BulletAmounts[i] += (InitBulletAmounts[i] / 2) * PlayerStat.GetAddAmmo();
         }
 
+        ResetDungeon();
         LoadBulletAmount();
         Setting();
         CurrentWeapon();
@@ -243,7 +245,6 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     void CurrentWeapon()
     {
-        if (isShop) return;
         LeftWeaponFire(weaponNum(left));
         RightWeaponFire(weaponNum(right));
 
@@ -325,7 +326,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                     }
                 }
                 Debug.Log((SoundManager.STATE)(weaponSet.MainWeaponState - 1));
-                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)weaponSet.MainWeaponState - 1);
+                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)weaponSet.SubWeaponState - 1);
                 showFireEff(0);
                 leftCurtime = 0;
                 leftTimer = 0.08f;
@@ -370,7 +371,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                         bullet.transform.SetParent(null);
                     }
                 }
-                Debug.Log((SoundManager.STATE)(weaponSet.SubWeaponState - 1));
+                Debug.Log((SoundManager.STATE)(weaponSet.MainWeaponState - 1));
                 SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)(weaponSet.SubWeaponState - 1));
 
                 rightCurtime = 0;
@@ -491,29 +492,38 @@ public class PlayerController : MonoSingleton<PlayerController>
         {
             switch(dungeonItem.itemNumber)
             {
-                case 0: 
+                case 0:
                 case 1:
                 case 2:
                 case 3:
-                    //  총알 채우기
+                    magazineAmount[dungeonItem.itemNumber]++;
+                    break;
                 case 4:
-                case 5:
-                case 6:
-                case 7:
-                    // 스킬 강화
-                    break;
-                case 8:
                     // 플레이어 회복
+                    PlayerBase.Instance.Heal();
                     break;
-                case 9:
+                case 5:
                     // 돈 획득량 증가 10퍼
+                    PlayerStat.UpgradeGold();
                     break;
-                case 10:
+                case 6:
                     // 경험치 증가 10퍼
-                    break;
-                default:
+                    PlayerStat.UpgradeExp();
                     break;
             }
+        }
+    }
+
+    private void ResetDungeon()
+    {
+        foreach(CWeaponModule modu in module)
+        {
+            modu.bulletModule.Reset();
+            modu.Reset();
+            PlayerStat.ResetMul();
+            SaveManager.Instance.CurrentUser.shopItemInDungeonMul = SaveManager.Instance.CurrentUser._CshopItemInDungeonMul;
+            SaveManager.Instance.CurrentUser.shopItemInDungeonOne = SaveManager.Instance.CurrentUser._CshopItemInDungeonOne;
+            SaveManager.Instance.SaveToJson();
         }
     }
 }

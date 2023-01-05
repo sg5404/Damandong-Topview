@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerExperience : MonoSingleton<PlayerExperience>
 {
     [SerializeField]
-    private int maxExp;
-    private int currentExp;
+    private float maxExp;
+    [SerializeField] TextMeshProUGUI expText;
+    private float currentExp;
 
     private void Start()
     {
@@ -18,7 +20,8 @@ public class PlayerExperience : MonoSingleton<PlayerExperience>
     public void ChangeExperience(float exp)
     {
         var CurrencUser = SaveManager.Instance.CurrentUser;
-        CurrencUser.experience += exp;
+        CurrencUser.experience += exp * PlayerStat.GetMulExp();
+        expText.text = string.Format("{0} Exp", (int)SaveManager.Instance.CurrentUser.experience);
     }
 
     public void UpdateExperienceText()
