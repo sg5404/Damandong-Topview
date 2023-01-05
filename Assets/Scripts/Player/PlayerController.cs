@@ -81,6 +81,8 @@ public class PlayerController : MonoSingleton<PlayerController>
     public float addExp { private set; get; } = 1f;
     public float addMoney { private set; get; } = 1f;
 
+    public bool isShop = false;
+
     void Start()
     {
         _ui = FindObjectOfType<UIManager>();
@@ -245,6 +247,7 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     void CurrentWeapon()
     {
+        if (isShop) return;
         LeftWeaponFire(weaponNum(left));
         RightWeaponFire(weaponNum(right));
 
