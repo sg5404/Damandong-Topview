@@ -19094,6 +19094,14 @@ MonoBehaviour:
     itemDiscription: 
     price: 0
     upgradeValue: 0
+  dShopItem:
+    itemNumber: 0
+    itemName: 
+    itemImage: {fileID: 0}
+    itemDiscription: 
+    price: 0
+    upgradeValue: 0
+    isBuyit: 0
 --- !u!1 &1521544584
 GameObject:
   m_ObjectHideFlags: 0
@@ -27618,9 +27626,31 @@ MonoBehaviour:
       upgradeValue: 0
     shopItemInDungeonOne:
     - itemNumber: 0
-      itemName: "\uC77C\uC74C"
-      itemImage: {fileID: 0}
-      itemDiscription: "\uC11C\uB974\uBA85"
+      itemName: "\uC18C\uCD1D \uAC15\uD654"
+      itemImage: {fileID: 2477708518685008648, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC18C\uCD1D\uC758 \uD0C4\uC774 \uC801\uC744 \uB290\uB824\uC9C0\uAC8C\uD568"
+      price: 0
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 1
+      itemName: "\uC800\uACA9\uC18C\uCD1D \uAC15\uD654"
+      itemImage: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
+      itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uC774 \uCEE4\uC9D0"
+      price: 0
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 2
+      itemName: "\uC0B0\uD0C4\uCD1D \uAC15\uD654"
+      itemImage: {fileID: -1421396634152845506, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC0B0\uD0C4\uCD1D\uC758 \uD0C4\uC774 \uC801\uC744 \uBD88\uD0DC\uC6C0"
+      price: 0
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 3
+      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
+      itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
+        3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
       price: 0
       upgradeValue: 0
       isBuyit: 0
