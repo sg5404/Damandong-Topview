@@ -96,6 +96,7 @@ public class PlayerController : MonoSingleton<PlayerController>
             BulletAmounts[i] += (InitBulletAmounts[i] / 2) * PlayerStat.GetAddAmmo();
         }
 
+        ResetDungeon();
         LoadBulletAmount();
         Setting();
         CurrentWeapon();
@@ -506,29 +507,35 @@ public class PlayerController : MonoSingleton<PlayerController>
                 case 0:
                 case 1:
                 case 2:
-                case 3: // 총알 채우기
-                        // 가격 세팅
+                case 3:
                     magazineAmount[dungeonItem.itemNumber]++;
                     break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
-                case 7: // 스킬 강화 
+                case 4:
+                    // 플레이어 회복
+                    PlayerBase.Instance.Heal();
                     break;
-                case 8: // 플레이어 회복
-                    // 가격
-                    PlayerBase.Instance.Hp = PlayerBase.Instance.MaxHP;
+                case 5:
+                    // 돈 획득량 증가 10퍼
+                    PlayerStat.UpgradeGold();
                     break;
-                case 9: // 돈 획득량 증가 +10%
-                    addExp += addExp * 0.1f;
+                case 6:
+                    // 경험치 증가 10퍼
+                    PlayerStat.UpgradeExp();
                     break;
-                case 10: // 경험치 증가 +10%
-
-                    break;
-                case 11: break;
-                case 12: break;
-                default: break;
             }
+        }
+    }
+
+    private void ResetDungeon()
+    {
+        foreach(CWeaponModule modu in module)
+        {
+            modu.bulletModule.Reset();
+            modu.Reset();
+            PlayerStat.ResetMul();
+            SaveManager.Instance.CurrentUser.shopItemInDungeonMul = SaveManager.Instance.CurrentUser._CshopItemInDungeonMul;
+            SaveManager.Instance.CurrentUser.shopItemInDungeonOne = SaveManager.Instance.CurrentUser._CshopItemInDungeonOne;
+            SaveManager.Instance.SaveToJson();
         }
     }
 }

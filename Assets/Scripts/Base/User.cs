@@ -15,4 +15,6 @@ public class User
     public List<ShopItem> shopItem = new List<ShopItem>();          // 마을 내 아이템
     public List<DungeonItem> shopItemInDungeonOne = new List<DungeonItem>(); // 던전 내 아이템
     public List<DungeonItem> shopItemInDungeonMul = new List<DungeonItem>(); // 던전 내 아이템
+    public List<DungeonItem> _CshopItemInDungeonOne = new List<DungeonItem>(); // 던전 내 아이템
+    public List<DungeonItem> _CshopItemInDungeonMul = new List<DungeonItem>(); // 던전 내 아이템
 }

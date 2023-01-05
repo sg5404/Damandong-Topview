@@ -70,6 +70,7 @@ public class ShopPanel : MonoBehaviour
         SaveManager.Instance.CurrentUser.money -= (int)shopItem.price;
         Debug.Log("���� : " + shopItem.itemName);
         shopItem.upgradeValue++;
+        shopItem.price *= 2;
         UpdateValues(shopItem);
     }
 
@@ -84,11 +85,10 @@ public class ShopPanel : MonoBehaviour
         SaveManager.Instance.CurrentUser.money -= (int)dShopItem.price;
         Debug.Log("���� : " + dShopItem.itemName);
         dShopItem.isBuyit = true;
-        // TODO : ������ ������ ���� ��ġ ���
         dShopItem.upgradeValue++;
-        // TODO : ������ ���� �� ������ ���ź�� ���� ����
         UpdateValues(dShopItem);
         PlayerController.Instance.UpdateDUpgrade();
+        Destroy(gameObject);
     }
 
     public void DPurchaseItemMul()
@@ -104,6 +104,13 @@ public class ShopPanel : MonoBehaviour
         // TODO : ������ ������ ���� ��ġ ���
         dShopItem.upgradeValue++;
         // TODO : ������ ���� �� ������ ���ź�� ���� ����
+        if (dShopItem.itemNumber != 0 && dShopItem.itemNumber != 1 && dShopItem.itemNumber != 2 && dShopItem.itemNumber != 3)
+        {
+            if (dShopItem.itemNumber == 4)
+                dShopItem.price += 50;
+            dShopItem.price *= 2;
+        }
+
         UpdateValues(dShopItem);
         PlayerController.Instance.UpdateDUpgrade();
     }

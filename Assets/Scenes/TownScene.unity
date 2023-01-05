@@ -27635,31 +27635,60 @@ MonoBehaviour:
     shopItemInDungeonOne:
     - itemNumber: 0
       itemName: "\uC18C\uCD1D \uAC15\uD654"
-      itemImage: {fileID: 2477708518685008648, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemImage: {fileID: 21300000, guid: 258847a8ccc2dc346a2869560fbb4593, type: 3}
       itemDiscription: "\uC18C\uCD1D\uC758 \uD0C4\uC774 \uC801\uC744 \uB290\uB824\uC9C0\uAC8C\uD568"
-      price: 0
+      price: 500
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 1
       itemName: "\uC800\uACA9\uC18C\uCD1D \uAC15\uD654"
-      itemImage: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
+      itemImage: {fileID: 21300000, guid: 979c12dc24746dd4d8e7a7f4cf982486, type: 3}
       itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uC774 \uCEE4\uC9D0"
-      price: 0
+      price: 1000
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 2
       itemName: "\uC0B0\uD0C4\uCD1D \uAC15\uD654"
-      itemImage: {fileID: -1421396634152845506, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemImage: {fileID: 21300000, guid: ed11c9141d40da64ca587c2ad32d284a, type: 3}
       itemDiscription: "\uC0B0\uD0C4\uCD1D\uC758 \uD0C4\uC774 \uC801\uC744 \uBD88\uD0DC\uC6C0"
-      price: 0
+      price: 1500
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 3
       itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
-      itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
       itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
         3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
-      price: 0
+      price: 2000
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 4
+      itemName: "\uC18C\uCD1D \uD0C4 \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
+      itemDiscription: "\uC18C\uCD1D\uC758 \uB370\uBBF8\uC9C0\uAC00 \uB298\uC5B4\uB09C\uB2E4"
+      price: 1000
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 5
+      itemName: "\uC800\uACA9\uC18C\uCD1D \uD0C4 \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
+      itemDiscription: "\uC800\uACA9\uC18C\uCD1D\uC758 \uB370\uBBF8\uC9C0\uAC00 \uB298\uC5B4\uB09C\uB2E4"
+      price: 1000
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 6
+      itemName: "\uC0B0\uD0C4\uCD1D \uD0C4 \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
+      itemDiscription: "\uC0B0\uD0C4\uCD1D\uC758 \uB370\uBBF8\uC9C0\uAC00 \uB298\uC5B4\uB09C\uB2E4"
+      price: 1000
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 7
+      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uD0C4 \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
+      itemDiscription: "\uC720\uD0C4\uBC1C\uC0AC\uAE30\uC758 \uB370\uBBF8\uC9C0\uAC00
+        \uB298\uC5B4\uB09C\uB2E4"
+      price: 1500
       upgradeValue: 0
       isBuyit: 0
     shopItemInDungeonMul:
@@ -27690,6 +27719,139 @@ MonoBehaviour:
       itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
         3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
       price: 0
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 3
+      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
+      itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
+        3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
+      price: 0
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 3
+      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
+      itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
+        3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
+      price: 0
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 3
+      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
+      itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
+        3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
+      price: 0
+      upgradeValue: 0
+      isBuyit: 0
+    _CshopItemInDungeonOne:
+    - itemNumber: 0
+      itemName: "\uC18C\uCD1D \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 258847a8ccc2dc346a2869560fbb4593, type: 3}
+      itemDiscription: "\uC18C\uCD1D\uC758 \uD0C4\uC774 \uC801\uC744 \uB290\uB824\uC9C0\uAC8C\uD568"
+      price: 500
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 1
+      itemName: "\uC800\uACA9\uC18C\uCD1D \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 979c12dc24746dd4d8e7a7f4cf982486, type: 3}
+      itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uC774 \uCEE4\uC9D0"
+      price: 1000
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 2
+      itemName: "\uC0B0\uD0C4\uCD1D \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: ed11c9141d40da64ca587c2ad32d284a, type: 3}
+      itemDiscription: "\uC0B0\uD0C4\uCD1D\uC758 \uD0C4\uC774 \uC801\uC744 \uBD88\uD0DC\uC6C0"
+      price: 1500
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 3
+      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
+      itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
+        3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
+      price: 2000
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 4
+      itemName: "\uC18C\uCD1D \uD0C4 \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
+      itemDiscription: "\uC18C\uCD1D\uC758 \uB370\uBBF8\uC9C0\uAC00 \uB298\uC5B4\uB09C\uB2E4"
+      price: 1000
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 5
+      itemName: "\uC800\uACA9\uC18C\uCD1D \uD0C4 \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
+      itemDiscription: "\uC800\uACA9\uC18C\uCD1D\uC758 \uB370\uBBF8\uC9C0\uAC00 \uB298\uC5B4\uB09C\uB2E4"
+      price: 1000
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 6
+      itemName: "\uC0B0\uD0C4\uCD1D \uD0C4 \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
+      itemDiscription: "\uC0B0\uD0C4\uCD1D\uC758 \uB370\uBBF8\uC9C0\uAC00 \uB298\uC5B4\uB09C\uB2E4"
+      price: 1000
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 7
+      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uD0C4 \uAC15\uD654"
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
+      itemDiscription: "\uC720\uD0C4\uBC1C\uC0AC\uAE30\uC758 \uB370\uBBF8\uC9C0\uAC00
+        \uB298\uC5B4\uB09C\uB2E4"
+      price: 1500
+      upgradeValue: 0
+      isBuyit: 0
+    _CshopItemInDungeonMul:
+    - itemNumber: 0
+      itemName: "\uC18C\uCD1D \uD0C4\uCC3D"
+      itemImage: {fileID: 2477708518685008648, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC18C\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAD6C\uB9E4\uD55C\uB2E4."
+      price: 25
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 1
+      itemName: "\uC800\uACA9\uCD1D \uD0C4\uCC3D"
+      itemImage: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
+      itemDiscription: "\uC800\uACA9\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
+      price: 50
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 2
+      itemName: "\uC0B0\uD0C4\uCD1D \uD0C4\uCC3D"
+      itemImage: {fileID: -1421396634152845506, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC0B0\uD0C4\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAD6C\uB9E4\uD55C\uB2E4"
+      price: 75
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 3
+      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uD0C4\uCC3D"
+      itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC720\uD0C4\uBC1C\uC0AC\uAE30\uC758 \uD0C4\uCC3D\uC744 \uAD6C\uB9E4\uD55C\uB2E4"
+      price: 100
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 4
+      itemName: "\uCCB4\uB825\uD68C\uBCF5"
+      itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uCCB4\uB825\uC744 \uCD5C\uB300\uCE58\uB85C \uD68C\uBCF5\uD55C\uB2E4"
+      price: 200
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 5
+      itemName: "\uD68D\uB4DD \uACE8\uB4DC\uB7C9 \uC99D\uAC00"
+      itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC5BB\uB294 \uACE8\uB4DC\uAC00 10%\uC99D\uAC00\uD55C\uB2E4."
+      price: 100
+      upgradeValue: 0
+      isBuyit: 0
+    - itemNumber: 6
+      itemName: "\uD68D\uB4DD \uACBD\uD5D8\uCE58 \uAC15\uD654"
+      itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemDiscription: "\uC5BB\uB294 \uACBD\uD5D8\uCE58\uAC00 10%\uC99D\uAC00\uD55C\uB2E4"
+      price: 100
       upgradeValue: 0
       isBuyit: 0
 --- !u!114 &2037980886
