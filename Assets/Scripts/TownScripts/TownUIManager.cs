@@ -81,7 +81,10 @@ public class TownUIManager : MonoSingleton<TownUIManager>
         changeWeaponPanel?.SetActive(false);
         shopPanel?.SetActive(false);
 
+        isDialogue = false;
+        isDialogueWithNpc = false;
         isWeaponChoose = false;
+
     }
 
     public void ToggleGoDungeonPanel(bool isActive)
