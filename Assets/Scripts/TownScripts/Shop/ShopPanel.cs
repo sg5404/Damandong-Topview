@@ -41,7 +41,7 @@ public class ShopPanel : MonoBehaviour
 
     public void UpdateValues(ShopItem shopItem)
     {
-        //itemImg.sprite = itemSprite[shopItem.itemNumber];
+        itemImg.sprite = itemSprite[shopItem.itemNumber];
         itemName.text = shopItem.itemName;
         itemDiscription.text = shopItem.itemDiscription;
         itemPriceTMP.text = string.Format("{0}$", shopItem.price);
@@ -62,10 +62,10 @@ public class ShopPanel : MonoBehaviour
     public void SPurchaseItem()
     {
         //Debug.Log("Purchase");
-        //if (SaveManager.Instance.CurrentUser.money < shopItem.price)
-        //{
-        //    return;
-        //}
+        if (SaveManager.Instance.CurrentUser.money < shopItem.price)
+        {
+            return;
+        }
 
         SaveManager.Instance.CurrentUser.money -= (int)shopItem.price;
         Debug.Log("���� : " + shopItem.itemName);

@@ -78,6 +78,9 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     public List<bool> isSkillOn;
 
+    public float addExp { private set; get; } = 1f;
+    public float addMoney { private set; get; } = 1f;
+
     void Start()
     {
         _ui = FindObjectOfType<UIManager>();
@@ -322,7 +325,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                     }
                 }
                 Debug.Log((SoundManager.STATE)(weaponSet.MainWeaponState - 1));
-                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)weaponSet.MainWeaponState - 1);
+                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)weaponSet.SubWeaponState - 1);
                 showFireEff(0);
                 leftCurtime = 0;
                 leftTimer = 0.08f;
@@ -367,7 +370,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                         bullet.transform.SetParent(null);
                     }
                 }
-                Debug.Log((SoundManager.STATE)(weaponSet.SubWeaponState - 1));
+                Debug.Log((SoundManager.STATE)(weaponSet.MainWeaponState - 1));
                 SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)(weaponSet.SubWeaponState - 1));
 
                 rightCurtime = 0;
@@ -488,28 +491,31 @@ public class PlayerController : MonoSingleton<PlayerController>
         {
             switch(dungeonItem.itemNumber)
             {
-                case 0: 
+                case 0:
                 case 1:
                 case 2:
-                case 3:
-                    //  총알 채우기
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                    // 스킬 강화
+                case 3: // 총알 채우기
+                        // 가격 세팅
+                    magazineAmount[dungeonItem.itemNumber]++;
                     break;
-                case 8:
-                    // 플레이어 회복
+                case 4: break;
+                case 5: break;
+                case 6: break;
+                case 7: // 스킬 강화 
                     break;
-                case 9:
-                    // 돈 획득량 증가 10퍼
+                case 8: // 플레이어 회복
+                    // 가격
+                    PlayerBase.Instance.Hp = PlayerBase.Instance.MaxHP;
                     break;
-                case 10:
-                    // 경험치 증가 10퍼
+                case 9: // 돈 획득량 증가 +10%
+                    addExp += addExp * 0.1f;
                     break;
-                default:
+                case 10: // 경험치 증가 +10%
+
                     break;
+                case 11: break;
+                case 12: break;
+                default: break;
             }
         }
     }
