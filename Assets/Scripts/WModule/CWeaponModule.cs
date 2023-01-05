@@ -27,5 +27,26 @@ public class CWeaponModule : WeaponModule
         reload = baseSO.reload;
         bullet = baseSO.bullet;
         bulletModule = baseSO.bulletModule;
+        isUpgrade = baseSO.isUpgrade;
+    }
+
+    public void Upgrade(int num)
+    {
+        isUpgrade = true;
+        switch(num)
+        {
+            case 0:
+                bulletModule.isSlowBullet = true;
+                break;
+            case 1:
+                bulletModule.isBigBullet = true;
+                break;
+            case 2:
+                bulletModule.isFlameBullet = true;
+                break;
+            case 3:
+                bulletModule.isUpgrade = true;
+                break;
+        }
     }
 }

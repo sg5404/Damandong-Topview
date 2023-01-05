@@ -23,8 +23,8 @@ public class ShopPanel : MonoBehaviour
     [SerializeField]
     private Sprite[] itemSprite = null;
     [SerializeField]
-
     private ShopItem shopItem = null;
+    [SerializeField]
     private DungeonItem dShopItem = null;
 
     public void SetValue(ShopItem shopItem)
@@ -77,12 +77,30 @@ public class ShopPanel : MonoBehaviour
     {
         if (SaveManager.Instance.CurrentUser.money < dShopItem.price || dShopItem.isBuyit)
         {
+            Debug.Log("맇헌");
             return;
         }
 
         SaveManager.Instance.CurrentUser.money -= (int)dShopItem.price;
         Debug.Log("���� : " + dShopItem.itemName);
         dShopItem.isBuyit = true;
+        // TODO : ������ ������ ���� ��ġ ���
+        dShopItem.upgradeValue++;
+        // TODO : ������ ���� �� ������ ���ź�� ���� ����
+        UpdateValues(dShopItem);
+        PlayerController.Instance.UpdateDUpgrade();
+    }
+
+    public void DPurchaseItemMul()
+    {
+        if (SaveManager.Instance.CurrentUser.money < dShopItem.price)
+        {
+            Debug.Log("ㄹ잍언");
+            return;
+        }
+
+        SaveManager.Instance.CurrentUser.money -= (int)dShopItem.price;
+        Debug.Log("���� : " + dShopItem.itemName);
         // TODO : ������ ������ ���� ��ġ ���
         dShopItem.upgradeValue++;
         // TODO : ������ ���� �� ������ ���ź�� ���� ����

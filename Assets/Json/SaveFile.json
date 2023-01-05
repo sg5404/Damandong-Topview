@@ -1,6 +1,6 @@
 ﻿{
-    "money": 30,
-    "experience": 150,
+    "money": 33,
+    "experience": 180,
     "attack": 20.0,
     "attackSpeed": 10.0,
     "defense": 20.0,
@@ -69,24 +69,90 @@
     "shopItemInDungeonOne": [
         {
             "itemNumber": 0,
-            "itemName": "일음",
+            "itemName": "소총 강화",
             "itemImage": {
-                "instanceID": 0
+                "instanceID": 23118
             },
-            "itemDiscription": "서르명",
+            "itemDiscription": "소총의 탄이 적을 느려지게함",
             "price": 0,
-            "upgradeValue": 2,
-            "isBuyit": false
+            "upgradeValue": 1,
+            "isBuyit": true
+        },
+        {
+            "itemNumber": 1,
+            "itemName": "저격소총 강화",
+            "itemImage": {
+                "instanceID": 23362
+            },
+            "itemDiscription": "저격 소총의 탄이 커짐",
+            "price": 0,
+            "upgradeValue": 1,
+            "isBuyit": true
+        },
+        {
+            "itemNumber": 2,
+            "itemName": "산탄총 강화",
+            "itemImage": {
+                "instanceID": 23374
+            },
+            "itemDiscription": "산탄총의 탄이 적을 불태움",
+            "price": 0,
+            "upgradeValue": 1,
+            "isBuyit": true
+        },
+        {
+            "itemNumber": 3,
+            "itemName": "유탄발사기 강화",
+            "itemImage": {
+                "instanceID": 23108
+            },
+            "itemDiscription": "유탄이 작은 폭발을 일으키는 3발로 갈라짐",
+            "price": 0,
+            "upgradeValue": 1,
+            "isBuyit": true
         }
     ],
     "shopItemInDungeonMul": [
         {
             "itemNumber": 0,
-            "itemName": "일음",
+            "itemName": "소총 강화",
             "itemImage": {
-                "instanceID": 0
+                "instanceID": 23118
             },
-            "itemDiscription": "서르르명",
+            "itemDiscription": "소총의 탄이 적을 느려지게함",
+            "price": 0,
+            "upgradeValue": 0,
+            "isBuyit": false
+        },
+        {
+            "itemNumber": 1,
+            "itemName": "저격소총 강화",
+            "itemImage": {
+                "instanceID": 23362
+            },
+            "itemDiscription": "저격 소총의 탄이 커짐",
+            "price": 0,
+            "upgradeValue": 0,
+            "isBuyit": false
+        },
+        {
+            "itemNumber": 2,
+            "itemName": "산탄총 강화",
+            "itemImage": {
+                "instanceID": 23374
+            },
+            "itemDiscription": "산탄총의 탄이 적을 불태움",
+            "price": 0,
+            "upgradeValue": 0,
+            "isBuyit": false
+        },
+        {
+            "itemNumber": 3,
+            "itemName": "유탄발사기 강화",
+            "itemImage": {
+                "instanceID": 23108
+            },
+            "itemDiscription": "유탄이 작은 폭발을 일으키는 3발로 갈라짐",
             "price": 0,
             "upgradeValue": 0,
             "isBuyit": false

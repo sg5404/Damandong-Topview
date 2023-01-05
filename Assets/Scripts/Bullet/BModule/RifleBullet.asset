@@ -24,7 +24,7 @@ MonoBehaviour:
   explosionRange: 0
   isKnockBack: 0
   knockBackRange: 0
-  isFlameBullet: 1
+  isFlameBullet: 0
   isSlowBullet: 0
   isBigBullet: 0
   isUpgrade: 0
