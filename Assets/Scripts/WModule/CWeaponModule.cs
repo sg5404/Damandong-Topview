@@ -45,8 +45,7 @@ public class CWeaponModule : WeaponModule
                 bulletModule.isFlameBullet = true;
                 break;
             case 3:
-                oneShotBullets = 3;
-                bulletSpread = 0;
+                bulletModule.isUpgrade = true;
                 break;
         }
     }
