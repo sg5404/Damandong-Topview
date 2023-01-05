@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -18,6 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField] private List<GameObject> enemyList;
 
+    [SerializeField] TextMeshProUGUI tmp;
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class GameManager : MonoSingleton<GameManager>
     }
     private void Start()
     {
+        tmp.gameObject.SetActive(false);
         Debug.Log("MainWeaponState : " + WeaponSet.Instance.MainWeaponState);
         Debug.Log("SubeaponState : " + WeaponSet.Instance.SubWeaponState);
 
@@ -36,8 +39,8 @@ public class GameManager : MonoSingleton<GameManager>
         stage = 1;
         Debug.Log("stage : " + stage);
         StartSpawn();
-
     }
+
     /// <summary>
     /// Àû ½ºÆù
     /// </summary>
@@ -95,6 +98,7 @@ public class GameManager : MonoSingleton<GameManager>
         isClear = false;
         StartCoroutine(spawnEnemy());
         StartCoroutine(Delay("Close", false));
+        StartCoroutine(TextOn());
     }
 
     /// <summary>
@@ -114,5 +118,20 @@ public class GameManager : MonoSingleton<GameManager>
         yield return new WaitForSeconds(2f);
         Elevator.SetActive(IsActive);
         StopCoroutine(Delay(trigger, IsActive));
+    }
+
+    IEnumerator TextOn()
+    {
+        float timer = 0f;
+        tmp.gameObject.SetActive(true);
+        tmp.text = $"STAGE {stage}";
+        tmp.gameObject.transform.localPosition = new Vector3(0, 200, 0);
+        while(true)
+        {
+            yield return new WaitForSeconds(0.05f);
+            tmp.gameObject.transform.localPosition += new Vector3(0, -2, 0);
+            if(tmp.gameObject.transform.localPosition.y < 100f) break;
+        }
+        tmp.gameObject.SetActive(false);
     }
 }

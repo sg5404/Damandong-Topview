@@ -303,7 +303,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                     _ => 1,
                 };
 
-                if (!module[3].bulletModule.isUpgrade)
+                if (!module[3].bulletModule.isUpgrade && num == 3)
                 {
                     for (int i = 0; i < bulletAmount; i++)
                     {
@@ -349,7 +349,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                     _ => 1,
                 };
 
-                if(!module[3].bulletModule.isUpgrade)
+                if(!module[3].bulletModule.isUpgrade && num == 3)
                 {
                     for (int i = 0; i < bulletAmount; i++)
                     {
