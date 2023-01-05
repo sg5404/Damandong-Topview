@@ -19087,7 +19087,15 @@ MonoBehaviour:
   itemDiscription: {fileID: 954130592}
   itemUpgradeValue: 0
   itemPurchaseBtn: {fileID: 570803294}
-  itemSprite: []
+  itemSprite:
+  - {fileID: 21300000, guid: d6822020c365f9746b13de9ec0201204, type: 3}
+  - {fileID: 21300000, guid: 127a381204e60f545a6446587a745a5b, type: 3}
+  - {fileID: 21300000, guid: bf5bce18a54ec4d419c28a6c6ff19e6f, type: 3}
+  - {fileID: 21300000, guid: bf5bce18a54ec4d419c28a6c6ff19e6f, type: 3}
+  - {fileID: 21300000, guid: 0da3b6c1a719249859abb2864ad75d6b, type: 3}
+  - {fileID: 21300000, guid: da02985fac45eba42bb48fe61407dbc4, type: 3}
+  - {fileID: 21300000, guid: 1e64d71a9a50fce47b55645f652934d1, type: 3}
+  - {fileID: 21300000, guid: 1e64d71a9a50fce47b55645f652934d1, type: 3}
   shopItem:
     itemNumber: 0
     itemName: 

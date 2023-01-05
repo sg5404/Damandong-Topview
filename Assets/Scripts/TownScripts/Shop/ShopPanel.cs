@@ -41,7 +41,7 @@ public class ShopPanel : MonoBehaviour
 
     public void UpdateValues(ShopItem shopItem)
     {
-        //itemImg.sprite = itemSprite[shopItem.itemNumber];
+        itemImg.sprite = itemSprite[shopItem.itemNumber];
         itemName.text = shopItem.itemName;
         itemDiscription.text = shopItem.itemDiscription;
         itemPriceTMP.text = string.Format("{0}$", shopItem.price);
