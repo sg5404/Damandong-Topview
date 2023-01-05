@@ -1,6 +1,6 @@
 ﻿{
-    "money": 33,
-    "experience": 180,
+    "money": -2067.0,
+    "experience": 180.0,
     "attack": 20.0,
     "attackSpeed": 10.0,
     "defense": 20.0,
@@ -14,14 +14,14 @@
             "itemName": "공격력 상승",
             "itemDiscription": "공격력이 상승한다",
             "price": 100,
-            "upgradeValue": 0
+            "upgradeValue": 15
         },
         {
             "itemNumber": 1,
             "itemName": "공격력 퍼센트 상승",
             "itemDiscription": "공격력 퍼센트가 상승한다",
             "price": 300,
-            "upgradeValue": 0
+            "upgradeValue": 2
         },
         {
             "itemNumber": 2,

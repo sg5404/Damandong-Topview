@@ -14790,7 +14790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -19092,7 +19092,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 127a381204e60f545a6446587a745a5b, type: 3}
   - {fileID: 21300000, guid: bf5bce18a54ec4d419c28a6c6ff19e6f, type: 3}
   - {fileID: 21300000, guid: bf5bce18a54ec4d419c28a6c6ff19e6f, type: 3}
-  - {fileID: 21300000, guid: 0da3b6c1a719249859abb2864ad75d6b, type: 3}
+  - {fileID: 21300000, guid: e6c393c9a67a6b847844c31eaed60f4d, type: 3}
   - {fileID: 21300000, guid: da02985fac45eba42bb48fe61407dbc4, type: 3}
   - {fileID: 21300000, guid: 1e64d71a9a50fce47b55645f652934d1, type: 3}
   - {fileID: 21300000, guid: 1e64d71a9a50fce47b55645f652934d1, type: 3}
