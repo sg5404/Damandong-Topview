@@ -428,12 +428,6 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     void ReloadLeft()
     {
-        if(leftWeaponFade.fillAmount != 1)
-        {
-            Ltimer += Time.deltaTime;
-            leftWeaponFade.fillAmount = 1 - (Ltimer / 5f);
-        }
-
         if (LcurrentBullet[leftWeapon] > 0) return;
         if (magazineAmount[leftWeapon] < 1) return;
         leftWeaponFade.gameObject.SetActive(true);
@@ -449,12 +443,6 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     void ReloadRight()
     {
-        if (rightWeaponFade.fillAmount != 1)
-        {
-            Rtimer += Time.deltaTime;
-            rightWeaponFade.fillAmount = 1 - (Rtimer / 5f);
-        }
-
         if (RcurrentBullet[rightWeapon] > 0) return;
         if (magazineAmount[rightWeapon] < 1) return;
         rightWeaponFade.gameObject.SetActive(true);
