@@ -19,10 +19,12 @@ public class Portal : MonoBehaviour
             {
                 GameManager.Instance.StartSpawn();
                 PlayerExperience.Instance.RestartRemoveExp();
+                PlayerController.Instance.isShop = !PlayerController.Instance.isShop;
             }
             else
             {
                 PlayerExperience.Instance.StopRemoveExp();
+                PlayerController.Instance.isShop = !PlayerController.Instance.isShop;
             }
             GameManager.Instance.Playertransform.position  = arrivePos.position;
         }
