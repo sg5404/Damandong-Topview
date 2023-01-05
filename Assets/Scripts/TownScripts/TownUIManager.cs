@@ -193,6 +193,11 @@ public class TownUIManager : MonoSingleton<TownUIManager>
 
     public void ExitGame()
     {
+        OnApplicationQuit();
+    }
+
+    private void OnApplicationQuit()
+    {
         SaveManager.Instance.SaveToJson();
         Application.Quit();
     }
