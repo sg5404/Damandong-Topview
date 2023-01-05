@@ -303,7 +303,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                     _ => 1,
                 };
 
-                if (!module[3].bulletModule.isUpgrade && num != 3)
+                if (!module[3].bulletModule.isUpgrade || num != 3)
                 {
                     for (int i = 0; i < bulletAmount; i++)
                     {
@@ -349,7 +349,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                     _ => 1,
                 };
 
-                if(!module[3].bulletModule.isUpgrade && num != 3)
+                if(!module[3].bulletModule.isUpgrade || num != 3)
                 {
                     for (int i = 0; i < bulletAmount; i++)
                     {
@@ -457,7 +457,7 @@ public class PlayerController : MonoSingleton<PlayerController>
         var b_module = module[3].bulletModule;
         if (b_module.isUpgrade) return;
         b_module.explosionRange -= 2;
-        b_module.isUpgrade = false;
+        b_module.isUpgrade = true;
     }
 
     public void UpdateDUpgrade()
