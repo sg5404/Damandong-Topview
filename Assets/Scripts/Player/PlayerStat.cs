@@ -29,6 +29,10 @@ public static class PlayerStat
     private static float[] reloadTime = { };
     private static float timeDecreasePer = 0.0f;
 
+    private static float mulGold = 1;
+    private static float mulExp = 1;
+
+
     public static void SetBase(int hp, int ammo, float atk, float criChance, float criDamage, float moveSpeed, float attackSpeed)
     {
         baseHP = hp;
@@ -105,5 +109,27 @@ public static class PlayerStat
         timeDecreasePer += num;
     }
 
+    public static float GetMulGold()
+    {
+        return mulGold;
+    }
+    public static float GetMulExp()
+    {
+        return mulExp;
+    }
 
+    public static void ResetMul()
+    {
+        mulGold = 1;
+        mulExp = 1;
+    }
+
+    public static void UpgradeGold()
+    {
+        mulGold += 0.1f;
+    }
+    public static void UpgradeExp()
+    {
+        mulExp += 0.1f;
+    }
 }

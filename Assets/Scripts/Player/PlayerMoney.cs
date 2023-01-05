@@ -7,8 +7,6 @@ public class PlayerMoney : MonoSingleton<PlayerMoney>
 {
     [SerializeField] TextMeshProUGUI moneyText;
 
-    private static int money;
-
     private void Start()
     {
         ChangeMoney(0);
@@ -17,14 +15,7 @@ public class PlayerMoney : MonoSingleton<PlayerMoney>
 
     public void ChangeMoney(float price)
     {
-        SaveManager.Instance.CurrentUser.money += price;
-        moneyText.text = string.Format("{0}", SaveManager.Instance.CurrentUser.money);
-    }
-
-    public void UpdateMoneyText()
-    {
-        //moneyText.SetText($"{money}");
-        //moneyText.text = string.Format("{0}", SaveManager.Instance.CurrentUser.money);
-        //위에 한줄 일단 주석쳐놓음
+        SaveManager.Instance.CurrentUser.money += price * PlayerStat.GetMulGold();
+        moneyText.text = string.Format("{0} C", (int)SaveManager.Instance.CurrentUser.money);
     }
 }

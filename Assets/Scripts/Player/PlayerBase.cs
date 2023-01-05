@@ -186,4 +186,10 @@ public class PlayerBase : MonoSingleton<PlayerBase>, CharBase
         SaveManager.Instance.SaveToJson();
         return true;
     }
+
+    public void Heal()
+    {
+        PlayerManager.Instance.Damaged(Hp - MaxHP);
+        Hp = MaxHP;
+    }
 }
