@@ -15,7 +15,7 @@ public class PlayerExperience : MonoSingleton<PlayerExperience>
     }
 
 
-    public void ChangeExperience(int exp)
+    public void ChangeExperience(float exp)
     {
         var CurrencUser = SaveManager.Instance.CurrentUser;
         CurrencUser.experience += exp;

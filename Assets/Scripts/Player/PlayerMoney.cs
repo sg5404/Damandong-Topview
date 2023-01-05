@@ -15,7 +15,7 @@ public class PlayerMoney : MonoSingleton<PlayerMoney>
     }
 
 
-    public void ChangeMoney(int price)
+    public void ChangeMoney(float price)
     {
         SaveManager.Instance.CurrentUser.money += price;
         moneyText.text = string.Format("{0}", SaveManager.Instance.CurrentUser.money);

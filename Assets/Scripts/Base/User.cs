@@ -3,8 +3,8 @@ using System.Collections.Generic;
 [System.Serializable]
 public class User
 {
-    public int money = 0; //현재 돈
-    public int experience = 0; //현재 경험치
+    public float money = 0; //현재 돈
+    public float experience = 0; //현재 경험치
     public float attack = 20f;                // 공격력
     public float attackSpeed = 10f;           // 공격속도
     public float defense = 20f;               // 방어력

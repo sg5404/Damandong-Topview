@@ -78,6 +78,9 @@ public class PlayerController : MonoSingleton<PlayerController>
 
     public List<bool> isSkillOn;
 
+    public float addExp { private set; get; } = 1f;
+    public float addMoney { private set; get; } = 1f;
+
     void Start()
     {
         _ui = FindObjectOfType<UIManager>();
@@ -501,10 +504,11 @@ public class PlayerController : MonoSingleton<PlayerController>
                 case 7: // 스킬 강화 
                     break;
                 case 8: // 플레이어 회복
-                    
+                    // 가격
+                    PlayerBase.Instance.Hp = PlayerBase.Instance.MaxHP;
                     break;
                 case 9: // 돈 획득량 증가 +10%
-
+                    addExp += addExp * 0.1f;
                     break;
                 case 10: // 경험치 증가 +10%
 

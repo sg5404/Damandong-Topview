@@ -86,8 +86,8 @@ public class EnemyBase : MonoBehaviour, CharBase
         ani.SetTrigger("Die");
         OnDie?.Invoke();
         //Debug.Log($"{gameObject.name}이 죽었음미다");
-        PlayerMoney.Instance.ChangeMoney(Random.Range(1, 4));
-        PlayerExperience.Instance.ChangeExperience(_enemyModule.exp); //경험치 얼마 올릴지 몰라서 대충 정해놓음
+        PlayerMoney.Instance.ChangeMoney(Random.Range(1, 4) * PlayerController.Instance.addMoney);
+        PlayerExperience.Instance.ChangeExperience(_enemyModule.exp * PlayerController.Instance.addExp); //경험치 얼마 올릴지 몰라서 대충 정해놓음
         //레이어 바꿔주기
         gameObject.tag = "Untagged";
         IsDead = true;
