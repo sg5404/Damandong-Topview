@@ -27885,10 +27885,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4e86ef7fd663e0943a4a47546e8d6b07, type: 3}
   - {fileID: 8300000, guid: f73468edc17111243a21f0d0ad114455, type: 3}
   effectContainSound:
-  - {fileID: 8300000, guid: b989719ff56c37e4ea1b4862c494ebba, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 31cd19dd08a40c842b4a08fdf852d77f, type: 3}
+  - {fileID: 8300000, guid: d620f286fbbc71740966e65aa9c1acbd, type: 3}
+  - {fileID: 8300000, guid: f111784ea0d9a154c87734aaddacefab, type: 3}
+  - {fileID: 8300000, guid: 7b0cc5ffc71bf6b408b38b79296d31cd, type: 3}
   scene: 0
 --- !u!1 &2046221362
 GameObject:
