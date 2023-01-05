@@ -63,7 +63,7 @@ public class TownUIManager : MonoSingleton<TownUIManager>
             changeWeaponPanel.SetActive(true);
             isWeaponChoose = true;
         }
-        moneyTmp.text = string.Format("{0}:F1", SaveManager.Instance.CurrentUser.money);
+        moneyTmp.text = string.Format("{0}", SaveManager.Instance.CurrentUser.money);
     }
     private void Update()
     {
