@@ -1,6 +1,6 @@
 ﻿{
-    "money": 0.0,
-    "experience": 0.0,
+    "money": 39.0,
+    "experience": 74.0,
     "attack": 20.0,
     "attackSpeed": 10.0,
     "defense": 20.0,
@@ -71,7 +71,7 @@
             "itemNumber": 0,
             "itemName": "소총 강화",
             "itemImage": {
-                "instanceID": 23374
+                "instanceID": 32294
             },
             "itemDiscription": "소총의 탄이 적을 느려지게함",
             "price": 500,
@@ -82,7 +82,7 @@
             "itemNumber": 1,
             "itemName": "저격소총 강화",
             "itemImage": {
-                "instanceID": 23376
+                "instanceID": 37450
             },
             "itemDiscription": "저격 소총의 탄이 커짐",
             "price": 1000,
@@ -93,7 +93,7 @@
             "itemNumber": 2,
             "itemName": "산탄총 강화",
             "itemImage": {
-                "instanceID": 23378
+                "instanceID": 48126
             },
             "itemDiscription": "산탄총의 탄이 적을 불태움",
             "price": 1500,
@@ -104,7 +104,7 @@
             "itemNumber": 3,
             "itemName": "유탄발사기 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 46060
             },
             "itemDiscription": "유탄이 작은 폭발을 일으키는 3발로 갈라짐",
             "price": 2000,
@@ -115,7 +115,7 @@
             "itemNumber": 4,
             "itemName": "소총 탄 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 28324
             },
             "itemDiscription": "소총의 데미지가 늘어난다",
             "price": 1000,
@@ -126,7 +126,7 @@
             "itemNumber": 5,
             "itemName": "저격소총 탄 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 28322
             },
             "itemDiscription": "저격소총의 데미지가 늘어난다",
             "price": 1000,
@@ -137,7 +137,7 @@
             "itemNumber": 6,
             "itemName": "산탄총 탄 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 28326
             },
             "itemDiscription": "산탄총의 데미지가 늘어난다",
             "price": 1000,
@@ -148,7 +148,7 @@
             "itemNumber": 7,
             "itemName": "유탄발사기 탄 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 23462
             },
             "itemDiscription": "유탄발사기의 데미지가 늘어난다",
             "price": 1500,
@@ -161,7 +161,7 @@
             "itemNumber": 0,
             "itemName": "소총 탄창",
             "itemImage": {
-                "instanceID": 23104
+                "instanceID": 22894
             },
             "itemDiscription": "소총의 탄창을 구매한다.",
             "price": 25,
@@ -170,31 +170,31 @@
         },
         {
             "itemNumber": 1,
-            "itemName": "저격총 탄창",
+            "itemName": "저격소총 탄창",
             "itemImage": {
-                "instanceID": 23362
+                "instanceID": 22942
             },
-            "itemDiscription": "저격총의 탄창을 강화한다",
+            "itemDiscription": "저격 소총의 탄창을 강화한다",
             "price": 50,
-            "upgradeValue": 0,
+            "upgradeValue": 1,
             "isBuyit": false
         },
         {
             "itemNumber": 2,
             "itemName": "산탄총 탄창",
             "itemImage": {
-                "instanceID": 23382
+                "instanceID": 42554
             },
             "itemDiscription": "산탄총의 탄창을 구매한다",
             "price": 75,
-            "upgradeValue": 0,
+            "upgradeValue": 2,
             "isBuyit": false
         },
         {
             "itemNumber": 3,
             "itemName": "유탄발사기 탄창",
             "itemImage": {
-                "instanceID": 23090
+                "instanceID": 22990
             },
             "itemDiscription": "유탄발사기의 탄창을 구매한다",
             "price": 100,
@@ -205,7 +205,7 @@
             "itemNumber": 4,
             "itemName": "체력회복",
             "itemImage": {
-                "instanceID": 23090
+                "instanceID": 22990
             },
             "itemDiscription": "체력을 최대치로 회복한다",
             "price": 200,
@@ -216,7 +216,7 @@
             "itemNumber": 5,
             "itemName": "획득 골드량 증가",
             "itemImage": {
-                "instanceID": 23090
+                "instanceID": 22990
             },
             "itemDiscription": "얻는 골드가 10%증가한다.",
             "price": 100,
@@ -227,7 +227,7 @@
             "itemNumber": 6,
             "itemName": "획득 경험치 강화",
             "itemImage": {
-                "instanceID": 23090
+                "instanceID": 22990
             },
             "itemDiscription": "얻는 경험치가 10%증가한다",
             "price": 100,
@@ -240,7 +240,7 @@
             "itemNumber": 0,
             "itemName": "소총 강화",
             "itemImage": {
-                "instanceID": 23374
+                "instanceID": 32294
             },
             "itemDiscription": "소총의 탄이 적을 느려지게함",
             "price": 500,
@@ -251,7 +251,7 @@
             "itemNumber": 1,
             "itemName": "저격소총 강화",
             "itemImage": {
-                "instanceID": 23376
+                "instanceID": 37450
             },
             "itemDiscription": "저격 소총의 탄이 커짐",
             "price": 1000,
@@ -262,7 +262,7 @@
             "itemNumber": 2,
             "itemName": "산탄총 강화",
             "itemImage": {
-                "instanceID": 23378
+                "instanceID": 48126
             },
             "itemDiscription": "산탄총의 탄이 적을 불태움",
             "price": 1500,
@@ -273,7 +273,7 @@
             "itemNumber": 3,
             "itemName": "유탄발사기 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 46060
             },
             "itemDiscription": "유탄이 작은 폭발을 일으키는 3발로 갈라짐",
             "price": 2000,
@@ -284,7 +284,7 @@
             "itemNumber": 4,
             "itemName": "소총 탄 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 28324
             },
             "itemDiscription": "소총의 데미지가 늘어난다",
             "price": 1000,
@@ -295,7 +295,7 @@
             "itemNumber": 5,
             "itemName": "저격소총 탄 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 28322
             },
             "itemDiscription": "저격소총의 데미지가 늘어난다",
             "price": 1000,
@@ -306,7 +306,7 @@
             "itemNumber": 6,
             "itemName": "산탄총 탄 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 28326
             },
             "itemDiscription": "산탄총의 데미지가 늘어난다",
             "price": 1000,
@@ -317,7 +317,7 @@
             "itemNumber": 7,
             "itemName": "유탄발사기 탄 강화",
             "itemImage": {
-                "instanceID": 23380
+                "instanceID": 23462
             },
             "itemDiscription": "유탄발사기의 데미지가 늘어난다",
             "price": 1500,
@@ -330,7 +330,7 @@
             "itemNumber": 0,
             "itemName": "소총 탄창",
             "itemImage": {
-                "instanceID": 23104
+                "instanceID": 22894
             },
             "itemDiscription": "소총의 탄창을 구매한다.",
             "price": 25,
@@ -339,31 +339,31 @@
         },
         {
             "itemNumber": 1,
-            "itemName": "저격총 탄창",
+            "itemName": "저격소총 탄창",
             "itemImage": {
-                "instanceID": 23362
+                "instanceID": 22942
             },
-            "itemDiscription": "저격총의 탄창을 강화한다",
+            "itemDiscription": "저격 소총의 탄창을 강화한다",
             "price": 50,
-            "upgradeValue": 0,
+            "upgradeValue": 1,
             "isBuyit": false
         },
         {
             "itemNumber": 2,
             "itemName": "산탄총 탄창",
             "itemImage": {
-                "instanceID": 23382
+                "instanceID": 42554
             },
             "itemDiscription": "산탄총의 탄창을 구매한다",
             "price": 75,
-            "upgradeValue": 0,
+            "upgradeValue": 2,
             "isBuyit": false
         },
         {
             "itemNumber": 3,
             "itemName": "유탄발사기 탄창",
             "itemImage": {
-                "instanceID": 23090
+                "instanceID": 22990
             },
             "itemDiscription": "유탄발사기의 탄창을 구매한다",
             "price": 100,
@@ -374,7 +374,7 @@
             "itemNumber": 4,
             "itemName": "체력회복",
             "itemImage": {
-                "instanceID": 23090
+                "instanceID": 22990
             },
             "itemDiscription": "체력을 최대치로 회복한다",
             "price": 200,
@@ -385,7 +385,7 @@
             "itemNumber": 5,
             "itemName": "획득 골드량 증가",
             "itemImage": {
-                "instanceID": 23090
+                "instanceID": 22990
             },
             "itemDiscription": "얻는 골드가 10%증가한다.",
             "price": 100,
@@ -396,7 +396,7 @@
             "itemNumber": 6,
             "itemName": "획득 경험치 강화",
             "itemImage": {
-                "instanceID": 23090
+                "instanceID": 22990
             },
             "itemDiscription": "얻는 경험치가 10%증가한다",
             "price": 100,
