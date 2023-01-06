@@ -39,6 +39,11 @@ public class ShopPanel : MonoBehaviour
         UpdateValues(dShopItem);
     }
 
+    private void Start()
+    {
+        itemPurchaseBtn.gameObject.SetActive(true);
+    }
+
     public void UpdateValues(ShopItem shopItem)
     {
         itemImg.sprite = itemSprite[shopItem.itemNumber];
@@ -88,7 +93,7 @@ public class ShopPanel : MonoBehaviour
         dShopItem.upgradeValue++;
         UpdateValues(dShopItem);
         PlayerController.Instance.UpdateDUpgrade(false, dShopItem.itemNumber);
-        Destroy(gameObject);
+        itemPurchaseBtn.gameObject.SetActive(false);
     }
 
     public void DPurchaseItemMul()
