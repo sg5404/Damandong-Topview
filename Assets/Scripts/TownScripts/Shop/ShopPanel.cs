@@ -93,6 +93,7 @@ public class ShopPanel : MonoBehaviour
         dShopItem.upgradeValue++;
         UpdateValues(dShopItem);
         PlayerController.Instance.UpdateDUpgrade(false, dShopItem.itemNumber);
+        PlayerExperience.Instance.ChangeExperience(0);
         itemPurchaseBtn.gameObject.SetActive(false);
     }
 
@@ -118,5 +119,6 @@ public class ShopPanel : MonoBehaviour
 
         UpdateValues(dShopItem);
         PlayerController.Instance.UpdateDUpgrade(true, dShopItem.itemNumber);
+        PlayerExperience.Instance.ChangeExperience(0);
     }
 }

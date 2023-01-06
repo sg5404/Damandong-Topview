@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804c7e57e4ca0b443aef2b81efe00904, type: 3}
+  m_Name: CStun
+  m_EditorClassIdentifier: 
+  atk: 0
+  isEnemy: 0
+  range: 0
+  speed: 0
+  crtDmg: 0
+  crtChance: 0
+  statusAilment: 0
+  saChance: 0
+  isExplosion: 0
+  explosionRange: 0
+  isKnockBack: 0
+  knockBackRange: 0
+  isFlameBullet: 0
+  isSlowBullet: 0
+  isBigBullet: 0
+  isUpgrade: 0
+  baseSO: {fileID: 11400000, guid: 27f851727e7d6d0468f46c41453c2c02, type: 2}

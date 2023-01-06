@@ -27787,7 +27787,7 @@ MonoBehaviour:
     - itemNumber: 1
       itemName: "\uC800\uACA9\uC18C\uCD1D \uAC15\uD654"
       itemImage: {fileID: 21300000, guid: 979c12dc24746dd4d8e7a7f4cf982486, type: 3}
-      itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uC774 \uCEE4\uC9D0"
+      itemDiscription: "\uC800\uACA9\uC18C\uCD1D\uC758 \uD0C4\uC774 \uCEE4\uC9D0"
       price: 1000
       upgradeValue: 0
       isBuyit: 0
@@ -27846,7 +27846,7 @@ MonoBehaviour:
     - itemNumber: 1
       itemName: "\uC800\uACA9\uC18C\uCD1D \uD0C4\uCC3D"
       itemImage: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
-      itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
+      itemDiscription: "\uC800\uACA9\uC18C\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
       price: 50
       upgradeValue: 0
       isBuyit: 0
@@ -27874,14 +27874,14 @@ MonoBehaviour:
     - itemNumber: 5
       itemName: "\uD68D\uB4DD \uACE8\uB4DC\uB7C9 \uC99D\uAC00"
       itemImage: {fileID: 21300000, guid: dd2c6d19c880457488564d560bf9d80b, type: 3}
-      itemDiscription: "\uC5BB\uB294 \uACE8\uB4DC\uAC00 10%\uC99D\uAC00\uD55C\uB2E4."
+      itemDiscription: "\uC5BB\uB294 \uACE8\uB4DC\uAC00 10% \uC99D\uAC00\uD55C\uB2E4"
       price: 100
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 6
       itemName: "\uD68D\uB4DD \uACBD\uD5D8\uCE58 \uAC15\uD654"
       itemImage: {fileID: 21300000, guid: 316c50d3694afcf408bb3e5ef6baebfb, type: 3}
-      itemDiscription: "\uC5BB\uB294 \uACBD\uD5D8\uCE58\uAC00 10%\uC99D\uAC00\uD55C\uB2E4"
+      itemDiscription: "\uC5BB\uB294 \uACBD\uD5D8\uCE58\uAC00 10% \uC99D\uAC00\uD55C\uB2E4"
       price: 100
       upgradeValue: 0
       isBuyit: 0
@@ -27896,7 +27896,7 @@ MonoBehaviour:
     - itemNumber: 1
       itemName: "\uC800\uACA9\uC18C\uCD1D \uAC15\uD654"
       itemImage: {fileID: 21300000, guid: 979c12dc24746dd4d8e7a7f4cf982486, type: 3}
-      itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uC774 \uCEE4\uC9D0"
+      itemDiscription: "\uC800\uACA9\uC18C\uCD1D\uC758 \uD0C4\uC774 \uCEE4\uC9D0"
       price: 1000
       upgradeValue: 0
       isBuyit: 0
@@ -27938,7 +27938,7 @@ MonoBehaviour:
       isBuyit: 0
     - itemNumber: 7
       itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uD0C4 \uAC15\uD654"
-      itemImage: {fileID: -4703073973657460086, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
+      itemImage: {fileID: 21300000, guid: 9cd4f945a969d63479e97ff452edc751, type: 3}
       itemDiscription: "\uC720\uD0C4\uBC1C\uC0AC\uAE30\uC758 \uB370\uBBF8\uC9C0\uAC00
         \uB298\uC5B4\uB09C\uB2E4"
       price: 1500
@@ -27955,7 +27955,7 @@ MonoBehaviour:
     - itemNumber: 1
       itemName: "\uC800\uACA9\uC18C\uCD1D \uD0C4\uCC3D"
       itemImage: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
-      itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
+      itemDiscription: "\uC800\uACA9\uC18C\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
       price: 50
       upgradeValue: 0
       isBuyit: 0
@@ -27983,14 +27983,14 @@ MonoBehaviour:
     - itemNumber: 5
       itemName: "\uD68D\uB4DD \uACE8\uB4DC\uB7C9 \uC99D\uAC00"
       itemImage: {fileID: 21300000, guid: dd2c6d19c880457488564d560bf9d80b, type: 3}
-      itemDiscription: "\uC5BB\uB294 \uACE8\uB4DC\uAC00 10%\uC99D\uAC00\uD55C\uB2E4."
+      itemDiscription: "\uC5BB\uB294 \uACE8\uB4DC\uAC00 10% \uC99D\uAC00\uD55C\uB2E4"
       price: 100
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 6
       itemName: "\uD68D\uB4DD \uACBD\uD5D8\uCE58 \uAC15\uD654"
       itemImage: {fileID: 21300000, guid: 316c50d3694afcf408bb3e5ef6baebfb, type: 3}
-      itemDiscription: "\uC5BB\uB294 \uACBD\uD5D8\uCE58\uAC00 10%\uC99D\uAC00\uD55C\uB2E4"
+      itemDiscription: "\uC5BB\uB294 \uACBD\uD5D8\uCE58\uAC00 10% \uC99D\uAC00\uD55C\uB2E4"
       price: 100
       upgradeValue: 0
       isBuyit: 0
