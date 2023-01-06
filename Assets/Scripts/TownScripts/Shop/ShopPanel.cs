@@ -77,6 +77,7 @@ public class ShopPanel : MonoBehaviour
         shopItem.upgradeValue++;
         shopItem.price *= 2;
         UpdateValues(shopItem);
+        PlayerMoney.Instance.ChangeMoney(0);
     }
 
     public void DPurchaseItem()
