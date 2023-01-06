@@ -15,6 +15,7 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
 
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI tmp;
+    [SerializeField] TextMeshProUGUI tmp2;
     public WeaponSet weaponSet = null;
 
     private float rifleDelay = 0f;
@@ -158,11 +159,13 @@ public class PlayerSkills : MonoSingleton<PlayerSkills>
         {
             image.gameObject.SetActive(false);
             tmp.gameObject.SetActive(false);
+            tmp2.gameObject.SetActive(true);
             return;
         }
 
         image.gameObject.SetActive(true);
         tmp.gameObject.SetActive(true);
+        tmp2.gameObject.SetActive(false);
         image.fillAmount = 1 - percent;
     }
 
