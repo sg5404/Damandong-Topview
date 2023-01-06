@@ -87,7 +87,7 @@ public class ShopPanel : MonoBehaviour
         dShopItem.isBuyit = true;
         dShopItem.upgradeValue++;
         UpdateValues(dShopItem);
-        PlayerController.Instance.UpdateDUpgrade();
+        PlayerController.Instance.UpdateDUpgrade(false, dShopItem.itemNumber);
         Destroy(gameObject);
     }
 
@@ -112,6 +112,6 @@ public class ShopPanel : MonoBehaviour
         }
 
         UpdateValues(dShopItem);
-        PlayerController.Instance.UpdateDUpgrade();
+        PlayerController.Instance.UpdateDUpgrade(true, dShopItem.itemNumber);
     }
 }

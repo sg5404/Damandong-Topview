@@ -329,7 +329,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                     }
                 }
                 Debug.Log((SoundManager.STATE)(weaponSet.MainWeaponState - 1));
-                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)weaponSet.SubWeaponState - 1);
+                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)weaponSet.MainWeaponState - 1);
                 showFireEff(0);
                 leftCurtime = 0;
                 leftTimer = 0.08f;
@@ -375,7 +375,7 @@ public class PlayerController : MonoSingleton<PlayerController>
                     }
                 }
                 Debug.Log((SoundManager.STATE)(weaponSet.MainWeaponState - 1));
-                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)(weaponSet.SubWeaponState - 1));
+                SoundManager.Instance.EffectSoundPlay((SoundManager.STATE)(weaponSet.MainWeaponState - 1));
 
                 rightCurtime = 0;
                 rightTimer = 0.08f;
@@ -477,39 +477,37 @@ public class PlayerController : MonoSingleton<PlayerController>
         b_module.isUpgrade = true;
     }
 
-    public void UpdateDUpgrade()
+    public void UpdateDUpgrade(bool mulCheck, int num)
     {
-        foreach(DungeonItem dungeonItem in SaveManager.Instance.CurrentUser.shopItemInDungeonOne)
+        if(mulCheck==false)
         {
-            if (!dungeonItem.isBuyit) return;
-
-            switch (dungeonItem.itemNumber)
+            switch (num)
             {
                 case 0:
                 case 1:
                 case 2:
                 case 3:
-                    module[dungeonItem.itemNumber].Upgrade(dungeonItem.itemNumber);
+                    module[num].Upgrade(num);
                     break;
                 case 4: 
                 case 5: 
                 case 6:
                 case 7:
-                    module[dungeonItem.itemNumber].bulletModule.atk *= 2;
+                    module[num].bulletModule.atk *= 2;
                     break;
                 default: Debug.Log("응애 오류");
                     break;
             }
         }
-        foreach(DungeonItem dungeonItem in SaveManager.Instance.CurrentUser.shopItemInDungeonMul)
+        else if(mulCheck == true)
         {
-            switch(dungeonItem.itemNumber)
+            switch(num)
             {
                 case 0:
                 case 1:
                 case 2:
                 case 3:
-                    magazineAmount[dungeonItem.itemNumber]++;
+                    magazineAmount[num]++;
                     break;
                 case 4:
                     // 플레이어 회복
