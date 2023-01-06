@@ -27715,9 +27715,9 @@ MonoBehaviour:
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 1
-      itemName: "\uC800\uACA9\uCD1D \uD0C4\uCC3D"
+      itemName: "\uC800\uACA9\uC18C\uCD1D \uD0C4\uCC3D"
       itemImage: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
-      itemDiscription: "\uC800\uACA9\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
+      itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
       price: 50
       upgradeValue: 0
       isBuyit: 0
@@ -27824,9 +27824,9 @@ MonoBehaviour:
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 1
-      itemName: "\uC800\uACA9\uCD1D \uD0C4\uCC3D"
+      itemName: "\uC800\uACA9\uC18C\uCD1D \uD0C4\uCC3D"
       itemImage: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
-      itemDiscription: "\uC800\uACA9\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
+      itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
       price: 50
       upgradeValue: 0
       isBuyit: 0
