@@ -76,13 +76,13 @@ public class ShopPanel : MonoBehaviour
 
     public void DPurchaseItem()
     {
-        if (SaveManager.Instance.CurrentUser.money < dShopItem.price || dShopItem.isBuyit)
+        if (SaveManager.Instance.CurrentUser.experience < dShopItem.price || dShopItem.isBuyit)
         {
             Debug.Log("맇헌");
             return;
         }
 
-        SaveManager.Instance.CurrentUser.money -= (int)dShopItem.price;
+        SaveManager.Instance.CurrentUser.experience -= (int)dShopItem.price;
         Debug.Log("���� : " + dShopItem.itemName);
         dShopItem.isBuyit = true;
         dShopItem.upgradeValue++;
@@ -93,13 +93,13 @@ public class ShopPanel : MonoBehaviour
 
     public void DPurchaseItemMul()
     {
-        if (SaveManager.Instance.CurrentUser.money < dShopItem.price)
+        if (SaveManager.Instance.CurrentUser.experience < dShopItem.price)
         {
             Debug.Log("ㄹ잍언");
             return;
         }
 
-        SaveManager.Instance.CurrentUser.money -= (int)dShopItem.price;
+        SaveManager.Instance.CurrentUser.experience -= (int)dShopItem.price;
         Debug.Log("���� : " + dShopItem.itemName);
         // TODO : ������ ������ ���� ��ġ ���
         dShopItem.upgradeValue++;
