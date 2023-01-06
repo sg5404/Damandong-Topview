@@ -95,7 +95,7 @@ public class ShopPanel : MonoBehaviour
     {
         if (SaveManager.Instance.CurrentUser.experience < dShopItem.price)
         {
-            Debug.Log("ㄹ잍언");
+            Debug.Log("돈없음");
             return;
         }
 
