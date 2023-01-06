@@ -54,7 +54,7 @@ public class ShopPanel : MonoBehaviour
         itemImg.sprite = shopItem.itemImage;
         itemName.text = shopItem.itemName;
         itemDiscription.text = shopItem.itemDiscription;
-        itemPriceTMP.text = string.Format("{0}$", shopItem.price);
+        itemPriceTMP.text = string.Format("{0}Exp", shopItem.price);
         itemUpgradeValue = shopItem.upgradeValue;
         SaveManager.Instance.SaveToJson();
     }
