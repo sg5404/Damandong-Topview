@@ -10132,6 +10132,7 @@ GameObject:
   - component: {fileID: 743471509}
   - component: {fileID: 743471508}
   - component: {fileID: 743471507}
+  - component: {fileID: 743471511}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -10219,6 +10220,7 @@ RectTransform:
   - {fileID: 1439994563}
   - {fileID: 1860582238}
   - {fileID: 1393468756}
+  - {fileID: 2076166062}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10227,6 +10229,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &743471511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743471506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994862a3cc1f7154688808e740a3d34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 2076166063}
 --- !u!1 &762730118
 GameObject:
   m_ObjectHideFlags: 0
@@ -27693,56 +27708,52 @@ MonoBehaviour:
       isBuyit: 0
     shopItemInDungeonMul:
     - itemNumber: 0
-      itemName: "\uC18C\uCD1D \uAC15\uD654"
+      itemName: "\uC18C\uCD1D \uD0C4\uCC3D"
       itemImage: {fileID: 2477708518685008648, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
-      itemDiscription: "\uC18C\uCD1D\uC758 \uD0C4\uC774 \uC801\uC744 \uB290\uB824\uC9C0\uAC8C\uD568"
-      price: 0
+      itemDiscription: "\uC18C\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAD6C\uB9E4\uD55C\uB2E4."
+      price: 25
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 1
-      itemName: "\uC800\uACA9\uC18C\uCD1D \uAC15\uD654"
+      itemName: "\uC800\uACA9\uCD1D \uD0C4\uCC3D"
       itemImage: {fileID: -8040905486790382968, guid: 67600f99dc85d39488337c157d8e05e7, type: 3}
-      itemDiscription: "\uC800\uACA9 \uC18C\uCD1D\uC758 \uD0C4\uC774 \uCEE4\uC9D0"
-      price: 0
+      itemDiscription: "\uC800\uACA9\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAC15\uD654\uD55C\uB2E4"
+      price: 50
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 2
-      itemName: "\uC0B0\uD0C4\uCD1D \uAC15\uD654"
+      itemName: "\uC0B0\uD0C4\uCD1D \uD0C4\uCC3D"
       itemImage: {fileID: -1421396634152845506, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
-      itemDiscription: "\uC0B0\uD0C4\uCD1D\uC758 \uD0C4\uC774 \uC801\uC744 \uBD88\uD0DC\uC6C0"
-      price: 0
+      itemDiscription: "\uC0B0\uD0C4\uCD1D\uC758 \uD0C4\uCC3D\uC744 \uAD6C\uB9E4\uD55C\uB2E4"
+      price: 75
       upgradeValue: 0
       isBuyit: 0
     - itemNumber: 3
-      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
+      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uD0C4\uCC3D"
       itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
-      itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
-        3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
-      price: 0
+      itemDiscription: "\uC720\uD0C4\uBC1C\uC0AC\uAE30\uC758 \uD0C4\uCC3D\uC744 \uAD6C\uB9E4\uD55C\uB2E4"
+      price: 100
       upgradeValue: 0
       isBuyit: 0
-    - itemNumber: 3
-      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
+    - itemNumber: 4
+      itemName: "\uCCB4\uB825\uD68C\uBCF5"
       itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
-      itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
-        3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
-      price: 0
+      itemDiscription: "\uCCB4\uB825\uC744 \uCD5C\uB300\uCE58\uB85C \uD68C\uBCF5\uD55C\uB2E4"
+      price: 200
       upgradeValue: 0
       isBuyit: 0
-    - itemNumber: 3
-      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
+    - itemNumber: 5
+      itemName: "\uD68D\uB4DD \uACE8\uB4DC\uB7C9 \uC99D\uAC00"
       itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
-      itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
-        3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
-      price: 0
+      itemDiscription: "\uC5BB\uB294 \uACE8\uB4DC\uAC00 10%\uC99D\uAC00\uD55C\uB2E4."
+      price: 100
       upgradeValue: 0
       isBuyit: 0
-    - itemNumber: 3
-      itemName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30 \uAC15\uD654"
+    - itemNumber: 6
+      itemName: "\uD68D\uB4DD \uACBD\uD5D8\uCE58 \uAC15\uD654"
       itemImage: {fileID: -8394343558364042596, guid: 6ab7fe81e8b495d4da820b169efb3ce0, type: 3}
-      itemDiscription: "\uC720\uD0C4\uC774 \uC791\uC740 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
-        3\uBC1C\uB85C \uAC08\uB77C\uC9D0"
-      price: 0
+      itemDiscription: "\uC5BB\uB294 \uACBD\uD5D8\uCE58\uAC00 10%\uC99D\uAC00\uD55C\uB2E4"
+      price: 100
       upgradeValue: 0
       isBuyit: 0
     _CshopItemInDungeonOne:
@@ -28011,6 +28022,141 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!1 &2076166061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2076166062}
+  - component: {fileID: 2076166064}
+  - component: {fileID: 2076166063}
+  m_Layer: 5
+  m_Name: Money
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2076166062
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076166061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 743471510}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 818, y: 503}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2076166063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076166061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 0000c
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 93a73965e8b304545a69c83636c28716, type: 2}
+  m_sharedMaterial: {fileID: -2842745452778376853, guid: 93a73965e8b304545a69c83636c28716, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50
+  m_fontSizeBase: 50
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2076166064
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076166061}
+  m_CullTransparentMesh: 1
 --- !u!1 &2078031033
 GameObject:
   m_ObjectHideFlags: 0
